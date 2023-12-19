@@ -1,0 +1,69 @@
+.registration_area_main .plan_box {
+    background: #fff;
+    border-radius: 15px;
+}
+.product_features ul li {
+    font-size: 15px;
+}
+.registration_area_main .plan_box input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    border: #13299e 1px solid;
+}
+.register_step_box {
+    margin: 15px auto 15px;
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+}
+.register_step_box:before {
+    position: absolute;
+    left: 60px;
+    top: 19px;
+    width: 87%;
+    height: 2px;
+    background: #000000;
+    content: "";
+    z-index: -1;
+}
+.register_step_box ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.register_step_box ul li {
+    text-align: center;
+}
+.register_step_box ul li p{
+    color: #000000;
+}
+.register_step_box ul li span {
+    width: 40px;
+    height: 40px;
+    color: #ffffff;
+    border: #8c7d55 1px solid;
+    border-radius: 100%;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 40px;
+    margin-bottom: 10px;
+}
+.register_step_box ul li.active_point span {
+    background: #000000;
+}
+
+@media only screen and (max-width:767px) {
+    .register_step_box ul li p{
+        display: none;
+    }
+    .register_step_box:before {
+        position: absolute;
+        left: 0;
+        top: 19px;
+        width: 100%;
+        height: 2px;
+        background: #13299e;
+        content: "";
+        z-index: -1;
+    }
+}

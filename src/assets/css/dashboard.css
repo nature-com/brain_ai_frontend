@@ -1,0 +1,320 @@
+
+/* Add css for admin side bar tab start here  */
+.tabbed-content {
+    -webkit-box-shadow: 0px 1px 22px 0px rgba(204, 204, 204, 1);
+    -moz-box-shadow: 0px 1px 22px 0px rgba(204, 204, 204, 1);
+    box-shadow: 0px 1px 22px 0px rgba(204, 204, 204, 1);
+}
+
+.sidebar_tab {
+    margin-right: 20px;
+}
+.sidebar_tab ul {
+    border-bottom: none;
+}
+.sidebar_tab ul li {
+    background: #eee;
+    border-radius: 10px;
+    display: block;
+    font-size: 17px;
+    line-height: 46px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    padding: 0 15px;
+}
+.sidebar_tab ul li.react-tabs__tab.react-tabs__tab--selected {
+    background: #ba9e63;
+    color: #ffffff;
+    border: none;
+}
+
+/* Add css for admin portfolio tab start here */
+
+
+.category_list .react-tabs ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.category_list .react-tabs ul {
+    border: none;
+}
+
+.category_list .react-tabs ul li.react-tabs__tab.react-tabs__tab--selected {
+    color: #ba9e63;
+    border-bottom: #ffffff 1px solid;
+}
+
+.category_list .react-tabs ul li.react-tabs__tab {
+    font-size: 14px;
+    line-height: 25px;
+    color: #A6A6A6;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    border: none;
+    border-bottom: #A6A6A6 1px solid;
+    margin: 0 15px;
+    padding: 0;
+}
+
+.category_list_area {
+    padding-top: 10px;
+}
+
+.category_list_item {
+    /* background: rgb(255, 255, 255);
+    background: linear-gradient(36deg, rgba(255, 255, 255, 1) 0%, rgba(218, 240, 232, 1) 68%); */
+    background: rgb(221,205,140);
+    background: linear-gradient(223deg, rgba(221,205,140,1) 0%, rgba(221,205,140,1) 26%, rgba(255,255,255,1) 62%);
+    /* background: #e0f3ec; */
+    border: #ba9e63 1px solid;
+    /* text-align: center; */
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px;
+    margin-bottom: 15px;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(184, 184, 184, 0.63);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(184, 184, 184, 0.63);
+    box-shadow: 0px 3px 5px 0px rgba(184, 184, 184, 0.63);
+    min-height: 150px;
+}
+
+.category_list_item:hover {
+    background: rgb(221,205,140);
+    background: linear-gradient(48deg, rgba(221,205,140,1) 0%, rgba(221,205,140,1) 26%, rgba(255,255,255,1) 62%);
+}
+
+.category_list_item img {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.category_list_item_desc {
+    padding-right: 10px;
+}
+
+.category_list_item_desc h3 {
+    font-size: 18px;
+    line-height: 25px;
+    color: #000000;
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+
+.category_list_item_desc p {
+    font-size: 13px;
+    line-height: 22px;
+    color: #000000;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Add css for admin portfolio tab ends here */
+
+
+.admin_banner {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.admin_banner h1 {
+    font-size: 25px;
+    line-height: 40px;
+    color: #000000;
+    font-weight: 700;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.admin_banner img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+.share_setting_box {
+    position: relative;
+}
+
+.share_setting_box ul {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    display: flex;
+}
+
+.share_setting_box ul li {
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+
+
+@media only screen and (max-width:767px) {
+
+    .tabbed-content {
+        padding: 20px 20px;
+    }
+    .sidebar_tab {
+        margin-right: 0;
+    }
+    .admin_banner h1 {
+        font-size: 13px;
+        line-height: 16px;
+        text-align: center;
+    }
+    .sidebar_tab ul li {
+        font-size: 14px;
+        line-height: 38px;
+        padding: 0 15px;
+    }
+    .category_list .react-tabs ul li.react-tabs__tab {
+        font-size: 11px;
+        line-height: 24px;
+        margin: 0 10px;
+        padding: 0;
+    }
+    .share_setting_box {
+        position: relative;
+        margin-bottom: 10px;
+    }
+    .share_setting_box ul {
+        position: initial;
+        right: 8px;
+        top: 8px;
+        display: flex;
+    }
+    .category_list_item_desc h3 {
+        font-size: 14px;
+        padding: 3px;
+    }
+    .category_list_item_desc p {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+}
+
+
+@media screen and (min-width:360px) and (max-width:767px) {
+    .share_setting_box ul {
+        position: absolute;
+    }
+
+}
+
+@media screen and (min-width:412px) and (max-width:767px) {
+
+    .category_list .react-tabs ul li.react-tabs__tab {
+        font-size: 13px;
+        line-height: 24px;
+        margin: 0 10px;
+        padding: 0;
+    }
+
+}
+
+@media screen and (min-width:480px) and (max-width:767px) {}
+
+@media screen and (min-width:568px) and (max-width:767px) {}
+
+@media screen and (min-width:636px) and (max-width:767px) {}
+
+@media screen and (min-width:732px) and (max-width:1024px) {
+
+    .admin_banner h1 {
+        font-size: 20px;
+        line-height: 25px;
+        text-align: center;
+    }
+    .category_list_item_desc h3 {
+        font-size: 15px;
+        line-height: 20px;
+        padding-bottom: 5px;
+    }
+    .category_list_item_desc p {
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .sidebar_tab ul li {
+        font-size: 13px;
+        line-height: 32px;
+        padding: 0 15px;
+    }
+
+}
+
+
+@media screen and (min-width:768px) and (max-width:1024px) {}
+
+@media screen and (min-width:800px) and (max-width:1024px) {}
+
+@media screen and (min-width:900px) and (max-width:1024px) {}
+
+@media screen and (min-width:980px) and (max-width:1024px) {}
+
+@media screen and (min-width:1000px) and (max-width:1024px) {
+
+    .category_list_item img {
+        display: inline-block;
+        margin-bottom: 0;
+        width: 30%;
+    }
+
+}
+
+@media screen and (min-width:1025px) and (max-width:1280px) {
+
+    .category_list_item_desc h3 {
+        font-size: 14px;
+        line-height: 25px;
+        color: #000000;
+        padding: 0;
+        margin: 0;
+        font-weight: 700;
+        padding-bottom: 5px;
+    }
+    .log_res_section ul li {
+        padding: 7px 3px;
+    }
+    .log_res_section ul li a {
+        font-size: 14px;
+        line-height: 46px;
+    }
+    .log_res_section ul li.sign_up a {
+        font-size: 14px;
+        line-height: 46px;
+        padding: 0 10px;
+    }
+
+}
+
+
+@media screen and (min-width:1281px) and (max-width:1366px) {
+    .category_list_item_desc h3 {
+        font-size: 14px;
+        line-height: 25px;
+        color: #000000;
+        padding: 0;
+        margin: 0;
+        font-weight: 700;
+        padding-bottom: 5px;
+    }
+    .admin_banner h1 {
+        font-size: 22px;
+    }
+}
+
+@media screen and (min-width:1440px) and (max-width:1499px) {}
+
+@media screen and (min-width:1500px) and (max-width:1999px) {}
+
+@media screen and (min-width:2000px) and (max-width:3000px) {}
