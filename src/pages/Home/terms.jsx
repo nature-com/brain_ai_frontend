@@ -11,7 +11,7 @@ const Terms = () => {
       >
         <div className="container max-w-6xl mx-auto py-4 px-0">
           <h2 className="text-2xl lg:text-4xl font-semibold text-black pb-4 mb-0 lg:mb-6">
-            More than 25,000 teams use Brain
+            More than 25,000 Members using AzzyWrites
           </h2>
           <div className="inline-block">
             <img src={termsLogos} width="" height="" />

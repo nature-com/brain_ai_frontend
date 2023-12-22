@@ -64,25 +64,47 @@ const Footer = () => {
                       <div>
                         <div className="testi_slider_box">
                           <p className="text-sm lg:text-base font-medium text-white mb-6">
-                            I am very helped by this E-wallet application , my
-                            days are very easy to use this application and its
-                            very helpful in my life , even I can pay a short
-                            time 😍
+                            Easy to use
                           </p>
                           <p className="text-sm lg:text-base font-medium text-white mb-6">
-                            _ Aria Zinanrio
+                            Azzy writes is incredibly easy to use, providing an
+                            intuitive and user-friendly platform that simplifies
+                            tasks and enhances productivity. With its sleek
+                            interface, seamless navigation, and comprehensive
+                            features, AzzyWrites empowers users to effortlessly
+                            accomplish Members goals.
                           </p>
                         </div>
                       </div>
                       <div>
                         <div className="testi_slider_box">
                           <p className="text-sm lg:text-base font-medium text-white mb-6">
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
+                            Gets me A*
                           </p>
                           <p className="text-sm lg:text-base font-medium text-white mb-6">
-                            _ Lorem Ipsum
+                            AzzyWrites has proven time and again its ability to
+                            assist students in achieving top-notch performance
+                            and securing A stars. With its vast knowledge and
+                            expertise, AzzyWrites provides invaluable support in
+                            various academic endeavors. Whether it's writing an
+                            essay, solving complex mathematical equations, or
+                            understanding intricate scientific concepts,
+                            AzzyWrites is there to guide students towards
+                            excellence.
+                          </p>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="testi_slider_box">
+                          <p className="text-sm lg:text-base font-medium text-white mb-6">
+                            Work done in a click
+                          </p>
+                          <p className="text-sm lg:text-base font-medium text-white mb-6">
+                            AzzyWrites is the ultimate solution for getting work
+                            done efficiently and effortlessly with just a simple
+                            click. With its powerful features and user-friendly
+                            interface, AzzyWrites streamlines the entire
+                            workflow, saving valuable time and energy.
                           </p>
                         </div>
                       </div>
