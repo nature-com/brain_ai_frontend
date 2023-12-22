@@ -1,99 +1,60 @@
-import React, { useRef, useEffect, useState } from "react";
-import { NavLink, Link } from "react-router-dom";
-import { Navbar, Button, Modal } from "flowbite-react";
-import { logo, formImage } from "../../assets/images/images";
+import { useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { login, resetAfterLoggedIn } from "../../reducers/AuthSlice";
+import { formImage } from "../../assets/images/images";
 import { AiFillCloseCircle, BsFacebook, BsGoogle } from "../../assets/icons";
-import Login from "../../pages/Auth/login";
-const Header = () => {
-  const token=!!localStorage.getItem('userToken');
 
-  return (
-    <>
-      <div className="header_section max-w-6xl mx-auto px-4 lg:px-0 py-3 lg:py-5">
-        <Navbar fluid rounded>
-          <Link to="/" className="w-32 lg:w-auto">
-            <img alt="Logo" src={logo} />
-          </Link>
-          <div className="flex md:order-2">
-            {!token ? (    
-               <Link
-              onClick={() => document.getElementById("my_modal_4").showModal()}
-              className="text-sm font-medium text-gray-400 mr-4 my-2 hover:text-black"
-            >
-              Login
-            </Link>
-              ):(
-                <Link
-                onClick={()=> localStorage.removeItem('userToken')}
-              className="text-sm font-medium text-gray-400 mr-4 my-2 hover:text-black"
-              to="/"
-            >
-              Logout
-            </Link>
-              )}
-            {!token ? (    
-            <Link
-              className="text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#ba9e63] rounded-lg hover:bg-black"
-              to="/registration"
-            >
-              Sign Up
-            </Link>
-            ):(
-              <Link
-              className="text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#ba9e63] rounded-lg hover:bg-black"
-              to="/"
-            >
-              Sign Up
-            </Link>
-            )}
-            <Navbar.Toggle />
-          </div>
-          <Navbar.Collapse className="lg:bg-transparent">
-            <li>
-              <NavLink
-                to="/"
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/about"
-              >
-                About us
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/product"
-              >
-                Product
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/faq"
-              >
-                FAQ
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/blog"
-              >
-                Blog
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/contact"
-              >
-                Contact
-              </NavLink>
-            </li>
-          </Navbar.Collapse>
-        </Navbar>
-        {/* <dialog
+
+const Login = () => {
+    const formButtonRef = useRef(null);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const { message, isLoggedIn, error, loading } = useSelector((state) => state.auth);
+    const [errorMessage, setErrorMessage] = useState(null);
+
+    const handleLinkClick = () => {
+        if (formButtonRef.current) {
+          formButtonRef.current.click();
+        }
+      };
+
+    const handleLinkClick2 = () => {
+        if (formButtonRef.current) {
+          formButtonRef.current.click();
+        }
+      };
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+      } = useForm();
+
+    const onSubmit = (data) => {
+        dispatch(login(data));
+      };
+
+    useEffect(() => {
+        if (error && message) {
+          setErrorMessage(message);
+          const timeoutId = setTimeout(() => {
+            setErrorMessage(null);
+          }, 5000);
+          
+          return () => {
+            clearTimeout(timeoutId);
+          };
+        } else if (isLoggedIn) {
+          dispatch(resetAfterLoggedIn());
+          navigate('/dashboard');
+        }
+      }, [message, error, isLoggedIn]);
+
+    return (
+        <>
+            <dialog
           id="my_modal_4"
           className="modal w-11/12 md:w-3/5 lg:w-full max-w-3xl rounded-2xl overflow-hidden"
         >
@@ -109,6 +70,14 @@ const Header = () => {
                   <h2 className="text-3xl text-center mb-4 text-[#ba9e63] font-bold">
                     Login
                   </h2>
+                  {errorMessage && (
+                  <div
+                    className='p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400'
+                    role='alert'
+                  >
+                    <span className='font-medium'>Failed! </span> {errorMessage}
+                  </div>
+                )}
                   <p className="text-center text-sm text-neutral-600 pb-4">
                     For a new user,
                     <Link
@@ -119,7 +88,7 @@ const Header = () => {
                       Sign Up
                     </Link>
                   </p>
-                  <form>
+                  <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group">
                       <input
                         type="email"
@@ -127,7 +96,18 @@ const Header = () => {
                         id="exampleInputEmail1"
                         aria-describedby="emailHelp"
                         placeholder="Enter email"
+                        autoComplete='off'
+                        {...register('email', {
+                          required: 'Email is required',
+                          pattern: {
+                            value: /\S+@\S+\.\S+/,
+                            message: 'Entered value does not match email format',
+                          },
+                        })}
                       />
+                      {errors?.email?.message && (
+                        <h6 className='text-danger'>{errors.email.message}</h6>
+                      )}
                     </div>
                     <div className="form-group">
                       <input
@@ -135,14 +115,33 @@ const Header = () => {
                         className="rounded-full text-sm h-11 border border-slate-400 border-solid w-full mb-3"
                         id="exampleInputPassword1"
                         placeholder="Password"
+                        autoComplete='off'
+                        {...register('password', {
+                          required: 'Password is required',
+                        })}
                       />
+                      {errors?.password?.message && (
+                        <h6 className='text-danger'>{errors.password.message}</h6>
+                      )}
                     </div>
-                    <button
+                    <div className='text-sm text-blue-600 mb-2'>
+                    <Link to='/forgot-password' onClick={handleLinkClick2}>
+                      Forgot Password?
+                    </Link>
+                  </div>
+                  <button
+                    type='submit'
+                    className='rounded-full text-sm mb-0 uppercase h-11 bg-[#b3975f] w-full text-white hover:bg-[#c9b575]'
+                    disabled={loading}
+                  >
+                    {loading ? 'Wait...' : 'Login'}
+                  </button>
+                    {/* <button
                       type="submit"
                       className="rounded-full text-sm mb-0 uppercase h-11 bg-[#b3975f] w-full text-white hover:bg-[#c9b575]"
                     >
                       Login
-                    </button>
+                    </button> */}
                   </form>
                   <p className="text-center text-sm my-4">OR</p>
                   <div className="mb-3">
@@ -156,7 +155,7 @@ const Header = () => {
                       <BsGoogle className="text-white" size={25} />
                     </Link>
                   </div>
-                  <div className="mb-3">
+                  {/* <div className="mb-3">
                     <Link
                       className="flex justify-center items-center bg-blue-800 hover:bg-blue-700 rounded-full text-base h-11 border border-blue-800 border-solid w-full"
                       to="/"
@@ -166,7 +165,7 @@ const Header = () => {
                       </span>
                       <BsFacebook className="text-blue-300" size={25} />
                     </Link>
-                  </div>
+                  </div> */}
                 </div>
                 <p className="text-xs text-gray-600 text-center p-0 m-0">
                   By joining, you agree to the Fiverr
@@ -191,11 +190,9 @@ const Header = () => {
               </form>
             </div>
           </div>
-        </dialog> */}
-      </div>
-      <Login />
-    </>
-  );
-};
+        </dialog>
+        </>
+    )
+}
 
-export default Header;
+export default Login;

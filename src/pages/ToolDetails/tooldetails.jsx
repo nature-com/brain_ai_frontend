@@ -6,7 +6,7 @@ import Loader from "../Loader/Loader";
 import axios from "axios";
 import sanitizeHtml from "sanitize-html";
 import { useDispatch, useSelector } from "react-redux";
-import { generateAnswer, toolsById} from "../../slices/ToolsSlice";
+import { generateAnswer, toolsById} from "../../reducers/ToolsSlice";
 import { useForm } from "react-hook-form";
 
 const Tooldetails = () => {
@@ -178,7 +178,7 @@ const Tooldetails = () => {
                       <h2 className="text-2xl font-semibold pb-3 text-black">
                         Your text will appear here
                       </h2>
-                      <p className="text-base font-normal pb-3 text-black">
+                      <p className="text-base font-normal pb-3 text-black text-justify">
                       {answer}
                       </p>
                     </div>

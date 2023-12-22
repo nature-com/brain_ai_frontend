@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '../store/api';
-import errorHandler from '../store/error';
+import errorHandler from '../store/errorHandler';
 
 
 export const toolsList = createAsyncThunk(
