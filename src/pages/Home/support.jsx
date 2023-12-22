@@ -23,10 +23,19 @@ const Support = () => {
                   How we support our pratner all over the world
                 </h2>
                 <p className="text-base text-gray-400 font-medium pb-8 lg:pb-12">
-                  SaaS become a common delivery model for many business
-                  application, including office software, messaging software,
-                  payroll processing software, DBMS software, management
-                  software
+                  AzzyWrites is an exceptional AI tool that provides
+                  unparalleled assistance to students in various fields. With
+                  its advanced capabilities, AzzyWrites offers a seamless
+                  experience to users seeking support in writing, coding, and
+                  learning in general. Its natural language processing abilities
+                  allow it to generate coherent and informative responses,
+                  making it an invaluable resource for students who need help
+                  with their assignments or projects. AzzyWrites is
+                  user-friendly and reliable, ensuring that students can rely on
+                  it to provide accurate and relevant information. Its extensive
+                  knowledge base enables it to offer comprehensive explanations
+                  and guidance on a wide range of topics, empowering students to
+                  deepen their understanding and improve their skills.
                 </p>
 
                 <div>
@@ -36,18 +45,6 @@ const Support = () => {
                       <p className="text-base text-black font-medium pb-4">
                         <strong>4.9</strong> / 5 rating
                       </p>
-                      <span className="text-base text-gray-400 font-medium pb-12">
-                        databricks
-                      </span>
-                    </li>
-                    <li>
-                      <img src={rating02} className="mb-4" width="" height="" />
-                      <p className="text-base text-black font-medium pb-4">
-                        <strong>4.8</strong> / 5 rating
-                      </p>
-                      <span className="text-base text-gray-400 font-medium pb-12">
-                        Chainalysis
-                      </span>
                     </li>
                   </ul>
                 </div>

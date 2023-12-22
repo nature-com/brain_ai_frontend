@@ -56,7 +56,7 @@ const Ourstudy = () => {
                     height="111"
                   />
                   <p className="text-black font-medium text-base">
-                    WRITE BETTER PAPERS. PERIOD.
+                    Learn <br></br> Languages
                   </p>
                 </div>
               </div>
@@ -69,7 +69,7 @@ const Ourstudy = () => {
                     height="111"
                   />
                   <p className="text-black font-medium text-base">
-                    FINALLY GRASP MATH & SCIENCE
+                    Exam past <br></br> papers
                   </p>
                 </div>
               </div>
@@ -82,7 +82,7 @@ const Ourstudy = () => {
                     height="111"
                   />
                   <p className="text-black font-medium text-base">
-                    LEARN TO CODE, YOUR WAY.
+                    Creative Story Writer
                   </p>
                 </div>
               </div>
@@ -95,7 +95,7 @@ const Ourstudy = () => {
                     height="111"
                   />
                   <p className="text-black font-medium text-base pb-6">
-                    CHAT WITH AI
+                    Song Writer
                   </p>
                 </div>
               </div>
@@ -108,20 +108,7 @@ const Ourstudy = () => {
                     height="111"
                   />
                   <p className="text-black font-medium text-base">
-                    WRITE BETTER PAPERS. PERIOD.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <div className="bg-[#ece29b] text-center rounded-2xl p-8 mr-2">
-                  <img
-                    src={toolBrain}
-                    className="mb-4"
-                    width="148"
-                    height="111"
-                  />
-                  <p className="text-black font-medium text-base">
-                    WRITE BETTER PAPERS. PERIOD.
+                    Personal Statement Writer
                   </p>
                 </div>
               </div>

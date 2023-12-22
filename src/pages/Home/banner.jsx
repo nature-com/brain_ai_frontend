@@ -18,20 +18,22 @@ const Banner = () => {
                 data-aos="fade-right"
                 data-aos-duration="1500"
               >
-                <h1 className="text-3xl lg:text-7xl font-bold text-black pb-2 lg:pb-24">
-                  A STUDY TOOL TO GROW YOUR MIND
+                <h1 className="text-3xl lg:text-6xl font-bold text-black pb-2 lg:pb-24">
+                  A STUDY TOOL FOR STUDENTS AND BUSINESSES
                 </h1>
+                <span className="text-base lg:text-lg font-bold text-black pb-8 lg:pb-12">
+                  Let artificial do the intelligent work for you
+                </span>
                 <p className="text-base lg:text-lg font-medium text-black pb-8 lg:pb-12">
-                  Let's make your work more organize and easily using the Taskio
-                  Dashboard with many of the latest featuresin managing work
-                  every day.
+                  Complete your daily tasks efficiently, save time with
+                  AzzyWrites software, complete with 40+ tools
                 </p>
                 <div>
                   <a
                     className="bg-[#ba9e63] text-sm lg:text-lg font-medium text-white rounded-full px-4 lg:px-8 py-3 lg:py-4 hover:bg-[#c9b575]"
                     href="#"
                   >
-                    Know More
+                    Join AzzyWrites
                   </a>
                 </div>
               </div>

@@ -37,8 +37,8 @@ const Featured = () => {
                     width="135"
                     height=""
                   />
-                  <h3 className="text-2xl lg:text-3xl text-white font-bold">
-                    100% academic sources only.
+                  <h3 className="text-2xl text-white font-bold">
+                    Academic sources
                   </h3>
                 </div>
               </div>
@@ -54,8 +54,8 @@ const Featured = () => {
                     width=""
                     height=""
                   />
-                  <h3 className="text-2xl lg:text-3xl text-white font-bold">
-                    Documents ready to turn in.
+                  <h3 className="text-2xl text-white font-bold">
+                    Python Coding
                   </h3>
                 </div>
               </div>
@@ -71,8 +71,8 @@ const Featured = () => {
                     width=""
                     height=""
                   />
-                  <h3 className="text-2xl lg:text-3xl text-white font-bold">
-                    Personalize writing style.
+                  <h3 className="text-2xl text-white font-bold">
+                    Email and Essay writing
                   </h3>
                 </div>
               </div>
