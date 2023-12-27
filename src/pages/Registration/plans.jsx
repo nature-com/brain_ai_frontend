@@ -13,24 +13,70 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { useDispatch, useSelector } from "react-redux";
 import { subscriptionPlans } from "../../reducers/PlansSlice";
+import Payment from "./payment";
 
 const Plans = (props) => {
   const dispatch = useDispatch();
+
+  const planId = JSON.parse(localStorage.getItem('isSubscribed'))?.isSubscribed;
+
+  const { email, user_id } = useSelector((state) => state.auth?.currentUser);
+  const { currentUser } = useSelector((state) => state.auth);
+
+  const [userId, setUserId] = useState(null);
+
   const plansList = useSelector((state) => state.plans?.plans);
   const [plans,setPlans] = useState([]);
 
+  const { userPlan } = useSelector((state) => state.profile);
+  const { profile } = useSelector((state) => state.profile);
+
+  const [showPayment, setShowPayment] = useState(false);
+  const [userDetails, setUserDetails] = useState({
+    email: null,
+    user_id: profile[0]?.id,
+    plan_id: null,
+  });
+
   useEffect(() => {
-    dispatch(subscriptionPlans());
-  },[]);
+    setUserId(profile[0]?.id);
+  }, [profile]);
+
+  const [showSubscription, setShowSubscription] = useState(true);
+
+  const createSubscription = (planId, user_id) => {
+    setShowPayment(true);
+    setShowSubscription(false);
+    console.log('sanchita->', planId);
+    console.log('sanchita->', user_id);
+    setUserDetails(() => ({
+      ...userDetails,
+      plan_id: planId,
+    }));
+  };
+
+  useEffect(() => {
+    dispatch(subscriptionPlans()).then(() => {
+      setUserDetails({
+        email: email,
+        user_id: user_id,
+      });
+    });
+  }, []);
+
+
+  // useEffect(() => {
+  //   dispatch(subscriptionPlans());
+  // },[]);
 
   useEffect(()=>{
     setPlans(plansList);
   },[plansList]);
 
   return (
-    <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-4xl mx-auto my-0">
+    // <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-4xl mx-auto my-0">
             <div className="container mx-auto my-0">
-              
+              {showSubscription && (
               <div className="pb-16">
                 <div
                   className="container max-w-6xl mx-auto py-4 px-0"
@@ -50,11 +96,9 @@ const Plans = (props) => {
                 plans.map((plan,plankey) => (
                   <div className="plan_tab_area" key={'plan_'+plankey}>
                     <Tabs>
-                      {/* <TabList>
+                      <TabList>
                         <Tab>{plan.name || 'plan name'}</Tab>
-                        <Tab>Yearly Plan</Tab>
-                      </TabList> */}
-
+                      </TabList>
                       <TabPanel>
                         <div className="plan_list_area">
                           <div className="flex-none md:flex justify-center">
@@ -149,12 +193,15 @@ const Plans = (props) => {
                                     </li>
                                   </ul>
                                   <div className="text-center pt-6 pb-4">
-                                    <Link
+                                    <button
                                       className="bg-slate-100 shadow-xl rounded-2xl text-sm lg:text-base font-medium text-[#ae9258] px-6 lg:px-10 py-3 lg:py-4 hover:bg-white"
-                                      to="/"
+                                      onClick={() => {
+                                        localStorage.setItem('planId', plan.id);
+                                        createSubscription(plan.id, user_id);
+                                      }}
                                     >
                                       Subscribe Now
-                                    </Link>
+                                    </button>
                                   </div>
                                 </div>
                               </div>
@@ -422,9 +469,16 @@ const Plans = (props) => {
                   ))}
                 </div>
               </div>
-              
+              )}
+              {showPayment && (
+          <Payment
+            // userPlan={userDetails.plan_id}
+            email={userDetails.email}
+            user_id={user_id}
+          />
+      )}
             </div>
-          </div>
+        // </div>
   );
 };
 

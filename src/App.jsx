@@ -10,6 +10,8 @@ import Blog from "./pages/Blog/blog";
 import Contact from "./pages/Contact/contact";
 import Dashboard from "./pages/Dashboard/dashboard";
 import Tooldetails from "./pages/ToolDetails/tooldetails";
+import Payment from "./pages/Registration/payment";
+import PaymentRedirect from "./pages/stripe/PaymentRedirect";
 
 function App() {
   return (
@@ -41,7 +43,12 @@ function App() {
       <Route path="/tooldetails/:id" element={<OutsideLayout />}>
         <Route index element={<Tooldetails />} />
       </Route>
-      
+      <Route path="/payment" element={<OutsideLayout />}>
+        <Route index element={<Payment />} />
+      </Route>
+      <Route path="/payment-redirect" element={<OutsideLayout />}>
+        <Route index element={<PaymentRedirect />} />
+      </Route>
     </Routes>
   );
 }

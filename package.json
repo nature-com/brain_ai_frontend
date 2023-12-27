@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
+    "@stripe/react-stripe-js": "^2.4.0",
     "aos": "^2.3.4",
     "axios": "^1.6.2",
     "flowbite": "^1.8.1",

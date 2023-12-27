@@ -150,7 +150,7 @@ const Tooldetails = () => {
                     <div className="prompt_answer_section">
                       <img
                         className="inline-block mb-2"
-                        src={toolBrain}
+                        src={import.meta.env.VITE_API_BASE_URL }
                         width="100"
                         height="100"
                       />
@@ -171,7 +171,7 @@ const Tooldetails = () => {
                     <div className="prompt_answer_section">
                       <img
                         className="inline-block mb-2"
-                        src={toolBrain}
+                        src={import.meta.env.VITE_API_BASE_URL }
                         width="100"
                         height="100"
                       />

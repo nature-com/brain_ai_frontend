@@ -41,22 +41,22 @@ const Registration = () => {
       setSteps((prev) => ({
         ...prev,
         registration: false,
-        selectPlan: true,
-        payment: false,
+        selectPlan: false,
+        payment: true,
       }));
     } else {
       setSteps((prev) => ({
         ...prev,
         registration: false,
-        selectPlan: false,
-        payment: true,
+        selectPlan: true,
+        payment: false,
       }));
     }
   };
 
-  const selectPlans = (planId) => {
+  const selectPlan = (planId) => {
     setUserPlan(planId);
-    stepsHandler("selectPlan");
+    stepsHandler('payment');
   };
 
   return (
@@ -66,7 +66,8 @@ const Registration = () => {
       <div className="mx-6 md:mx-12 my-14">
         <div className="register_step_box">
           <ul>
-            <li onClick={() => stepsHandler("registration")}>
+            <li>
+            {/* <li onClick={() => stepsHandler("registration")}> */}
               <span
                 className={`${
                   steps.registration ? "bg-[#ba9e63]" : "bg-black"
@@ -76,7 +77,8 @@ const Registration = () => {
               </span>
               <p>Account Creation</p>
             </li>
-            <li onClick={() => stepsHandler("selectplan")}>
+            <li>
+            {/* <li onClick={() => stepsHandler("selectplan")}> */}
               <span
                 className={`${steps.selectPlan ? "bg-[#ba9e63]" : "bg-black"}`}
               >
@@ -84,7 +86,8 @@ const Registration = () => {
               </span>
               <p>Subscription</p>
             </li>
-            <li onClick={() => stepsHandler("payment")}>
+            <li>
+            {/* <li onClick={() => stepsHandler("payment")}> */}
               <span
                 className={`${steps.payment ? "bg-[#ba9e63]" : "bg-black"}`}
               >
@@ -105,7 +108,7 @@ const Registration = () => {
         {steps?.selectPlan && otp_verified && (
           <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-4xl mx-auto my-0">
             <Plans
-              selectPlans={selectPlans}
+              selectPlan={selectPlan}
               stepsHandler={stepsHandler}
             />
           </div>

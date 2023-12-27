@@ -17,6 +17,26 @@ export const subscriptionPlans = createAsyncThunk(
     }
 );
 
+export const stripePayment = createAsyncThunk(
+    'user/strip_payment',
+    async (entity, { rejectWithValue }) => {
+        try {
+            console.log('entity', entity);
+            const response = await api.post('/user/payment', entity);
+            if (response?.data?.status_code === 200) {
+                console.log('response.data', response.data);
+                return response.data;
+            } else {
+                // Handle the case when status code is not 200
+                return rejectWithValue(response.data.message);
+            }
+        } catch (error) {
+            let errors = errorHandler(error);
+            return rejectWithValue(errors);
+        }
+    }
+);
+
 const initialState = {
     message: null,
     error: null,
@@ -39,7 +59,6 @@ const plansSlice = createSlice({
             .addCase(subscriptionPlans.fulfilled, (state, response) => {
                 state.loading = false;
                 state.plans = response.payload;
-                console.log('state.plans :>> ', state.plans);
             })
             .addCase(subscriptionPlans.rejected, (state, response) => {
                 state.loading = false;

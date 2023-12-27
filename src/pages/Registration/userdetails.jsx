@@ -61,7 +61,7 @@ const UserDetails = (props) => {
   }, [currentUser, props]);
 
   return (
-    <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-4xl mx-auto my-0">
+    // <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-4xl mx-auto my-0">
       <div
         className="container mx-auto my-0"
         data-aos="fade-up"
@@ -214,7 +214,7 @@ const UserDetails = (props) => {
                     className="rounded-full text-sm mb-0 uppercase h-12 bg-[#b3975f] w-full text-white hover:bg-[#c9b575]"
                     disabled={loading}
                   >
-                    {loading ? "Wait ..." : "Get your OTP code via email"}
+                    {loading ? "Wait ..." : "Submit"}
                   </button>
                 )}
                 {/* <button
@@ -250,7 +250,7 @@ const UserDetails = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 
