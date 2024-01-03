@@ -61,10 +61,10 @@ const Payment = (props) => {
         // console.log('data?.customer_id', data?.customer_id);
         var custId = localStorage.getItem('custId');
         var subscriptionId = localStorage.getItem('subscriptionId');
-        if (custId == null && subscriptionId == null) {
+        // if (custId == null && subscriptionId == null) {
         localStorage.setItem('custId', data?.customer_id);
         localStorage.setItem('subscriptionId', data?.subscription_id);
-        }
+        // }
         // console.log('SUBSCRIPTION', data?.clientSecret);
         setStripeClientSecret(data?.clientSecret);
 
