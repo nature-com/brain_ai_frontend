@@ -15,19 +15,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { toolsList } from "../../reducers/ToolsSlice";
 
 const Dashboard = () => {
- const dispatch = useDispatch();
- const [tools,setTools] = useState();
- const toolList = useSelector((state) => state.tools.toolsList);
+  const dispatch = useDispatch();
+  const [tools, setTools] = useState();
+  const toolList = useSelector((state) => state.tools.toolsList);
 
- useEffect(() => {
-  dispatch(toolsList());
- },[]);
+  useEffect(() => {
+    dispatch(toolsList());
+  }, []);
 
- useEffect(() => {
-  if (Object.keys(toolList).length) {
-    setTools(toolList);
-  }
-}, [toolList]);
+  useEffect(() => {
+    if (Object.keys(toolList).length) {
+      setTools(toolList);
+    }
+  }, [toolList]);
 
   return (
     <div>
@@ -81,39 +81,39 @@ const Dashboard = () => {
                             <TabPanel>
                               <div className="category_list_area">
                                 <div className="flex flex-wrap">
-                                  
-                                  {tools?.details?.map((tool)=>(
+
+                                  {tools?.details?.map((tool) => (
                                     <div className="w-full md:w-4/12">
                                       <NavLink
-                                      key={tool?.id}
-                                      activeClassName="active"
-                                      to={`/tooldetails/${tool.id}`}
-                                    >
-                                      <div className="category_list_item mx-2">
-                                        <div className="category_list_item_desc">
-                                          <h3>{tool?.tools_name}</h3>
-                                          <p>
-                                          {tool?.description.length > 35
-                                            ? tool?.description.substring(0, 35) + '...'
-                                            : tool?.description}
-                                          </p>
+                                        key={tool?.id}
+                                        activeClassName="active"
+                                        to={`/tooldetails/${tool.id}`}
+                                      >
+                                        <div className="category_list_item mx-2">
+                                          <div className="category_list_item_desc">
+                                            <h3>{tool?.tools_name}</h3>
+                                            <p>
+                                              {tool?.description.length > 35
+                                                ? tool?.description.substring(0, 35) + '...'
+                                                : tool?.description}
+                                            </p>
+                                          </div>
+                                          <img
+                                            src={tool?.avatar}
+                                            width="70"
+                                            height="70"
+                                            className="rounded-full"
+                                          />
                                         </div>
-                                        <img
-                                          src={essayWriterIcon}
-                                          width="70"
-                                          height="70"
-                                          className="rounded-full"
-                                        />
-                                      </div>
-                                    </NavLink>
+                                      </NavLink>
                                     </div>
                                   ))}
-                                    
-                                  
+
+
                                 </div>
                               </div>
                             </TabPanel>
-                            
+
                           </Tabs>
                         </div>
                       </TabPanel>
