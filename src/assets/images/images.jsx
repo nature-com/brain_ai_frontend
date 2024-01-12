@@ -26,8 +26,10 @@ import aboutImg from "../imagesource/about_img.jpg";
 import ourMission from "../imagesource/our_mission.jpg";
 import ourVision from "../imagesource/our_vission.jpg";
 import essayWriterIcon from "../imagesource/essay_writer_icon.png";
+import tiktokIcon from "../imagesource/tiktok_icon.png";
 
 export {
+  tiktokIcon,
   logo,
   formImage,
   testiIcon,

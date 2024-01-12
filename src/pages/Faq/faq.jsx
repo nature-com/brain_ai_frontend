@@ -22,6 +22,31 @@ const data = {
       title: "How do I pay?",
       content: `You can pay on the website through our secure payment system.`,
     },
+    {
+      title: "Can I cancel anytime?",
+      content: `Yes, can cancel anytime with AzzyWrites.`,
+    },
+    {
+      title: "Do I get the same answer again?",
+      content: `AzzyWrites produces 100% unique answers each and every time when creating an answer from any writing tool;
+      you may ask the same question 100 times and receive a new response each time.`,
+    },
+    {
+      title: "Can I request a new feature?",
+      content: `Yes, you can email support@azzywrites.com with feature requests, and we&#39;ll see if we can implement them.`,
+    },
+    {
+      title: "Is my information safe with AzzyWrites?",
+      content: `100% user privacy is our first goal here. AzzyWrite doesn&#39;t utilise, sell, or disclose any of the data you submit.`,
+    },
+    {
+      title: "If I have any Questions where can I ask?",
+      content: `You can email support@azzywrites.com, and we will get back to you ASAP.`,
+    },
+    {
+      title: "Can I join from anywhere around the world?",
+      content: `Joining AzzyWrites and becoming a member can be done anytime and anywhere around the world.`,
+    },
     // {
     //     title: "What is the package version",
     //     content: <p>current version is 1.2.1</p>,

@@ -15,11 +15,15 @@ import {
   BsFillPinMapFill,
   BsArrowRightShort,
   BsFillCheckCircleFill,
+  BsInstagram,
 } from "react-icons/bs";
 import { BiArrowBack } from "react-icons/bi";
 import { HiChevronUp } from "react-icons/hi";
+import { FaInstagramSquare } from "react-icons/fa";
 
 export {
+  FaInstagramSquare,
+  BsInstagram,
   AiOutlineArrowRight,
   AiOutlineClose,
   AiFillCloseCircle,

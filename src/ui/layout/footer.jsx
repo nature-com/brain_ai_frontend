@@ -1,8 +1,15 @@
 import React, { useRef, useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import Slider from "react-slick";
-import { testiIcon, brainImg, footerLogo } from "../../assets/images/images";
+import {
+  testiIcon,
+  brainImg,
+  footerLogo,
+  tiktokIcon,
+} from "../../assets/images/images";
 import { HiChevronUp } from "react-icons/hi";
+import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
+import { FaInstagramSquare } from "react-icons/fa";
 const Footer = () => {
   const [visible, setVisible] = useState(false);
 
@@ -23,6 +30,8 @@ const Footer = () => {
              in place of 'smooth' */
     });
   };
+
+  const today = new Date();
 
   window.addEventListener("scroll", toggleVisible);
   var settings = {
@@ -166,7 +175,7 @@ const Footer = () => {
                     height="73"
                   />
                   <p className="text-sm font-medium text-gray-400 pb-4">
-                    Get started noew try our product
+                    Subscribe to AzzyWrites emails
                   </p>
                   <div className="newslatter_box">
                     <form>
@@ -186,25 +195,9 @@ const Footer = () => {
                           <li className="pb-2">
                             <Link
                               className="text-sm text-gray-400 hover:text-[#c9b575]"
-                              to="/"
+                              to="/contact"
                             >
                               Help centre
-                            </Link>
-                          </li>
-                          <li className="pb-2">
-                            <Link
-                              className="text-sm text-gray-400 hover:text-[#c9b575]"
-                              to="/"
-                            >
-                              Account information
-                            </Link>
-                          </li>
-                          <li className="pb-2">
-                            <Link
-                              className="text-sm text-gray-400 hover:text-[#c9b575]"
-                              to="/about"
-                            >
-                              About
                             </Link>
                           </li>
                           <li className="pb-2">
@@ -215,45 +208,43 @@ const Footer = () => {
                               Contact us
                             </Link>
                           </li>
+                          <li className="pb-2">
+                            <Link
+                              className="text-sm text-gray-400 hover:text-[#c9b575]"
+                              to="/faq"
+                            >
+                              FAQ
+                            </Link>
+                          </li>
                         </ul>
                       </div>
                     </div>
                     <div className="w-full lg:w-4/12 mb-4 lg:mb-0 text-center lg:text-left">
                       <div className="bottom_quick_link_box">
-                        <h3 className="text-lg text-white pb-4">
-                          Help and Solution
-                        </h3>
+                        <h3 className="text-lg text-white pb-4">Company</h3>
                         <ul>
                           <li className="pb-2">
                             <Link
                               className="text-sm text-gray-400 hover:text-[#c9b575]"
-                              to="/"
+                              to="/terms-and-condtions"
                             >
-                              Talk to support
+                              Terms of Use
                             </Link>
                           </li>
                           <li className="pb-2">
                             <Link
                               className="text-sm text-gray-400 hover:text-[#c9b575]"
-                              to="/"
+                              to="/privacy-policy"
                             >
-                              Support docs
+                              Privacy Policy
                             </Link>
                           </li>
                           <li className="pb-2">
                             <Link
                               className="text-sm text-gray-400 hover:text-[#c9b575]"
-                              to="/"
+                              to="/terms-and-condtions"
                             >
-                              System status
-                            </Link>
-                          </li>
-                          <li className="pb-2">
-                            <Link
-                              className="text-sm text-gray-400 hover:text-[#c9b575]"
-                              to="/"
-                            >
-                              Covid responde
+                              Terms and Conditions
                             </Link>
                           </li>
                         </ul>
@@ -261,38 +252,22 @@ const Footer = () => {
                     </div>
                     <div className="w-full lg:w-4/12 text-center lg:text-left">
                       <div className="bottom_quick_link_box">
-                        <h3 className="text-lg text-white pb-4">Product</h3>
+                        <h3 className="text-lg text-white pb-4">Plans</h3>
                         <ul>
                           <li className="pb-2">
                             <Link
                               className="text-sm text-gray-400 hover:text-[#c9b575]"
                               to="/"
                             >
-                              Update
+                              Payment Plans
                             </Link>
                           </li>
                           <li className="pb-2">
                             <Link
                               className="text-sm text-gray-400 hover:text-[#c9b575]"
-                              to="/"
+                              to="/dashboard"
                             >
-                              Security
-                            </Link>
-                          </li>
-                          <li className="pb-2">
-                            <Link
-                              className="text-sm text-gray-400 hover:text-[#c9b575]"
-                              to="/"
-                            >
-                              Beta test
-                            </Link>
-                          </li>
-                          <li className="pb-2">
-                            <Link
-                              className="text-sm text-gray-400 hover:text-[#c9b575]"
-                              to="/"
-                            >
-                              Pricing product
+                              All Tools
                             </Link>
                           </li>
                         </ul>
@@ -304,23 +279,33 @@ const Footer = () => {
             </div>
             <div className="flex-none lg:flex justify-between mt-16">
               <p className="text-center lg:text-left mb-4 lg:mb-0 text-sm text-white font-medium">
-                © 2023 mybrain.guru copyright and rights reserved
+                <ul className="flex">
+                  <li className="mr-2">
+                    <Link className="text-3xl text-[#0866ff]">
+                      <BsFacebook />
+                    </Link>
+                  </li>
+                  <li className="mr-2">
+                    <Link className="text-3xl text-[#d82e7c]">
+                      <FaInstagramSquare />
+                    </Link>
+                  </li>
+                  <li className="mr-2">
+                    <Link className="text-3xl text-[#1fa3f4]">
+                      <BsTwitter />
+                    </Link>
+                  </li>
+                  <li className="mr-2">
+                    <Link>
+                      <img src={tiktokIcon} />
+                    </Link>
+                  </li>
+                </ul>
               </p>
               <ul className="flex justify-center items-center">
                 <li>
-                  <Link
-                    className="text-sm text-white font-medium hover:text-[#c9b575]"
-                    to="/"
-                  >
-                    Terms and Condtions
-                  </Link>
-                </li>
-                <li className="ml-4">
-                  <Link
-                    className="text-sm text-white font-medium hover:text-[#c9b575]"
-                    to="/"
-                  >
-                    Privacy Policy
+                  <Link className="py-3 px-6 text-base block font-medium text-white bg-[#b3975f] rounded-full h-12 w-full hover:bg-[#c9b575]">
+                    Refer a friend
                   </Link>
                 </li>
               </ul>

@@ -6,7 +6,7 @@ import { AiFillCloseCircle, BsFacebook, BsGoogle } from "../../assets/icons";
 import Login from "../../pages/Auth/login";
 
 const Header = () => {
-  const token=!!localStorage.getItem('userToken');
+  const token = !!localStorage.getItem("userToken");
 
   return (
     <>
@@ -16,81 +16,63 @@ const Header = () => {
             <img alt="Logo" src={logo} />
           </Link>
           <div className="flex md:order-2">
-            {!token ? (    
-               <Link
-              onClick={() => document.getElementById("my_modal_4").showModal()}
-              className="text-sm font-medium text-gray-400 mr-4 my-2 hover:text-black"
-            >
-              Login
-            </Link>
-              ):(
-                <Link
-                onClick={()=> localStorage.removeItem('userToken')}
-              className="text-sm font-medium text-gray-400 mr-4 my-2 hover:text-black"
-              to="/"
-            >
-              Logout
-            </Link>
-              )}
-            {!token ? (    
-            <Link
-              className="text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#ba9e63] rounded-lg hover:bg-black"
-              to="/registration"
-            >
-              Sign Up
-            </Link>
-            ):(
+            {!token ? (
               <Link
-              className="text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#ba9e63] rounded-lg hover:bg-black"
-              to="/dashboard"
-            >
-              Sign Up
-            </Link>
+                onClick={() =>
+                  document.getElementById("my_modal_4").showModal()
+                }
+                className="text-sm font-medium text-gray-400 mr-4 my-2 hover:text-black"
+              >
+                Login
+              </Link>
+            ) : (
+              <Link
+                onClick={() => localStorage.removeItem("userToken")}
+                className="text-sm font-medium text-gray-400 mr-4 my-2 hover:text-black"
+                to="/"
+              >
+                Logout
+              </Link>
+            )}
+            {!token ? (
+              <Link
+                className="text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#ba9e63] rounded-lg hover:bg-black"
+                to="/registration"
+              >
+                Sign Up
+              </Link>
+            ) : (
+              <Link
+                className="text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#ba9e63] rounded-lg hover:bg-black"
+                to="/dashboard"
+              >
+                Sign Up
+              </Link>
             )}
             <Navbar.Toggle />
           </div>
           <Navbar.Collapse className="lg:bg-transparent">
             <li>
-              <NavLink
-                to="/"
-              >
-                Home
-              </NavLink>
+              <NavLink to="/">Home</NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to="/about"
               >
                 About us
               </NavLink>
+            </li> */}
+            <li>
+              <NavLink to="/product">Product</NavLink>
             </li>
             <li>
-              <NavLink
-                to="/product"
-              >
-                Product
-              </NavLink>
+              <NavLink to="/faq">FAQ</NavLink>
             </li>
             <li>
-              <NavLink
-                to="/faq"
-              >
-                FAQ
-              </NavLink>
+              <NavLink to="/blog">Blog</NavLink>
             </li>
             <li>
-              <NavLink
-                to="/blog"
-              >
-                Blog
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/contact"
-              >
-                Contact
-              </NavLink>
+              <NavLink to="/contact">Contact</NavLink>
             </li>
           </Navbar.Collapse>
         </Navbar>

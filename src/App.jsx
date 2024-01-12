@@ -12,6 +12,8 @@ import Dashboard from "./pages/Dashboard/dashboard";
 import Tooldetails from "./pages/ToolDetails/tooldetails";
 import Payment from "./pages/Registration/payment";
 import PaymentRedirect from "./pages/stripe/PaymentRedirect";
+import TermsCondtions from "./pages/TermsCondtions/TermsCondtions";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 
 function App() {
   return (
@@ -48,6 +50,12 @@ function App() {
       </Route>
       <Route path="/payment-redirect" element={<OutsideLayout />}>
         <Route index element={<PaymentRedirect />} />
+      </Route>
+      <Route path="/terms-and-condtions" element={<OutsideLayout />}>
+        <Route index element={<TermsCondtions />} />
+      </Route>
+      <Route path="/privacy-policy" element={<OutsideLayout />}>
+        <Route index element={<PrivacyPolicy />} />
       </Route>
     </Routes>
   );

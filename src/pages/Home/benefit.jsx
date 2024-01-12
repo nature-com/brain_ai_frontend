@@ -106,7 +106,7 @@ const Benefit = () => {
             </div>
             <div className="w-full md:w-6/12">
               <div
-                className="benefit_section_img"
+                className="benefit_section_img ml-4"
                 data-aos="fade-left"
                 data-aos-duration="1500"
               >

@@ -18,8 +18,8 @@ const Banner = () => {
                 data-aos="fade-right"
                 data-aos-duration="1500"
               >
-                <h1 className="text-3xl lg:text-6xl font-bold text-black pb-2 lg:pb-24">
-                  A STUDY TOOL FOR STUDENTS AND BUSINESSES
+                <h1 className="text-3xl lg:text-[55px] font-bold text-black pb-2 lg:pb-24">
+                  A STUDY TOOL FOR STUDENTS AND FOR YOUR WORK PLACE
                 </h1>
                 <span className="text-base lg:text-lg font-bold text-black pb-8 lg:pb-12">
                   Let artificial do the intelligent work for you
