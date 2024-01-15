@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { Button, Modal } from "flowbite-react";
 import Slider from "react-slick";
 import {
   testiIcon,
@@ -46,6 +47,8 @@ const Footer = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
+  const [referFriendModal, setReferFriendModal] = useState(false);
 
   return (
     <div className="footer_container">
@@ -304,7 +307,10 @@ const Footer = () => {
               </p>
               <ul className="flex justify-center items-center">
                 <li>
-                  <Link className="py-3 px-6 text-base block font-medium text-white bg-[#b3975f] rounded-full h-12 w-full hover:bg-[#c9b575]">
+                  <Link
+                    onClick={() => setReferFriendModal(true)}
+                    className="py-3 px-6 text-base block font-medium text-white bg-[#b3975f] rounded-full h-12 w-full hover:bg-[#c9b575]"
+                  >
                     Refer a friend
                   </Link>
                 </li>
@@ -331,6 +337,43 @@ const Footer = () => {
           size={52}
         />
       </button>
+      {/*  */}
+      <Modal show={referFriendModal} onClose={() => setReferFriendModal(false)}>
+        <Modal.Header className="border-0 p-0 m-0 relative right-3 top-3">
+          &nbsp;
+        </Modal.Header>
+        <Modal.Body>
+          <h2 className="text-center text-2xl lg:text-3xl text-[#ba9e63] font-bold mb-2">
+            Refer a friend
+          </h2>
+          <p className="text-black font-medium text-[14px] text-center pb-6">
+            Every friend you invite gets 15% OFF of their first month's
+            subscription!
+          </p>
+          <div className="space-y-6">
+            <form>
+              <label className="pb-2 block text-[15px]">Friend's Email</label>
+              <input
+                type="text"
+                className="rounded-full text-[15px] font-medium px-5 h-12 border border-slate-400 border-solid w-full mb-4"
+                placeholder="First Name"
+              />
+              <div className="flex mt-2">
+                <button
+                  className="text-[14px] font-normal px-4 text-white bg-[#b3975f] rounded-lg hover:bg-[#c9b575] mr-2"
+                  onClick={() => setReferFriendModal(false)}
+                >
+                  Send Invite
+                </button>
+                <Button color="gray" onClick={() => setReferFriendModal(false)}>
+                  Cancel
+                </Button>
+              </div>
+            </form>
+          </div>
+        </Modal.Body>
+      </Modal>
+      {/*  */}
     </div>
   );
 };
