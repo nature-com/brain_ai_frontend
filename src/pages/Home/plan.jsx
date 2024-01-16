@@ -15,10 +15,10 @@ const Plan = () => {
             data-aos-duration="1500"
           >
             <h2 className="text-2xl lg:text-4xl font-semibold text-black pb-4 pt-6 mb-0 lg:mb-6">
-              Choose your plan
+              PLAN
             </h2>
             <p className="text-gray-400 text-base lg:text-lg font-medium pb-10">
-              Choose plan that works best for you, feel free to contact us
+              CHOOSE THE PLAN THAT’S RIGHT FOR YOU!
             </p>
           </div>
 
