@@ -14,13 +14,13 @@
 }
 .sidebar_tab ul li {
     background: #eee;
-    border-radius: 10px;
+    border-radius: 5px;
     display: block;
-    font-size: 17px;
-    line-height: 46px;
+    font-size: 13px;
+    line-height: 30px;
     margin-bottom: 10px;
     font-weight: 500;
-    padding: 0 15px;
+    padding: 0 10px;
 }
 .sidebar_tab ul li.react-tabs__tab.react-tabs__tab--selected {
     background: #ba9e63;

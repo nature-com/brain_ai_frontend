@@ -4,6 +4,7 @@ import {
   AiFillCloseCircle,
   AiOutlineGoogle,
   AiFillFacebook,
+  AiOutlineUserAdd,
 } from "react-icons/ai";
 import {
   BsFacebook,
@@ -20,8 +21,11 @@ import {
 import { BiArrowBack } from "react-icons/bi";
 import { HiChevronUp } from "react-icons/hi";
 import { FaInstagramSquare } from "react-icons/fa";
+import { IoSettingsOutline } from "react-icons/io5";
 
 export {
+  IoSettingsOutline,
+  AiOutlineUserAdd,
   FaInstagramSquare,
   BsInstagram,
   AiOutlineArrowRight,
