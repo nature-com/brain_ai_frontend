@@ -12,6 +12,8 @@ import { HiChevronUp } from "react-icons/hi";
 import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 import { FaInstagramSquare } from "react-icons/fa";
 const Footer = () => {
+  const token = !!localStorage.getItem("userToken");
+
   const [visible, setVisible] = useState(false);
 
   const toggleVisible = () => {

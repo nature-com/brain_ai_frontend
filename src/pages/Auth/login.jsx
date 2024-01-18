@@ -5,8 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { login, resetAfterLoggedIn } from "../../reducers/AuthSlice";
 import { formImage } from "../../assets/images/images";
 import { AiFillCloseCircle, BsFacebook, BsGoogle } from "../../assets/icons";
+import { Button, Modal } from "flowbite-react";
 
-const Login = () => {
+const Login = ({ openLoginModal, setOpenLoginModal }) => {
   const formButtonRef = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ const Login = () => {
 
   const onSubmit = (data) => {
     dispatch(login(data));
+    setOpenLoginModal(false);
   };
 
   useEffect(() => {
@@ -53,152 +55,187 @@ const Login = () => {
     }
   }, [message, error, isLoggedIn]);
 
+  const [openForgotPasswordModal, setOpenForgotPasswordModal] = useState(false);
+
+  const handleForgotPassword = () => {
+    // setOpenLoginModal(false);
+    setOpenForgotPasswordModal(true);
+  };
+
   return (
     <>
-      <dialog
-        id="my_modal_4"
-        className="modal w-11/12 md:w-3/5 lg:w-full max-w-3xl rounded-2xl overflow-hidden"
+      <Modal
+        className="relative"
+        show={openLoginModal}
+        onClose={() => setOpenLoginModal(false)}
       >
-        <div className="modal-box relative">
-          <div className="flex w-full max-w-7xl">
-            <div className="hidden lg:block w-1/2">
-              <div className="form_image">
-                <img src={formImage} />
+        <Modal.Header className="border-0 p-0 m-0 absolute z-10 right-1 top-1">
+          &nbsp;
+        </Modal.Header>
+        <Modal.Body className="p-0 m-0">
+          <div className="modal-box relative">
+            <div className="flex w-full max-w-7xl">
+              <div className="hidden lg:block w-1/2">
+                <div className="form_image rounded-2xl overflow-hidden">
+                  <img src={formImage} />
+                </div>
               </div>
-            </div>
-            <div className="w-full lg:w-1/2 p-4 bg-[#fff1d2] rounded-r-2xl">
-              <div className="px-3 py-4 lg:py-8">
-                <h2 className="text-3xl text-center mb-4 text-[#ba9e63] font-bold">
-                  Login
-                </h2>
-                {errorMessage && (
-                  <div
-                    className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
-                    role="alert"
-                  >
-                    <span className="font-medium">Failed! </span> {errorMessage}
-                  </div>
-                )}
-                <p className="text-center text-sm text-neutral-600 pb-4">
-                  For a new user,
-                  <Link
-                    className="pl-2 text-[#ba9e63] hover:text-neutral-600"
-                    to="/registration"
-                    onClick={handleLinkClick}
-                  >
-                    Sign Up
-                  </Link>
-                </p>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <div className="form-group">
-                    <input
-                      type="email"
-                      className="rounded-full text-sm h-11 border border-slate-400 border-solid w-full mb-3"
-                      id="exampleInputEmail1"
-                      aria-describedby="emailHelp"
-                      placeholder="Enter email"
-                      autoComplete="off"
-                      {...register("email", {
-                        required: "Email is required",
-                        pattern: {
-                          value: /\S+@\S+\.\S+/,
-                          message: "Entered value does not match email format",
-                        },
-                      })}
-                    />
-                    {errors?.email?.message && (
-                      <h6 className="text-danger">{errors.email.message}</h6>
-                    )}
-                  </div>
-                  <div className="form-group">
-                    <input
-                      type="password"
-                      className="rounded-full text-sm h-11 border border-slate-400 border-solid w-full mb-3"
-                      id="exampleInputPassword1"
-                      placeholder="Password"
-                      autoComplete="off"
-                      {...register("password", {
-                        required: "Password is required",
-                      })}
-                    />
-                    {errors?.password?.message && (
-                      <h6 className="text-danger">{errors.password.message}</h6>
-                    )}
-                  </div>
-                  <div className="text-sm text-blue-600 mb-2">
-                    <Link to="/forgot-password" onClick={handleLinkClick2}>
-                      Forgot Password?
+              <div className="w-full lg:w-1/2 p-4 bg-[#fff1d2] rounded-r-2xl">
+                <div className="px-3 py-4 lg:py-8">
+                  <h2 className="text-3xl text-center mb-4 text-[#ba9e63] font-bold">
+                    Login
+                  </h2>
+                  {errorMessage && (
+                    <div
+                      className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                      role="alert"
+                    >
+                      <span className="font-medium">Failed! </span>{" "}
+                      {errorMessage}
+                    </div>
+                  )}
+                  <p className="text-center text-sm text-neutral-600 pb-4">
+                    For a new user,
+                    <Link
+                      className="pl-2 text-[#ba9e63] hover:text-neutral-600"
+                      to="/registration"
+                      onClick={handleLinkClick}
+                    >
+                      Sign Up
                     </Link>
-                  </div>
-                  <button
-                    type="submit"
-                    className="rounded-full text-sm mb-0 uppercase h-11 bg-[#b3975f] w-full text-white hover:bg-[#c9b575]"
-                    disabled={loading}
-                  >
-                    {loading ? "Wait..." : "Login"}
-                  </button>
-                  {/* <button
+                  </p>
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="form-group">
+                      <input
+                        type="email"
+                        className="rounded-full text-sm h-11 border border-slate-400 border-solid w-full mb-3"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        placeholder="Enter email"
+                        autoComplete="off"
+                        {...register("email", {
+                          required: "Email is required",
+                          pattern: {
+                            value: /\S+@\S+\.\S+/,
+                            message:
+                              "Entered value does not match email format",
+                          },
+                        })}
+                      />
+                      {errors?.email?.message && (
+                        <h6 className="text-danger">{errors.email.message}</h6>
+                      )}
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="password"
+                        className="rounded-full text-sm h-11 border border-slate-400 border-solid w-full mb-2"
+                        id="exampleInputPassword1"
+                        placeholder="Password"
+                        autoComplete="off"
+                        {...register("password", {
+                          required: "Password is required",
+                        })}
+                      />
+                      {errors?.password?.message && (
+                        <h6 className="text-danger">
+                          {errors.password.message}
+                        </h6>
+                      )}
+                    </div>
+                    <div className="text-[12px] text-black hover:text-[#ba9e63] mb-3 ml-2">
+                      <button onClick={handleForgotPassword}>
+                        Forgot Password?
+                      </button>
+                    </div>
+                    <button
                       type="submit"
                       className="rounded-full text-sm mb-0 uppercase h-11 bg-[#b3975f] w-full text-white hover:bg-[#c9b575]"
+                      disabled={loading}
                     >
-                      Login
-                    </button> */}
-                </form>
-                <p className="text-center text-sm my-4">OR</p>
-                <div className="mb-3">
-                  <Link
-                    className="flex justify-center items-center bg-red-500 hover:bg-red-800 rounded-full text-base h-11 border border-red-800 border-solid w-full"
-                    to="/"
-                  >
-                    <span className="pe-3 text-sm text-white">
-                      Sign in with Google
-                    </span>
-                    <BsGoogle className="text-white" size={25} />
-                  </Link>
-                </div>
-                {/* <div className="mb-3">
+                      {loading ? "Wait..." : "Login"}
+                    </button>
+                  </form>
+                  <p className="text-center text-sm my-4">OR</p>
+                  <div className="mb-3">
                     <Link
-                      className="flex justify-center items-center bg-blue-800 hover:bg-blue-700 rounded-full text-base h-11 border border-blue-800 border-solid w-full"
+                      className="flex justify-center items-center bg-red-500 hover:bg-red-800 rounded-full text-base h-11 border border-red-800 border-solid w-full"
                       to="/"
                     >
-                      <span className="pe-3 text-sm text-blue-300">
-                        Sign in with Facebook
+                      <span className="pe-3 text-sm text-white">
+                        Sign in with Google
                       </span>
-                      <BsFacebook className="text-blue-300" size={25} />
+                      <BsGoogle className="text-white" size={25} />
                     </Link>
-                  </div> */}
+                  </div>
+                </div>
+                <p className="text-xs text-gray-600 text-center p-0 m-0">
+                  By Signing up, you agree to our{" "}
+                  <Link className="pl-1 text-[#ba9e63] hover:text-gray-600">
+                    Terms of Service
+                  </Link>{" "}
+                  and Privacy Policy and occasionally receive emails from us.
+                </p>
               </div>
-              {/* <p className="text-xs text-gray-600 text-center p-0 m-0">
-                By joining, you agree to the Fiverr
-                <Link className="pl-1 text-[#ba9e63] hover:text-gray-600">
-                  Terms of Service
-                </Link>
-                and to occasionally receive emails from us. Please read our
-                <Link className="pl-1 text-[#ba9e63] hover:text-gray-600">
-                  Privacy
-                </Link>
-              </p> */}
-              <p className="text-xs text-gray-600 text-center p-0 m-0">
-                By Signing up, you agree to our{" "}
-                <Link className="pl-1 text-[#ba9e63] hover:text-gray-600">
-                  Terms of Service
-                </Link>{" "}
-                and Privacy Policy and occasionally receive emails from us.
-              </p>
+            </div>
+            {/* <div className="modal-action absolute right-4 top-4">
+              <form method="dialog">
+                <button ref={formButtonRef}>
+                  <AiFillCloseCircle
+                    className="text-[#ba9e63] hover:text-[#ba913a]"
+                    size={25}
+                  />
+                </button>
+              </form>
+            </div> */}
+          </div>
+        </Modal.Body>
+      </Modal>
+      {/*  */}
+      <Modal
+        show={openForgotPasswordModal}
+        onClose={() => setOpenForgotPasswordModal(false)}
+      >
+        <Modal.Header className="border-0 p-0 m-0 absolute z-10 right-1 top-1">
+          &nbsp;
+        </Modal.Header>
+        <Modal.Body className="p-0 m-0">
+          <div className="modal-box relative">
+            <div className="flex w-full max-w-7xl">
+              <div className="w-full p-4 bg-[#fff1d2] rounded-2xl">
+                <div className="px-3 py-4 lg:py-8">
+                  <h2 className="text-3xl text-center mb-4 text-[#ba9e63] font-bold">
+                    Forgot Password
+                  </h2>
+                  <p className="text-center text-sm text-neutral-600 pb-4">
+                    Please enter your mail id below
+                  </p>
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="form-group">
+                      <input
+                        type="email"
+                        className="rounded-full text-sm h-11 border border-slate-400 border-solid w-full mb-3"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        placeholder="Enter email"
+                        autoComplete="off"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="rounded-full text-sm mb-0 uppercase h-11 bg-[#b3975f] w-full text-white hover:bg-[#c9b575]"
+                      disabled={loading}
+                    >
+                      {loading ? "Wait..." : "Send"}
+                    </button>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="modal-action absolute right-4 top-4">
-            <form method="dialog">
-              <button ref={formButtonRef}>
-                <AiFillCloseCircle
-                  className="text-[#ba9e63] hover:text-[#ba913a]"
-                  size={25}
-                />
-              </button>
-            </form>
-          </div>
-        </div>
-      </dialog>
+        </Modal.Body>
+      </Modal>
+      {/*  */}
     </>
   );
 };
