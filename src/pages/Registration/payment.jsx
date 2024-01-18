@@ -3,8 +3,8 @@ import "../../assets/css/registration.css";
 import { paymentIcon } from "../../assets/images/images";
 import "react-tabs/style/react-tabs.css";
 import CheckoutForm from "../stripe/CheckoutForm";
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
 const Payment = (props) => {
   const [stripePromise, setStripePromise] = useState(null);
@@ -22,7 +22,7 @@ const Payment = (props) => {
     planId,
   } = props;
 
-  console.log('props', props);
+  console.log("props", props);
 
   useEffect(() => {
     const promise = loadStripe(stripePublishableKey);
@@ -43,16 +43,40 @@ const Payment = (props) => {
     >
       <div className="flex">
         <div className="hidden lg:block w-2/5 flex justify-center items-center">
+          <p className="text-center text-base lg:text-lg font-medium text-gray-400 pb-2">
+            Your Subscription
+          </p>
+          <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-3">
+            Gold Plan
+          </h2>
+          <h3 class="text-center text-lg font-medium text-black pb-3">
+            £
+            <span class="text-center text-3xl font-bold text-black pb-6">
+              6{" "}
+              <span class="text-center text-lg font-medium text-black">
+                / month
+              </span>
+            </span>
+          </h3>
+          <p class="text-center text-base lg:text-lg font-normal text-black pb-2">
+            3 Day Free Trial
+          </p>
           <div>
             <img src={paymentIcon} />
           </div>
+          <p class="text-center text-base lg:text-lg font-normal text-black pb-2">
+            Total after 3days: £6 / month
+          </p>
+          <p class="text-center text-base lg:text-lg font-normal text-black pb-2">
+            Total due today: £0.00
+          </p>
         </div>
         <div className="w-full lg:w-3/5">
           <div className="register_cont">
             <h2 className="text-center text-3xl text-[#ba9e63] font-bold mb-5">
               Make Payment
             </h2>
-            <div className='stripe-error text-red-600'>{errorMessage}</div>
+            <div className="stripe-error text-red-600">{errorMessage}</div>
             {stripePublishableKey &&
               customer_id &&
               subscription_id &&
