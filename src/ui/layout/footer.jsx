@@ -13,7 +13,6 @@ import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 import { FaInstagramSquare } from "react-icons/fa";
 const Footer = () => {
   const token = localStorage.getItem("userToken");
-  console.log("footer", token);
 
   const [visible, setVisible] = useState(false);
 
@@ -294,7 +293,7 @@ const Footer = () => {
             </div>
             <div className="flex-none lg:flex justify-between mt-16">
               <p className="text-center lg:text-left mb-4 lg:mb-0 text-sm text-white font-medium">
-                <ul className="flex justify-center">
+                <ul className="flex">
                   <li className="mr-2">
                     <Link className="text-3xl text-[#0866ff]">
                       <BsFacebook />

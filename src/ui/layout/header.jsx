@@ -7,7 +7,6 @@ import Login from "../../pages/Auth/login";
 
 const Header = () => {
   const token = !!localStorage.getItem("userToken");
-
   const handleOpenModal = () => {
     setOpenLoginModal(true);
   };

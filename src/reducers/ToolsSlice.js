@@ -7,7 +7,6 @@ export const toolsList = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await api.get('user/tools');
-      console.log(response)
       if (response?.data?.status_code === 200) {
         return response.data;
       } else {
