@@ -5,7 +5,7 @@ import ScrollToTop from "../../pages/ScrollToTop/ScrollToTop";
 import Login from "../../pages/Auth/login";
 import { useState } from "react";
 const InsideLayout = () => {
-    const token = localStorage.getItem("userToken");
+    const token = localStorage.getItem("userToken") || localStorage.getItem("regToken");
 
     const [openLoginModal, setOpenLoginModal] = useState(false);
     if (!token) {

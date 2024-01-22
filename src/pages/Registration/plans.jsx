@@ -106,7 +106,7 @@ const Plans = (props) => {
                 us
               </p>
             </div>
-            {plans && plans.length &&
+            {plans && (plans.length) > 0 &&
               plans.map((plan, plankey) => (
                 <div className="plan_tab_area" key={'plan_' + plankey}>
                   <Tabs>
