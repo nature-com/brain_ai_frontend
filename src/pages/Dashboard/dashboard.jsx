@@ -121,9 +121,9 @@ const Dashboard = () => {
                                                 <p>
                                                   {tool?.description.length > 35
                                                     ? tool?.description.substring(
-                                                      0,
-                                                      35
-                                                    ) + "..."
+                                                        0,
+                                                        35
+                                                      ) + "..."
                                                     : tool?.description}
                                                 </p>
                                               </div>
@@ -143,7 +143,7 @@ const Dashboard = () => {
                               </Tabs>
                             </div>
                           </div>
-                          <div className="w-full lg:w-2/12 bg-[#eeeeee] h-full p-2 rounded-md py-4">
+                          <div className="w-full lg:w-2/12 bg-[#eeeeee] h-full p-2 rounded-md py-4 hidden lg:block">
                             <p className="mb-4 flex text-black hover:text-[#ba9e63] text-[12px] font-bold items-center justify-center cursor-pointer">
                               <AiOutlineUserAdd className="text-base mr-[0]" />
                               Refer a friend
