@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '../store/api';
 import errorHandler from '../store/errorHandler';
 
-
 export const toolsList = createAsyncThunk(
   'tools/tools-list',
   async (_, { rejectWithValue }) => {
@@ -73,6 +72,7 @@ const toolsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+
       .addCase(toolsList.pending, (state) => {
         state.isLoading = true;
         state.message = null;
@@ -84,7 +84,7 @@ const toolsSlice = createSlice({
           details: response?.payload?.data,
         }
       })
-      .addCase(toolsList.rejected, (state, response) => {
+      .addCase(toolsList.rejected, (state) => {
         state.isLoading = false;
         state.error = true;
       })
@@ -100,7 +100,7 @@ const toolsSlice = createSlice({
           details: payload?.data[0],
         }
       })
-      .addCase(toolsById.rejected, (state, response) => {
+      .addCase(toolsById.rejected, (state) => {
         state.isLoading = false;
         state.error = true;
       })

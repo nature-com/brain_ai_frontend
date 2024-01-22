@@ -12,7 +12,8 @@ import { HiChevronUp } from "react-icons/hi";
 import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 import { FaInstagramSquare } from "react-icons/fa";
 const Footer = () => {
-  const token = !!localStorage.getItem("userToken");
+  const token = localStorage.getItem("userToken");
+  console.log("footer", token);
 
   const [visible, setVisible] = useState(false);
 
@@ -268,12 +269,21 @@ const Footer = () => {
                             </Link>
                           </li>
                           <li className="pb-2">
-                            <Link
-                              className="text-sm text-gray-400 hover:text-[#c9b575]"
-                              to="/dashboard"
-                            >
-                              All Tools
-                            </Link>
+                            {token ? (
+                              <Link
+                                className="text-sm text-gray-400 hover:text-[#c9b575]"
+                                to="/dashboard"
+                              >
+                                All Tools
+                              </Link>
+                            ) : (
+                              <Link
+                                className="text-sm text-gray-400 hover:text-[#c9b575]"
+                                to="/registration"
+                              >
+                                All Tools
+                              </Link>
+                            )}
                           </li>
                         </ul>
                       </div>

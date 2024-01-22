@@ -6,24 +6,25 @@ import Loader from "../Loader/Loader";
 import axios from "axios";
 import sanitizeHtml from "sanitize-html";
 import { useDispatch, useSelector } from "react-redux";
-import { generateAnswer, toolsById} from "../../reducers/ToolsSlice";
+import { generateAnswer, toolsById } from "../../reducers/ToolsSlice";
 import { useForm } from "react-hook-form";
 
 const Tooldetails = () => {
   const [prompt, setPrompt] = useState("");
   const [paragraph, setParagraph] = useState("");
   const [loading, setLoading] = useState(false);
-  const [tooldetails,setToolDetails] = useState();
-  const {isLoading} = useSelector((state)=>state.tools);
+  const [tooldetails, setToolDetails] = useState();
+  const { isLoading } = useSelector((state) => state.tools);
 
   let { id } = useParams();
 
   const dispatch = useDispatch();
-  const {toolsDetails, answer} = useSelector((state) => state.tools);
+  const { toolsDetails, answer } = useSelector((state) => state.tools);
+  console.log(toolsDetails);
 
   useEffect(() => {
     dispatch(toolsById(id));
-  },[]);
+  }, []);
 
   useEffect(() => {
     if (Object.keys(toolsDetails).length) {
@@ -96,24 +97,24 @@ const Tooldetails = () => {
 
                   <div className="prompt_input_section">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                    <label className="text-sm font-normal pb-2 text-black block">
-                      Prompt
-                    </label>
-                    <textarea
-                      placeholder="Write your query here"
-                      className="h-24 text-sm text-gray-400 w-full border border-solid border-gray-400 rounded-lg"
-                      rows="3"
-                      {...register('subject')} 
-                      onChange={(e) => {
-                        handleInputChange(e);
-                      }}
+                      <label className="text-sm font-normal pb-2 text-black block">
+                        Prompt
+                      </label>
+                      <textarea
+                        placeholder="Write your query here"
+                        className="h-24 text-sm text-gray-400 w-full border border-solid border-gray-400 rounded-lg"
+                        rows="3"
+                        {...register('subject')}
+                        onChange={(e) => {
+                          handleInputChange(e);
+                        }}
                       ></textarea>
-                    <button
-                      type="submit"
-                      className="w-full text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black"
-                    >
-                      Generate
-                    </button>
+                      <button
+                        type="submit"
+                        className="w-full text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black"
+                      >
+                        Generate
+                      </button>
                     </form>
                   </div>
                 </div>
@@ -150,7 +151,7 @@ const Tooldetails = () => {
                     <div className="prompt_answer_section">
                       <img
                         className="inline-block mb-2"
-                        src={import.meta.env.VITE_API_BASE_URL }
+                        src={import.meta.env.VITE_API_BASE_URL}
                         width="100"
                         height="100"
                       />
@@ -171,7 +172,8 @@ const Tooldetails = () => {
                     <div className="prompt_answer_section">
                       <img
                         className="inline-block mb-2"
-                        src={import.meta.env.VITE_API_BASE_URL }
+                        // src={import.meta.env.VITE_API_BASE_URL}
+                        src={tooldetails?.details?.avatar}
                         width="100"
                         height="100"
                       />
@@ -179,7 +181,7 @@ const Tooldetails = () => {
                         Your text will appear here
                       </h2>
                       <p className="text-base font-normal pb-3 text-black text-justify">
-                      {answer}
+                        {answer}
                       </p>
                     </div>
                   </div>
