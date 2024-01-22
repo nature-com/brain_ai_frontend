@@ -6,7 +6,7 @@ import Login from "../../pages/Auth/login";
 import { useState } from "react";
 const InsideLayout = () => {
     const token = localStorage.getItem("userToken");
-    console.log(!token);
+
     const [openLoginModal, setOpenLoginModal] = useState(false);
     if (!token) {
         return (
