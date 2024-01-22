@@ -12,7 +12,7 @@ import { HiChevronUp } from "react-icons/hi";
 import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 import { FaInstagramSquare } from "react-icons/fa";
 const Footer = () => {
-  const token = !!localStorage.getItem("userToken");
+  const token = localStorage.getItem("userToken");
 
   const [visible, setVisible] = useState(false);
 
@@ -268,12 +268,21 @@ const Footer = () => {
                             </Link>
                           </li>
                           <li className="pb-2">
-                            <Link
-                              className="text-sm text-gray-400 hover:text-[#c9b575]"
-                              to="/dashboard"
-                            >
-                              All Tools
-                            </Link>
+                            {token ? (
+                              <Link
+                                className="text-sm text-gray-400 hover:text-[#c9b575]"
+                                to="/dashboard"
+                              >
+                                All Tools
+                              </Link>
+                            ) : (
+                              <Link
+                                className="text-sm text-gray-400 hover:text-[#c9b575]"
+                                to="/registration"
+                              >
+                                All Tools
+                              </Link>
+                            )}
                           </li>
                         </ul>
                       </div>
@@ -284,7 +293,7 @@ const Footer = () => {
             </div>
             <div className="flex-none lg:flex justify-between mt-16">
               <p className="text-center lg:text-left mb-4 lg:mb-0 text-sm text-white font-medium">
-                <ul className="flex justify-center">
+                <ul className="flex">
                   <li className="mr-2">
                     <Link className="text-3xl text-[#0866ff]">
                       <BsFacebook />

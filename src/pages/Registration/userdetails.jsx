@@ -146,9 +146,9 @@ const UserDetails = (props) => {
                   </small>
                 )}
               </div>
-              <div className="flex items-center justify-center bg-white rounded-full h-12 border border-slate-400 border-solid w-full mb-3">
-                {/* <span className="text-base p-3.5 h-12">+91</span> */}
-                <select
+              {/* <div className="flex items-center justify-center bg-white rounded-full h-12 border border-slate-400 border-solid w-full mb-3"> */}
+              {/* <span className="text-base p-3.5 h-12">+91</span> */}
+              {/* <select
                   id="code"
                   className="text-base p-3.5 h-12 border-0 bg-transparent"
                 >
@@ -156,13 +156,13 @@ const UserDetails = (props) => {
                   <option value="+44">+44</option>
                   <option value="+93">+93,</option>
                   <option value="+82">+82</option>
-                </select>
-                {/* <input
+                </select> */}
+              {/* <input
                     type="tel"
                     className="bg-transparent text-base pr-5 h-12 border-0 w-full"
                     placeholder="Phone"
                   /> */}
-                <input
+              {/* <input
                   type="text"
                   className="bg-transparent text-base pr-5 h-12 border-0 w-full"
                   placeholder="Mobile"
@@ -185,7 +185,7 @@ const UserDetails = (props) => {
                     {errors.mobile.message}
                   </small>
                 )}
-              </div>
+              </div> */}
               {currentUser && Object.keys(currentUser).length ? (
                 <>
                   <p className="text-sm text-red-600 mb-3">

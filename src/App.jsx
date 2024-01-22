@@ -14,6 +14,7 @@ import Payment from "./pages/Registration/payment";
 import PaymentRedirect from "./pages/stripe/PaymentRedirect";
 import TermsCondtions from "./pages/TermsCondtions/TermsCondtions";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import InsideLayout from "./ui/layout/inside-layout";
 import Reviews from "./pages/Reviews/Reviews";
 
 function App() {
@@ -40,10 +41,10 @@ function App() {
       <Route path="/contact" element={<OutsideLayout />}>
         <Route index element={<Contact />} />
       </Route>
-      <Route path="/dashboard" element={<OutsideLayout />}>
+      <Route path="/dashboard" element={<InsideLayout />}>
         <Route index element={<Dashboard />} />
       </Route>
-      <Route path="/tooldetails/:id" element={<OutsideLayout />}>
+      <Route path="/tooldetails/:id" element={<InsideLayout />}>
         <Route index element={<Tooldetails />} />
       </Route>
       <Route path="/payment" element={<OutsideLayout />}>

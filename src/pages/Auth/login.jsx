@@ -36,7 +36,7 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
 
   const onSubmit = (data) => {
     dispatch(login(data));
-    setOpenLoginModal(false);
+    // setOpenLoginModal(false);
   };
 
   useEffect(() => {
