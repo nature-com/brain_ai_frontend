@@ -75,7 +75,7 @@ const Faqarea = () => {
   return (
     <div
       className="faq_section max-w-6xl mx-auto py-5 px-6 lg:px-0"
-      data-aos="fade-right"
+      data-aos="fade-up"
       data-aos-duration="1500"
     >
       <Faq data={data} styles={styles} config={config} />

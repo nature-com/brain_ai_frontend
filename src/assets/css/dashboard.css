@@ -157,6 +157,13 @@
 }
 
 
+.review_box {
+    box-shadow: -1px 2px 12px 4px rgba(181,181,181,0.59);
+    -webkit-box-shadow: -1px 2px 12px 4px rgba(181,181,181,0.59);
+    -moz-box-shadow: -1px 2px 12px 4px rgba(181,181,181,0.59);
+}
+
+
 
 @media only screen and (max-width:767px) {
 
