@@ -45,8 +45,16 @@ import review13 from "../imagesource/review13.jpg";
 import review14 from "../imagesource/review14.jpg";
 import featherFull from "../imagesource/feather_full.jpg";
 import featherHalf from "../imagesource/feather_half.jpg";
+import paragraphGeneratorIcon from "../imagesource/paragraph_generator_icon.png";
+import EmailWrittinIcon from "../imagesource/email_writting_icon.png";
+import pythonWriterIcon from "../imagesource/python_writer_icon.png";
+import loveLetterIcon from "../imagesource/love_letter_icon.png";
 
 export {
+  loveLetterIcon,
+  paragraphGeneratorIcon,
+  pythonWriterIcon,
+  EmailWrittinIcon,
   featherFull,
   featherHalf,
   review01,

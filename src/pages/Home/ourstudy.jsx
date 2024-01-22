@@ -1,5 +1,12 @@
 import React, { useRef, useEffect, useState, Suspense } from "react";
-import { toolBrain } from "../../assets/images/images";
+import {
+  EmailWrittinIcon,
+  essayWriterIcon,
+  loveLetterIcon,
+  paragraphGeneratorIcon,
+  pythonWriterIcon,
+  toolBrain,
+} from "../../assets/images/images";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -50,65 +57,65 @@ const Ourstudy = () => {
               <div>
                 <div className="bg-[#c9b575] text-center rounded-2xl p-8 mr-0 lg:mr-2">
                   <img
-                    src={toolBrain}
-                    className="mb-4"
-                    width="148"
-                    height="111"
+                    src={essayWriterIcon}
+                    className="mb-4 rounded-full"
+                    width="70"
+                    height="70"
                   />
                   <p className="text-black font-medium text-base">
-                    Learn <br></br> Languages
+                    Essay <br></br> writer
                   </p>
                 </div>
               </div>
               <div>
                 <div className="bg-[#ece29b] text-center rounded-2xl p-8 mr-2">
                   <img
-                    src={toolBrain}
-                    className="mb-4"
-                    width="148"
-                    height="111"
+                    src={paragraphGeneratorIcon}
+                    className="mb-4 rounded-full"
+                    width="70"
+                    height="70"
                   />
                   <p className="text-black font-medium text-base">
-                    Exam past <br></br> papers
+                    Paragraph <br></br> Generator
                   </p>
                 </div>
               </div>
               <div>
                 <div className="bg-[#c9b575] text-center rounded-2xl p-8 mr-2">
                   <img
-                    src={toolBrain}
-                    className="mb-4"
-                    width="148"
-                    height="111"
+                    src={EmailWrittinIcon}
+                    className="mb-4 rounded-full"
+                    width="70"
+                    height="70"
                   />
                   <p className="text-black font-medium text-base">
-                    Creative Story Writer
+                    Email <br></br> Writer
                   </p>
                 </div>
               </div>
               <div>
                 <div className="bg-[#ece29b] text-center rounded-2xl p-8 mr-2">
                   <img
-                    src={toolBrain}
-                    className="mb-4"
-                    width="148"
-                    height="111"
+                    src={pythonWriterIcon}
+                    className="mb-4 rounded-full"
+                    width="70"
+                    height="70"
                   />
                   <p className="text-black font-medium text-base pb-6">
-                    Song Writer
+                    python Writer
                   </p>
                 </div>
               </div>
               <div>
                 <div className="bg-[#c9b575] text-center rounded-2xl p-8 mr-2">
                   <img
-                    src={toolBrain}
-                    className="mb-4"
-                    width="148"
-                    height="111"
+                    src={loveLetterIcon}
+                    className="mb-4 rounded-full"
+                    width="70"
+                    height="70"
                   />
                   <p className="text-black font-medium text-base">
-                    Personal Statement Writer
+                    Love <br></br> Letter
                   </p>
                 </div>
               </div>
