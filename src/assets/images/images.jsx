@@ -29,8 +29,40 @@ import essayWriterIcon from "../imagesource/essay_writer_icon.png";
 import tiktokIcon from "../imagesource/tiktok_icon.png";
 import tiktokIcon2 from "../imagesource/tiktok_icon_big.png";
 import thinkBox from "../imagesource/think_out_side.png";
+import review01 from "../imagesource/review01.jpg";
+import review02 from "../imagesource/review02.jpg";
+import review03 from "../imagesource/review03.jpg";
+import review04 from "../imagesource/review04.jpg";
+import review05 from "../imagesource/review05.jpg";
+import review06 from "../imagesource/review06.jpg";
+import review07 from "../imagesource/review07.jpg";
+import review08 from "../imagesource/review08.jpg";
+import review09 from "../imagesource/review09.jpg";
+import review10 from "../imagesource/review10.jpg";
+import review11 from "../imagesource/review11.jpg";
+import review12 from "../imagesource/review12.jpg";
+import review13 from "../imagesource/review13.jpg";
+import review14 from "../imagesource/review14.jpg";
+import featherFull from "../imagesource/feather_full.jpg";
+import featherHalf from "../imagesource/feather_half.jpg";
 
 export {
+  featherFull,
+  featherHalf,
+  review01,
+  review02,
+  review03,
+  review04,
+  review05,
+  review06,
+  review07,
+  review08,
+  review09,
+  review10,
+  review11,
+  review12,
+  review13,
+  review14,
   thinkBox,
   tiktokIcon,
   tiktokIcon2,

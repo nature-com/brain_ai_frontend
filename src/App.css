@@ -179,9 +179,12 @@ body{
   /*  */
 
   .header_section nav ul {
-    background: #e1f4ed;
+    background: #ffffff;
     text-align: center;
     padding: 10px 0;
+    box-shadow: -1px 2px 12px 4px rgba(209,209,209,0.59);
+    -webkit-box-shadow: -1px 2px 12px 4px rgba(209,209,209,0.59);
+    -moz-box-shadow: -1px 2px 12px 4px rgba(209,209,209,0.59);
   }
   .header_section nav ul li a {
     color: #000000;
@@ -189,7 +192,7 @@ body{
     display: block;
   }
   .header_section nav ul li a:hover {
-    color: #31c48d;
+    color: #b08d57;
   }
 
   /*  */

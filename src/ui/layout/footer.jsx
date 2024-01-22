@@ -294,7 +294,7 @@ const Footer = () => {
             </div>
             <div className="flex-none lg:flex justify-between mt-16">
               <p className="text-center lg:text-left mb-4 lg:mb-0 text-sm text-white font-medium">
-                <ul className="flex">
+                <ul className="flex justify-center">
                   <li className="mr-2">
                     <Link className="text-3xl text-[#0866ff]">
                       <BsFacebook />

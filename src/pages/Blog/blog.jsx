@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
 import { FaInstagramSquare } from "react-icons/fa";
 import { tiktokIcon2 } from "../../assets/images/images";
 import { Link } from "react-router-dom";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Blog = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div className="max-w-6xl mx-auto py-5 px-6 lg:px-0">
-      <div className="text-center my-20">
+      <div
+        className="text-center my-20"
+        data-aos="fade-up"
+        data-aos-duration="1500"
+      >
         <h2 className="text-2xl lg:text-4xl font-semibold text-black pb-4 pt-6 mb-0 lg:mb-4">
           Connect with Us
         </h2>

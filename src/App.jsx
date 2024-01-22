@@ -15,6 +15,7 @@ import PaymentRedirect from "./pages/stripe/PaymentRedirect";
 import TermsCondtions from "./pages/TermsCondtions/TermsCondtions";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import InsideLayout from "./ui/layout/inside-layout";
+import Reviews from "./pages/Reviews/Reviews";
 
 function App() {
   return (
@@ -57,6 +58,9 @@ function App() {
       </Route>
       <Route path="/privacy-policy" element={<OutsideLayout />}>
         <Route index element={<PrivacyPolicy />} />
+      </Route>
+      <Route path="/reviews" element={<OutsideLayout />}>
+        <Route index element={<Reviews />} />
       </Route>
     </Routes>
   );
