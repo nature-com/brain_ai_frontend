@@ -268,17 +268,10 @@ const Footer = () => {
                             </Link>
                           </li>
                           <li className="pb-2">
-                            {token ? (
+                            {token && (
                               <Link
                                 className="text-sm text-gray-400 hover:text-[#c9b575]"
                                 to="/dashboard"
-                              >
-                                All Tools
-                              </Link>
-                            ) : (
-                              <Link
-                                className="text-sm text-gray-400 hover:text-[#c9b575]"
-                                to="/registration"
                               >
                                 All Tools
                               </Link>

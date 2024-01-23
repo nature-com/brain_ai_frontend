@@ -106,14 +106,17 @@ const Plans = (props) => {
                 us
               </p>
             </div>
-            {plans && (plans.length) > 0 &&
-              plans.map((plan, plankey) => (
-                <div className="plan_tab_area" key={'plan_' + plankey}>
-                  <Tabs>
-                    <TabList>
-                      <Tab>{plan.name || 'plan name'}</Tab>
-                    </TabList>
-                    <TabPanel>
+
+            <div className="plan_tab_area" >
+              <Tabs>
+                <TabList>
+                  <Tab>Free</Tab>
+                  <Tab>Silver</Tab>
+                  <Tab>Gold</Tab>
+                </TabList>
+                {plans && plans.length > 0 &&
+                  plans.map((plan, plankey) => (
+                    <TabPanel key={'plan_' + plankey}>
                       <div className="plan_list_area">
                         <div className="flex-none md:flex justify-center">
                           <div className="w-full md:w-6/12 lg:w-5/12 mx-0 md:mx-2 mb-4 lg:mb-0">
@@ -162,9 +165,9 @@ const Plans = (props) => {
                         </div>
                       </div>
                     </TabPanel>
-                  </Tabs>
-                </div>
-              ))}
+                  ))}
+              </Tabs>
+            </div>
           </div>
         </div>
       )}

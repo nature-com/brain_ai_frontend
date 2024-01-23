@@ -37,21 +37,12 @@ const Header = () => {
                 Logout
               </Link>
             )}
-            {!token ? (
-              <Link
-                className="text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#ba9e63] rounded-lg hover:bg-black"
-                to="/registration"
-              >
-                Sign Up
-              </Link>
-            ) : (
-              <Link
-                className="text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#ba9e63] rounded-lg hover:bg-black"
-                to="/dashboard"
-              >
-                Sign Up
-              </Link>
-            )}
+            <Link
+              className="text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#ba9e63] rounded-lg hover:bg-black"
+              to="/registration"
+            >
+              Sign Up
+            </Link>
             <Navbar.Toggle />
           </div>
           <Navbar.Collapse className="lg:bg-transparent">
