@@ -84,6 +84,7 @@ export const login = createAsyncThunk(
   async (userInput, { rejectWithValue }) => {
     try {
       const response = await api.post('/user/login', userInput);
+      console.log(response, "response 5555");
       if (response?.data?.status_code === 200) {
         return response.data;
       } else {
@@ -198,7 +199,7 @@ const authSlice = createSlice({
         state.error = false;
       })
       .addCase(login.fulfilled, (state, { payload }) => {
-        const { access_token, subscription, email, user_id, otp_verified } =
+        const { access_token, subscription, email, user_name, user_id, otp_verified } =
           payload;
         state.isLoggedIn = true;
         if (subscription !== null) {
@@ -212,6 +213,13 @@ const authSlice = createSlice({
         localStorage.setItem(
           'userToken',
           JSON.stringify({ token: access_token })
+        );
+        localStorage.setItem(
+          'userEmail',
+          JSON.stringify({ email: email })
+        );
+        localStorage.setItem(
+          'userName' , user_name
         );
         localStorage.setItem(
           'isSubscribed',

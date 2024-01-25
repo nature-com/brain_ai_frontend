@@ -16,6 +16,9 @@ import TermsCondtions from "./pages/TermsCondtions/TermsCondtions";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import InsideLayout from "./ui/layout/inside-layout";
 import Reviews from "./pages/Reviews/Reviews";
+import YourAccount from "./pages/YourAccount/YourAccount";
+import Tools from "./pages/Tools/Tools";
+import PaymentPlan from "./pages/PaymentPlan/PaymentPlan";
 
 function App() {
   return (
@@ -43,6 +46,15 @@ function App() {
       </Route>
       <Route path="/dashboard" element={<InsideLayout />}>
         <Route index element={<Dashboard />} />
+      </Route>
+      <Route path="/your-account" element={<InsideLayout />}>
+        <Route index element={<YourAccount />} />
+      </Route>
+      <Route path="/tools" element={<OutsideLayout />}>
+        <Route index element={<Tools />} />
+      </Route>
+      <Route path="/payment-plan" element={<OutsideLayout />}>
+        <Route index element={<PaymentPlan />} />
       </Route>
       <Route path="/tooldetails/:id" element={<InsideLayout />}>
         <Route index element={<Tooldetails />} />

@@ -49,21 +49,24 @@ const Header = () => {
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
-            {/* <li>
-              <NavLink
-                to="/about"
-              >
-                About us
-              </NavLink>
-            </li> */}
+            <li>
+              {!token ? (
+                <NavLink to="/tools">Tools</NavLink>
+              ) : (
+                <NavLink to="/dashboard">Tools</NavLink>
+              )}
+            </li>
+            <li>
+              <NavLink to="/payment-plan">Payment Plan</NavLink>
+            </li>
             <li>
               <NavLink to="/faq">FAQ</NavLink>
             </li>
             <li>
-              <NavLink to="/blog">Blog</NavLink>
+              <NavLink to="/reviews">Reviews</NavLink>
             </li>
             <li>
-              <NavLink to="/reviews">Reviews</NavLink>
+              <NavLink to="/blog">Blog</NavLink>
             </li>
             <li>
               <NavLink to="/contact">Contact</NavLink>

@@ -26,25 +26,53 @@ const Blog = () => {
         </p>
         <div className="text-center lg:text-left mb-4 lg:mb-0 text-sm text-white font-medium">
           <ul className="flex justify-center items-center mb-4">
-            <li className="mr-3">
-              <Link className="text-6xl text-[#0866ff]">
+            <li className="mr-3 text-center">
+              <Link
+                to="https://rb.gy/fgbeh7"
+                target="_blank"
+                className="text-6xl text-[#0866ff] flex justify-center items-center"
+              >
                 <BsFacebook />
               </Link>
+              <p className="text-[14px] mt-2 text-black font-medium">
+                AzzyWrites
+              </p>
             </li>
             <li className="mr-3">
-              <Link className="text-6xl text-[#d82e7c]">
+              <Link
+                to="https://rb.gy/oo46bi"
+                target="_blank"
+                className="text-6xl text-[#d82e7c] flex justify-center items-center"
+              >
                 <FaInstagramSquare />
               </Link>
+              <p className="text-[14px] mt-2 text-black font-medium">
+                AzzyWrites
+              </p>
             </li>
             <li className="mr-3">
-              <Link className="text-6xl text-[#1fa3f4]">
+              <Link
+                to="https://rb.gy/arphgy"
+                target="_blank"
+                className="text-6xl text-[#1fa3f4] flex justify-center items-center"
+              >
                 <BsTwitter />
               </Link>
+              <p className="text-[14px] mt-2 text-black font-medium">
+                AzzyWrites
+              </p>
             </li>
             <li className="mr-3">
-              <Link>
+              <Link
+                to="https://rb.gy/p55o30"
+                target="_blank"
+                className="flex justify-center items-center"
+              >
                 <img className="w-[58px]" src={tiktokIcon2} />
               </Link>
+              <p className="text-[14px] mt-2 text-black font-medium">
+                AzzyWrites
+              </p>
             </li>
           </ul>
         </div>

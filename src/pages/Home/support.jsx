@@ -20,7 +20,7 @@ const Support = () => {
                 data-aos-duration="1500"
               >
                 <h2 className="text-2xl lg:text-4xl font-semibold text-black pb-2 lg:pb-4 mb-2">
-                  How we support our pratner all over the world
+                  AZZYWRITES
                 </h2>
                 <p className="text-base text-gray-400 font-medium pb-8 lg:pb-12">
                   AzzyWrites is an exceptional AI tool that provides
@@ -38,7 +38,7 @@ const Support = () => {
                   deepen their understanding and improve their skills.
                 </p>
 
-                <div>
+                {/* <div>
                   <ul className="flex md:justify-center lg:justify-normal">
                     <li className="mr-12">
                       <img src={rating01} className="mb-4" width="" height="" />
@@ -47,7 +47,7 @@ const Support = () => {
                       </p>
                     </li>
                   </ul>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="w-full lg:w-5/12">
@@ -63,11 +63,12 @@ const Support = () => {
                     </div>
                     <div className="support_right_cont w-11/12 pl-6">
                       <h3 className="text-xl lg:text-2xl font-bold text-black pb-2 lg:pb-4">
-                        Publishing
+                        Time
                       </h3>
                       <p className="text-base lg:text-lg text-gray-400 font-medium pb-8">
-                        Plan, collaborate, and publishing your contetn that
-                        drivees meaningful engagement and growth for your barnd
+                        AzzyWrites can be a game-changer for individuals looking
+                        to optimize their productivity and save time in various
+                        academic and professional endeavours.
                       </p>
                     </div>
                   </li>
@@ -77,10 +78,12 @@ const Support = () => {
                     </div>
                     <div className="support_right_cont w-11/12 pl-6">
                       <h3 className="text-xl lg:text-2xl font-bold text-black pb-2 lg:pb-4">
-                        Analytics
+                        Engagement
                       </h3>
                       <p className="text-base lg:text-lg text-gray-400 font-medium pb-8">
-                        Analyze your performance and create goegeous report
+                        AzzyWrites is a captivating platform with interactive
+                        features that captivate users with its limitless
+                        possibilities from the moment they start interacting.
                       </p>
                     </div>
                   </li>
@@ -90,10 +93,13 @@ const Support = () => {
                     </div>
                     <div className="support_right_cont w-11/12 pl-6">
                       <h3 className="text-xl lg:text-2xl font-bold text-black pb-2 lg:pb-4">
-                        Engagement
+                        Results
                       </h3>
                       <p className="text-base lg:text-lg text-gray-400 font-medium pb-8">
-                        Quiuckly navigate you anda engage with your adience
+                        AzzyWrites offers concise, accurate explanations on
+                        various topics, enabling members to expand knowledge,
+                        learn at their own pace, and deepen understanding of
+                        complex concepts.
                       </p>
                     </div>
                   </li>

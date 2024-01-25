@@ -31,20 +31,9 @@ const Contact = () => {
                 </h2>
                 <ul>
                   <li className="flex items-center mb-6">
-                    <BsFillTelephoneFill className="text-[#ba9e63]" size={20} />
-                    <p className="text-base md:text-lg pl-2">1234567890</p>
-                  </li>
-                  <li className="flex items-center mb-6">
                     <BsFillEnvelopeFill className="text-[#ba9e63]" size={22} />
                     <p className="text-base md:text-lg pl-2">
-                      info@azzywrites.com
-                    </p>
-                  </li>
-                  <li className="flex items-start mb-4">
-                    <BsFillPinMapFill className="text-[#ba9e63]" size={22} />
-                    <p className="text-base md:text-lg pl-2">
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry.
+                      support@azzywrites.com
                     </p>
                   </li>
                 </ul>

@@ -49,8 +49,12 @@ import paragraphGeneratorIcon from "../imagesource/paragraph_generator_icon.png"
 import EmailWrittinIcon from "../imagesource/email_writting_icon.png";
 import pythonWriterIcon from "../imagesource/python_writer_icon.png";
 import loveLetterIcon from "../imagesource/love_letter_icon.png";
+import userIcon from "../imagesource/bot_icon.png";
+import toolsImg from "../imagesource/toolsImg.png";
 
 export {
+  toolsImg,
+  userIcon,
   loveLetterIcon,
   paragraphGeneratorIcon,
   pythonWriterIcon,

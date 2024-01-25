@@ -42,7 +42,7 @@ const Reviews = () => {
             <div className="w-full" data-aos="fade-up" data-aos-duration="1500">
               <div>
                 <h2 className="text-2xl pb-6 font-bold text-black lg:text-3xl">
-                  Our Members Reviews
+                  Our Subscribers Reviews
                 </h2>
               </div>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

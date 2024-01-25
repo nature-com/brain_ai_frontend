@@ -56,7 +56,7 @@ const Footer = () => {
     <div className="footer_container">
       <div className="footer_wrap px-4">
         <div className="container max-w-6xl mx-auto pt-12 lg:pt-24 pb-4 px-0">
-          <div className="footer_top_area pb-8">
+          <div className="footer_top_area pb-0">
             <div className="flex-none lg:flex justify-between">
               <div className="w-full lg:w-5/12">
                 <div className="footer_top_area_left text-center lg:text-left">
@@ -67,66 +67,68 @@ const Footer = () => {
                     Everything you need to accept to payment and grow your money
                     of manage anywhere on planet
                   </p>
-                  <img
-                    src={testiIcon}
-                    className="inline-block mb-6"
-                    width="45"
-                    height="38"
-                  />
-                  <div className="testimonials_area">
-                    <Slider {...settings}>
-                      <div>
-                        <div className="testi_slider_box">
-                          <p className="text-sm lg:text-base font-medium text-white mb-6">
-                            Easy to use
-                          </p>
-                          <p className="text-sm lg:text-base font-medium text-white mb-6">
-                            Azzy writes is incredibly easy to use, providing an
-                            intuitive and user-friendly platform that simplifies
-                            tasks and enhances productivity. With its sleek
-                            interface, seamless navigation, and comprehensive
-                            features, AzzyWrites empowers users to effortlessly
-                            accomplish Members goals.
-                          </p>
-                        </div>
-                      </div>
-                      <div>
-                        <div className="testi_slider_box">
-                          <p className="text-sm lg:text-base font-medium text-white mb-6">
-                            Gets me A*
-                          </p>
-                          <p className="text-sm lg:text-base font-medium text-white mb-6">
-                            AzzyWrites has proven time and again its ability to
-                            assist students in achieving top-notch performance
-                            and securing A stars. With its vast knowledge and
-                            expertise, AzzyWrites provides invaluable support in
-                            various academic endeavors. Whether it's writing an
-                            essay, solving complex mathematical equations, or
-                            understanding intricate scientific concepts,
-                            AzzyWrites is there to guide students towards
-                            excellence.
-                          </p>
-                        </div>
-                      </div>
-                      <div>
-                        <div className="testi_slider_box">
-                          <p className="text-sm lg:text-base font-medium text-white mb-6">
-                            Work done in a click
-                          </p>
-                          <p className="text-sm lg:text-base font-medium text-white mb-6">
-                            AzzyWrites is the ultimate solution for getting work
-                            done efficiently and effortlessly with just a simple
-                            click. With its powerful features and user-friendly
-                            interface, AzzyWrites streamlines the entire
-                            workflow, saving valuable time and energy.
-                          </p>
-                        </div>
-                      </div>
-                    </Slider>
-                  </div>
                 </div>
               </div>
               <div className="w-full lg:w-5/12">
+                <img
+                  src={testiIcon}
+                  className="inline-block mb-6"
+                  width="45"
+                  height="38"
+                />
+                <div className="testimonials_area">
+                  <Slider {...settings}>
+                    <div>
+                      <div className="testi_slider_box">
+                        <p className="text-sm lg:text-base font-medium text-white mb-6">
+                          Easy to use
+                        </p>
+                        <p className="text-sm lg:text-base font-medium text-white mb-6">
+                          Azzy writes is incredibly easy to use, providing an
+                          intuitive and user-friendly platform that simplifies
+                          tasks and enhances productivity. With its sleek
+                          interface, seamless navigation, and comprehensive
+                          features, AzzyWrites empowers users to effortlessly
+                          accomplish Members goals.
+                        </p>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="testi_slider_box">
+                        <p className="text-sm lg:text-base font-medium text-white mb-6">
+                          Gets me A*
+                        </p>
+                        <p className="text-sm lg:text-base font-medium text-white mb-6">
+                          AzzyWrites has proven time and again its ability to
+                          assist students in achieving top-notch performance and
+                          securing A stars. With its vast knowledge and
+                          expertise, AzzyWrites provides invaluable support in
+                          various academic endeavors. Whether it's writing an
+                          essay, solving complex mathematical equations, or
+                          understanding intricate scientific concepts,
+                          AzzyWrites is there to guide students towards
+                          excellence.
+                        </p>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="testi_slider_box">
+                        <p className="text-sm lg:text-base font-medium text-white mb-6">
+                          Work done in a click
+                        </p>
+                        <p className="text-sm lg:text-base font-medium text-white mb-6">
+                          AzzyWrites is the ultimate solution for getting work
+                          done efficiently and effortlessly with just a simple
+                          click. With its powerful features and user-friendly
+                          interface, AzzyWrites streamlines the entire workflow,
+                          saving valuable time and energy.
+                        </p>
+                      </div>
+                    </div>
+                  </Slider>
+                </div>
+              </div>
+              {/* <div className="w-full lg:w-5/12">
                 <div className="get_started">
                   <div className="text-center mb-8">
                     <img
@@ -166,7 +168,7 @@ const Footer = () => {
                     </form>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="footer_bottom_area my-8">
@@ -262,7 +264,7 @@ const Footer = () => {
                           <li className="pb-2">
                             <Link
                               className="text-sm text-gray-400 hover:text-[#c9b575]"
-                              to="/"
+                              to="/payment-plan"
                             >
                               Payment Plans
                             </Link>
@@ -288,22 +290,34 @@ const Footer = () => {
               <p className="text-center lg:text-left mb-4 lg:mb-0 text-sm text-white font-medium">
                 <ul className="flex">
                   <li className="mr-2">
-                    <Link className="text-3xl text-[#0866ff]">
+                    <Link
+                      to="https://rb.gy/fgbeh7"
+                      target="_blank"
+                      className="text-3xl text-[#0866ff]"
+                    >
                       <BsFacebook />
                     </Link>
                   </li>
                   <li className="mr-2">
-                    <Link className="text-3xl text-[#d82e7c]">
+                    <Link
+                      to="https://rb.gy/oo46bi"
+                      target="_blank"
+                      className="text-3xl text-[#d82e7c]"
+                    >
                       <FaInstagramSquare />
                     </Link>
                   </li>
                   <li className="mr-2">
-                    <Link className="text-3xl text-[#1fa3f4]">
+                    <Link
+                      to="https://rb.gy/arphgy"
+                      target="_blank"
+                      className="text-3xl text-[#1fa3f4]"
+                    >
                       <BsTwitter />
                     </Link>
                   </li>
                   <li className="mr-2">
-                    <Link>
+                    <Link to="https://rb.gy/p55o30" target="_blank">
                       <img src={tiktokIcon} />
                     </Link>
                   </li>
