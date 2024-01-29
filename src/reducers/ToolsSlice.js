@@ -107,6 +107,7 @@ const toolsSlice = createSlice({
       .addCase(generateAnswer.pending, (state) => {
         state.isLoading = true;
         state.message = null;
+        state.answer = null;
       })
       .addCase(generateAnswer.fulfilled, (state, { payload }) => {
         state.isLoading = false;
