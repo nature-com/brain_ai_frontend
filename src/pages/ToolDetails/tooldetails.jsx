@@ -12,7 +12,6 @@ import { useForm } from "react-hook-form";
 const Tooldetails = () => {
   const [prompt, setPrompt] = useState("");
   const [paragraph, setParagraph] = useState("");
-  const [loading, setLoading] = useState(false);
   const [tooldetails, setToolDetails] = useState();
   const { isLoading } = useSelector((state) => state.tools);
 
@@ -177,12 +176,18 @@ const Tooldetails = () => {
                         width="100"
                         height="100"
                       />
-                      <h2 className="text-2xl font-semibold pb-3 text-black">
-                        Your text will appear here
-                      </h2>
-                      <p className="text-base font-normal pb-3 text-black text-justify">
-                        {answer}
-                      </p>
+                      {answer ? (
+                        <>
+                          <pre className="text-base font-normal pb-3 text-black text-justify whitespace-pre-wrap">
+                            {answer}
+                          </pre>
+                        </>
+                      ) : (
+                        <h2 className="text-2xl font-semibold pb-3 text-black">
+                          Your text will appear here
+                        </h2>
+                      )}
+
                     </div>
                   </div>
                 </div>

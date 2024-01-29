@@ -218,6 +218,16 @@ const Plans = (props) => {
                               </h3>
                               <div className="bg-white rounded-2xl p-6">
                                 <ul>
+                                  {/* {plan.description.split('#').map((desc, ind) => (
+                                    <li key={ind} className="flex items-center text-base lg:text-base font-normal mb-5">
+                                      <BsFillCheckCircleFill
+                                        className="text-[#d0bd7b] mt-0 mr-2"
+                                        size={20}
+                                      />
+                                      {' '}
+                                      {desc}
+                                    </li>
+                                  ))} */}
                                   <li className="flex items-center text-base lg:text-base font-normal mb-5">
                                     <BsFillCheckCircleFill
                                       className="text-[#d0bd7b] mt-0 mr-2"
