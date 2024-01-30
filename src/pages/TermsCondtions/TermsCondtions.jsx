@@ -38,7 +38,9 @@ const TermsCondtions = () => {
           Statement, which also governs the Site and informs users of our data
           collection practices.
         </p>
-        <h3>Electronic Communications</h3>
+        <h3 className="text-xl lg:text-2xl text-center md:text-left font-semibold text-black pb-4 pt-2 mb-0">
+          Electronic communications 
+        </h3>
         <p className="text-sm lg:text-base pb-4">
           Visiting{" "}
           <Link className="text-[#af8a3d] hover:text-black" to="/">
@@ -52,7 +54,7 @@ const TermsCondtions = () => {
           writing.
         </p>
         <h3 className="text-xl lg:text-2xl text-center md:text-left font-semibold text-black pb-4 pt-2 mb-0">
-          Your Account
+          You’re account 
         </h3>
         <p className="text-sm lg:text-base pb-4">
           If you use this site, you are responsible for maintaining the
@@ -67,7 +69,7 @@ const TermsCondtions = () => {
           or edit content in our sole discretion.
         </p>
         <h3 className="text-xl lg:text-2xl text-center md:text-left font-semibold text-black pb-4 pt-2 mb-0">
-          Users Under Age Eighteen
+          Users under age eighteen 
         </h3>
         <p className="text-sm lg:text-base pb-4">
           AzzyWrites requires all logged-in users to indicate whether they are
@@ -76,10 +78,10 @@ const TermsCondtions = () => {
           experience, with certain features and email communications disabled.
           We are undertaking all practicable steps to anonymize the activity of
           users under the age of eighteen. More information can be found in our
-          Privacy Statement.
+          Privacy Statement. 
         </p>
         <h3 className="text-xl lg:text-2xl text-center md:text-left font-semibold text-black pb-4 pt-2 mb-0">
-          Cancellation/Refund Policy
+          Cancellation/Refund policy
         </h3>
         <p className="text-sm lg:text-base pb-4">
           You may cancel your AzzyWrites.com account at any time
@@ -92,10 +94,10 @@ const TermsCondtions = () => {
           you will not use the Site for any purpose that is unlawful or
           prohibited by these Terms. You may not use the Site in any manner
           which could damage, disable, overburden, or impair the Site or
-          interfere with any other party&#39;s use and enjoyment of the Site.
-          You may not obtain or attempt to obtain any materials or information
+          interfere with any other party's use and enjoyment of the Site. You
+          may not obtain or attempt to obtain any materials or information
           through any means not intentionally made available or provided for
-          through the Site.
+          through the Site. 
         </p>
         <p className="text-sm lg:text-base pb-4">
           All content included as part of the Service, such as text, graphics,
@@ -119,10 +121,10 @@ const TermsCondtions = () => {
           copyright owner. You agree that you do not acquire any ownership
           rights in any protected content. We do not grant you any licenses,
           express or implied, to the intellectual property of AzzyWrites.com or
-          our licensors except as expressly authorized by these Terms.
+          our licensors except as expressly authorized by these Terms. 
         </p>
         <h3 className="text-xl lg:text-2xl text-center md:text-left font-semibold text-black pb-4 pt-2 mb-0">
-          International Users
+          International users 
         </h3>
         <p className="text-sm lg:text-base pb-4">
           The Service is controlled, operated and administered by AzzyWrites.com
@@ -134,7 +136,7 @@ const TermsCondtions = () => {
           regulations.
         </p>
         <h3 className="text-xl lg:text-2xl text-center md:text-left font-semibold text-black pb-4 pt-2 mb-0">
-          Indemnification
+          Indemnification 
         </h3>
         <p className="text-sm lg:text-base pb-4">
           You agree to indemnify, defend and hold harmless AzzyWrites.com, its
@@ -150,65 +152,65 @@ const TermsCondtions = () => {
           fully cooperate with Conker in asserting any available defences.
         </p>
         <h3 className="text-xl lg:text-2xl text-center md:text-left font-semibold text-black pb-4 pt-2 mb-0">
-          Class Action Waiver
+          Class action waiver 
         </h3>
         <p className="text-sm lg:text-base pb-4">
-          Any arbitration under these Terms and Conditions will take place on an
+          Any arbitration under these terms and conditions will take place on an
           individual basis; class arbitrations and
-          class/representative/collective actions are not permitted. THE PARTIES
-          AGREE THAT A PARTY MAY BRING CLAIMS AGAINST THE OTHER ONLY IN
-          EACH&#39;S INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF OR CLASS MEMBER
-          IN ANY PUTATIVE CLASS, COLLECTIVE AND/ OR REPRESENTATIVE PROCEEDING,
-          SUCH AS IN THE FORM OF A PRIVATE ATTORNEY GENERAL ACTION AGAINST THE
-          OTHER. Further, unless both you and Conker agree otherwise, the
-          arbitrator may not consolidate more than one person&#39;s claims and
-          may not otherwise preside over any form of a representative or class
+          class/representative/collective actions are not permitted. the parties
+          agree that a party may bring claims against the other only in each's
+          individual capacity, and not as a plaintiff or class member in any
+          putative class, collective and/ or representative proceeding, such as
+          in the form of a private attorney general action against the other.
+          Further, unless both you and Conker agree otherwise, the arbitrator
+          may not consolidate more than one person's claims and may not
+          otherwise preside over any form of a representative or class
           proceeding.
         </p>
         <h3 className="text-xl lg:text-2xl text-center md:text-left font-semibold text-black pb-4 pt-2 mb-0">
-          Liability Disclaimer
+          Liability disclaimer 
         </h3>
         <p className="text-sm lg:text-base pb-4">
-          THE INFORMATION, SOFTWARE, PRODUCTS, AND SERVICES INCLUDED IN OR
-          AVAILABLE THROUGH THE SITE MAY INCLUDE INACCURACIES OR TYPOGRAPHICAL
-          ERRORS. CHANGES ARE PERIODICALLY ADDED TO THE INFORMATION HEREIN.
-          CONKER AND/OR ITS SUPPLIERS MAY MAKE IMPROVEMENTS AND/OR CHANGES IN
-          THE SITE AT ANY TIME.
+          The information, software, products, and services included in or
+          available through the site may include inaccuracies or typographical
+          errors. Changes are periodically added to the information herein.
+          Conker and/or its suppliers may make improvements and/or changes in
+          the site at any time. 
         </p>
         <p className="text-sm lg:text-base pb-4">
-          AzzyWrites.com AND/OR ITS SUPPLIERS MAKE NO REPRESENTATIONS ABOUT THE
-          SUITABILITY, RELIABILITY, AVAILABILITY, TIMELINESS, AND ACCURACY OF
-          THE INFORMATION, SOFTWARE, PRODUCTS, SERVICES AND RELATED GRAPHICS
-          CONTAINED ON THE SITE FOR ANY PURPOSE. TO THE MAXIMUM EXTENT PERMITTED
-          BY APPLICABLE LAW, ALL SUCH INFORMATION, SOFTWARE, PRODUCTS, SERVICES
-          AND RELATED GRAPHICS ARE PROVIDED &quot;AS IS&quot; WITHOUT WARRANTY
-          OR CONDITION OF ANY KIND. CONKER AND/OR ITS SUPPLIERS HEREBY DISCLAIM
-          ALL WARRANTIES AND CONDITIONS WITH REGARD TO THIS INFORMATION,
-          SOFTWARE, PRODUCTS, SERVICES AND RELATED GRAPHICS, INCLUDING ALL
-          IMPLIED WARRANTIES OR CONDITIONS OF MERCHANTABILITY, FITNESS FOR A
-          PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT.
+          azzywrites.com and/or its suppliers make no representations about the
+          suitability, reliability, availability, timeliness, and accuracy of
+          the information, software, products, services and related graphics
+          contained on the site for any purpose. To the maximum extent permitted
+          by applicable law, all such information, software, products, services
+          and related graphics are provided "as is" without warranty or
+          condition of any kind. Conker and/or its suppliers hereby disclaim all
+          warranties and conditions with regard to this information, software,
+          products, services and related graphics, including all implied
+          warranties or conditions of merchantability, fitness for a particular
+          purpose, title and non-infringement.
         </p>
         <p className="text-sm lg:text-base pb-4">
-          TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL
-          CONKER AND/OR ITS SUPPLIERS BE LIABLE FOR ANY DIRECT, INDIRECT,
-          PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-          WHATSOEVER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF USE,
-          DATA OR PROFITS, ARISING OUT OF OR IN ANY WAY CONNECTED WITH THE USE
-          OR PERFORMANCE OF THE SITE, WITH THE DELAY OR INABILITY TO USE THE
-          SITE OR RELATED SERVICES, THE PROVISION OF OR FAILURE TO PROVIDE
-          SERVICES, OR FOR ANY INFORMATION, SOFTWARE, PRODUCTS, SERVICES AND
-          RELATED GRAPHICS OBTAINED THROUGH THE SITE, OR OTHERWISE ARISING OUT
-          OF THE USE OF THE SITE, WHETHER BASED ON CONTRACT, TORT, NEGLIGENCE,
-          STRICT LIABILITY OR OTHERWISE, EVEN IF CONKER OR ANY OF ITS SUPPLIERS
-          HAS BEEN ADVISED OF THE POSSIBILITY OF DAMAGES. BECAUSE SOME
-          STATES/JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF
-          LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE ABOVE
-          LIMITATION MAY NOT APPLY TO YOU. IF YOU ARE DISSATISFIED WITH ANY
-          PORTION OF THE SITE, OR WITH ANY OF THESE TERMS OF USE, YOUR SOLE AND
-          EXCLUSIVE REMEDY IS TO DISCONTINUE USING THE SITE.
+          to the maximum extent permitted by applicable law, in no event shall
+          conker and/or its suppliers be liable for any direct, indirect,
+          punitive, incidental, special, consequential damages or any damages
+          whatsoever including, without limitation, damages for loss of use,
+          data or profits, arising out of or in any way connected with the use
+          or performance of the site, with the delay or inability to use the
+          site or related services, the provision of or failure to provide
+          services, or for any information, software, products, services and
+          related graphics obtained through the site, or otherwise arising out
+          of the use of the site, whether based on contract, tort, negligence,
+          strict liability or otherwise, even if conker or any of its suppliers
+          has been advised of the possibility of damages. Because some
+          states/jurisdictions do not allow the exclusion or limitation of
+          liability for consequential or incidental damages, the above
+          limitation may not apply to you. if you are dissatisfied with any
+          portion of the site, or with any of these terms of use, you’re sole
+          and exclusive remedy is to discontinue using the site.
         </p>
         <h3 className="text-xl lg:text-2xl text-center md:text-left font-semibold text-black pb-4 pt-2 mb-0">
-          Termination/Access Restriction
+          Termination/Access restriction 
         </h3>
         <p className="text-sm lg:text-base pb-4">
           AzzyWrites.com reserves the right, in its sole discretion, to
@@ -221,7 +223,7 @@ const TermsCondtions = () => {
           all provisions of these Terms, including, without limitation, this
           section. You agree that no joint venture, partnership, employment, or
           agency relationship exists between you and AzzyWrites.com as a result
-          of this agreement or use of the Site.
+          of this agreement or use of the Site. 
         </p>
         <p className="text-sm lg:text-base pb-4">
           You agree that no joint venture, partnership, employment, or agency
@@ -254,23 +256,16 @@ const TermsCondtions = () => {
           documents be written in English.
         </p>
         <h3 className="text-xl lg:text-2xl text-center md:text-left font-semibold text-black pb-4 pt-2 mb-0">
-          Changes to Terms
+          Changes to terms 
         </h3>
         <p className="text-sm lg:text-base pb-4">
           AzzyWrites.com reserves the right, in its sole discretion, to change
-          the Terms under which The Site is offered, for example to reflect
+          the Terms, under which The Site is offered, for example to reflect
           changes to the law or changes to our Services. The most current
           version of the Terms will supersede all previous versions, and we will
           notify you about material changes by sending a notice to the primary
           email address specified in your account, by placing a prominent notice
           on our site, and by updating this page.
-        </p>
-        <h3 className="text-xl lg:text-2xl text-center md:text-left font-semibold text-black pb-4 pt-2 mb-0">
-          Contact Us
-        </h3>
-        <p className="text-sm lg:text-base pb-4">
-          AzzyWrites.com welcomes your questions or comments regarding the
-          Terms:   support@ AzzyWrites.com
         </p>
       </div>
     </div>

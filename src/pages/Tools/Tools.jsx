@@ -110,7 +110,7 @@ const Tools = () => {
               <div className="flex mt-10">
                 <div className="w-8/12">
                   <p className="text-black text-base text-justify">
-                    Welcome to Azzywrites, the ultimate AI assistant designed to
+                    Azzywrites, the ultimate AI assistant designed to
                     revolutionise the way you learn and work! AzzyWrites is not
                     just another run-of-the-mill AI tool; it is a powerful and
                     intuitive platform that aims to enhance your productivity
