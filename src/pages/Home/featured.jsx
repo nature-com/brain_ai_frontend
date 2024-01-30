@@ -1,6 +1,13 @@
 import React, { useRef, useEffect, useState, Suspense } from "react";
 import { featured01, featured02, featured03 } from "../../assets/images/images";
+import { Link } from "react-router-dom";
+import Login from "../Auth/login";
 const Featured = () => {
+  const handleOpenModal = () => {
+    setOpenLoginModal(true);
+  };
+
+  const [openLoginModal, setOpenLoginModal] = useState(false);
   return (
     <div>
       {/* Featured section start here */}
@@ -12,15 +19,15 @@ const Featured = () => {
             data-aos-duration="1500"
           >
             <h2 className="text-2xl lg:text-4xl font-semibold text-black pb-4 pt-0 mb-0">
-              FEATURES READY FOR SCHOOL
+              FEATURES
             </h2>
             <div>
-              <a
+              <Link
                 className="bg-[#d0bd7b] text-sm lg:text-lg font-medium text-white rounded-full px-4 lg:px-8 py-3 lg:py-4 hover:bg-[#d0bd7b]"
-                href="#"
+                onClick={handleOpenModal}
               >
                 Get Started
-              </a>
+              </Link>
             </div>
           </div>
           <div className="mt-8 mb-0 lg:mb-12">
@@ -81,6 +88,12 @@ const Featured = () => {
         </div>
       </div>
       {/* Featured section ends here */}
+      {openLoginModal && (
+        <Login
+          openLoginModal={openLoginModal}
+          setOpenLoginModal={setOpenLoginModal}
+        />
+      )}
     </div>
   );
 };

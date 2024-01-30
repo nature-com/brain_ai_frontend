@@ -47,10 +47,10 @@ const Reviews = () => {
               </div>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="bg-white rounded-md p-4 text-center review_box">
-                  <img
+                  {/* <img
                     src={review01}
                     className="inline-block rounded-full mb-4 shadow-md"
-                  />
+                  /> */}
                   <p className="text-[#b08d57] text-base font-medium mb-3">
                     Sarah M.
                   </p>
@@ -70,10 +70,10 @@ const Reviews = () => {
                 </div>
 
                 <div className="bg-white rounded-md p-4 text-center review_box">
-                  <img
+                  {/* <img
                     src={review02}
                     className="inline-block rounded-full mb-4 shadow-md"
-                  />
+                  /> */}
                   <p className="text-[#b08d57] text-base font-medium mb-3">
                     Kim E
                   </p>
@@ -92,10 +92,10 @@ const Reviews = () => {
                 </div>
 
                 <div className="bg-white rounded-md p-4 text-center review_box">
-                  <img
+                  {/* <img
                     src={review03}
                     className="inline-block rounded-full mb-4 shadow-md"
-                  />
+                  /> */}
                   <p className="text-[#b08d57] text-base font-medium mb-3">
                     Emily R
                   </p>
@@ -114,10 +114,10 @@ const Reviews = () => {
                 </div>
 
                 <div className="bg-white rounded-md p-4 text-center review_box">
-                  <img
+                  {/* <img
                     src={review04}
                     className="inline-block rounded-full mb-4 shadow-md"
-                  />
+                  /> */}
                   <p className="text-[#b08d57] text-base font-medium mb-3">
                     Alex T
                   </p>
@@ -137,10 +137,10 @@ const Reviews = () => {
                 </div>
 
                 <div className="bg-white rounded-md p-4 text-center review_box">
-                  <img
+                  {/* <img
                     src={review05}
                     className="inline-block rounded-full mb-4 shadow-md"
-                  />
+                  /> */}
                   <p className="text-[#b08d57] text-base font-medium mb-3">
                     Jeet W
                   </p>
@@ -160,10 +160,10 @@ const Reviews = () => {
                 </div>
 
                 <div className="bg-white rounded-md p-4 text-center review_box">
-                  <img
+                  {/* <img
                     src={review06}
                     className="inline-block rounded-full mb-4 shadow-md"
-                  />
+                  /> */}
                   <p className="text-[#b08d57] text-base font-medium mb-3">
                     Suneeta S
                   </p>
@@ -182,10 +182,10 @@ const Reviews = () => {
                 </div>
 
                 <div className="bg-white rounded-md p-4 text-center review_box">
-                  <img
+                  {/* <img
                     src={review07}
                     className="inline-block rounded-full mb-4 shadow-md"
-                  />
+                  /> */}
                   <p className="text-[#b08d57] text-base font-medium mb-3">
                     Samantha H
                   </p>
@@ -205,10 +205,10 @@ const Reviews = () => {
                 </div>
 
                 <div className="bg-white rounded-md p-4 text-center review_box">
-                  <img
+                  {/* <img
                     src={review08}
                     className="inline-block rounded-full mb-4 shadow-md"
-                  />
+                  /> */}
                   <p className="text-[#b08d57] text-base font-medium mb-3">
                     David B
                   </p>
@@ -227,10 +227,10 @@ const Reviews = () => {
                 </div>
 
                 <div className="bg-white rounded-md p-4 text-center review_box">
-                  <img
+                  {/* <img
                     src={review09}
                     className="inline-block rounded-full mb-4 shadow-md"
-                  />
+                  /> */}
                   <p className="text-[#b08d57] text-base font-medium mb-3">
                     Maria K.F
                   </p>
@@ -250,10 +250,10 @@ const Reviews = () => {
                 </div>
 
                 <div className="bg-white rounded-md p-4 text-center review_box">
-                  <img
+                  {/* <img
                     src={review10}
                     className="inline-block rounded-full mb-4 shadow-md"
-                  />
+                  /> */}
                   <p className="text-[#b08d57] text-base font-medium mb-3">
                     Andrew T
                   </p>
@@ -273,10 +273,10 @@ const Reviews = () => {
                 </div>
 
                 <div className="bg-white rounded-md p-4 text-center review_box">
-                  <img
+                  {/* <img
                     src={review11}
                     className="inline-block rounded-full mb-4 shadow-md"
-                  />
+                  /> */}
                   <p className="text-[#b08d57] text-base font-medium mb-3">
                     Aisha S
                   </p>
@@ -296,10 +296,10 @@ const Reviews = () => {
                 </div>
 
                 <div className="bg-white rounded-md p-4 text-center review_box">
-                  <img
+                  {/* <img
                     src={review12}
                     className="inline-block rounded-full mb-4 shadow-md"
-                  />
+                  /> */}
                   <p className="text-[#b08d57] text-base font-medium mb-3">
                     Ashley W
                   </p>
@@ -321,10 +321,10 @@ const Reviews = () => {
                 </div>
 
                 <div className="bg-white rounded-md p-4 text-center review_box">
-                  <img
+                  {/* <img
                     src={review13}
                     className="inline-block rounded-full mb-4 shadow-md"
-                  />
+                  /> */}
                   <p className="text-[#b08d57] text-base font-medium mb-3">
                     Aled T
                   </p>
@@ -346,10 +346,10 @@ const Reviews = () => {
                 </div>
 
                 <div className="bg-white rounded-md p-4 text-center review_box">
-                  <img
+                  {/* <img
                     src={review14}
                     className="inline-block rounded-full mb-4 shadow-md"
-                  />
+                  /> */}
                   <p className="text-[#b08d57] text-base font-medium mb-3">
                     Zain F
                   </p>

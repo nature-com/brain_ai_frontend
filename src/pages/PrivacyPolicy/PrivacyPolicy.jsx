@@ -6,6 +6,33 @@ const PrivacyPolicy = () => {
     <div className="max-w-6xl mx-auto py-5 px-6 lg:px-0">
       <div className="benefit_section my-0 lg:my-8">
         <h2 className="text-2xl lg:text-4xl text-center md:text-left font-semibold text-black pb-2 pt-6 mb-0">
+          OUR PRIVACY PRINCIPLES
+        </h2>
+        <p className="text-sm lg:text-base pb-4">
+          At AzzyWrites.com we have 5 Privacy Promises which explain how we use
+          and look after your information. We will:
+        </p>
+        <ul className="ml-5">
+          <li className="list-decimal">
+            ALWAYS use your personal data in line with data protection law.
+          </li>
+          <li className="list-decimal">
+            ALWAYS tell you what information we collect, what we do with it, who
+            we share it with and who to contact if you have any concerns.
+          </li>
+          <li className="list-decimal">
+            ALWAYS provide options to say 'STOP' if you don’t want marketing
+            communications.
+          </li>
+          <li className="list-decimal">
+            4.ALWAYS take steps to protect your information and make sure no
+            unauthorised person accesses it. 
+          </li>
+          <li className="list-decimal">
+            ALWAYS respond to questions about your personal data without delay.
+          </li>
+        </ul>
+        <h2 className="text-2xl lg:text-4xl text-center md:text-left font-semibold text-black pb-2 pt-6 mb-0">
           Our Privacy Policy
         </h2>
         <p className="text-sm lg:text-base pb-4">
@@ -391,8 +418,7 @@ const PrivacyPolicy = () => {
           If you think that the processing of Personal Data by us violates data
           protection laws, you can lodge a complaint with the Information
           Commissioner in the UK (www.ico.org.uk) or the Data Protection
-          Commissioner in the Republic of Ireland (www.dataprotection.ie).  Go
-          to top
+          Commissioner in the Republic of Ireland (www.dataprotection.ie).
         </p>
         <h3 className="text-xl lg:text-2xl text-center md:text-left font-semibold text-black pb-4 pt-2 mb-0">
           11. HOW DO WE PROTECT YOUR PERSONAL DATA?

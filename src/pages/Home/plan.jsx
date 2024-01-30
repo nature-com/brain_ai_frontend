@@ -15,7 +15,7 @@ const Plan = () => {
             data-aos-duration="1500"
           >
             <h2 className="text-2xl lg:text-4xl font-semibold text-black pb-4 pt-6 mb-0 lg:mb-6">
-              PLAN
+              OUR PRICING & PLANS
             </h2>
             <p className="text-gray-400 text-base lg:text-lg font-medium pb-10">
               CHOOSE THE PLAN THAT’S RIGHT FOR YOU!
@@ -127,7 +127,7 @@ const Plan = () => {
                           <div className="text-center pt-6 pb-4">
                             <Link
                               className="bg-slate-100 shadow-xl rounded-2xl text-sm lg:text-base font-medium text-[#ae9258] px-6 lg:px-10 py-3 lg:py-4 hover:bg-white"
-                              to="/"
+                              to="/registration"
                             >
                               Signup Now
                             </Link>
@@ -219,7 +219,7 @@ const Plan = () => {
                           <div className="text-center pt-6 pb-4">
                             <Link
                               className="bg-[#c2aa6d] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#d0bd7b]"
-                              to="/"
+                              to="/registration"
                             >
                               Signup Now
                             </Link>
@@ -318,7 +318,7 @@ const Plan = () => {
                           <div className="text-center pt-6 pb-4">
                             <Link
                               className="bg-[#9da4b0] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#b1b7c2]"
-                              to="/"
+                              to="/registration"
                             >
                               Signup Now
                             </Link>
@@ -427,7 +427,7 @@ const Plan = () => {
                           <div className="text-center pt-6 pb-4">
                             <Link
                               className="bg-slate-100 shadow-xl rounded-2xl text-sm lg:text-base font-medium text-[#ae9258] px-6 lg:px-10 py-3 lg:py-4 hover:bg-white"
-                              to="/"
+                              to="/registration"
                             >
                               Signup Now
                             </Link>
@@ -519,7 +519,7 @@ const Plan = () => {
                           <div className="text-center pt-6 pb-4">
                             <Link
                               className="bg-[#c2aa6d] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#d0bd7b]"
-                              to="/"
+                              to="/registration"
                             >
                               Signup Now
                             </Link>
@@ -618,7 +618,7 @@ const Plan = () => {
                           <div className="text-center pt-6 pb-4">
                             <Link
                               className="bg-[#9da4b0] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#b1b7c2]"
-                              to="/"
+                              to="/registration"
                             >
                               Signup Now
                             </Link>

@@ -28,7 +28,7 @@ const Blog = () => {
           <ul className="flex justify-center items-center mb-4">
             <li className="mr-3 text-center">
               <Link
-                to="https://rb.gy/fgbeh7"
+                to="http://tinyurl.com/ycycuk23"
                 target="_blank"
                 className="text-6xl text-[#0866ff] flex justify-center items-center"
               >

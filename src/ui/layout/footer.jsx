@@ -60,12 +60,15 @@ const Footer = () => {
             <div className="flex-none lg:flex justify-between">
               <div className="w-full lg:w-5/12">
                 <div className="footer_top_area_left text-center lg:text-left">
-                  <h2 className="text-2xl lg:text-4xl font-bold text-[#c0a35b] mb-3 lg:mb-6">
-                    People are Saying About DoWhith
+                  <h2 className="text-[20px] font-bold text-[#c0a35b] mb-3 lg:mb-6">
+                    With over 40 innovative tools at your fingertips, you'll be
+                    amazed at how effortlessly you can accomplish more in less
+                    time. Say goodbye to tedious manual work and let AzzyWrites
+                    take care of the intelligent heavy lifting for you.
                   </h2>
                   <p className="text-sm lg:text-base font-medium text-white mb-6">
-                    Everything you need to accept to payment and grow your money
-                    of manage anywhere on planet
+                    Embrace the future of productivity and unlock a world of
+                    efficiency with AzzyWrites.
                   </p>
                 </div>
               </div>
@@ -182,7 +185,7 @@ const Footer = () => {
                     height="73"
                   />
                   <p className="text-sm font-medium text-gray-400 pb-4">
-                    Subscribe to AzzyWrites emails
+                    Subscribe to our Newsletter
                   </p>
                   <div className="newslatter_box">
                     <form>
@@ -199,14 +202,6 @@ const Footer = () => {
                       <div className="bottom_quick_link_box">
                         <h3 className="text-lg text-white pb-4">Support</h3>
                         <ul>
-                          <li className="pb-2">
-                            <Link
-                              className="text-sm text-gray-400 hover:text-[#c9b575]"
-                              to="/contact"
-                            >
-                              Help centre
-                            </Link>
-                          </li>
                           <li className="pb-2">
                             <Link
                               className="text-sm text-gray-400 hover:text-[#c9b575]"
@@ -230,14 +225,6 @@ const Footer = () => {
                       <div className="bottom_quick_link_box">
                         <h3 className="text-lg text-white pb-4">Company</h3>
                         <ul>
-                          <li className="pb-2">
-                            <Link
-                              className="text-sm text-gray-400 hover:text-[#c9b575]"
-                              to="/terms-and-condtions"
-                            >
-                              Terms of Use
-                            </Link>
-                          </li>
                           <li className="pb-2">
                             <Link
                               className="text-sm text-gray-400 hover:text-[#c9b575]"
@@ -291,7 +278,7 @@ const Footer = () => {
                 <ul className="flex">
                   <li className="mr-2">
                     <Link
-                      to="https://rb.gy/fgbeh7"
+                      to="http://tinyurl.com/ycycuk23"
                       target="_blank"
                       className="text-3xl text-[#0866ff]"
                     >
@@ -374,7 +361,7 @@ const Footer = () => {
               <input
                 type="text"
                 className="rounded-full text-[15px] font-medium px-5 h-12 border border-slate-400 border-solid w-full mb-4"
-                placeholder="First Name"
+                placeholder="Email"
               />
               <div className="flex mt-2">
                 <button

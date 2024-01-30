@@ -68,6 +68,7 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
         className="relative"
         show={openLoginModal}
         onClose={() => setOpenLoginModal(false)}
+        size="3xl"
       >
         <Modal.Header className="border-0 p-0 m-0 absolute z-10 right-1 top-1">
           &nbsp;
@@ -171,10 +172,20 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
                 </div>
                 <p className="text-xs text-gray-600 text-center p-0 m-0">
                   By Signing up, you agree to our{" "}
-                  <Link className="pl-1 text-[#ba9e63] hover:text-gray-600">
-                    Terms of Service
+                  <Link
+                    to="/terms-and-condtions"
+                    className="pl-1 text-[#ba9e63] hover:text-gray-600"
+                  >
+                    Terms and conditions
                   </Link>{" "}
-                  and Privacy Policy and occasionally receive emails from us.
+                  and{" "}
+                  <Link
+                    to="/privacy-policy"
+                    className="pl-1 text-[#ba9e63] hover:text-gray-600"
+                  >
+                    Privacy Policy
+                  </Link>{" "}
+                  and occasionally receive emails from us.
                 </p>
               </div>
             </div>

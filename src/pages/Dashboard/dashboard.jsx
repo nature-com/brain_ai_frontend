@@ -242,7 +242,7 @@ const Dashboard = () => {
                               <ul className="flex justify-center">
                                 <li className="mr-1">
                                   <Link
-                                    to="https://rb.gy/fgbeh7"
+                                    to="http://tinyurl.com/ycycuk23"
                                     target="_blank"
                                     className="text-2xl text-[#0866ff] opacity-100 hover:opacity-50"
                                   >

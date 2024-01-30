@@ -24,18 +24,18 @@ const Support = () => {
                 </h2>
                 <p className="text-base text-gray-400 font-medium pb-8 lg:pb-12">
                   AzzyWrites is an exceptional AI tool that provides
-                  unparalleled assistance to students in various fields. With
-                  its advanced capabilities, AzzyWrites offers a seamless
-                  experience to users seeking support in writing, coding, and
-                  learning in general. Its natural language processing abilities
-                  allow it to generate coherent and informative responses,
-                  making it an invaluable resource for students who need help
-                  with their assignments or projects. AzzyWrites is
-                  user-friendly and reliable, ensuring that students can rely on
-                  it to provide accurate and relevant information. Its extensive
-                  knowledge base enables it to offer comprehensive explanations
-                  and guidance on a wide range of topics, empowering students to
-                  deepen their understanding and improve their skills.
+                  unparalleled assistance to members in various fields. With its
+                  advanced capabilities, AzzyWrites offers a seamless experience
+                  to users seeking support in writing, coding, and learning in
+                  general. Its natural language processing abilities allow it to
+                  generate coherent and informative responses, making it an
+                  invaluable resource for members who need help with their
+                  assignments or projects. We are a user-friendly and reliable,
+                  ensuring that members can rely on it to provide accurate and
+                  relevant information. Its extensive knowledge base enables it
+                  to offer comprehensive explanations and guidance on a wide
+                  range of topics, empowering members to deepen their
+                  understanding and improve their skills.
                 </p>
 
                 {/* <div>
@@ -59,7 +59,7 @@ const Support = () => {
                 <ul>
                   <li className="flex">
                     <div className="w-1/12">
-                      <img src={activityIcon} width="" height="" />
+                      <img src={pieChartIcon} width="" height="" />
                     </div>
                     <div className="support_right_cont w-11/12 pl-6">
                       <h3 className="text-xl lg:text-2xl font-bold text-black pb-2 lg:pb-4">
@@ -67,14 +67,14 @@ const Support = () => {
                       </h3>
                       <p className="text-base lg:text-lg text-gray-400 font-medium pb-8">
                         AzzyWrites can be a game-changer for individuals looking
-                        to optimize their productivity and save time in various
+                        to optimise their productivity and save time in various
                         academic and professional endeavours.
                       </p>
                     </div>
                   </li>
                   <li className="flex">
                     <div className="w-1/12">
-                      <img src={pieChartIcon} width="" height="" />
+                      <img src={activityIcon} width="" height="" />
                     </div>
                     <div className="support_right_cont w-11/12 pl-6">
                       <h3 className="text-xl lg:text-2xl font-bold text-black pb-2 lg:pb-4">
