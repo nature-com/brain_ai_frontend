@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { BsFillCheckCircleFill } from "react-icons/bs";
+import { AiFillCloseCircle } from "react-icons/ai";
 const Plan = () => {
   return (
     <div>
@@ -37,96 +38,128 @@ const Plan = () => {
                 <div className="plan_list_area">
                   <div className="flex-none md:flex justify-center">
                     <div className="w-full md:w-5/12 lg:w-4/12 mx-0 md:mx-2 mb-4 lg:mb-0">
-                      <div className="bg-slate-100 py-6 px-5 rounded-2xl shadow-xl mt-6">
-                        <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-3">
-                          Silver Plan
-                        </h2>
-                        <p className="text-center text-base lg:text-lg font-normal text-black pb-2">
-                          3 Day Free Trial
-                        </p>
-                        <p className="text-center text-base lg:text-lg font-medium text-gray-400 pb-2">
-                          Introductory price
-                        </p>
-                        <h3 className="text-center text-lg font-medium text-black pb-3">
-                          £
-                          <span className="text-center text-3xl font-bold text-black pb-6">
-                            6{" "}
-                            <span className="text-center text-lg font-medium text-black">
-                              / month
+                      <div className="bg-white py-0 px-0 rounded-2xl shadow-xl mt-6">
+                        <div className="silver_plan_box pt-8 pb-14">
+                          <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
+                            Silver Plan
+                          </h2>
+                          <p className="text-center text-base lg:text-lg font-normal text-black pb-1">
+                            3 Day Free Trial
+                          </p>
+                          <h3 className="text-center text-lg font-medium text-black pb-3">
+                            £
+                            <span className="text-center text-3xl font-bold text-black pb-6">
+                              6{" "}
+                              <span className="text-center text-lg font-medium text-black">
+                                / month
+                              </span>
                             </span>
-                          </span>
-                        </h3>
-                        <h3 className="text-center text-lg font-medium text-black pb-3 line-through">
-                          £
-                          <span className="text-center text-3xl font-bold text-black pb-6">
-                            8{" "}
-                            <span className="text-center text-lg font-medium text-black">
-                              / month
-                            </span>
-                          </span>
-                        </h3>
+                          </h3>
+                        </div>
                         <div className="bg-white rounded-2xl p-6">
                           <ul>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
-                              All AI Tools
+                              All Basic Tools
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
-                              Unlimited AI outputs
+                              Unlimited AI Outputs
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Paragraph Generator
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Essay Writer
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Class Assistant
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Coding Tools
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Writing Tools
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Language Tutor Tools
                             </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              Maths and Science
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              Plagiarism Checker
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              Speech To Text
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              Create custom Past Paper Test
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              AI Detector
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              Image Describer
+                            </li>
                           </ul>
                           <div className="text-center pt-6 pb-4">
                             <Link
-                              className="bg-slate-100 shadow-xl rounded-2xl text-sm lg:text-base font-medium text-[#ae9258] px-6 lg:px-10 py-3 lg:py-4 hover:bg-white"
+                              className="bg-[#bababa] shadow-xl rounded-2xl text-sm lg:text-base font-medium text-black px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#e1e1e1]"
                               to="/registration"
                             >
                               Signup Now
@@ -140,85 +173,128 @@ const Plan = () => {
                     </div>
 
                     <div className="w-full md:w-5/12 lg:w-4/12 mx-0 md:mx-2 mb-4 lg:mb-0">
-                      <div className="bg-[#c9b575] py-6 px-5 rounded-2xl shadow-xl mt-6">
-                        <h2 className="text-center text-2xl lg:text-3xl font-bold text-white pb-3">
-                          Gold Plan
-                        </h2>
-                        <p className="text-center text-base lg:text-lg font-medium text-white pb-3">
-                          3 Day Free Trial
-                        </p>
-                        <p className="text-center text-base lg:text-lg font-bold text-white pb-3">
-                          Introductory price
-                        </p>
-                        <h3 className="text-center text-lg font-medium text-white pb-3">
-                          £
-                          <span className="text-center text-3xl font-bold text-white pb-6">
-                            8
-                            <span className="text-center text-lg font-medium text-white">
-                              / month
+                      <div className="bg-white py-0 px-0 rounded-2xl shadow-xl mt-6">
+                        <div className="gold_plan_box pt-8 pb-14">
+                          <h2 className="text-center text-2xl lg:text-3xl font-bold text-white pb-2">
+                            Gold Plan
+                          </h2>
+                          <p className="text-center text-base lg:text-lg font-medium text-white pb-1">
+                            3 Day Free Trial
+                          </p>
+                          <h3 className="text-center text-lg font-medium text-white pb-3">
+                            £
+                            <span className="text-center text-3xl font-bold text-white pb-6">
+                              8
+                              <span className="text-center text-lg font-medium text-white">
+                                / month
+                              </span>
                             </span>
-                          </span>
-                        </h3>
-                        <h3 className="text-center text-lg font-medium text-white pb-3 line-through">
-                          £
-                          <span className="text-center text-3xl font-bold text-white pb-6">
-                            13
-                            <span className="text-center text-lg font-medium text-white">
-                              / month
-                            </span>
-                          </span>
-                        </h3>
+                          </h3>
+                        </div>
                         <div className="bg-white rounded-2xl p-6">
                           <ul>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
-                              All AI Tools
+                              All Silver Plan Tools
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
-                              Unlimited AI outputs
+                              Unlimited AI Outputs
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
-                              All Tools from Silver plan
+                              Paragraph Generator
                             </li>
-                          </ul>
-                          <h3 className="text-center pb-4 font-bold">PLUS</h3>
-                          <ul>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Essay Writer
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Class Assistant
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Coding Tools
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Writing Tools
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Language Tutor Tools
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Maths and Science
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Plagiarism Checker
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Speech To Text
                             </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              Create custom Past Paper Test
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              AI Detector
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              Image Describer
+                            </li>
                           </ul>
                           <div className="text-center pt-6 pb-4">
                             <Link
-                              className="bg-[#c2aa6d] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#d0bd7b]"
+                              className="bg-[#ef9b0f] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#fbc873]"
                               to="/registration"
                             >
                               Signup Now
@@ -232,92 +308,128 @@ const Plan = () => {
                     </div>
 
                     <div className="w-full md:w-5/12 lg:w-4/12 mx-0 md:mx-2 mb-4 lg:mb-0">
-                      <div className="bg-[#e0e1e1] py-6 px-5 rounded-2xl shadow-xl mt-6">
-                        <h2 className="text-center text-2xl lg:text-3xl font-bold text-[#c9b575] pb-3">
-                          Platinum Plan
-                        </h2>
-                        <p className="text-center text-base lg:text-lg font-medium text-black pb-3">
-                          3 Day Free Trial
-                        </p>
-                        <p className="text-center text-base lg:text-lg font-bold text-[#9da4b0] pb-3">
-                          Introductory price
-                        </p>
-                        <h3 className="text-center text-lg font-medium text-black pb-3">
-                          £
-                          <span className="text-center text-3xl font-bold text-black pb-6">
-                            10
-                            <span className="text-center text-lg font-medium text-black">
-                              / month
+                      <div className="bg-white py-0 px-0 rounded-2xl shadow-xl mt-6">
+                        <div className="platinum_plan_box pt-8 pb-14">
+                          <h2 className="text-center text-2xl lg:text-3xl font-bold text-white pb-2">
+                            Platinum Plan
+                          </h2>
+                          <p className="text-center text-base lg:text-lg font-medium text-white pb-1">
+                            3 Day Free Trial
+                          </p>
+                          <h3 className="text-center text-lg font-medium text-white pb-3">
+                            £
+                            <span className="text-center text-3xl font-bold text-white pb-6">
+                              10
+                              <span className="text-center text-lg font-medium text-white">
+                                / month
+                              </span>
                             </span>
-                          </span>
-                        </h3>
-                        <h3 className="text-center text-lg font-medium text-[#9da4b0] pb-3 line-through">
-                          £
-                          <span className="text-center text-3xl font-bold text-[#9da4b0] pb-6">
-                            15
-                            <span className="text-center text-lg font-medium text-[#9da4b0]">
-                              / month
-                            </span>
-                          </span>
-                        </h3>
+                          </h3>
+                        </div>
                         <div className="bg-white rounded-2xl p-6">
                           <ul>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
-                              All AI Tools
+                              All Silver and Gold Plan Tools
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
-                              Unlimited AI outputs
+                              Unlimited AI Outputs
                             </li>
-                            <li className="flex items-start text-base lg:text-base font-normal mb-5">
-                              <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
-                                size={20}
-                              />
-                              All Tools from Silver and Gold plan
-                            </li>
-                          </ul>
-                          <h3 className="text-center pb-4 font-bold">PLUS</h3>
-                          <ul>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Paragraph Generator
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Essay Writer
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Class Assistant
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Coding Tools
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Writing Tools
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Language Tutor Tools
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Maths and Science
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Plagiarism Checker
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Speech To Text
                             </li>
-                            <li className="flex items-start text-base lg:text-base font-normal mb-5">
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
-                              Create your own custom test with AI
+                              Create custom Past Paper Test
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               AI Detector
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
-                              Image describer
+                              Image Describer
                             </li>
                           </ul>
                           <div className="text-center pt-6 pb-4">
                             <Link
-                              className="bg-[#9da4b0] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#b1b7c2]"
+                              className="bg-[#0091f7] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#71c2fb]"
                               to="/registration"
                             >
                               Signup Now
@@ -337,96 +449,128 @@ const Plan = () => {
                 <div className="plan_list_area">
                   <div className="flex-none md:flex justify-center">
                     <div className="w-full md:w-5/12 lg:w-4/12 mx-0 md:mx-2 mb-4 lg:mb-0">
-                      <div className="bg-slate-100 py-6 px-5 rounded-2xl shadow-xl mt-6">
-                        <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-3">
-                          Silver Plan
-                        </h2>
-                        <p className="text-center text-base lg:text-lg font-normal text-black pb-2">
-                          3 Day Free Trial
-                        </p>
-                        <p className="text-center text-base lg:text-lg font-medium text-gray-400 pb-2">
-                          Introductory price
-                        </p>
-                        <h3 className="text-center text-lg font-medium text-black pb-3">
-                          £
-                          <span className="text-center text-3xl font-bold text-black pb-6">
-                            3{" "}
-                            <span className="text-center text-lg font-medium text-black">
-                              / month
+                      <div className="bg-white py-0 px-0 rounded-2xl shadow-xl mt-6">
+                        <div className="silver_plan_box pt-8 pb-14">
+                          <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
+                            Silver Plan
+                          </h2>
+                          <p className="text-center text-base lg:text-lg font-normal text-black pb-1">
+                            3 Day Free Trial
+                          </p>
+                          <h3 className="text-center text-lg font-medium text-black pb-3">
+                            £
+                            <span className="text-center text-3xl font-bold text-black pb-6">
+                              4
+                              <span className="text-center text-lg font-medium text-black">
+                                / month
+                              </span>
                             </span>
-                          </span>
-                        </h3>
-                        <h3 className="text-center text-lg font-medium text-black pb-3 line-through">
-                          £
-                          <span className="text-center text-3xl font-bold text-black pb-6">
-                            5{" "}
-                            <span className="text-center text-lg font-medium text-black">
-                              / month
-                            </span>
-                          </span>
-                        </h3>
+                          </h3>
+                        </div>
                         <div className="bg-white rounded-2xl p-6">
                           <ul>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
-                              All AI Tools
+                              All Basic Tools
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
-                              Unlimited AI outputs
+                              Unlimited AI Outputs
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Paragraph Generator
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Essay Writer
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Class Assistant
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Coding Tools
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Writing Tools
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Language Tutor Tools
                             </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              Maths and Science
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              Plagiarism Checker
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              Speech To Text
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              Create custom Past Paper Test
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              AI Detector
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              Image Describer
+                            </li>
                           </ul>
                           <div className="text-center pt-6 pb-4">
                             <Link
-                              className="bg-slate-100 shadow-xl rounded-2xl text-sm lg:text-base font-medium text-[#ae9258] px-6 lg:px-10 py-3 lg:py-4 hover:bg-white"
+                              className="bg-[#bababa] shadow-xl rounded-2xl text-sm lg:text-base font-medium text-black px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#e1e1e1]"
                               to="/registration"
                             >
                               Signup Now
@@ -440,85 +584,128 @@ const Plan = () => {
                     </div>
 
                     <div className="w-full md:w-5/12 lg:w-4/12 mx-0 md:mx-2 mb-4 lg:mb-0">
-                      <div className="bg-[#c9b575] py-6 px-5 rounded-2xl shadow-xl mt-6">
-                        <h2 className="text-center text-2xl lg:text-3xl font-bold text-white pb-3">
-                          Gold Plan
-                        </h2>
-                        <p className="text-center text-base lg:text-lg font-medium text-white pb-3">
-                          3 Day Free Trial
-                        </p>
-                        <p className="text-center text-base lg:text-lg font-bold text-white pb-3">
-                          Introductory price
-                        </p>
-                        <h3 className="text-center text-lg font-medium text-white pb-3">
-                          £
-                          <span className="text-center text-3xl font-bold text-white pb-6">
-                            6
-                            <span className="text-center text-lg font-medium text-white">
-                              / month
+                      <div className="bg-white py-0 px-0 rounded-2xl shadow-xl mt-6">
+                        <div className="gold_plan_box pt-8 pb-14">
+                          <h2 className="text-center text-2xl lg:text-3xl font-bold text-white pb-2">
+                            Gold Plan
+                          </h2>
+                          <p className="text-center text-base lg:text-lg font-medium text-white pb-1">
+                            3 Day Free Trial
+                          </p>
+                          <h3 className="text-center text-lg font-medium text-white pb-3">
+                            £
+                            <span className="text-center text-3xl font-bold text-white pb-6">
+                              6
+                              <span className="text-center text-lg font-medium text-white">
+                                / month
+                              </span>
                             </span>
-                          </span>
-                        </h3>
-                        <h3 className="text-center text-lg font-medium text-white pb-3 line-through">
-                          £
-                          <span className="text-center text-3xl font-bold text-white pb-6">
-                            9
-                            <span className="text-center text-lg font-medium text-white">
-                              / month
-                            </span>
-                          </span>
-                        </h3>
+                          </h3>
+                        </div>
                         <div className="bg-white rounded-2xl p-6">
                           <ul>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
-                              All AI Tools
+                              All Silver Plan Tools
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
-                              Unlimited AI outputs
+                              Unlimited AI Outputs
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
-                              All Tools from Silver plan
+                              Paragraph Generator
                             </li>
-                          </ul>
-                          <h3 className="text-center pb-4 font-bold">PLUS</h3>
-                          <ul>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Essay Writer
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Class Assistant
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Coding Tools
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Writing Tools
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Language Tutor Tools
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Maths and Science
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Plagiarism Checker
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Speech To Text
                             </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              Create custom Past Paper Test
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              AI Detector
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <AiFillCloseCircle
+                                className="text-[#d85c32] mt-0 mr-2"
+                                size={20}
+                              />
+                              Image Describer
+                            </li>
                           </ul>
                           <div className="text-center pt-6 pb-4">
                             <Link
-                              className="bg-[#c2aa6d] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#d0bd7b]"
+                              className="bg-[#ef9b0f] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#fbc873]"
                               to="/registration"
                             >
                               Signup Now
@@ -532,92 +719,128 @@ const Plan = () => {
                     </div>
 
                     <div className="w-full md:w-5/12 lg:w-4/12 mx-0 md:mx-2 mb-4 lg:mb-0">
-                      <div className="bg-[#e0e1e1] py-6 px-5 rounded-2xl shadow-xl mt-6">
-                        <h2 className="text-center text-2xl lg:text-3xl font-bold text-[#c9b575] pb-3">
-                          Platinum Plan
-                        </h2>
-                        <p className="text-center text-base lg:text-lg font-medium text-black pb-3">
-                          3 Day Free Trial
-                        </p>
-                        <p className="text-center text-base lg:text-lg font-bold text-[#9da4b0] pb-3">
-                          Introductory price
-                        </p>
-                        <h3 className="text-center text-lg font-medium text-black pb-3">
-                          £
-                          <span className="text-center text-3xl font-bold text-black pb-6">
-                            8
-                            <span className="text-center text-lg font-medium text-black">
-                              / month
+                      <div className="bg-white py-0 px-0 rounded-2xl shadow-xl mt-6">
+                        <div className="platinum_plan_box pt-8 pb-14">
+                          <h2 className="text-center text-2xl lg:text-3xl font-bold text-white pb-2">
+                            Platinum Plan
+                          </h2>
+                          <p className="text-center text-base lg:text-lg font-medium text-white pb-1">
+                            3 Day Free Trial
+                          </p>
+                          <h3 className="text-center text-lg font-medium text-white pb-3">
+                            £
+                            <span className="text-center text-3xl font-bold text-white pb-6">
+                              8
+                              <span className="text-center text-lg font-medium text-white">
+                                / month
+                              </span>
                             </span>
-                          </span>
-                        </h3>
-                        <h3 className="text-center text-lg font-medium text-[#9da4b0] pb-3 line-through">
-                          £
-                          <span className="text-center text-3xl font-bold text-[#9da4b0] pb-6">
-                            12
-                            <span className="text-center text-lg font-medium text-[#9da4b0]">
-                              / month
-                            </span>
-                          </span>
-                        </h3>
+                          </h3>
+                        </div>
                         <div className="bg-white rounded-2xl p-6">
                           <ul>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
-                              All AI Tools
+                              All Silver and Gold Plan Tools
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
-                              Unlimited AI outputs
+                              Unlimited AI Outputs
                             </li>
-                            <li className="flex items-start text-base lg:text-base font-normal mb-5">
-                              <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
-                                size={20}
-                              />
-                              All Tools from Silver and Gold plan
-                            </li>
-                          </ul>
-                          <h3 className="text-center pb-4 font-bold">PLUS</h3>
-                          <ul>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Paragraph Generator
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Essay Writer
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Class Assistant
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Coding Tools
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Writing Tools
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Language Tutor Tools
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Maths and Science
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Plagiarism Checker
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Speech To Text
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
+                                size={20}
+                              />
+                              Create custom Past Paper Test
+                            </li>
+                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                              <BsFillCheckCircleFill
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               AI Detector
                             </li>
                             <li className="flex items-center text-base lg:text-base font-normal mb-5">
                               <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
+                                className="text-[#02c36f] mt-0 mr-2"
                                 size={20}
                               />
                               Image Describer
                             </li>
-                            <li className="flex items-center text-base lg:text-base font-normal mb-5">
-                              <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
-                                size={20}
-                              />
-                              Speech To Text
-                            </li>
-                            <li className="flex items-start text-base lg:text-base font-normal mb-5">
-                              <BsFillCheckCircleFill
-                                className="text-[#d0bd7b] mt-0 mr-2"
-                                size={20}
-                              />
-                              Create your own custom test with AI
-                            </li>
                           </ul>
                           <div className="text-center pt-6 pb-4">
                             <Link
-                              className="bg-[#9da4b0] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#b1b7c2]"
+                              className="bg-[#0091f7] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#71c2fb]"
                               to="/registration"
                             >
                               Signup Now

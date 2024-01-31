@@ -168,6 +168,21 @@
 }
 
 
+/*  */
+
+.silver_plan_box {
+    background: url(../imagesource/Silver_bg.png) no-repeat 0 0;
+}
+.gold_plan_box {
+    background: url(../imagesource/gold_bg.png) no-repeat 0 0;
+}
+.platinum_plan_box {
+    background: url(../imagesource/platinum_bg.png) no-repeat 0 0;
+}
+
+
+/*  */
+
 
 @media only screen and (max-width:767px) {
 

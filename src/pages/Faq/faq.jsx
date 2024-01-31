@@ -7,16 +7,12 @@ const data = {
   rows: [
     {
       title: "How much does it cost?",
-      content: `There are two plans.  The Silver and gold plan, see our plans.`,
+      content: `There are three plans. The Silver, Gold and Platinum plan, see our plans.`,
     },
     {
-      title: "AzzyWrites vs chat gbt",
+      title: "AzzyWrites vs Chatgbt",
       content:
-        "AzzyWrites is focused on education and businesses, it extracts scholarly materials from its own database. Additionally, AzzyWrites  your unique writing style and offers a variety of instructional resources to improve learning.",
-    },
-    {
-      title: "How does AzzyWrites work?",
-      content: `AzzyWrites produces excellent educational outcomes by utilising the CORE database in conjunction with a sizable language model. Outside of the classroom, AzzyWrites serves as an economical academic resource.`,
+        "AzzyWrites is focused on education, for the workplace and for business.  It extracts materials and resources from its own database. Additionally, AzzyWrites, writes to your unique writing style and offers a variety of instructional resources to enhance your learning.",
     },
     {
       title: "How do I pay?",
@@ -28,24 +24,19 @@ const data = {
     },
     {
       title: "Do I get the same answer again?",
-      content: `AzzyWrites produces 100% unique answers each and every time when creating an answer from any writing tool;
-      you may ask the same question 100 times and receive a new response each time.`,
+      content: `AzzyWrites produces 100% unique answers each and every time when creating an answer from any writing tool; you may ask the same question 100 times and receive a new response each time.`,
     },
     {
       title: "Can I request a new feature?",
-      content: `Yes, you can email support@azzywrites.com with feature requests, and we&#39;ll see if we can implement them.`,
+      content: `Yes, you can email support@azzywrites.com with feature requests, and we'll see if we can implement them.`,
     },
     {
       title: "Is my information safe with AzzyWrites?",
-      content: `100% user privacy is our first goal here. AzzyWrite doesn&#39;t utilise, sell, or disclose any of the data you submit.`,
+      content: `100% user privacy is our first goal here. AzzyWrite doesn't utilise, sell, or disclose any of the data you submit.`,
     },
     {
-      title: "If I have any Questions where can I ask?",
-      content: `You can email support@azzywrites.com, and we will get back to you ASAP.`,
-    },
-    {
-      title: "Can I join from anywhere around the world?",
-      content: `Joining AzzyWrites and becoming a member can be done anytime and anywhere around the world.`,
+      title: "What support is available?",
+      content: `You can email support@azzywrites.com in contact.`,
     },
     // {
     //     title: "What is the package version",

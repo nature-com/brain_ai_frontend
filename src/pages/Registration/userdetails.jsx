@@ -14,6 +14,7 @@ import "react-tabs/style/react-tabs.css";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser, verifyOtp } from "../../reducers/AuthSlice";
 import { useForm } from "react-hook-form";
+import Login from "../Auth/login";
 
 const UserDetails = (props) => {
   const dispatch = useDispatch();
@@ -59,6 +60,12 @@ const UserDetails = (props) => {
       props.stepsHandler("selectPlan");
     }
   }, [currentUser, props]);
+
+  const handleOpenModal = () => {
+    setOpenLoginModal(true);
+  };
+
+  const [openLoginModal, setOpenLoginModal] = useState(false);
 
   return (
     // <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-4xl mx-auto my-0">
@@ -232,10 +239,30 @@ const UserDetails = (props) => {
                   Submit
                 </button> */}
             </form>
-            <p className="text-[12px] text-center font-medium mt-1">
-              “By joining, you agree to our Terms of Service and Privacy Policy
+            <p className="text-[12px] text-center font-medium mt-1 text-gray-600">
+              “By joining, you agree to our{" "}
+              <Link
+                to="/terms-and-condtions"
+                className="pl-1 text-[#ba9e63] hover:text-gray-600"
+              >
+                Terms and conditions
+              </Link>{" "}
+              and{" "}
+              <Link
+                to="/privacy-policy"
+                className="pl-1 text-[#ba9e63] hover:text-gray-600"
+              >
+                Privacy Policy
+              </Link>
               and occasionally receive emails from us.”
             </p>
+            <button
+              type="submit"
+              className="rounded-full text-sm mb-0 uppercase h-12 bg-[#b3975f] w-full text-white hover:bg-[#c9b575] mt-4"
+              onClick={handleOpenModal}
+            >
+              Login
+            </button>
             <p className="text-center my-4">OR</p>
             <div className="mb-3">
               <Link
@@ -260,6 +287,12 @@ const UserDetails = (props) => {
           </div>
         </div>
       </div>
+      {openLoginModal && (
+        <Login
+          openLoginModal={openLoginModal}
+          setOpenLoginModal={setOpenLoginModal}
+        />
+      )}
     </div>
     // </div>
   );

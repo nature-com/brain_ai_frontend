@@ -62,7 +62,7 @@ const Plans = (props) => {
       stripePayment({
         plan_id: planId,
         user_id: user_id,
-        entity: 'payment_intent',
+        entity: "payment_intent",
       })
     );
     setShowPayment(true);
@@ -77,7 +77,6 @@ const Plans = (props) => {
       });
     });
   }, []);
-
 
   // useEffect(() => {
   //   dispatch(subscriptionPlans());
@@ -99,11 +98,10 @@ const Plans = (props) => {
           >
             <div className="text-center">
               <h2 className="text-center text-2xl lg:text-3xl text-[#ba9e63] font-bold mb-2">
-                Choose Plan That’s Right For You
+                OUR PRICING & PLANS
               </h2>
               <p className="text-gray-400 text-base font-medium pb-6">
-                Choose plan that works best for you, feel free to contact
-                us
+                CHOOSE THE PLAN THAT’S RIGHT FOR YOU!
               </p>
             </div>
 
@@ -170,7 +168,6 @@ const Plans = (props) => {
             </div> */}
 
             <div
-
               className="plan_tab_area"
               data-aos="zoom-in"
               data-aos-duration="1500"
@@ -182,32 +179,35 @@ const Plans = (props) => {
                   {/* <Tab>Yearly Plan</Tab> */}
                 </TabList>
 
-                <TabPanel >
+                <TabPanel>
                   <div className="plan_list_area">
                     <div className="flex-none md:flex justify-center">
-                      {plans && plans.length > 0 &&
+                      {plans &&
+                        plans.length > 0 &&
                         plans.map((plan, plankey) => (
-                          <div key={'plan_' + plankey} className="w-full md:w-5/12 lg:w-4/12 mx-0 md:mx-2 mb-4 lg:mb-0">
-                            <div className="bg-slate-100 py-6 px-5 rounded-2xl shadow-xl mt-6">
-                              <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-3">
-                                {plan.name || 'plan name'}
-                              </h2>
-                              <p className="text-center text-base lg:text-lg font-normal text-black pb-2">
-                                3 Day Free Trial
-                              </p>
-                              <p className="text-center text-base lg:text-lg font-medium text-gray-400 pb-2">
-                                Introductory price
-                              </p>
-                              <h3 className="text-center text-lg font-medium text-black pb-3">
-                                {plan.currency}
-                                <span className="text-center text-3xl font-bold text-black pb-6">
-                                  {plan.discounted_price}{" "}
-                                  <span className="text-center text-lg font-medium text-black">
-                                    / {plan.plan_interval}
+                          <div
+                            key={"plan_" + plankey}
+                            className="w-full md:w-5/12 lg:w-4/12 mx-0 md:mx-2 mb-4 lg:mb-0"
+                          >
+                            <div className="bg-white py-0 px-0 rounded-2xl shadow-xl mt-6">
+                              <div className="silver_plan_box pt-8 pb-14">
+                                <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
+                                  {plan.name || "plan name"}
+                                </h2>
+                                <p className="text-center text-base lg:text-lg font-normal text-black pb-1">
+                                  3 Day Free Trial
+                                </p>
+                                <h3 className="text-center text-lg font-medium text-black pb-3">
+                                  {plan.currency}
+                                  <span className="text-center text-3xl font-bold text-black pb-6">
+                                    {plan.discounted_price}{" "}
+                                    <span className="text-center text-lg font-medium text-black">
+                                      / {plan.plan_interval}
+                                    </span>
                                   </span>
-                                </span>
-                              </h3>
-                              <h3 className="text-center text-lg font-medium text-black pb-3 line-through">
+                                </h3>
+                              </div>
+                              {/* <h3 className="text-center text-lg font-medium text-black pb-3 line-through">
                                 {plan.currency}
                                 <span className="text-center text-3xl font-bold text-black pb-6">
                                   {plan.price}{" "}
@@ -215,7 +215,7 @@ const Plans = (props) => {
                                     / {plan.plan_interval}
                                   </span>
                                 </span>
-                              </h3>
+                              </h3> */}
                               <div className="bg-white rounded-2xl p-6">
                                 <ul>
                                   {/* {plan.description.split('#').map((desc, ind) => (
@@ -449,14 +449,13 @@ const Plans = (props) => {
                     </div>
                   </div>
                 </TabPanel>
-
               </Tabs>
             </div>
-
           </div>
         </div>
       )}
-      {showPayment && stripeClientSecret &&
+      {showPayment &&
+        stripeClientSecret &&
         customer_id &&
         subscription_id &&
         stripePublishableKey && (

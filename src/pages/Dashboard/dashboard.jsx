@@ -120,10 +120,12 @@ const Dashboard = () => {
                             <div className="category_list">
                               <Tabs>
                                 <TabList>
-                                  <Tab>Education</Tab>
-                                  <Tab>Images</Tab>
-                                  <Tab>Web use</Tab>
-                                  <Tab>See all</Tab>
+                                  <Tab>All</Tab>
+                                  <Tab>Writing</Tab>
+                                  <Tab>Coding</Tab>
+                                  <Tab>Studying/Work</Tab>
+                                  <Tab>Language</Tab>
+                                  <Tab>Creative</Tab>
                                 </TabList>
 
                                 <TabPanel>
@@ -214,6 +216,41 @@ const Dashboard = () => {
                                         )}
                                       </div>
                                     )}
+                                  </div>
+                                </TabPanel>
+                                <TabPanel>
+                                  <div className="category_list_area">
+                                    <h2 className="text-blacks font-bold text-2xl ml-2 mb-1">
+                                      Writing
+                                    </h2>
+                                  </div>
+                                </TabPanel>
+                                <TabPanel>
+                                  <div className="category_list_area">
+                                    <h2 className="text-blacks font-bold text-2xl ml-2 mb-1">
+                                      Coding
+                                    </h2>
+                                  </div>
+                                </TabPanel>
+                                <TabPanel>
+                                  <div className="category_list_area">
+                                    <h2 className="text-blacks font-bold text-2xl ml-2 mb-1">
+                                      Studying/Work
+                                    </h2>
+                                  </div>
+                                </TabPanel>
+                                <TabPanel>
+                                  <div className="category_list_area">
+                                    <h2 className="text-blacks font-bold text-2xl ml-2 mb-1">
+                                      Language
+                                    </h2>
+                                  </div>
+                                </TabPanel>
+                                <TabPanel>
+                                  <div className="category_list_area">
+                                    <h2 className="text-blacks font-bold text-2xl ml-2 mb-1">
+                                      Creative
+                                    </h2>
                                   </div>
                                 </TabPanel>
                               </Tabs>

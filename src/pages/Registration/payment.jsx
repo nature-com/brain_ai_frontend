@@ -65,7 +65,7 @@ const Payment = (props) => {
             <img src={paymentIcon} />
           </div>
           <p class="text-center text-base lg:text-lg font-normal text-black pb-2">
-            Total after 3days: £6 / month
+            Total after 3 days: £6 / month
           </p>
           <p class="text-center text-base lg:text-lg font-normal text-black pb-2">
             Total due today: £0.00
