@@ -84,7 +84,6 @@ export const login = createAsyncThunk(
   async (userInput, { rejectWithValue }) => {
     try {
       const response = await api.post('/user/login', userInput);
-      console.log(response, "response 5555");
       if (response?.data?.status_code === 200) {
         return response.data;
       } else {
@@ -116,6 +115,11 @@ const authSlice = createSlice({
     },
     resetAfterLoggedIn: (state) => {
       state = { ...initialState, isLoggedIn: true };
+    },
+    logout: (state) => {
+      state.isLoggedIn = false;
+      localStorage.removeItem('userToken');
+      localStorage.removeItem('regToken');
     },
   },
   extraReducers: (builder) => {
@@ -219,7 +223,7 @@ const authSlice = createSlice({
           JSON.stringify({ email: email })
         );
         localStorage.setItem(
-          'userName' , user_name
+          'userName', user_name
         );
         localStorage.setItem(
           'isSubscribed',
@@ -239,5 +243,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { clearCurrentUser, resetAfterLoggedIn } = authSlice.actions;
+export const { clearCurrentUser, resetAfterLoggedIn, logout } = authSlice.actions;
 export default authSlice.reducer;
