@@ -1,17 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '../store/api';
+import errorHandler from '../store/errorHandler';
 
 export const subscriptionPlans = createAsyncThunk(
     'user/all-plans',
     async (thunkAPI) => {
         try {
             const response = await api.get('user/all-plans');
-            if (response?.status === 200 && response?.data?.data.length) {
+            if (response?.status === 200 && (response?.data?.data?.monthly_plans.length || response?.data?.data?.yearly_plans.length)) {
                 return response.data.data;
             } else {
                 throw Error('Failed to load Plan');
             }
         } catch (err) {
+            console.log(err);
             return thunkAPI.rejectWithValue(err);
         }
     }
@@ -57,6 +59,7 @@ const plansSlice = createSlice({
                 state.loading = true;
             })
             .addCase(subscriptionPlans.fulfilled, (state, response) => {
+                console.log("response", response);
                 state.loading = false;
                 state.plans = response.payload;
             })

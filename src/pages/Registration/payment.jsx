@@ -22,7 +22,6 @@ const Payment = (props) => {
     planId,
   } = props;
 
-  console.log("props", props);
 
   useEffect(() => {
     const promise = loadStripe(stripePublishableKey);
@@ -33,6 +32,7 @@ const Payment = (props) => {
     };
     setOptions(stripe_options);
   }, []);
+
 
   return (
     // <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-4xl mx-auto my-0">
@@ -71,6 +71,7 @@ const Payment = (props) => {
             Total due today: £0.00
           </p>
         </div>
+
         <div className="w-full lg:w-3/5">
           <div className="register_cont">
             <h2 className="text-center text-3xl text-[#ba9e63] font-bold mb-5">
