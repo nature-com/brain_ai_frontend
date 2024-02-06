@@ -27,10 +27,10 @@ const YourAccount = () => {
   const dispatch = useDispatch();
   const [tools, setTools] = useState();
   const toolList = useSelector((state) => state.tools.toolsList);
-  const token = localStorage.getItem("userToken");
-  const email = localStorage.getItem("userEmail");
+  // const token = localStorage.getItem("userToken");
+  // const email = localStorage.getItem("userEmail");
   const userName = localStorage.getItem("userName");
-  console.log(userName, "token dddd");
+
 
   useEffect(() => {
     dispatch(toolsList());

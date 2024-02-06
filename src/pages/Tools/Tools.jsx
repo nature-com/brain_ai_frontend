@@ -31,6 +31,7 @@ import {
 } from "../../assets/images/images";
 import { useDispatch, useSelector } from "react-redux";
 import { toolsList } from "../../reducers/ToolsSlice";
+import { Tooltip } from "flowbite-react";
 
 const Tools = () => {
   const dispatch = useDispatch();
@@ -68,42 +69,46 @@ const Tools = () => {
 
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {tools?.details?.popular_tools?.map((tool) => (
-                  <div className="bg-white rounded-md p-4 text-center review_box">
-                    <img
-                      src={tool?.avatar}
-                      width="70"
-                      height="70"
-                      className="rounded-full inline-block mb-2"
-                    />
-                    <p className="text-[#b08d57] text-base font-medium mb-3">
-                      {tool?.tools_name}
-                    </p>
-                    <p className="text-black text-[14px] font-medium">
-                      {tool?.description.length > 35
-                        ? tool?.description.substring(0, 35) + "..."
-                        : tool?.description}
-                    </p>
-                  </div>
+                  <Tooltip content={tool?.description}>
+                    <div className="bg-white rounded-md p-4 text-center review_box">
+                      <img
+                        src={tool?.avatar}
+                        width="70"
+                        height="70"
+                        className="rounded-full inline-block mb-2"
+                      />
+                      <p className="text-[#b08d57] text-base font-medium mb-3">
+                        {tool?.tools_name}
+                      </p>
+                      <p className="text-black text-[14px] font-medium">
+                        {tool?.description.length > 35
+                          ? tool?.description.substring(0, 35) + "..."
+                          : tool?.description}
+                      </p>
+                    </div>
+                  </Tooltip>
                 ))}
               </div>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
                 {tools?.details?.regular_tools?.map((tool) => (
-                  <div className="bg-white rounded-md p-4 text-center review_box">
-                    <img
-                      src={tool?.avatar}
-                      width="70"
-                      height="70"
-                      className="rounded-full inline-block mb-2"
-                    />
-                    <p className="text-[#b08d57] text-base font-medium mb-3">
-                      {tool?.tools_name}
-                    </p>
-                    <p className="text-black text-[14px] font-medium">
-                      {tool?.description.length > 35
-                        ? tool?.description.substring(0, 35) + "..."
-                        : tool?.description}
-                    </p>
-                  </div>
+                  <Tooltip content={tool?.description}>
+                    <div className="bg-white rounded-md p-4 text-center review_box">
+                      <img
+                        src={tool?.avatar}
+                        width="70"
+                        height="70"
+                        className="rounded-full inline-block mb-2"
+                      />
+                      <p className="text-[#b08d57] text-base font-medium mb-3">
+                        {tool?.tools_name}
+                      </p>
+                      <p className="text-black text-[14px] font-medium">
+                        {tool?.description.length > 35
+                          ? tool?.description.substring(0, 35) + "..."
+                          : tool?.description}
+                      </p>
+                    </div>
+                  </Tooltip>
                 ))}
               </div>
 

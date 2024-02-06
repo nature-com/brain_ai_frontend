@@ -7,6 +7,7 @@ import {
   BsArrowRight,
   BsCheckLg,
   BsFillCheckCircleFill,
+  AiFillCloseCircle,
 } from "../../assets/icons";
 import { paymentIcon, registrationImg } from "../../assets/images/images";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
@@ -128,23 +129,65 @@ const Plans = (props) => {
                             className="w-full md:w-5/12 lg:w-4/12 mx-0 md:mx-2 mb-4 lg:mb-0"
                           >
                             <div className="bg-white py-0 px-0 rounded-2xl shadow-xl mt-6">
-                              <div className="silver_plan_box pt-8 pb-14">
-                                <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
-                                  {plan.name || "plan name"}
-                                </h2>
-                                <p className="text-center text-base lg:text-lg font-normal text-black pb-1">
-                                  3 Day Free Trial
-                                </p>
-                                <h3 className="text-center text-lg font-medium text-black pb-3">
-                                  {plan.currency}
-                                  <span className="text-center text-3xl font-bold text-black pb-6">
-                                    {plan.discounted_price}{" "}
-                                    <span className="text-center text-lg font-medium text-black">
-                                      / {plan.plan_interval}
+                              {plankey == 0 &&
+                                <div className="silver_plan_box pt-8 pb-14">
+
+
+                                  <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
+                                    {plan.name || "plan name"}
+                                  </h2>
+                                  <p className="text-center text-base lg:text-lg font-normal text-black pb-1">
+                                    3 Day Free Trial
+                                  </p>
+                                  <h3 className="text-center text-lg font-medium text-black pb-3">
+                                    {plan.currency}
+                                    <span className="text-center text-3xl font-bold text-black pb-6">
+                                      {plan.discounted_price}{" "}
+                                      <span className="text-center text-lg font-medium text-black">
+                                        / {plan.plan_interval}
+                                      </span>
                                     </span>
-                                  </span>
-                                </h3>
-                              </div>
+                                  </h3>
+                                </div>
+                              }
+                              {plankey == 1 &&
+                                <div className="gold_plan_box pt-8 pb-14">
+                                  <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
+                                    {plan.name || "plan name"}
+                                  </h2>
+                                  <p className="text-center text-base lg:text-lg font-normal text-black pb-1">
+                                    3 Day Free Trial
+                                  </p>
+                                  <h3 className="text-center text-lg font-medium text-black pb-3">
+                                    {plan.currency}
+                                    <span className="text-center text-3xl font-bold text-black pb-6">
+                                      {plan.discounted_price}{" "}
+                                      <span className="text-center text-lg font-medium text-black">
+                                        / {plan.plan_interval}
+                                      </span>
+                                    </span>
+                                  </h3>
+                                </div>
+                              }
+                              {plankey == 2 &&
+                                <div className="platinum_plan_box pt-8 pb-14">
+                                  <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
+                                    {plan.name || "plan name"}
+                                  </h2>
+                                  <p className="text-center text-base lg:text-lg font-normal text-black pb-1">
+                                    3 Day Free Trial
+                                  </p>
+                                  <h3 className="text-center text-lg font-medium text-black pb-3">
+                                    {plan.currency}
+                                    <span className="text-center text-3xl font-bold text-black pb-6">
+                                      {plan.discounted_price}{" "}
+                                      <span className="text-center text-lg font-medium text-black">
+                                        / {plan.plan_interval}
+                                      </span>
+                                    </span>
+                                  </h3>
+                                </div>
+                              }
                               {/* <h3 className="text-center text-lg font-medium text-black pb-3 line-through">
                                 {plan.currency}
                                 <span className="text-center text-3xl font-bold text-black pb-6">
@@ -156,23 +199,32 @@ const Plans = (props) => {
                               </h3> */}
                               <div className="bg-white rounded-2xl p-6">
                                 <ul>
-                                  {/* {plan.description.split('#').map((desc, ind) => (
+                                  {plan.description.split('%').map((desc, ind) => (
                                     <li key={ind} className="flex items-center text-base lg:text-base font-normal mb-5">
-                                      <BsFillCheckCircleFill
-                                        className="text-[#d0bd7b] mt-0 mr-2"
-                                        size={20}
-                                      />
+                                      {/* {console.log('desc.split', desc.split('/> ')[0].search("AiFillCloseCircle"))} */}
+                                      {desc.split('/> ')[0].search("AiFillCloseCircle") === -1 ? (
+                                        <BsFillCheckCircleFill
+                                          className="text-[#d0bd7b] mt-0 mr-2"
+                                          size={20}
+                                        />
+                                      ) : (
+                                        <AiFillCloseCircle
+                                          className="text-[#d85c32] mt-0 mr-2"
+                                          size={20} />
+                                      )}
+                                      {/* {`${desc.split('/> ')[0]}/>`} */}
+                                      {/* <div>{`${desc.split('/> ')[0]}/>`}</div> */}
                                       {' '}
-                                      {desc}
+                                      {desc.split('/> ')[1]}
                                     </li>
-                                  ))} */}
-                                  <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                                  ))}
+                                  {/* <li className="flex items-center text-base lg:text-base font-normal mb-5">
                                     <BsFillCheckCircleFill
                                       className="text-[#d0bd7b] mt-0 mr-2"
                                       size={20}
                                     />
                                     {plan.description}
-                                  </li>
+                                  </li> */}
                                 </ul>
                                 <div className="text-center pt-6 pb-4">
                                   {plan.id !== 1 && (
@@ -212,23 +264,63 @@ const Plans = (props) => {
                             className="w-full md:w-5/12 lg:w-4/12 mx-0 md:mx-2 mb-4 lg:mb-0"
                           >
                             <div className="bg-white py-0 px-0 rounded-2xl shadow-xl mt-6">
-                              <div className="silver_plan_box pt-8 pb-14">
-                                <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
-                                  {plan.name || "plan name"}
-                                </h2>
-                                <p className="text-center text-base lg:text-lg font-normal text-black pb-1">
-                                  3 Day Free Trial
-                                </p>
-                                <h3 className="text-center text-lg font-medium text-black pb-3">
-                                  {plan.currency}
-                                  <span className="text-center text-3xl font-bold text-black pb-6">
-                                    {plan.discounted_price}{" "}
-                                    <span className="text-center text-lg font-medium text-black">
-                                      / {plan.plan_interval}
+                              {plankey == 0 &&
+                                <div className="silver_plan_box pt-8 pb-14">
+                                  <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
+                                    {plan.name || "plan name"}
+                                  </h2>
+                                  <p className="text-center text-base lg:text-lg font-normal text-black pb-1">
+                                    3 Day Free Trial
+                                  </p>
+                                  <h3 className="text-center text-lg font-medium text-black pb-3">
+                                    {plan.currency}
+                                    <span className="text-center text-3xl font-bold text-black pb-6">
+                                      {plan.discounted_price}{" "}
+                                      <span className="text-center text-lg font-medium text-black">
+                                        / {plan.plan_interval}
+                                      </span>
                                     </span>
-                                  </span>
-                                </h3>
-                              </div>
+                                  </h3>
+                                </div>
+                              }
+                              {plankey == 1 &&
+                                <div className="gold_plan_box pt-8 pb-14">
+                                  <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
+                                    {plan.name || "plan name"}
+                                  </h2>
+                                  <p className="text-center text-base lg:text-lg font-normal text-black pb-1">
+                                    3 Day Free Trial
+                                  </p>
+                                  <h3 className="text-center text-lg font-medium text-black pb-3">
+                                    {plan.currency}
+                                    <span className="text-center text-3xl font-bold text-black pb-6">
+                                      {plan.discounted_price}{" "}
+                                      <span className="text-center text-lg font-medium text-black">
+                                        / {plan.plan_interval}
+                                      </span>
+                                    </span>
+                                  </h3>
+                                </div>
+                              }
+                              {plankey == 2 &&
+                                <div className="platinum_plan_box pt-8 pb-14">
+                                  <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
+                                    {plan.name || "plan name"}
+                                  </h2>
+                                  <p className="text-center text-base lg:text-lg font-normal text-black pb-1">
+                                    3 Day Free Trial
+                                  </p>
+                                  <h3 className="text-center text-lg font-medium text-black pb-3">
+                                    {plan.currency}
+                                    <span className="text-center text-3xl font-bold text-black pb-6">
+                                      {plan.discounted_price}{" "}
+                                      <span className="text-center text-lg font-medium text-black">
+                                        / {plan.plan_interval}
+                                      </span>
+                                    </span>
+                                  </h3>
+                                </div>
+                              }
                               {/* <h3 className="text-center text-lg font-medium text-black pb-3 line-through">
                                 {plan.currency}
                                 <span className="text-center text-3xl font-bold text-black pb-6">
@@ -240,23 +332,32 @@ const Plans = (props) => {
                               </h3> */}
                               <div className="bg-white rounded-2xl p-6">
                                 <ul>
-                                  {/* {plan.description.split('#').map((desc, ind) => (
+                                  {plan.description.split('%').map((desc, ind) => (
                                     <li key={ind} className="flex items-center text-base lg:text-base font-normal mb-5">
-                                      <BsFillCheckCircleFill
-                                        className="text-[#d0bd7b] mt-0 mr-2"
-                                        size={20}
-                                      />
+                                      {/* {console.log('desc.split', desc.split('/> ')[0].search("AiFillCloseCircle"))} */}
+                                      {desc.split('/> ')[0].search("AiFillCloseCircle") === -1 ? (
+                                        <BsFillCheckCircleFill
+                                          className="text-[#d0bd7b] mt-0 mr-2"
+                                          size={20}
+                                        />
+                                      ) : (
+                                        <AiFillCloseCircle
+                                          className="text-[#d85c32] mt-0 mr-2"
+                                          size={20} />
+                                      )}
+                                      {/* {`${desc.split('/> ')[0]}/>`} */}
+                                      {/* <div>{`${desc.split('/> ')[0]}/>`}</div> */}
                                       {' '}
-                                      {desc}
+                                      {desc.split('/> ')[1]}
                                     </li>
-                                  ))} */}
-                                  <li className="flex items-center text-base lg:text-base font-normal mb-5">
+                                  ))}
+                                  {/* <li className="flex items-center text-base lg:text-base font-normal mb-5">
                                     <BsFillCheckCircleFill
                                       className="text-[#d0bd7b] mt-0 mr-2"
                                       size={20}
                                     />
                                     {plan.description}
-                                  </li>
+                                  </li> */}
                                 </ul>
                                 <div className="text-center pt-6 pb-4">
                                   {plan.id !== 1 && (
