@@ -21,7 +21,9 @@ const Registration = () => {
   // const [showPlan, setShowPlan] = useState(false);
   // const [showPayment, setShowPayment] = useState(false);
   const [userPlan, setUserPlan] = useState(null);
-  const {otp_verified, email, user_id} = useSelector((state) => state.auth?.currentUser);
+  const { otp_verified, email, user_id } = useSelector(
+    (state) => state.auth?.currentUser
+  );
 
   const [steps, setSteps] = useState({
     registration: true,
@@ -56,7 +58,7 @@ const Registration = () => {
 
   const selectPlan = (planId) => {
     setUserPlan(planId);
-    stepsHandler('payment');
+    stepsHandler("payment");
   };
 
   return (
@@ -67,7 +69,7 @@ const Registration = () => {
         <div className="register_step_box">
           <ul>
             <li>
-            {/* <li onClick={() => stepsHandler("registration")}> */}
+              {/* <li onClick={() => stepsHandler("registration")}> */}
               <span
                 className={`${
                   steps.registration ? "bg-[#ba9e63]" : "bg-black"
@@ -78,7 +80,7 @@ const Registration = () => {
               <p>Account Creation</p>
             </li>
             <li>
-            {/* <li onClick={() => stepsHandler("selectplan")}> */}
+              {/* <li onClick={() => stepsHandler("selectplan")}> */}
               <span
                 className={`${steps.selectPlan ? "bg-[#ba9e63]" : "bg-black"}`}
               >
@@ -87,7 +89,7 @@ const Registration = () => {
               <p>Subscription</p>
             </li>
             <li>
-            {/* <li onClick={() => stepsHandler("payment")}> */}
+              {/* <li onClick={() => stepsHandler("payment")}> */}
               <span
                 className={`${steps.payment ? "bg-[#ba9e63]" : "bg-black"}`}
               >
@@ -99,32 +101,29 @@ const Registration = () => {
         </div>
 
         <Suspense fallback={<div>Loading...</div>}>
-        {steps?.registration && (
-          <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-4xl mx-auto my-0">
-            <UserDetails stepsHandler={stepsHandler} />
-          </div>
-        )}
+          {steps?.registration && (
+            <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-6xl mx-auto my-0">
+              <UserDetails stepsHandler={stepsHandler} />
+            </div>
+          )}
 
-        {steps?.selectPlan && otp_verified && (
-          <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-4xl mx-auto my-0">
-            <Plans
-              selectPlan={selectPlan}
-              stepsHandler={stepsHandler}
-            />
-          </div>
-        )}
+          {steps?.selectPlan && otp_verified && (
+            <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-6xl mx-auto my-0">
+              <Plans selectPlan={selectPlan} stepsHandler={stepsHandler} />
+            </div>
+          )}
 
-        {steps?.payment && userPlan && otp_verified &&(
-          <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-4xl mx-auto my-0">
-            <Payment
-              userPlan={userPlan}
-              email={email}
-              user_id={user_id}
-              stepsHandler={stepsHandler}
-            />
-          </div>
-        )}
-         </Suspense>
+          {steps?.payment && userPlan && otp_verified && (
+            <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-6xl mx-auto my-0">
+              <Payment
+                userPlan={userPlan}
+                email={email}
+                user_id={user_id}
+                stepsHandler={stepsHandler}
+              />
+            </div>
+          )}
+        </Suspense>
       </div>
 
       {/* Registration section ends here */}
