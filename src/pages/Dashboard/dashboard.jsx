@@ -21,7 +21,14 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
 import { FaInstagramSquare } from "react-icons/fa";
 
-import { Button, Checkbox, Label, TextInput, Select } from "flowbite-react";
+import {
+  Button,
+  Checkbox,
+  Label,
+  TextInput,
+  Select,
+  Tooltip,
+} from "flowbite-react";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -143,26 +150,30 @@ const Dashboard = () => {
                                               activeClassName="active"
                                               to={`/tooldetails/${tool.id}`}
                                             >
-                                              <div className="category_list_item mx-2">
-                                                <div className="category_list_item_desc">
-                                                  <h3>{tool?.tools_name}</h3>
-                                                  <p>
-                                                    {tool?.description.length >
-                                                    35
-                                                      ? tool?.description.substring(
-                                                          0,
-                                                          35
-                                                        ) + "..."
-                                                      : tool?.description}
-                                                  </p>
+                                              <Tooltip
+                                                content={tool?.description}
+                                              >
+                                                <div className="category_list_item mx-2">
+                                                  <div className="category_list_item_desc">
+                                                    <h3>{tool?.tools_name}</h3>
+                                                    <p>
+                                                      {tool?.description
+                                                        .length > 35
+                                                        ? tool?.description.substring(
+                                                            0,
+                                                            35
+                                                          ) + "..."
+                                                        : tool?.description}
+                                                    </p>
+                                                  </div>
+                                                  <img
+                                                    src={tool?.avatar}
+                                                    width="70"
+                                                    height="70"
+                                                    className="rounded-full"
+                                                  />
                                                 </div>
-                                                <img
-                                                  src={tool?.avatar}
-                                                  width="70"
-                                                  height="70"
-                                                  className="rounded-full"
-                                                />
-                                              </div>
+                                              </Tooltip>
                                             </NavLink>
                                           </div>
                                         )
@@ -190,26 +201,32 @@ const Dashboard = () => {
                                                 activeClassName="active"
                                                 to={`/tooldetails/${tool.id}`}
                                               >
-                                                <div className="category_list_item mx-2">
-                                                  <div className="category_list_item_desc">
-                                                    <h3>{tool?.tools_name}</h3>
-                                                    <p>
-                                                      {tool?.description
-                                                        .length > 35
-                                                        ? tool?.description.substring(
-                                                            0,
-                                                            35
-                                                          ) + "..."
-                                                        : tool?.description}
-                                                    </p>
+                                                <Tooltip
+                                                  content={tool?.description}
+                                                >
+                                                  <div className="category_list_item mx-2">
+                                                    <div className="category_list_item_desc">
+                                                      <h3>
+                                                        {tool?.tools_name}
+                                                      </h3>
+                                                      <p>
+                                                        {tool?.description
+                                                          .length > 35
+                                                          ? tool?.description.substring(
+                                                              0,
+                                                              35
+                                                            ) + "..."
+                                                          : tool?.description}
+                                                      </p>
+                                                    </div>
+                                                    <img
+                                                      src={tool?.avatar}
+                                                      width="70"
+                                                      height="70"
+                                                      className="rounded-full"
+                                                    />
                                                   </div>
-                                                  <img
-                                                    src={tool?.avatar}
-                                                    width="70"
-                                                    height="70"
-                                                    className="rounded-full"
-                                                  />
-                                                </div>
+                                                </Tooltip>
                                               </NavLink>
                                             </div>
                                           )
@@ -231,82 +248,8 @@ const Dashboard = () => {
                                             activeClassName="active"
                                             to={`/tooldetails/${tool.id}`}
                                           >
-                                            <div className="category_list_item mx-2">
-                                              <div className="category_list_item_desc">
-                                                <h3>{tool?.tools_name}</h3>
-                                                <p>
-                                                  {tool?.description.length > 35
-                                                    ? tool?.description.substring(
-                                                        0,
-                                                        35
-                                                      ) + "..."
-                                                    : tool?.description}
-                                                </p>
-                                              </div>
-                                              <img
-                                                src={tool?.avatar}
-                                                width="70"
-                                                height="70"
-                                                className="rounded-full"
-                                              />
-                                            </div>
-                                          </NavLink>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </div>
-                                </TabPanel>
-                                <TabPanel>
-                                  <div className="category_list_area">
-                                    <h2 className="text-blacks font-bold text-2xl ml-2 mb-1">
-                                      Coding
-                                    </h2>
-                                    <div className="flex flex-wrap">
-                                      {tools?.details?.coding?.map((tool) => (
-                                        <div className="w-full md:w-4/12">
-                                          <NavLink
-                                            key={tool?.id}
-                                            activeClassName="active"
-                                            to={`/tooldetails/${tool.id}`}
-                                          >
-                                            <div className="category_list_item mx-2">
-                                              <div className="category_list_item_desc">
-                                                <h3>{tool?.tools_name}</h3>
-                                                <p>
-                                                  {tool?.description.length > 35
-                                                    ? tool?.description.substring(
-                                                        0,
-                                                        35
-                                                      ) + "..."
-                                                    : tool?.description}
-                                                </p>
-                                              </div>
-                                              <img
-                                                src={tool?.avatar}
-                                                width="70"
-                                                height="70"
-                                                className="rounded-full"
-                                              />
-                                            </div>
-                                          </NavLink>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </div>
-                                </TabPanel>
-                                <TabPanel>
-                                  <div className="category_list_area">
-                                    <h2 className="text-blacks font-bold text-2xl ml-2 mb-1">
-                                      Studying/Work
-                                    </h2>
-                                    <div className="flex flex-wrap">
-                                      {tools?.details?.studying_work?.map(
-                                        (tool) => (
-                                          <div className="w-full md:w-4/12">
-                                            <NavLink
-                                              key={tool?.id}
-                                              activeClassName="active"
-                                              to={`/tooldetails/${tool.id}`}
+                                            <Tooltip
+                                              content={tool?.description}
                                             >
                                               <div className="category_list_item mx-2">
                                                 <div className="category_list_item_desc">
@@ -328,6 +271,94 @@ const Dashboard = () => {
                                                   className="rounded-full"
                                                 />
                                               </div>
+                                            </Tooltip>
+                                          </NavLink>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </TabPanel>
+                                <TabPanel>
+                                  <div className="category_list_area">
+                                    <h2 className="text-blacks font-bold text-2xl ml-2 mb-1">
+                                      Coding
+                                    </h2>
+                                    <div className="flex flex-wrap">
+                                      {tools?.details?.coding?.map((tool) => (
+                                        <div className="w-full md:w-4/12">
+                                          <NavLink
+                                            key={tool?.id}
+                                            activeClassName="active"
+                                            to={`/tooldetails/${tool.id}`}
+                                          >
+                                            <Tooltip
+                                              content={tool?.description}
+                                            >
+                                              <div className="category_list_item mx-2">
+                                                <div className="category_list_item_desc">
+                                                  <h3>{tool?.tools_name}</h3>
+                                                  <p>
+                                                    {tool?.description.length >
+                                                    35
+                                                      ? tool?.description.substring(
+                                                          0,
+                                                          35
+                                                        ) + "..."
+                                                      : tool?.description}
+                                                  </p>
+                                                </div>
+                                                <img
+                                                  src={tool?.avatar}
+                                                  width="70"
+                                                  height="70"
+                                                  className="rounded-full"
+                                                />
+                                              </div>
+                                            </Tooltip>
+                                          </NavLink>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </TabPanel>
+                                <TabPanel>
+                                  <div className="category_list_area">
+                                    <h2 className="text-blacks font-bold text-2xl ml-2 mb-1">
+                                      Studying/Work
+                                    </h2>
+                                    <div className="flex flex-wrap">
+                                      {tools?.details?.studying_work?.map(
+                                        (tool) => (
+                                          <div className="w-full md:w-4/12">
+                                            <NavLink
+                                              key={tool?.id}
+                                              activeClassName="active"
+                                              to={`/tooldetails/${tool.id}`}
+                                            >
+                                              <Tooltip
+                                                content={tool?.description}
+                                              >
+                                                <div className="category_list_item mx-2">
+                                                  <div className="category_list_item_desc">
+                                                    <h3>{tool?.tools_name}</h3>
+                                                    <p>
+                                                      {tool?.description
+                                                        .length > 35
+                                                        ? tool?.description.substring(
+                                                            0,
+                                                            35
+                                                          ) + "..."
+                                                        : tool?.description}
+                                                    </p>
+                                                  </div>
+                                                  <img
+                                                    src={tool?.avatar}
+                                                    width="70"
+                                                    height="70"
+                                                    className="rounded-full"
+                                                  />
+                                                </div>
+                                              </Tooltip>
                                             </NavLink>
                                           </div>
                                         )
@@ -348,25 +379,30 @@ const Dashboard = () => {
                                             activeClassName="active"
                                             to={`/tooldetails/${tool.id}`}
                                           >
-                                            <div className="category_list_item mx-2">
-                                              <div className="category_list_item_desc">
-                                                <h3>{tool?.tools_name}</h3>
-                                                <p>
-                                                  {tool?.description.length > 35
-                                                    ? tool?.description.substring(
-                                                        0,
-                                                        35
-                                                      ) + "..."
-                                                    : tool?.description}
-                                                </p>
+                                            <Tooltip
+                                              content={tool?.description}
+                                            >
+                                              <div className="category_list_item mx-2">
+                                                <div className="category_list_item_desc">
+                                                  <h3>{tool?.tools_name}</h3>
+                                                  <p>
+                                                    {tool?.description.length >
+                                                    35
+                                                      ? tool?.description.substring(
+                                                          0,
+                                                          35
+                                                        ) + "..."
+                                                      : tool?.description}
+                                                  </p>
+                                                </div>
+                                                <img
+                                                  src={tool?.avatar}
+                                                  width="70"
+                                                  height="70"
+                                                  className="rounded-full"
+                                                />
                                               </div>
-                                              <img
-                                                src={tool?.avatar}
-                                                width="70"
-                                                height="70"
-                                                className="rounded-full"
-                                              />
-                                            </div>
+                                            </Tooltip>
                                           </NavLink>
                                         </div>
                                       ))}
@@ -386,25 +422,30 @@ const Dashboard = () => {
                                             activeClassName="active"
                                             to={`/tooldetails/${tool.id}`}
                                           >
-                                            <div className="category_list_item mx-2">
-                                              <div className="category_list_item_desc">
-                                                <h3>{tool?.tools_name}</h3>
-                                                <p>
-                                                  {tool?.description.length > 35
-                                                    ? tool?.description.substring(
-                                                        0,
-                                                        35
-                                                      ) + "..."
-                                                    : tool?.description}
-                                                </p>
+                                            <Tooltip
+                                              content={tool?.description}
+                                            >
+                                              <div className="category_list_item mx-2">
+                                                <div className="category_list_item_desc">
+                                                  <h3>{tool?.tools_name}</h3>
+                                                  <p>
+                                                    {tool?.description.length >
+                                                    35
+                                                      ? tool?.description.substring(
+                                                          0,
+                                                          35
+                                                        ) + "..."
+                                                      : tool?.description}
+                                                  </p>
+                                                </div>
+                                                <img
+                                                  src={tool?.avatar}
+                                                  width="70"
+                                                  height="70"
+                                                  className="rounded-full"
+                                                />
                                               </div>
-                                              <img
-                                                src={tool?.avatar}
-                                                width="70"
-                                                height="70"
-                                                className="rounded-full"
-                                              />
-                                            </div>
+                                            </Tooltip>
                                           </NavLink>
                                         </div>
                                       ))}
