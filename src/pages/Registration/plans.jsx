@@ -226,18 +226,48 @@ const Plans = (props) => {
                                     {plan.description}
                                   </li> */}
                                 </ul>
-                                <div className="text-center pt-6 pb-4">
-                                  {plan.id !== 1 && (
-                                    <button
-                                      className="bg-slate-100 shadow-xl rounded-2xl text-sm lg:text-base font-medium text-[#ae9258] px-6 lg:px-10 py-3 lg:py-4 hover:bg-white"
-                                      onClick={() => {
-                                        createSubscription(plan.id, user_id);
-                                      }}
-                                    >
-                                      Subscribe Now
-                                    </button>
-                                  )}
-                                </div>
+                                {plankey == 0 &&
+                                  <div className="text-center pt-6 pb-4">
+                                    {plan.id !== 1 && (
+                                      <button
+                                        className="bg-[#bababa] shadow-xl rounded-2xl text-sm lg:text-base font-medium text-black px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#e1e1e1]"
+                                        onClick={() => {
+                                          createSubscription(plan.id, user_id);
+                                        }}
+                                      >
+                                        Subscribe Now
+                                      </button>
+                                    )}
+                                  </div>
+                                }
+                                {plankey == 1 &&
+                                  <div className="text-center pt-6 pb-4">
+                                    {plan.id !== 1 && (
+                                      <button
+                                        className="bg-[#ef9b0f] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#fbc873]"
+                                        onClick={() => {
+                                          createSubscription(plan.id, user_id);
+                                        }}
+                                      >
+                                        Subscribe Now
+                                      </button>
+                                    )}
+                                  </div>
+                                }
+                                {plankey == 2 &&
+                                  <div className="text-center pt-6 pb-4">
+                                    {plan.id !== 1 && (
+                                      <button
+                                        className="bg-[#0091f7] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#71c2fb]"
+                                        onClick={() => {
+                                          createSubscription(plan.id, user_id);
+                                        }}
+                                      >
+                                        Subscribe Now
+                                      </button>
+                                    )}
+                                  </div>
+                                }
                                 {/* <p className="text-center pt-1 text-[12px] text-gray-400">
                                   *Cancel Anytime*
                                 </p> */}
@@ -359,18 +389,48 @@ const Plans = (props) => {
                                     {plan.description}
                                   </li> */}
                                 </ul>
-                                <div className="text-center pt-6 pb-4">
-                                  {plan.id !== 1 && (
-                                    <button
-                                      className="bg-slate-100 shadow-xl rounded-2xl text-sm lg:text-base font-medium text-[#ae9258] px-6 lg:px-10 py-3 lg:py-4 hover:bg-white"
-                                      onClick={() => {
-                                        createSubscription(plan.id, user_id);
-                                      }}
-                                    >
-                                      Subscribe Now
-                                    </button>
-                                  )}
-                                </div>
+                                {plankey == 0 &&
+                                  <div className="text-center pt-6 pb-4">
+                                    {plan.id !== 1 && (
+                                      <button
+                                        className="bg-[#bababa] shadow-xl rounded-2xl text-sm lg:text-base font-medium text-black px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#e1e1e1]"
+                                        onClick={() => {
+                                          createSubscription(plan.id, user_id);
+                                        }}
+                                      >
+                                        Subscribe Now
+                                      </button>
+                                    )}
+                                  </div>
+                                }
+                                {plankey == 1 &&
+                                  <div className="text-center pt-6 pb-4">
+                                    {plan.id !== 1 && (
+                                      <button
+                                        className="bg-[#ef9b0f] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#fbc873]"
+                                        onClick={() => {
+                                          createSubscription(plan.id, user_id);
+                                        }}
+                                      >
+                                        Subscribe Now
+                                      </button>
+                                    )}
+                                  </div>
+                                }
+                                {plankey == 2 &&
+                                  <div className="text-center pt-6 pb-4">
+                                    {plan.id !== 1 && (
+                                      <button
+                                        className="bg-[#0091f7] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#71c2fb]"
+                                        onClick={() => {
+                                          createSubscription(plan.id, user_id);
+                                        }}
+                                      >
+                                        Subscribe Now
+                                      </button>
+                                    )}
+                                  </div>
+                                }
                                 {/* <p className="text-center pt-1 text-[12px] text-gray-400">
                                   *Cancel Anytime*
                                 </p> */}

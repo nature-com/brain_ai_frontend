@@ -86,11 +86,11 @@ const PaymentSlice = createSlice({
                 state.loading = true;
             })
             .addCase(stripePlanKeys.fulfilled, (state, { payload }) => {
-                console.log('payload', payload);
+                // console.log('payload', payload);
                 state.loading = false;
                 const { stripe_publishable_key } = payload;
                 state.stripePublishableKey = stripe_publishable_key;
-                console.log('stripe_publishable_key', stripe_publishable_key);
+                // console.log('stripe_publishable_key', stripe_publishable_key);
                 state.message =
                     payload !== undefined && payload.message
                         ? payload.message

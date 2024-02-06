@@ -19,6 +19,23 @@ export const toolsList = createAsyncThunk(
   }
 );
 
+export const toolsListTwo = createAsyncThunk(
+  'tools/tools-list-two',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await api.get('user/get-tools');
+      if (response?.data?.status_code === 200) {
+        return response.data;
+      } else {
+        return rejectWithValue(response.data);
+      }
+    } catch (err) {
+      let errors = errorHandler(err);
+      return rejectWithValue(errors);
+    }
+  }
+);
+
 export const toolsById = createAsyncThunk(
   'tools/tools-by-id',
   async (id, { rejectWithValue }) => {
@@ -84,6 +101,22 @@ const toolsSlice = createSlice({
         }
       })
       .addCase(toolsList.rejected, (state) => {
+        state.isLoading = false;
+        state.error = true;
+      })
+
+      .addCase(toolsListTwo.pending, (state) => {
+        state.isLoading = true;
+        state.message = null;
+      })
+      .addCase(toolsListTwo.fulfilled, (state, response) => {
+        state.isLoading = false;
+        state.error = false;
+        state.toolsList = {
+          details: response?.payload?.data,
+        }
+      })
+      .addCase(toolsListTwo.rejected, (state) => {
         state.isLoading = false;
         state.error = true;
       })

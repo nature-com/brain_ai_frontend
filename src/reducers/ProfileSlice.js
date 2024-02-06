@@ -7,7 +7,7 @@ export const editProfile = createAsyncThunk(
         try {
             const response = await api.get('user/edit-profile');
             if (response?.status === 200 && response?.data?.data) {
-                console.log('editprofile', response.data);
+                // console.log('editprofile', response.data);
                 localStorage.setItem(
                     'isSubscribed',
                     JSON.stringify({

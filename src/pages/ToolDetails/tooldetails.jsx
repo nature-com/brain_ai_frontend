@@ -19,7 +19,7 @@ const Tooldetails = () => {
 
   const dispatch = useDispatch();
   const { toolsDetails, answer } = useSelector((state) => state.tools);
-  console.log(toolsDetails);
+  // console.log(toolsDetails);
 
   useEffect(() => {
     dispatch(toolsById(id));
