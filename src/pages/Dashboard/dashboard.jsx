@@ -66,7 +66,7 @@ const Dashboard = () => {
                       </div>
 
                       <div className="text-[#ba9e63] font-medium text-base">
-                        {userName}
+                        {userName == "true" ? userName : "User"}
                       </div>
                     </div>
                     <div className="sidebar_tab">
@@ -148,11 +148,11 @@ const Dashboard = () => {
                                                   <h3>{tool?.tools_name}</h3>
                                                   <p>
                                                     {tool?.description.length >
-                                                      35
+                                                    35
                                                       ? tool?.description.substring(
-                                                        0,
-                                                        35
-                                                      ) + "..."
+                                                          0,
+                                                          35
+                                                        ) + "..."
                                                       : tool?.description}
                                                   </p>
                                                 </div>
@@ -197,9 +197,9 @@ const Dashboard = () => {
                                                       {tool?.description
                                                         .length > 35
                                                         ? tool?.description.substring(
-                                                          0,
-                                                          35
-                                                        ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                         : tool?.description}
                                                     </p>
                                                   </div>
@@ -224,38 +224,35 @@ const Dashboard = () => {
                                       Writing
                                     </h2>
                                     <div className="flex flex-wrap">
-                                      {tools?.details?.writing?.map(
-                                        (tool) => (
-                                          <div className="w-full md:w-4/12">
-                                            <NavLink
-                                              key={tool?.id}
-                                              activeClassName="active"
-                                              to={`/tooldetails/${tool.id}`}
-                                            >
-                                              <div className="category_list_item mx-2">
-                                                <div className="category_list_item_desc">
-                                                  <h3>{tool?.tools_name}</h3>
-                                                  <p>
-                                                    {tool?.description.length >
-                                                      35
-                                                      ? tool?.description.substring(
+                                      {tools?.details?.writing?.map((tool) => (
+                                        <div className="w-full md:w-4/12">
+                                          <NavLink
+                                            key={tool?.id}
+                                            activeClassName="active"
+                                            to={`/tooldetails/${tool.id}`}
+                                          >
+                                            <div className="category_list_item mx-2">
+                                              <div className="category_list_item_desc">
+                                                <h3>{tool?.tools_name}</h3>
+                                                <p>
+                                                  {tool?.description.length > 35
+                                                    ? tool?.description.substring(
                                                         0,
                                                         35
                                                       ) + "..."
-                                                      : tool?.description}
-                                                  </p>
-                                                </div>
-                                                <img
-                                                  src={tool?.avatar}
-                                                  width="70"
-                                                  height="70"
-                                                  className="rounded-full"
-                                                />
+                                                    : tool?.description}
+                                                </p>
                                               </div>
-                                            </NavLink>
-                                          </div>
-                                        )
-                                      )}
+                                              <img
+                                                src={tool?.avatar}
+                                                width="70"
+                                                height="70"
+                                                className="rounded-full"
+                                              />
+                                            </div>
+                                          </NavLink>
+                                        </div>
+                                      ))}
                                     </div>
                                   </div>
                                 </TabPanel>
@@ -265,38 +262,35 @@ const Dashboard = () => {
                                       Coding
                                     </h2>
                                     <div className="flex flex-wrap">
-                                      {tools?.details?.coding?.map(
-                                        (tool) => (
-                                          <div className="w-full md:w-4/12">
-                                            <NavLink
-                                              key={tool?.id}
-                                              activeClassName="active"
-                                              to={`/tooldetails/${tool.id}`}
-                                            >
-                                              <div className="category_list_item mx-2">
-                                                <div className="category_list_item_desc">
-                                                  <h3>{tool?.tools_name}</h3>
-                                                  <p>
-                                                    {tool?.description.length >
-                                                      35
-                                                      ? tool?.description.substring(
+                                      {tools?.details?.coding?.map((tool) => (
+                                        <div className="w-full md:w-4/12">
+                                          <NavLink
+                                            key={tool?.id}
+                                            activeClassName="active"
+                                            to={`/tooldetails/${tool.id}`}
+                                          >
+                                            <div className="category_list_item mx-2">
+                                              <div className="category_list_item_desc">
+                                                <h3>{tool?.tools_name}</h3>
+                                                <p>
+                                                  {tool?.description.length > 35
+                                                    ? tool?.description.substring(
                                                         0,
                                                         35
                                                       ) + "..."
-                                                      : tool?.description}
-                                                  </p>
-                                                </div>
-                                                <img
-                                                  src={tool?.avatar}
-                                                  width="70"
-                                                  height="70"
-                                                  className="rounded-full"
-                                                />
+                                                    : tool?.description}
+                                                </p>
                                               </div>
-                                            </NavLink>
-                                          </div>
-                                        )
-                                      )}
+                                              <img
+                                                src={tool?.avatar}
+                                                width="70"
+                                                height="70"
+                                                className="rounded-full"
+                                              />
+                                            </div>
+                                          </NavLink>
+                                        </div>
+                                      ))}
                                     </div>
                                   </div>
                                 </TabPanel>
@@ -319,11 +313,11 @@ const Dashboard = () => {
                                                   <h3>{tool?.tools_name}</h3>
                                                   <p>
                                                     {tool?.description.length >
-                                                      35
+                                                    35
                                                       ? tool?.description.substring(
-                                                        0,
-                                                        35
-                                                      ) + "..."
+                                                          0,
+                                                          35
+                                                        ) + "..."
                                                       : tool?.description}
                                                   </p>
                                                 </div>
@@ -347,38 +341,35 @@ const Dashboard = () => {
                                       Language
                                     </h2>
                                     <div className="flex flex-wrap">
-                                      {tools?.details?.language?.map(
-                                        (tool) => (
-                                          <div className="w-full md:w-4/12">
-                                            <NavLink
-                                              key={tool?.id}
-                                              activeClassName="active"
-                                              to={`/tooldetails/${tool.id}`}
-                                            >
-                                              <div className="category_list_item mx-2">
-                                                <div className="category_list_item_desc">
-                                                  <h3>{tool?.tools_name}</h3>
-                                                  <p>
-                                                    {tool?.description.length >
-                                                      35
-                                                      ? tool?.description.substring(
+                                      {tools?.details?.language?.map((tool) => (
+                                        <div className="w-full md:w-4/12">
+                                          <NavLink
+                                            key={tool?.id}
+                                            activeClassName="active"
+                                            to={`/tooldetails/${tool.id}`}
+                                          >
+                                            <div className="category_list_item mx-2">
+                                              <div className="category_list_item_desc">
+                                                <h3>{tool?.tools_name}</h3>
+                                                <p>
+                                                  {tool?.description.length > 35
+                                                    ? tool?.description.substring(
                                                         0,
                                                         35
                                                       ) + "..."
-                                                      : tool?.description}
-                                                  </p>
-                                                </div>
-                                                <img
-                                                  src={tool?.avatar}
-                                                  width="70"
-                                                  height="70"
-                                                  className="rounded-full"
-                                                />
+                                                    : tool?.description}
+                                                </p>
                                               </div>
-                                            </NavLink>
-                                          </div>
-                                        )
-                                      )}
+                                              <img
+                                                src={tool?.avatar}
+                                                width="70"
+                                                height="70"
+                                                className="rounded-full"
+                                              />
+                                            </div>
+                                          </NavLink>
+                                        </div>
+                                      ))}
                                     </div>
                                   </div>
                                 </TabPanel>
@@ -388,38 +379,35 @@ const Dashboard = () => {
                                       Creative
                                     </h2>
                                     <div className="flex flex-wrap">
-                                      {tools?.details?.creative?.map(
-                                        (tool) => (
-                                          <div className="w-full md:w-4/12">
-                                            <NavLink
-                                              key={tool?.id}
-                                              activeClassName="active"
-                                              to={`/tooldetails/${tool.id}`}
-                                            >
-                                              <div className="category_list_item mx-2">
-                                                <div className="category_list_item_desc">
-                                                  <h3>{tool?.tools_name}</h3>
-                                                  <p>
-                                                    {tool?.description.length >
-                                                      35
-                                                      ? tool?.description.substring(
+                                      {tools?.details?.creative?.map((tool) => (
+                                        <div className="w-full md:w-4/12">
+                                          <NavLink
+                                            key={tool?.id}
+                                            activeClassName="active"
+                                            to={`/tooldetails/${tool.id}`}
+                                          >
+                                            <div className="category_list_item mx-2">
+                                              <div className="category_list_item_desc">
+                                                <h3>{tool?.tools_name}</h3>
+                                                <p>
+                                                  {tool?.description.length > 35
+                                                    ? tool?.description.substring(
                                                         0,
                                                         35
                                                       ) + "..."
-                                                      : tool?.description}
-                                                  </p>
-                                                </div>
-                                                <img
-                                                  src={tool?.avatar}
-                                                  width="70"
-                                                  height="70"
-                                                  className="rounded-full"
-                                                />
+                                                    : tool?.description}
+                                                </p>
                                               </div>
-                                            </NavLink>
-                                          </div>
-                                        )
-                                      )}
+                                              <img
+                                                src={tool?.avatar}
+                                                width="70"
+                                                height="70"
+                                                className="rounded-full"
+                                              />
+                                            </div>
+                                          </NavLink>
+                                        </div>
+                                      ))}
                                     </div>
                                   </div>
                                 </TabPanel>

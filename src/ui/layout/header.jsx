@@ -20,7 +20,7 @@ const Header = () => {
 
   const handleLogout = () => {
     dispatch(logout());
-  }
+  };
 
   return (
     <>
@@ -50,7 +50,7 @@ const Header = () => {
                 <p className="mr-3">
                   Welcome,{" "}
                   <span className="font-bold text-red-800">
-                    {userName}
+                    {userName == "true" ? userName : "User"}
                   </span>
                 </p>
                 <Link
@@ -101,8 +101,8 @@ const Header = () => {
               <NavLink to="/contact">Contact</NavLink>
             </li>
           </Navbar.Collapse>
-        </Navbar >
-      </div >
+        </Navbar>
+      </div>
       {openLoginModal && (
         <Login
           openLoginModal={openLoginModal}
