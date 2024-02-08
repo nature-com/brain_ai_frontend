@@ -108,17 +108,25 @@ const Dashboard = () => {
                           <h1>Work smart not harder with My Brain</h1>
                           <img src={adminBanner2} width="" height="" />
                         </div> */}
-                        <div className="flex justify-between px-2 mb-4">
-                          <div>
+                        <div className="flex justify-between items-center px-2 mb-4">
+                          <div className="">
                             <h2 className="text-blacks font-bold text-3xl uppercase">
                               Work Smarter Not Harder
                             </h2>
                           </div>
-                          <div className="text-center">
-                            <h3 className="text-[#ba9e63] font-bold text-xl uppercase">
-                              25,502
-                            </h3>
-                            <p>Joined AzzyWrites</p>
+                          <div className="flex items-center">
+                            <Link
+                              to="/your-account"
+                              className="text-3xl text-black mr-8 hover:text-[#ba9e63]"
+                            >
+                              <IoSettingsOutline />
+                            </Link>
+                            <div className="text-center">
+                              <h3 className="text-[#ba9e63] font-bold text-xl uppercase">
+                                25,502
+                              </h3>
+                              <p>Joined AzzyWrites</p>
+                            </div>
                           </div>
                         </div>
 
@@ -460,20 +468,14 @@ const Dashboard = () => {
                               <AiOutlineUserAdd className="text-base mr-[0]" />
                               Refer a friend
                             </p>
+
                             <h2 className="text-center text-3xl text-black font-bold px-4">
                               When we think outside the box!
                             </h2>
                             <div className="text-center my-3">
                               <img src={thinkBox} className="inline-block" />
                             </div>
-                            <div className="flex items-center justify-center my-4">
-                              <Link
-                                to="/your-account"
-                                className="text-3xl text-black hover:text-[#ba9e63]"
-                              >
-                                <IoSettingsOutline />
-                              </Link>
-                            </div>
+
                             <p className="text-center lg:text-left mb-4 lg:mb-0 text-sm text-white font-medium">
                               <ul className="flex justify-center">
                                 <li className="mr-1">
