@@ -31,7 +31,6 @@ const YourAccount = () => {
   // const email = localStorage.getItem("userEmail");
   const userName = localStorage.getItem("userName");
 
-
   useEffect(() => {
     dispatch(toolsList());
   }, []);
@@ -107,7 +106,7 @@ const YourAccount = () => {
                                 required
                               />
                             </div>
-                            <div>
+                            {/* <div>
                               <div className="mb-2 block">
                                 <Label value="Your Preferred Tools" />
                               </div>
@@ -117,9 +116,9 @@ const YourAccount = () => {
                                 <option>Tools</option>
                                 <option>Tools</option>
                               </Select>
-                            </div>
+                            </div> */}
                           </div>
-                          <div class="grid grid-cols-2 gap-4">
+                          {/* <div class="grid grid-cols-2 gap-4">
                             <div>
                               <div className="mb-2 block">
                                 <Label value="Language Preference" />
@@ -131,10 +130,10 @@ const YourAccount = () => {
                                 <option>English</option>
                               </Select>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
 
-                        <div className="mb-4">
+                        {/* <div className="mb-4">
                           <h2 class="text-2xl pb-2 font-bold text-black">
                             Email
                           </h2>
@@ -184,7 +183,7 @@ const YourAccount = () => {
                               </div>
                             </div>
                           </form>
-                        </div>
+                        </div> */}
 
                         <div className="mb-4">
                           <h2 class="text-2xl pb-2 font-bold text-black">
@@ -205,7 +204,7 @@ const YourAccount = () => {
                                 </div>
                                 <div>
                                   <div className="mb-2 block">
-                                    <Label value="Old Password" />
+                                    <Label value="New Password" />
                                   </div>
                                   <TextInput
                                     type="password"

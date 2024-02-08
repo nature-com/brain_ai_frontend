@@ -184,7 +184,7 @@ const Plan = () => {
                           <h3 className="text-center text-lg font-medium text-white pb-3">
                             £
                             <span className="text-center text-3xl font-bold text-white pb-6">
-                              8
+                              10
                               <span className="text-center text-lg font-medium text-white">
                                 / month
                               </span>
@@ -319,7 +319,7 @@ const Plan = () => {
                           <h3 className="text-center text-lg font-medium text-white pb-3">
                             £
                             <span className="text-center text-3xl font-bold text-white pb-6">
-                              10
+                              12
                               <span className="text-center text-lg font-medium text-white">
                                 / month
                               </span>
@@ -454,13 +454,16 @@ const Plan = () => {
                           <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
                             Silver Plan
                           </h2>
-                          <p className="text-center text-base lg:text-lg font-normal text-black pb-1">
+                          <p className="text-center text-base lg:text-xs font-normal text-black pb-2">
                             3 Day Free Trial
+                          </p>
+                          <p className="text-center text-base lg:text-base font-medium text-white pb-0">
+                            £60 Annually
                           </p>
                           <h3 className="text-center text-lg font-medium text-black pb-3">
                             £
                             <span className="text-center text-3xl font-bold text-black pb-6">
-                              4
+                              5
                               <span className="text-center text-lg font-medium text-black">
                                 / month
                               </span>
@@ -589,13 +592,16 @@ const Plan = () => {
                           <h2 className="text-center text-2xl lg:text-3xl font-bold text-white pb-2">
                             Gold Plan
                           </h2>
-                          <p className="text-center text-base lg:text-lg font-medium text-white pb-1">
+                          <p className="text-center text-base lg:text-xs font-normal text-black pb-2">
                             3 Day Free Trial
+                          </p>
+                          <p className="text-center text-base lg:text-base font-medium text-black pb-0">
+                            £96 Annually
                           </p>
                           <h3 className="text-center text-lg font-medium text-white pb-3">
                             £
                             <span className="text-center text-3xl font-bold text-white pb-6">
-                              6
+                              8
                               <span className="text-center text-lg font-medium text-white">
                                 / month
                               </span>
@@ -724,13 +730,16 @@ const Plan = () => {
                           <h2 className="text-center text-2xl lg:text-3xl font-bold text-white pb-2">
                             Platinum Plan
                           </h2>
-                          <p className="text-center text-base lg:text-lg font-medium text-white pb-1">
+                          <p className="text-center text-base lg:text-xs font-normal text-black pb-2">
                             3 Day Free Trial
+                          </p>
+                          <p className="text-center text-base lg:text-base font-medium text-black pb-0">
+                            £120 Annually
                           </p>
                           <h3 className="text-center text-lg font-medium text-white pb-3">
                             £
                             <span className="text-center text-3xl font-bold text-white pb-6">
-                              8
+                              10
                               <span className="text-center text-lg font-medium text-white">
                                 / month
                               </span>

@@ -48,13 +48,18 @@ const Banner = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full md:w-6/12">
+            <div className="w-full md:w-6/12 ml-0 md:ml-8">
               <div
                 className="home_banner_img"
                 data-aos="fade-left"
                 data-aos-duration="1500"
               >
-                <img src={bannerImage} width="702" height="559" />
+                <img
+                  src={bannerImage}
+                  width="702"
+                  height="559"
+                  className="rounded-2xl"
+                />
               </div>
             </div>
           </div>
