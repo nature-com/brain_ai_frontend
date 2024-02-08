@@ -53,6 +53,23 @@ export const toolsById = createAsyncThunk(
   }
 );
 
+export const toolsByIdTwo = createAsyncThunk(
+  'tools/tools-by-id-two',
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await api.get(`user/get-tools/${id}`);
+      if (response?.data?.status_code === 200) {
+        return response.data;
+      } else {
+        return rejectWithValue(response.data);
+      }
+    } catch (err) {
+      let errors = errorHandler(err);
+      return rejectWithValue(errors);
+    }
+  }
+);
+
 export const generateAnswer = createAsyncThunk(
   'tools/generate-answer',
   async (userInput, { rejectWithValue }) => {
@@ -133,6 +150,22 @@ const toolsSlice = createSlice({
         }
       })
       .addCase(toolsById.rejected, (state) => {
+        state.isLoading = false;
+        state.error = true;
+      })
+
+      .addCase(toolsByIdTwo.pending, (state) => {
+        state.isLoading = true;
+        state.message = null;
+      })
+      .addCase(toolsByIdTwo.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = false;
+        state.toolsDetails = {
+          details: payload?.data[0],
+        }
+      })
+      .addCase(toolsByIdTwo.rejected, (state) => {
         state.isLoading = false;
         state.error = true;
       })
