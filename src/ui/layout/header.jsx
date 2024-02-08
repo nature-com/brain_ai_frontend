@@ -29,7 +29,7 @@ const Header = () => {
           <Link to="/" className="w-32 lg:w-auto">
             <img alt="Logo" src={logo} />
           </Link>
-          <div className="flex md:order-2">
+          <div className="flex md:order-2 items-center">
             {!token ? (
               <>
                 <Link

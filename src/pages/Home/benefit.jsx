@@ -104,13 +104,18 @@ const Benefit = () => {
                 </ul> */}
               </div>
             </div>
-            <div className="w-full md:w-6/12">
+            <div className="w-full md:w-6/12 ml-0 md:ml-8">
               <div
                 className="benefit_section_img ml-4"
                 data-aos="fade-left"
                 data-aos-duration="1500"
               >
-                <img src={benefitImg} width="" height="" />
+                <img
+                  src={benefitImg}
+                  width=""
+                  height=""
+                  className="rounded-2xl"
+                />
               </div>
             </div>
           </div>
