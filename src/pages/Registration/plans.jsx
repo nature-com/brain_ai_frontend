@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { subscriptionPlans } from "../../reducers/PlansSlice";
 import Payment from "./payment";
 import { stripePayment, stripePlanKeys } from "../../reducers/PaymentSlice";
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 
 const Plans = (props) => {
   const dispatch = useDispatch();
