@@ -303,6 +303,12 @@ const Plans = (props) => {
                                   <p className="text-center text-base lg:text-lg font-normal text-black pb-1">
                                     3 Day Free Trial
                                   </p>
+                                  <p className="text-center text-base lg:text-base font-medium text-black pb-0">
+                                    {plan.currency}
+                                    <span className="text-center text-xl font-bold text-black pb-6">{plan.annual_price}{" "}
+                                      <span className="text-center text-lg font-medium text-black">{plan.annual_interval}</span>
+                                    </span>
+                                  </p>
                                   <h3 className="text-center text-lg font-medium text-black pb-3">
                                     {plan.currency}
                                     <span className="text-center text-3xl font-bold text-black pb-6">
@@ -322,6 +328,12 @@ const Plans = (props) => {
                                   <p className="text-center text-base lg:text-lg font-normal text-black pb-1">
                                     3 Day Free Trial
                                   </p>
+                                  <p className="text-center text-base lg:text-base font-medium text-black pb-0">
+                                    {plan.currency}
+                                    <span className="text-center text-xl font-bold text-black pb-6">{plan.annual_price}{" "}
+                                      <span className="text-center text-lg font-medium text-black">{plan.annual_interval}</span>
+                                    </span>
+                                  </p>
                                   <h3 className="text-center text-lg font-medium text-black pb-3">
                                     {plan.currency}
                                     <span className="text-center text-3xl font-bold text-black pb-6">
@@ -340,6 +352,12 @@ const Plans = (props) => {
                                   </h2>
                                   <p className="text-center text-base lg:text-lg font-normal text-black pb-1">
                                     3 Day Free Trial
+                                  </p>
+                                  <p className="text-center text-base lg:text-base font-medium text-black pb-0">
+                                    {plan.currency}
+                                    <span className="text-center text-xl font-bold text-black pb-6">{plan.annual_price}{" "}
+                                      <span className="text-center text-lg font-medium text-black">{plan.annual_interval}</span>
+                                    </span>
                                   </p>
                                   <h3 className="text-center text-lg font-medium text-black pb-3">
                                     {plan.currency}

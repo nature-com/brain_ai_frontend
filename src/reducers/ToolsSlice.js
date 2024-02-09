@@ -101,7 +101,9 @@ const toolsSlice = createSlice({
   name: 'tools',
   initialState,
   reducers: {
-
+    clearAnswer: (state) => {
+      state.answer = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -180,11 +182,13 @@ const toolsSlice = createSlice({
         state.error = false;
         state.answer = payload.data
       })
-      .addCase(generateAnswer.rejected, (state, response) => {
+      .addCase(generateAnswer.rejected, (state) => {
         state.isLoading = false;
         state.error = true;
+        state.answer = null;
       })
   }
 })
+export const { clearAnswer } = toolsSlice.actions;
 
 export default toolsSlice.reducer;

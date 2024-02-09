@@ -15,7 +15,7 @@ import {
     userIcon,
 } from "../../assets/images/images";
 import { useDispatch, useSelector } from "react-redux";
-import { toolsListTwo } from "../../reducers/ToolsSlice";
+import { clearAnswer, toolsListTwo } from "../../reducers/ToolsSlice";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { IoSettingsOutline } from "react-icons/io5";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
@@ -42,7 +42,9 @@ const Dashboard = () => {
 
     useEffect(() => {
         dispatch(toolsListTwo());
+        dispatch(clearAnswer());
     }, []);
+
 
     useEffect(() => {
         if (Object.keys(toolList).length) {
