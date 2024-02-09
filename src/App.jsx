@@ -48,7 +48,7 @@ function App() {
       <Route path="/dashboard" element={<InsideLayout />}>
         <Route index element={<Dashboard />} />
       </Route>
-      <Route path="/dashboardTwo" element={<InsideLayout />}>
+      <Route path="/dashboard-login" element={<InsideLayout />}>
         <Route index element={<DashboardTwo />} />
       </Route>
       <Route path="/your-account" element={<InsideLayout />}>

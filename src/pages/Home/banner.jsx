@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { bannerImage } from "../../assets/images/images";
+import { bannerImage, benefitImg } from "../../assets/images/images";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
@@ -55,7 +55,7 @@ const Banner = () => {
                 data-aos-duration="1500"
               >
                 <img
-                  src={bannerImage}
+                  src={benefitImg}
                   width="702"
                   height="559"
                   className="rounded-2xl"

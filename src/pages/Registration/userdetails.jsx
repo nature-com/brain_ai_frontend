@@ -153,6 +153,22 @@ const UserDetails = (props) => {
                   </small>
                 )}
               </div>
+              <div>
+                <input
+                  type="password"
+                  className="rounded-full text-base px-5 h-12 border border-slate-400 border-solid w-full mb-3"
+                  placeholder="Confirm Password"
+                  autoComplete="off"
+                  {...register("confirm_password", {
+                    required: "Password is required",
+                  })}
+                />
+                {errors?.confirm_password?.message && (
+                  <small className="text-red-600">
+                    {errors.confirm_password.message}
+                  </small>
+                )}
+              </div>
               {/* <div className="flex items-center justify-center bg-white rounded-full h-12 border border-slate-400 border-solid w-full mb-3"> */}
               {/* <span className="text-base p-3.5 h-12">+91</span> */}
               {/* <select
