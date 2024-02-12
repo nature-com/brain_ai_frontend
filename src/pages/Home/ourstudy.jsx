@@ -63,7 +63,7 @@ const Ourstudy = () => {
                     height="70"
                   />
                   <p className="text-black font-medium text-base">
-                    Essay <br></br> writer
+                    Essay <br></br> Writer
                   </p>
                 </div>
               </div>
@@ -102,7 +102,7 @@ const Ourstudy = () => {
                     height="70"
                   />
                   <p className="text-black font-medium text-base pb-6">
-                    python Writer
+                    Python Writer
                   </p>
                 </div>
               </div>

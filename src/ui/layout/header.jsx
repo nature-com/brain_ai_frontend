@@ -47,12 +47,12 @@ const Header = () => {
               </>
             ) : (
               <>
-                <p className="mr-3">
+                {/* <p className="mr-3">
                   Welcome,{" "}
                   <span className="font-bold text-red-800">
                     {userName ? userName : "User"}
                   </span>
-                </p>
+                </p> */}
                 <Link
                   // onClick={() => localStorage.removeItem("userToken")}
                   onClick={handleLogout}
