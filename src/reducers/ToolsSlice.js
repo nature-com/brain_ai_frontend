@@ -53,6 +53,23 @@ export const toolsById = createAsyncThunk(
   }
 );
 
+export const toolsByIdTwo = createAsyncThunk(
+  'tools/tools-by-id-two',
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await api.get(`user/get-tools/${id}`);
+      if (response?.data?.status_code === 200) {
+        return response.data;
+      } else {
+        return rejectWithValue(response.data);
+      }
+    } catch (err) {
+      let errors = errorHandler(err);
+      return rejectWithValue(errors);
+    }
+  }
+);
+
 export const generateAnswer = createAsyncThunk(
   'tools/generate-answer',
   async (userInput, { rejectWithValue }) => {
@@ -84,7 +101,9 @@ const toolsSlice = createSlice({
   name: 'tools',
   initialState,
   reducers: {
-
+    clearAnswer: (state) => {
+      state.answer = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -137,6 +156,22 @@ const toolsSlice = createSlice({
         state.error = true;
       })
 
+      .addCase(toolsByIdTwo.pending, (state) => {
+        state.isLoading = true;
+        state.message = null;
+      })
+      .addCase(toolsByIdTwo.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = false;
+        state.toolsDetails = {
+          details: payload?.data[0],
+        }
+      })
+      .addCase(toolsByIdTwo.rejected, (state) => {
+        state.isLoading = false;
+        state.error = true;
+      })
+
       .addCase(generateAnswer.pending, (state) => {
         state.isLoading = true;
         state.message = null;
@@ -147,11 +182,13 @@ const toolsSlice = createSlice({
         state.error = false;
         state.answer = payload.data
       })
-      .addCase(generateAnswer.rejected, (state, response) => {
+      .addCase(generateAnswer.rejected, (state) => {
         state.isLoading = false;
         state.error = true;
+        state.answer = null;
       })
   }
 })
+export const { clearAnswer } = toolsSlice.actions;
 
 export default toolsSlice.reducer;

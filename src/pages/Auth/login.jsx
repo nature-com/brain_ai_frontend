@@ -11,9 +11,8 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
   const formButtonRef = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { message, isLoggedIn, error, loading } = useSelector(
-    (state) => state.auth
-  );
+  const { message, isLoggedIn, error, loading } = useSelector((state) => state.auth);
+  const subscription = localStorage.getItem("isSubscribed");
   const [errorMessage, setErrorMessage] = useState(null);
 
   const handleLinkClick = () => {
@@ -51,7 +50,8 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
       };
     } else if (isLoggedIn) {
       dispatch(resetAfterLoggedIn());
-      navigate("/dashboard");
+      // navigate("/dashboard");
+      navigate("/dashboard-login");
     }
   }, [message, error, isLoggedIn]);
 

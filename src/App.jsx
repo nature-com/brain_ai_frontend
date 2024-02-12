@@ -19,6 +19,7 @@ import Reviews from "./pages/Reviews/Reviews";
 import YourAccount from "./pages/YourAccount/YourAccount";
 import Tools from "./pages/Tools/Tools";
 import PaymentPlan from "./pages/PaymentPlan/PaymentPlan";
+import DashboardTwo from "./pages/Dashboard/dashboardTwo";
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
       </Route>
       <Route path="/dashboard" element={<InsideLayout />}>
         <Route index element={<Dashboard />} />
+      </Route>
+      <Route path="/dashboard-login" element={<InsideLayout />}>
+        <Route index element={<DashboardTwo />} />
       </Route>
       <Route path="/your-account" element={<InsideLayout />}>
         <Route index element={<YourAccount />} />

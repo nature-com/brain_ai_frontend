@@ -50,7 +50,7 @@ const Header = () => {
                 <p className="mr-3">
                   Welcome,{" "}
                   <span className="font-bold text-red-800">
-                    {userName == "true" ? userName : "User"}
+                    {userName ? userName : "User"}
                   </span>
                 </p>
                 <Link
@@ -82,7 +82,7 @@ const Header = () => {
               {!token ? (
                 <NavLink to="/tools">Tools</NavLink>
               ) : (
-                <NavLink to="/dashboard">Tools</NavLink>
+                <NavLink to="/dashboard-login">Tools</NavLink>
               )}
             </li>
             <li>

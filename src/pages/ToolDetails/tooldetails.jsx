@@ -45,7 +45,6 @@ const Tooldetails = () => {
     dispatch(generateAnswer(newData))
   };
 
-
   const handleInputChange = (event) => {
     setPrompt(event.target.value);
   };
@@ -74,7 +73,7 @@ const Tooldetails = () => {
           <div className="container max-w-6xl mx-auto py-4 px-0">
             <div className="top_bar">
               <h2>
-                <NavLink activeClassName="active" to="/dashboard">
+                <NavLink activeClassName="active" to="/dashboard-login" >
                   <BiArrowBack size={25} color="#b3975f" />
                 </NavLink>
               </h2>
@@ -178,9 +177,9 @@ const Tooldetails = () => {
                       />
                       {answer ? (
                         <>
-                          <pre className="text-base font-normal pb-3 text-black text-justify whitespace-pre-wrap">
+                          <p className="text-base font-normal pb-3 text-black text-justify whitespace-pre-wrap">
                             {answer}
-                          </pre>
+                          </p>
                         </>
                       ) : (
                         <h2 className="text-2xl font-semibold pb-3 text-black">

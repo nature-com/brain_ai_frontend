@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, Suspense } from "react";
-import { benefitImg } from "../../assets/images/images";
+import { bannerImage, benefitImg } from "../../assets/images/images";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import Faq from "react-faq-component";
 const data = {
@@ -111,7 +111,7 @@ const Benefit = () => {
                 data-aos-duration="1500"
               >
                 <img
-                  src={benefitImg}
+                  src={bannerImage}
                   width=""
                   height=""
                   className="rounded-2xl"
