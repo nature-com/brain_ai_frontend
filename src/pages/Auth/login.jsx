@@ -19,6 +19,7 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
     if (formButtonRef.current) {
       formButtonRef.current.click();
     }
+    setOpenLoginModal(false);
   };
 
   const handleLinkClick2 = () => {
@@ -124,7 +125,7 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
                         })}
                       />
                       {errors?.email?.message && (
-                        <h6 className="text-danger">{errors.email.message}</h6>
+                        <h6 className="text-danger text-red-500">{errors.email.message}</h6>
                       )}
                     </div>
                     <div className="form-group">
@@ -139,7 +140,7 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
                         })}
                       />
                       {errors?.password?.message && (
-                        <h6 className="text-danger">
+                        <h6 className="text-danger text-red-500">
                           {errors.password.message}
                         </h6>
                       )}

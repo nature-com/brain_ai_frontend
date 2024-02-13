@@ -74,8 +74,8 @@ export const generateAnswer = createAsyncThunk(
   'tools/generate-answer',
   async (userInput, { rejectWithValue }) => {
     try {
-      const { subject, description } = userInput;
-      const response = await api.post('user/tools/ais', { subject, description });
+      const { subject, description, tools_name } = userInput;
+      const response = await api.post('user/tools/ais', { subject, description, tools_name });
       if (response?.data?.status_code === 200) {
         return response.data;
       } else {

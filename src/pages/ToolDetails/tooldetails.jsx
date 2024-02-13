@@ -40,7 +40,8 @@ const Tooldetails = () => {
   const onSubmit = (data) => {
     const newData = {
       ...data,
-      description: tooldetails?.details?.tools_name,
+      description: tooldetails?.details?.description,
+      tools_name: tooldetails?.details?.tools_name,
     }
     dispatch(generateAnswer(newData))
   };

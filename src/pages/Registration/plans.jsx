@@ -80,10 +80,6 @@ const Plans = (props) => {
     });
   }, []);
 
-  // useEffect(() => {
-  //   dispatch(subscriptionPlans());
-  // },[]);
-
   useEffect(() => {
     setPlans(plansList);
   }, [plansList]);
@@ -189,15 +185,7 @@ const Plans = (props) => {
                                   </h3>
                                 </div>
                               }
-                              {/* <h3 className="text-center text-lg font-medium text-black pb-3 line-through">
-                                {plan.currency}
-                                <span className="text-center text-3xl font-bold text-black pb-6">
-                                  {plan.price}{" "}
-                                  <span className="text-center text-lg font-medium text-black">
-                                    / {plan.plan_interval}
-                                  </span>
-                                </span>
-                              </h3> */}
+
                               <div className="bg-white rounded-2xl p-6">
                                 <ul>
                                   {plan.description.split('%').map((desc, ind) => (
@@ -219,13 +207,6 @@ const Plans = (props) => {
                                       {desc.split('/> ')[1]}
                                     </li>
                                   ))}
-                                  {/* <li className="flex items-center text-base lg:text-base font-normal mb-5">
-                                    <BsFillCheckCircleFill
-                                      className="text-[#d0bd7b] mt-0 mr-2"
-                                      size={20}
-                                    />
-                                    {plan.description}
-                                  </li> */}
                                 </ul>
                                 {plankey == 0 &&
                                   <div className="text-center pt-6 pb-4">
@@ -370,15 +351,7 @@ const Plans = (props) => {
                                   </h3>
                                 </div>
                               }
-                              {/* <h3 className="text-center text-lg font-medium text-black pb-3 line-through">
-                                {plan.currency}
-                                <span className="text-center text-3xl font-bold text-black pb-6">
-                                  {plan.price}{" "}
-                                  <span className="text-center text-lg font-medium text-black">
-                                    / {plan.plan_interval}
-                                  </span>
-                                </span>
-                              </h3> */}
+
                               <div className="bg-white rounded-2xl p-6">
                                 <ul>
                                   {plan.description.split('%').map((desc, ind) => (
@@ -400,13 +373,6 @@ const Plans = (props) => {
                                       {desc.split('/> ')[1]}
                                     </li>
                                   ))}
-                                  {/* <li className="flex items-center text-base lg:text-base font-normal mb-5">
-                                    <BsFillCheckCircleFill
-                                      className="text-[#d0bd7b] mt-0 mr-2"
-                                      size={20}
-                                    />
-                                    {plan.description}
-                                  </li> */}
                                 </ul>
                                 {plankey == 0 &&
                                   <div className="text-center pt-6 pb-4">
