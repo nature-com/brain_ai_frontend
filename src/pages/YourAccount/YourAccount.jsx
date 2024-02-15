@@ -24,7 +24,7 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { Button, Checkbox, Label, TextInput, Select } from "flowbite-react";
 import { editProfile, updateProfile } from "../../reducers/ProfileSlice";
 import { useForm } from "react-hook-form";
-import { subscriptionHistory } from "../../reducers/PlansSlice";
+import { cancelSubscription, subscriptionHistory } from "../../reducers/PlansSlice";
 
 const YourAccount = () => {
   const dispatch = useDispatch();
@@ -99,6 +99,32 @@ const YourAccount = () => {
     // Format the date as "yyyy-mm-dd"
     const formattedDate = date.toISOString().split('T')[0];
     return formattedDate;
+  };
+
+  const [cancellationStatus, setCancellationStatus] = useState('active');
+  const userId = JSON.parse(localStorage.getItem("userId"));
+  const user_id = userId.user_id;
+
+  const CancelSubscription = () => {
+    const cancelUserSubscription = {
+      user_id: user_id,
+      stripe_subscription_id: userPlan?.details?.stripe_subscription_id,
+      entity: 'cancel_subscription',
+    };
+
+    dispatch(cancelSubscription(cancelUserSubscription))
+      .then((result) => {
+        if (result?.payload?.status && result?.payload?.status_code === 200) {
+          console.log('Subscription canceled successfully');
+          setCancellationStatus('cancelled');
+          localStorage.setItem('cancellationStatus', 'cancelled');
+        }
+      })
+      .catch((error) => {
+        console.error('Failed to cancel subscription', error);
+        setCancellationStatus('active');
+        localStorage.setItem('cancellationStatus', 'active');
+      });
   };
 
 
@@ -250,13 +276,13 @@ const YourAccount = () => {
                     <section>
                       {userPlan &&
                         <TabPanel>
-                          <p class="text-base pb-0 font-bold text-black">
+                          <p className="text-base pb-0 font-bold text-black">
                             Current plan
                           </p>
-                          <h2 class="text-2xl pb-0 font-bold text-black">
+                          <h2 className="text-2xl pb-0 font-bold text-black">
                             {userPlan?.details?.plan?.name}
                           </h2>
-                          <p class="text-[15px] pb-0 font-normal text-black">
+                          <p className="text-[15px] pb-0 font-normal text-black">
                             Current period ends on: {userPlan?.details?.plan_period_end}
                           </p>
                           {/* <div className="flex my-4">
@@ -275,10 +301,10 @@ const YourAccount = () => {
                           </div> */}
 
                           <div className="my-4">
-                            <h3 class="text-xl pb-2 font-bold text-black pt-4">
+                            <h3 className="text-xl pb-2 font-bold text-black pt-4">
                               Manage Subscription
                             </h3>
-                            <p class="text-[15px] pb-0 font-normal text-black">
+                            <p className="text-[15px] pb-0 font-normal text-black">
                               After you unsubscribe, your current plan will still
                               be valid until {userPlan?.details?.plan_period_end}
                             </p>
@@ -289,12 +315,20 @@ const YourAccount = () => {
                               >
                                 Update Payment Method
                               </button> */}
-                              <button
-                                type="submit"
-                                className="text-[14px] font-medium text-[#ff0000] px-5 p-2 mt-0 mr-2 lg:mr-0 bg-[#edecec] rounded-lg hover:bg-black hover:text-white"
-                              >
-                                Cancel Plan
-                              </button>
+                              {/* {localStorage.getItem("cancellationStatus") === 'active' ? ( */}
+                              {cancellationStatus === 'active' ? (
+                                <button
+                                  type="button"
+                                  className="text-[14px] font-medium text-[#ff0000] px-5 p-2 mt-0 mr-2 lg:mr-0 bg-[#edecec] rounded-lg hover:bg-black hover:text-white"
+                                  onClick={() => CancelSubscription()}
+                                >
+                                  Cancel Plan
+                                </button>
+                              ) : (
+                                <p style={{ color: 'red' }}>
+                                  Subscription has been cancelled.
+                                </p>
+                              )}
                             </div>
                           </div>
                           {/* <div className="my-4">
