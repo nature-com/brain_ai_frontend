@@ -27,6 +27,16 @@
     color: #ffffff;
     border: none;
 }
+.sidebar_tab ul li.gold_plan {
+    background: #f09e16;
+    color: #ffffff;
+    font-weight: 500;
+}
+.sidebar_tab ul li.platinum_plan {
+    background: #159af7;
+    color: #ffffff;
+    font-weight: 500;
+}
 
 /* Add css for admin portfolio tab start here */
 

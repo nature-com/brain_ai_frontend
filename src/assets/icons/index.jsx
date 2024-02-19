@@ -22,8 +22,10 @@ import { BiArrowBack } from "react-icons/bi";
 import { HiChevronUp } from "react-icons/hi";
 import { FaInstagramSquare } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
+import { LuPencil } from "react-icons/lu";
 
 export {
+  LuPencil,
   IoSettingsOutline,
   AiOutlineUserAdd,
   FaInstagramSquare,

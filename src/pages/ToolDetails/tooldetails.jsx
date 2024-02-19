@@ -1,5 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
-import { NavLink, useLoaderData, useLocation, useParams } from "react-router-dom";
+import {
+  NavLink,
+  useLoaderData,
+  useLocation,
+  useParams,
+} from "react-router-dom";
 import { toolBrain } from "../../assets/images/images";
 import { BiArrowBack } from "../../assets/icons/index";
 import Loader from "../Loader/Loader";
@@ -42,8 +47,8 @@ const Tooldetails = () => {
       ...data,
       description: tooldetails?.details?.description,
       tools_name: tooldetails?.details?.tools_name,
-    }
-    dispatch(generateAnswer(newData))
+    };
+    dispatch(generateAnswer(newData));
   };
 
   const handleInputChange = (event) => {
@@ -69,12 +74,12 @@ const Tooldetails = () => {
 
   return (
     <div>
-      <div className="pt-2.5 pb-6 md:pb-12 px-6 lg:px-0">
+      <div className="pt-2.5 pb-6 md:pb-12 px-6 lg:px-0 min-h-[600px]">
         <div>
           <div className="container max-w-6xl mx-auto py-4 px-0">
             <div className="top_bar">
               <h2>
-                <NavLink activeClassName="active" to="/dashboard-login" >
+                <NavLink activeClassName="active" to="/dashboard-login">
                   <BiArrowBack size={25} color="#b3975f" />
                 </NavLink>
               </h2>
@@ -103,7 +108,7 @@ const Tooldetails = () => {
                         placeholder="Write your query here"
                         className="h-24 text-sm text-gray-400 w-full border border-solid border-gray-400 rounded-lg"
                         rows="3"
-                        {...register('subject')}
+                        {...register("subject")}
                         onChange={(e) => {
                           handleInputChange(e);
                         }}
@@ -187,7 +192,6 @@ const Tooldetails = () => {
                           Your text will appear here
                         </h2>
                       )}
-
                     </div>
                   </div>
                 </div>

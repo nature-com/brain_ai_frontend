@@ -16,15 +16,27 @@ import {
 } from "../../assets/images/images";
 import { useDispatch, useSelector } from "react-redux";
 import { toolsList } from "../../reducers/ToolsSlice";
-import { AiOutlineUserAdd } from "react-icons/ai";
+import { AiFillPlusCircle, AiOutlineUserAdd } from "react-icons/ai";
 import { IoSettingsOutline } from "react-icons/io5";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
 import { FaInstagramSquare } from "react-icons/fa";
 
-import { Button, Checkbox, Label, TextInput, Select } from "flowbite-react";
+import {
+  Button,
+  Checkbox,
+  Label,
+  TextInput,
+  Select,
+  FileInput,
+  Modal,
+} from "flowbite-react";
 import { editProfile, updateProfile } from "../../reducers/ProfileSlice";
 import { useForm } from "react-hook-form";
-import { cancelSubscription, subscriptionHistory } from "../../reducers/PlansSlice";
+import {
+  cancelSubscription,
+  subscriptionHistory,
+} from "../../reducers/PlansSlice";
+import { LuPencil } from "react-icons/lu";
 
 const YourAccount = () => {
   const dispatch = useDispatch();
@@ -78,8 +90,6 @@ const YourAccount = () => {
     }
   }, [data, reset]);
 
-
-
   useEffect(() => {
     dispatch(toolsList());
   }, []);
@@ -97,11 +107,11 @@ const YourAccount = () => {
 
   const dateFormatting = (date) => {
     // Format the date as "yyyy-mm-dd"
-    const formattedDate = date.toISOString().split('T')[0];
+    const formattedDate = date.toISOString().split("T")[0];
     return formattedDate;
   };
 
-  const [cancellationStatus, setCancellationStatus] = useState('active');
+  const [cancellationStatus, setCancellationStatus] = useState("active");
   const userId = JSON.parse(localStorage.getItem("userId"));
   const user_id = userId.user_id;
 
@@ -109,26 +119,30 @@ const YourAccount = () => {
     const cancelUserSubscription = {
       user_id: user_id,
       stripe_subscription_id: userPlan?.details?.stripe_subscription_id,
-      entity: 'cancel_subscription',
+      entity: "cancel_subscription",
     };
 
     dispatch(cancelSubscription(cancelUserSubscription))
       .then((result) => {
         if (result?.payload?.status && result?.payload?.status_code === 200) {
-          console.log('Subscription canceled successfully');
-          setCancellationStatus('cancelled');
-          localStorage.setItem('cancellationStatus', 'cancelled');
+          console.log("Subscription canceled successfully");
+          setCancellationStatus("cancelled");
+          localStorage.setItem("cancellationStatus", "cancelled");
         }
       })
       .catch((error) => {
-        console.error('Failed to cancel subscription', error);
-        setCancellationStatus('active');
-        localStorage.setItem('cancellationStatus', 'active');
+        console.error("Failed to cancel subscription", error);
+        setCancellationStatus("active");
+        localStorage.setItem("cancellationStatus", "active");
       });
+
+    setOpenModal(false);
   };
 
-
   // Show Hide Tools Section start here
+
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <div>
       <div className="pt-2.5 pb-12">
@@ -142,7 +156,7 @@ const YourAccount = () => {
                       <div>
                         <img
                           src={userIcon}
-                          className="rounded-full overflow-hidden w-11 border-2 border-[#c9af71] mr-2"
+                          className="rounded-full overflow-hidden w-11 border border-[#c9af71] mr-2"
                         />
                       </div>
 
@@ -159,13 +173,12 @@ const YourAccount = () => {
                   </div>
 
                   <div className="w-full lg:w-10/12">
-
                     <section>
                       <TabPanel>
                         <h2 class="text-2xl pb-2 font-bold text-black">
                           Personal
                         </h2>
-                        {data &&
+                        {data && (
                           <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="mb-4">
                               <div class="grid grid-cols-2 gap-4 mb-2">
@@ -173,13 +186,23 @@ const YourAccount = () => {
                                   <div className="mb-2 block">
                                     <Label value="Avatar" />
                                   </div>
-                                  <div className="w-20 h-20 bottom-1 border-gray-800 rounded-full bg-[#f1f1f1] flex justify-center items-center">
-                                    <p className="text-center text-sm">
-                                      Upload Avatar
-                                    </p>
+                                  <div className="flex items-center">
+                                    <div className="w-20 h-20 bottom-1 border-gray-800 rounded-full bg-[#f1f1f1] flex justify-center items-center">
+                                      <img
+                                        src={userIcon}
+                                        className="rounded-full overflow-hidden border border-[#c9af71] w-full mr-0"
+                                      />
+                                    </div>
+                                    <div className="w-[18px] h-[18px] relative ml-2">
+                                      <LuPencil className="text-xl text-black cursor-pointer hover:text-[#ba9e63]" />
+                                      <FileInput
+                                        className="absolute left-0 top-0 opacity-0"
+                                        sizing="sm"
+                                        id="file"
+                                      />
+                                    </div>
                                   </div>
                                 </div>
-
                               </div>
                               <div class="grid grid-cols-2 gap-4 mb-2">
                                 <div>
@@ -188,10 +211,10 @@ const YourAccount = () => {
                                   </div>
                                   <TextInput
                                     type="text"
-                                    name='first_name'
-                                    autoComplete='off'
-                                    {...register('first_name', {
-                                      required: 'Name is required',
+                                    name="first_name"
+                                    autoComplete="off"
+                                    {...register("first_name", {
+                                      required: "Name is required",
                                       maxLength: 30,
                                     })}
                                   />
@@ -202,10 +225,10 @@ const YourAccount = () => {
                                   </div>
                                   <TextInput
                                     type="text"
-                                    name='last_name'
-                                    autoComplete='off'
-                                    {...register('last_name', {
-                                      required: 'Name is required',
+                                    name="last_name"
+                                    autoComplete="off"
+                                    {...register("last_name", {
+                                      required: "Name is required",
                                       maxLength: 30,
                                     })}
                                   />
@@ -216,13 +239,14 @@ const YourAccount = () => {
                                   </div>
                                   <TextInput
                                     type="text"
-                                    autoComplete='off'
-                                    name='email'
-                                    {...register('email', {
-                                      required: 'Email is required',
+                                    autoComplete="off"
+                                    name="email"
+                                    {...register("email", {
+                                      required: "Email is required",
                                       pattern: {
                                         value: /\S+@\S+\.\S+/,
-                                        message: 'Entered value does not match email format',
+                                        message:
+                                          "Entered value does not match email format",
                                       },
                                     })}
                                   />
@@ -234,28 +258,16 @@ const YourAccount = () => {
                                   </div>
                                   <TextInput
                                     type="text"
-                                    autoComplete='off'
-                                    name='mobile'
-                                    {...register('mobile', {
+                                    autoComplete="off"
+                                    name="mobile"
+                                    {...register("mobile", {
                                       pattern: {
                                         value: /^(0|[1-9]\d*)(\.\d+)?$/,
-                                        message: 'Only numbers are allowed',
+                                        message: "Only numbers are allowed",
                                       },
                                     })}
                                   />
                                 </div>
-
-                                {/* <div>
-                                  <div className="mb-2 block">
-                                    <Label value="Password" />
-                                  </div>
-                                  <TextInput
-                                    type="text"
-                                    placeholder="Your Password"
-
-                                  />
-                                </div> */}
-
                               </div>
                               <div class="grid grid-cols-2 gap-4 mb-2">
                                 <div>
@@ -269,12 +281,12 @@ const YourAccount = () => {
                               </div>
                             </div>
                           </form>
-                        }
+                        )}
                       </TabPanel>
                     </section>
 
                     <section>
-                      {userPlan &&
+                      {userPlan && (
                         <TabPanel>
                           <p className="text-base pb-0 font-bold text-black">
                             Current plan
@@ -283,75 +295,36 @@ const YourAccount = () => {
                             {userPlan?.details?.plan?.name}
                           </h2>
                           <p className="text-[15px] pb-0 font-normal text-black">
-                            Current period ends on: {userPlan?.details?.plan_period_end}
+                            Current period ends on:{" "}
+                            {userPlan?.details?.plan_period_end}
                           </p>
-                          {/* <div className="flex my-4">
-                            <button
-                              type="submit"
-                              className="text-[14px] font-medium text-white px-5 p-2 mt-0 mr-2 lg:mr-2 bg-[#b3975f] rounded-lg hover:bg-black"
-                            >
-                              Upgrade Plan
-                            </button>
-                            <button
-                              type="submit"
-                              className="text-[14px] font-medium text-black px-5 p-2 mt-0 mr-2 lg:mr-0 bg-[#edecec] rounded-lg hover:bg-black hover:text-white"
-                            >
-                              Pause Plan
-                            </button>
-                          </div> */}
-
                           <div className="my-4">
                             <h3 className="text-xl pb-2 font-bold text-black pt-4">
                               Manage Subscription
                             </h3>
                             <p className="text-[15px] pb-0 font-normal text-black">
-                              After you unsubscribe, your current plan will still
-                              be valid until {userPlan?.details?.plan_period_end}
+                              After you unsubscribe, your current plan will
+                              still be valid until{" "}
+                              {userPlan?.details?.plan_period_end}
                             </p>
                             <div className="flex my-4">
-                              {/* <button
-                                type="submit"
-                                className="text-[14px] font-medium text-white px-5 p-2 mt-0 mr-2 lg:mr-2 bg-[#b3975f] rounded-lg hover:bg-black"
-                              >
-                                Update Payment Method
-                              </button> */}
-                              {/* {localStorage.getItem("cancellationStatus") === 'active' ? ( */}
-                              {cancellationStatus === 'active' ? (
+                              {cancellationStatus === "active" ? (
                                 <button
                                   type="button"
                                   className="text-[14px] font-medium text-[#ff0000] px-5 p-2 mt-0 mr-2 lg:mr-0 bg-[#edecec] rounded-lg hover:bg-black hover:text-white"
-                                  onClick={() => CancelSubscription()}
+                                  onClick={() => setOpenModal(true)}
                                 >
                                   Cancel Plan
                                 </button>
                               ) : (
-                                <p style={{ color: 'red' }}>
+                                <p style={{ color: "red" }}>
                                   Subscription has been cancelled.
                                 </p>
                               )}
                             </div>
                           </div>
-                          {/* <div className="my-4">
-                            <h3 class="text-xl pb-2 font-bold text-black pt-4">
-                              Invoices
-                            </h3>
-                            <div className="flex my-4">
-                              <div className="w-6/12 mr-2">
-                                <Select id="countries" required>
-                                  <option>December 7, 2023</option>
-                                  <option>Jan 7, 2024</option>
-                                </Select>
-                              </div>
-                              <button
-                                type="submit"
-                                className="text-[14px] font-medium text-white px-5 p-2 mt-0 mr-2 lg:mr-2 bg-[#b3975f] rounded-lg hover:bg-black"
-                              >
-                                Download Invoices
-                              </button>
-                            </div>
-                          </div> */}
                         </TabPanel>
-                      }
+                      )}
                     </section>
                   </div>
                 </div>
@@ -360,6 +333,29 @@ const YourAccount = () => {
           </div>
         </div>
       </div>
+      {/* Confirm cancel plan popup start here */}
+      <Modal dismissible show={openModal} onClose={() => setOpenModal(false)}>
+        <Modal.Header className="border-0 p-0 pt-4 pr-4">&nbsp;</Modal.Header>
+        <Modal.Body>
+          <div className="space-y-6">
+            <p className="text-base text-black text-center">
+              Are you sure to cancel your current plan
+            </p>
+          </div>
+        </Modal.Body>
+        <Modal.Footer className="border-0">
+          <botton
+            className="text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#ba9e63] rounded-lg hover:bg-black cursor-pointer"
+            onClick={() => CancelSubscription()}
+          >
+            Confirm Cancel Plan
+          </botton>
+          <Button color="gray" onClick={() => setOpenModal(false)}>
+            Cancel
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      {/* Confirm cancel plan popup start here */}
     </div>
   );
 };
