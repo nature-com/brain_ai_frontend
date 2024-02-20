@@ -74,33 +74,35 @@ const Header = () => {
             )} */}
             <Navbar.Toggle />
           </div>
-          <Navbar.Collapse className="lg:bg-transparent">
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              {!token ? (
-                <NavLink to="/tools">Tools</NavLink>
-              ) : (
-                <NavLink to="/dashboard-login">Tools</NavLink>
-              )}
-            </li>
-            <li>
-              <NavLink to="/payment-plan">Payment Plan</NavLink>
-            </li>
-            <li>
-              <NavLink to="/faq">FAQ</NavLink>
-            </li>
-            <li>
-              <NavLink to="/reviews">Reviews</NavLink>
-            </li>
-            <li>
-              <NavLink to="/blog">Blog</NavLink>
-            </li>
-            <li>
-              <NavLink to="/contact">Contact</NavLink>
-            </li>
-          </Navbar.Collapse>
+          {!token &&
+            <Navbar.Collapse className="lg:bg-transparent">
+              <li>
+                <NavLink to="/">Home</NavLink>
+              </li>
+              <li>
+                {!token ? (
+                  <NavLink to="/tools">Tools</NavLink>
+                ) : (
+                  <NavLink to="/dashboard-login">Tools</NavLink>
+                )}
+              </li>
+              <li>
+                <NavLink to="/payment-plan">Payment Plan</NavLink>
+              </li>
+              <li>
+                <NavLink to="/faq">FAQ</NavLink>
+              </li>
+              <li>
+                <NavLink to="/reviews">Reviews</NavLink>
+              </li>
+              <li>
+                <NavLink to="/blog">Blog</NavLink>
+              </li>
+              <li>
+                <NavLink to="/contact">Contact</NavLink>
+              </li>
+            </Navbar.Collapse>
+          }
         </Navbar>
       </div>
       {openLoginModal && (

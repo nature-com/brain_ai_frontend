@@ -45,6 +45,27 @@ export const updateProfile = createAsyncThunk(
     }
 );
 
+export const updateAvatar = createAsyncThunk(
+    'user/update-avatar', // this is frontend url, this is a action which will show is redux actions
+    async (avatar, { rejectWithValue }) => {
+        try {
+            const response = await api.post('user/change-profile-pic', avatar);
+            console.log("avatar", avatar);
+            if (response.data?.status_code === 200) {
+                return response.data;
+            } else {
+                if (response?.errors) {
+                    return rejectWithValue(response.errors);
+                } else {
+                    return rejectWithValue('Something went wrong.');
+                }
+            }
+        } catch (err) {
+            return rejectWithValue(err);
+        }
+    }
+);
+
 const initialState = {
     message: null,
     error: null,
@@ -98,6 +119,22 @@ const ProfileSlice = createSlice({
             })
 
             .addCase(updateProfile.rejected, (state, { payload }) => {
+                state.loading = false;
+                state.error = payload;
+            })
+
+            .addCase(updateAvatar.pending, (state) => {
+                state.message = null;
+                state.loading = true;
+                state.error = null;
+            })
+
+            .addCase(updateAvatar.fulfilled, (state, response) => {
+                state.loading = false;
+                state.message = response.payload.message;
+            })
+
+            .addCase(updateAvatar.rejected, (state, { payload }) => {
                 state.loading = false;
                 state.error = payload;
             });

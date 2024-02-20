@@ -30,7 +30,7 @@ import {
   FileInput,
   Modal,
 } from "flowbite-react";
-import { editProfile, updateProfile } from "../../reducers/ProfileSlice";
+import { editProfile, updateAvatar, updateProfile } from "../../reducers/ProfileSlice";
 import { useForm } from "react-hook-form";
 import {
   cancelSubscription,
@@ -72,7 +72,13 @@ const YourAccount = () => {
       email: submit.email,
       mobile: submit.mobile,
     };
-    dispatch(updateProfile(postData));
+    const update_profile = dispatch(updateProfile(postData));
+    update_profile.then((response) => {
+
+      if (response?.payload?.status && response?.payload?.status_code === 200) {
+        dispatch(editProfile());
+      }
+    })
   };
 
   useEffect(() => {
@@ -143,6 +149,21 @@ const YourAccount = () => {
 
   const [openModal, setOpenModal] = useState(false);
 
+  const handleProfilePicture = (event) => {
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append("avatar", file);
+    const update_image = dispatch(updateAvatar(formData));
+    update_image.then((response) => {
+
+      if (response?.payload?.status && response?.payload?.status_code === 200) {
+        dispatch(editProfile());
+      }
+    })
+  }
+
+  const { profile } = useSelector((state) => state.profile);
+
   return (
     <div>
       <div className="pt-2.5 pb-12">
@@ -155,13 +176,13 @@ const YourAccount = () => {
                     <div className="flex items-center mb-3">
                       <div>
                         <img
-                          src={userIcon}
-                          className="rounded-full overflow-hidden w-11 border border-[#c9af71] mr-2"
+                          src={profile[0]?.avatar}
+                          className="rounded-full overflow-hidden w-11 border border-[#c9af71] mr-2 h-full"
                         />
                       </div>
 
                       <div className="text-[#ba9e63] font-medium text-base">
-                        {userName}
+                        {profile[0]?.first_name}
                       </div>
                     </div>
                     <div className="sidebar_tab">
@@ -189,13 +210,14 @@ const YourAccount = () => {
                                   <div className="flex items-center">
                                     <div className="w-20 h-20 bottom-1 border-gray-800 rounded-full bg-[#f1f1f1] flex justify-center items-center">
                                       <img
-                                        src={userIcon}
-                                        className="rounded-full overflow-hidden border border-[#c9af71] w-full mr-0"
+                                        src={profile[0]?.avatar}
+                                        className="rounded-full overflow-hidden border border-[#c9af71] w-full mr-0 h-full"
                                       />
                                     </div>
                                     <div className="w-[18px] h-[18px] relative ml-2">
                                       <LuPencil className="text-xl text-black cursor-pointer hover:text-[#ba9e63]" />
                                       <FileInput
+                                        onInput={handleProfilePicture}
                                         className="absolute left-0 top-0 opacity-0"
                                         sizing="sm"
                                         id="file"

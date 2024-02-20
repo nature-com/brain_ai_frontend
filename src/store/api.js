@@ -1,7 +1,7 @@
 import axios from 'axios';
 const api = axios.create({ baseURL: import.meta.env.VITE_API_BASE_URL });
 
-const formDataURL = ['user/'];
+const formDataURL = ['user/change-profile-pic'];
 api.interceptors.request.use((req) => {
   let userTokenData;
   try {
@@ -10,10 +10,8 @@ api.interceptors.request.use((req) => {
     userTokenData = null;
   }
   let token = userTokenData && userTokenData.token ? userTokenData.token : null;
-  // Temp Hack to make formData work
-  // req.headers['Content-Type'] = 'application/json';
-  req.headers['Content-Type'] = 'multipart/form-data';
-
+  req.headers['Content-Type'] = 'application/json';
+  // console.log('req.url', req.url);
   if (formDataURL.includes(req.url)) {
     req.headers['Content-Type'] = 'multipart/form-data';
   }

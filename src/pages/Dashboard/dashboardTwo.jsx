@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate, Navigate } from "react-router-dom";
+
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "../../assets/css/dashboard.css";
@@ -30,8 +31,12 @@ import {
   Tooltip,
 } from "flowbite-react";
 
+import Modals from "../Modal/Modals";
+import { editProfile } from "../../reducers/ProfileSlice";
+
 const Dashboard = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [tools, setTools] = useState();
   const toolList = useSelector((state) => state.tools.toolsList);
   const token = localStorage.getItem("userToken");
@@ -39,6 +44,8 @@ const Dashboard = () => {
   const userName = localStorage.getItem("userName");
   const isSubscribed = JSON.parse(localStorage.getItem("isSubscribed"));
   const subscribed = isSubscribed.isSubscribed;
+
+
 
   useEffect(() => {
     dispatch(toolsListTwo());
@@ -58,6 +65,68 @@ const Dashboard = () => {
   };
   // Show Hide Tools Section start here
 
+  const { profile } = useSelector((state) => state.profile);
+  useEffect(() => {
+    dispatch(editProfile(profile));
+  }, []);
+
+  const [openModal, setOpenModal] = useState(false);
+
+  const pastPaperGenerator = () => {
+    if (profile[0]?.user_subscriptions[0]?.plan?.name === "Platinum") {
+      navigate("/tooldetails/44");
+    } else {
+      setOpenModal(true)
+    }
+  }
+  const aiDetector = () => {
+    if (profile[0]?.user_subscriptions[0]?.plan?.name === "Platinum") {
+      navigate("/tooldetails/40");
+    } else {
+      setOpenModal(true)
+    }
+  }
+  const speechToText = () => {
+    if (profile[0]?.user_subscriptions[0]?.plan?.name === "Platinum") {
+      navigate("/tooldetails/42");
+    } else {
+      setOpenModal(true)
+    }
+  }
+
+  const mathsAndScience = () => {
+    try {
+      if (profile[0]?.user_subscriptions[0]?.plan?.name === "Gold") {
+        // alert('new');
+        // navigate('/tooldetails/12');
+        // <Navigate to="/tooldetails/12" replace={true} />
+        navigate('/tooldetails/12', { replace: true });
+        console.log('profile[0]?.user_subscriptions[0]?.plan?.name', profile[0]?.user_subscriptions[0]?.plan?.name)
+      } else {
+        setOpenModal(true)
+      }
+    } catch (error) {
+      console.error("Error navigating:", error);
+    }
+  }
+
+  const plagarismCheck = () => {
+    if (profile[0]?.user_subscriptions[0]?.plan?.name === "Gold") {
+      navigate("/tooldetails/43");
+    } else {
+      setOpenModal(true)
+    }
+  }
+
+  const textWriter = () => {
+    if (profile[0]?.user_subscriptions[0]?.plan?.name === "Gold") {
+      navigate("/tooldetails/40");
+    } else {
+      setOpenModal(true)
+    }
+  }
+
+
   return (
     <div>
       <div className="pt-2.5 pb-12">
@@ -75,13 +144,13 @@ const Dashboard = () => {
                       <div className="flex items-center mb-3">
                         <div>
                           <img
-                            src={userIcon}
+                            src={profile[0]?.avatar}
                             className="rounded-full overflow-hidden w-11 border-2 border-[#c9af71] mr-2"
                           />
                         </div>
 
                         <div className="text-[#ba9e63] font-medium text-base">
-                          {userName ? userName : "User"}
+                          {profile[0]?.first_name}
                         </div>
                       </div>
                       <div className="sidebar_tab">
@@ -96,27 +165,28 @@ const Dashboard = () => {
                           </Tab>
                           <Tab className="gold_plan">Gold Plan Features</Tab>
                           <Tab>
-                            <Link to="/tooldetails/12">Maths and Science</Link>
+                            <Button onClick={mathsAndScience}>Maths and Science</Button>
+
                           </Tab>
                           <Tab>
-                            <Link to="/tooldetails/43">Plagiarism Checker</Link>
+                            <Button onClick={plagarismCheck}>Plagiarism Checker</Button>
                           </Tab>
                           <Tab>
-                            <Link to="/tooldetails/40">Text Rewriter</Link>
+                            <Button onClick={textWriter}>Text Rewriter</Button>
                           </Tab>
                           <Tab className="platinum_plan">
                             Platinum Plan Features
                           </Tab>
                           <Tab>
-                            <Link to="/tooldetails/44">
+                            <Button onClick={pastPaperGenerator}>
                               Past Paper Generator
-                            </Link>
+                            </Button>
                           </Tab>
                           <Tab>
-                            <Link to="/tooldetails/40">AI Detector</Link>
+                            <Button onClick={aiDetector}>AI Detector</Button>
                           </Tab>
                           <Tab>
-                            <Link to="/tooldetails/42">Speech To Text</Link>
+                            <Button onClick={speechToText}>Speech To Text</Button>
                           </Tab>
                         </TabList>
                       </div>
@@ -189,9 +259,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -294,9 +364,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -340,9 +410,9 @@ const Dashboard = () => {
                                                       {tool?.description
                                                         .length > 35
                                                         ? tool?.description.substring(
-                                                            0,
-                                                            35
-                                                          ) + "..."
+                                                          0,
+                                                          35
+                                                        ) + "..."
                                                         : tool?.description}
                                                     </p>
                                                   </div>
@@ -388,9 +458,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -437,9 +507,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -486,9 +556,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -614,6 +684,46 @@ const Dashboard = () => {
                                       </h2>
 
                                       <div className="flex flex-wrap">
+                                        {tools?.details?.regular_tools?.map(
+                                          (tool) => (
+                                            <div
+                                              key={tool?.id}
+                                              className="w-full md:w-4/12"
+                                            >
+                                              <NavLink
+                                                activeClassName="active"
+                                                to={`/tooldetails/${tool.id}`}
+                                              >
+                                                <Tooltip
+                                                  content={tool?.description}
+                                                >
+                                                  <div className="category_list_item mx-2">
+                                                    <div className="category_list_item_desc">
+                                                      <h3>
+                                                        {tool?.tools_name}
+                                                      </h3>
+                                                      <p>
+                                                        {tool?.description
+                                                          .length > 35
+                                                          ? tool?.description.substring(
+                                                            0,
+                                                            35
+                                                          ) + "..."
+                                                          : tool?.description}
+                                                      </p>
+                                                    </div>
+                                                    <img
+                                                      src={tool?.avatar}
+                                                      width="70"
+                                                      height="70"
+                                                      className="rounded-full"
+                                                    />
+                                                  </div>
+                                                </Tooltip>
+                                              </NavLink>
+                                            </div>
+                                          )
+                                        )}
                                         {tools?.details?.popular_tools?.map(
                                           (tool) => (
                                             <div
@@ -636,9 +746,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -685,9 +795,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -731,9 +841,9 @@ const Dashboard = () => {
                                                       {tool?.description
                                                         .length > 35
                                                         ? tool?.description.substring(
-                                                            0,
-                                                            35
-                                                          ) + "..."
+                                                          0,
+                                                          35
+                                                        ) + "..."
                                                         : tool?.description}
                                                     </p>
                                                   </div>
@@ -779,9 +889,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -828,9 +938,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -877,9 +987,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -967,9 +1077,15 @@ const Dashboard = () => {
               )}
             </article>
           </div>
+          {openModal &&
+            <Modals
+              openModal={openModal}
+              setOpenModal={setOpenModal} />
+          }
         </div>
       </div>
     </div>
+
   );
 };
 
