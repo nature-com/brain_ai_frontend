@@ -93,7 +93,7 @@ const ProfileSlice = createSlice({
             .addCase(editProfile.fulfilled, (state, response) => {
                 state.loading = false;
                 state.profile = response.payload;
-                const subscriptionDetails = response.payload[0].user_subscriptions[0];
+                const subscriptionDetails = response?.payload[0]?.user_subscriptions[0];
                 state.userPlan = {
                     details: subscriptionDetails,
                 };

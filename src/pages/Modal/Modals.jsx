@@ -1,4 +1,4 @@
-import { Button, Modal } from "flowbite-react";
+import { Modal } from "flowbite-react";
 import { Link } from "react-router-dom";
 
 const Modals = ({ openModal, setOpenModal }) => {

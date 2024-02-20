@@ -37,8 +37,7 @@ import {
 } from "../../reducers/ProfileSlice";
 import { useForm } from "react-hook-form";
 import {
-  cancelSubscription,
-  subscriptionHistory,
+  cancelSubscription
 } from "../../reducers/PlansSlice";
 import { LuPencil } from "react-icons/lu";
 
@@ -56,11 +55,12 @@ const YourAccount = () => {
     userPlan,
   } = useSelector((state) => state.profile);
 
-  // console.log("profile", data);
-
   useEffect(() => {
     dispatch(editProfile(data));
   }, []);
+
+  const { profile } = useSelector((state) => state.profile);
+  console.log("profile", profile[0]?.user_subscriptions[0]?.subscription);
 
   const {
     register,
@@ -164,7 +164,6 @@ const YourAccount = () => {
     });
   };
 
-  const { profile } = useSelector((state) => state.profile);
 
   return (
     <div>
@@ -332,7 +331,7 @@ const YourAccount = () => {
                               {userPlan?.details?.plan_period_end}
                             </p>
                             <div className="flex my-4">
-                              {cancellationStatus === "active" ? (
+                              {profile[0]?.user_subscriptions[0]?.subscription === "active" ? (
                                 <button
                                   type="button"
                                   className="text-[14px] font-medium text-[#ff0000] px-5 p-2 mt-0 mr-2 lg:mr-0 bg-[#edecec] rounded-lg hover:bg-black hover:text-white"

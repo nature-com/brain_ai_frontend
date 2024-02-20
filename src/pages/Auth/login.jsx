@@ -34,9 +34,13 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    dispatch(login(data));
-    // setOpenLoginModal(false);
+  const onSubmit = (data, event) => {
+    if (event.target.id === "loginForm") {
+      event.preventDefault();
+      dispatch(login(data));
+      // setOpenLoginModal(false);
+    }
+
   };
 
   useEffect(() => {
@@ -106,7 +110,7 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
                       Sign Up
                     </Link>
                   </p>
-                  <form onSubmit={handleSubmit(onSubmit)}>
+                  <form id="loginForm" onSubmit={(event) => handleSubmit(onSubmit)(event)}>
                     <div className="form-group">
                       <input
                         type="email"
@@ -222,7 +226,7 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
                   <p className="text-center text-sm text-neutral-600 pb-4">
                     Please enter your mail id below
                   </p>
-                  <form onSubmit={handleSubmit(onSubmit)}>
+                  <form id="forgotPasswordForm" onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group">
                       <input
                         type="email"
