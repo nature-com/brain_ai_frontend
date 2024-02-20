@@ -30,7 +30,11 @@ import {
   FileInput,
   Modal,
 } from "flowbite-react";
-import { editProfile, updateAvatar, updateProfile } from "../../reducers/ProfileSlice";
+import {
+  editProfile,
+  updateAvatar,
+  updateProfile,
+} from "../../reducers/ProfileSlice";
 import { useForm } from "react-hook-form";
 import {
   cancelSubscription,
@@ -74,11 +78,10 @@ const YourAccount = () => {
     };
     const update_profile = dispatch(updateProfile(postData));
     update_profile.then((response) => {
-
       if (response?.payload?.status && response?.payload?.status_code === 200) {
         dispatch(editProfile());
       }
-    })
+    });
   };
 
   useEffect(() => {
@@ -155,12 +158,11 @@ const YourAccount = () => {
     formData.append("avatar", file);
     const update_image = dispatch(updateAvatar(formData));
     update_image.then((response) => {
-
       if (response?.payload?.status && response?.payload?.status_code === 200) {
         dispatch(editProfile());
       }
-    })
-  }
+    });
+  };
 
   const { profile } = useSelector((state) => state.profile);
 
@@ -177,7 +179,7 @@ const YourAccount = () => {
                       <div>
                         <img
                           src={profile[0]?.avatar}
-                          className="rounded-full overflow-hidden w-11 border border-[#c9af71] mr-2 h-full"
+                          className="rounded-full overflow-hidden w-11 border border-[#c9af71] mr-2 h-11"
                         />
                       </div>
 
@@ -356,7 +358,12 @@ const YourAccount = () => {
         </div>
       </div>
       {/* Confirm cancel plan popup start here */}
-      <Modal dismissible show={openModal} onClose={() => setOpenModal(false)}>
+      <Modal
+        size="md"
+        dismissible
+        show={openModal}
+        onClose={() => setOpenModal(false)}
+      >
         <Modal.Header className="border-0 p-0 pt-4 pr-4">&nbsp;</Modal.Header>
         <Modal.Body>
           <div className="space-y-6">
@@ -365,16 +372,19 @@ const YourAccount = () => {
             </p>
           </div>
         </Modal.Body>
-        <Modal.Footer className="border-0">
+        <Modal.Footer className="border-0 flex justify-center">
           <botton
             className="text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#ba9e63] rounded-lg hover:bg-black cursor-pointer"
             onClick={() => CancelSubscription()}
           >
             Confirm Cancel Plan
           </botton>
-          <Button color="gray" onClick={() => setOpenModal(false)}>
+          <botton
+            className="text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-black rounded-lg hover:bg-[#ba9e63] cursor-pointer"
+            onClick={() => setOpenModal(false)}
+          >
             Cancel
-          </Button>
+          </botton>
         </Modal.Footer>
       </Modal>
       {/* Confirm cancel plan popup start here */}

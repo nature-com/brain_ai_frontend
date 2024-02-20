@@ -68,7 +68,7 @@ const Dashboard = () => {
                       <div>
                         <img
                           src={userIcon}
-                          className="rounded-full overflow-hidden w-11 border-2 border-[#c9af71] mr-2"
+                          className="rounded-full overflow-hidden w-11 h-11 border border-[#c9af71] mr-2"
                         />
                       </div>
 
