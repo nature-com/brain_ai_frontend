@@ -72,6 +72,11 @@ const Tooldetails = () => {
     return contentWithoutFirstTwoBreaks;
   }
 
+  const location = useLocation();
+  const isTool = (endPoint) => {
+    return location.pathname === endPoint;
+  };
+
   return (
     <div>
       <div className="pt-2.5 pb-6 md:pb-12 px-6 lg:px-0 min-h-[600px]">
@@ -122,24 +127,23 @@ const Tooldetails = () => {
                     </form>
                   </div>
                 </div>
+                {isTool('/tooldetails/43') &&
+                  <>
+                    <div className="flex justify-center">
+                      <button
+                        type="submit"
+                        className=" text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black mt-10"
+                      >
+                        Paraphrase
+                      </button>
+                    </div>
+                    <p className="text-center pt-2">
+                      If your test comes back plagiarised, Click paraphrase to access the Text Rewriter tool as it rewrite your texts, making it undetectable from the internet.
+                    </p>
+                  </>
+                }
               </div>
 
-              {/* <div className="w-full md:w-6/12">
-                <div className="text-center">
-                  <img
-                    className="inline-block mb-2"
-                    src={toolBrain}
-                    width="100"
-                    height="100"
-                  />
-                  <h2 className="text-2xl font-semibold pb-3 text-black">
-                    Your text will appear here
-                  </h2>
-                  <p className="text-base font-normal pb-3 text-black">
-                    After you hit "Generate", the Ai output will be shown here
-                  </p>
-                </div>
-              </div> */}
 
               {isLoading ? (
                 <div className="w-full md:w-1/2">
@@ -200,7 +204,7 @@ const Tooldetails = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

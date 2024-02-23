@@ -20,6 +20,7 @@ import YourAccount from "./pages/YourAccount/YourAccount";
 import Tools from "./pages/Tools/Tools";
 import PaymentPlan from "./pages/PaymentPlan/PaymentPlan";
 import DashboardTwo from "./pages/Dashboard/dashboardTwo";
+import PaymentPlanLogin from "./pages/PaymentPlan/PaymentPlanLogin";
 
 function App() {
   return (
@@ -59,6 +60,9 @@ function App() {
       </Route>
       <Route path="/payment-plan" element={<OutsideLayout />}>
         <Route index element={<PaymentPlan />} />
+      </Route>
+      <Route path="/payment-plan-inside" element={<InsideLayout />}>
+        <Route index element={<PaymentPlanLogin />} />
       </Route>
       <Route path="/tooldetails/:id" element={<InsideLayout />}>
         <Route index element={<Tooldetails />} />

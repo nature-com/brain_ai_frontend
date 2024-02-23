@@ -1,4 +1,3 @@
-
 /* Add css for admin side bar tab start here  */
 .tabbed-content {
     -webkit-box-shadow: 0px 1px 22px 0px rgba(204, 204, 204, 1);
@@ -9,9 +8,11 @@
 .sidebar_tab {
     margin-right: 20px;
 }
+
 .sidebar_tab ul {
     border-bottom: none;
 }
+
 .sidebar_tab ul li {
     background: #eee;
     border-radius: 5px;
@@ -22,20 +23,25 @@
     font-weight: 500;
     padding: 0 10px;
 }
+
 .sidebar_tab ul li.react-tabs__tab.react-tabs__tab--selected {
     background: #ba9e63;
     color: #ffffff;
     border: none;
 }
+
 .sidebar_tab ul li.gold_plan {
     background: #f09e16;
     color: #ffffff;
     font-weight: 500;
+    margin-top: 20px;
 }
+
 .sidebar_tab ul li.platinum_plan {
     background: #159af7;
     color: #ffffff;
     font-weight: 500;
+    margin-top: 20px;
 }
 
 
@@ -76,8 +82,8 @@
 .category_list_item {
     /* background: rgb(255, 255, 255);
     background: linear-gradient(36deg, rgba(255, 255, 255, 1) 0%, rgba(218, 240, 232, 1) 68%); */
-    background: rgb(221,205,140);
-    background: linear-gradient(223deg, rgba(221,205,140,1) 0%, rgba(221,205,140,1) 26%, rgba(255,255,255,1) 62%);
+    background: rgb(221, 205, 140);
+    background: linear-gradient(223deg, rgba(221, 205, 140, 1) 0%, rgba(221, 205, 140, 1) 26%, rgba(255, 255, 255, 1) 62%);
     /* background: #e0f3ec; */
     border: #ba9e63 1px solid;
     /* text-align: center; */
@@ -94,8 +100,8 @@
 }
 
 .category_list_item:hover {
-    background: rgb(221,205,140);
-    background: linear-gradient(48deg, rgba(221,205,140,1) 0%, rgba(221,205,140,1) 26%, rgba(255,255,255,1) 62%);
+    background: rgb(221, 205, 140);
+    background: linear-gradient(48deg, rgba(221, 205, 140, 1) 0%, rgba(221, 205, 140, 1) 26%, rgba(255, 255, 255, 1) 62%);
 }
 
 .category_list_item img {
@@ -169,9 +175,9 @@
 
 
 .review_box {
-    box-shadow: -1px 2px 12px 4px rgba(181,181,181,0.59);
-    -webkit-box-shadow: -1px 2px 12px 4px rgba(181,181,181,0.59);
-    -moz-box-shadow: -1px 2px 12px 4px rgba(181,181,181,0.59);
+    box-shadow: -1px 2px 12px 4px rgba(181, 181, 181, 0.59);
+    -webkit-box-shadow: -1px 2px 12px 4px rgba(181, 181, 181, 0.59);
+    -moz-box-shadow: -1px 2px 12px 4px rgba(181, 181, 181, 0.59);
 }
 
 .footer_top_area_left h2 {
@@ -184,9 +190,11 @@
 .silver_plan_box {
     background: url(../imagesource/Silver_bg.png) no-repeat 0 0;
 }
+
 .gold_plan_box {
     background: url(../imagesource/gold_bg.png) no-repeat 0 0;
 }
+
 .platinum_plan_box {
     background: url(../imagesource/platinum_bg.png) no-repeat 0 0;
 }
@@ -200,39 +208,47 @@
     .tabbed-content {
         padding: 20px 20px;
     }
+
     .sidebar_tab {
         margin-right: 0;
     }
+
     .admin_banner h1 {
         font-size: 13px;
         line-height: 16px;
         text-align: center;
     }
+
     .sidebar_tab ul li {
         font-size: 14px;
         line-height: 38px;
         padding: 0 15px;
     }
+
     .category_list .react-tabs ul li.react-tabs__tab {
         font-size: 11px;
         line-height: 24px;
         margin: 0 10px;
         padding: 0;
     }
+
     .share_setting_box {
         position: relative;
         margin-bottom: 10px;
     }
+
     .share_setting_box ul {
         position: initial;
         right: 8px;
         top: 8px;
         display: flex;
     }
+
     .category_list_item_desc h3 {
         font-size: 14px;
         padding: 3px;
     }
+
     .category_list_item_desc p {
         font-size: 12px;
         line-height: 18px;
@@ -272,15 +288,18 @@
         line-height: 25px;
         text-align: center;
     }
+
     .category_list_item_desc h3 {
         font-size: 15px;
         line-height: 20px;
         padding-bottom: 5px;
     }
+
     .category_list_item_desc p {
         font-size: 12px;
         line-height: 20px;
     }
+
     .sidebar_tab ul li {
         font-size: 13px;
         line-height: 32px;
@@ -319,13 +338,16 @@
         font-weight: 700;
         padding-bottom: 5px;
     }
+
     .log_res_section ul li {
         padding: 7px 3px;
     }
+
     .log_res_section ul li a {
         font-size: 14px;
         line-height: 46px;
     }
+
     .log_res_section ul li.sign_up a {
         font-size: 14px;
         line-height: 46px;
@@ -345,6 +367,7 @@
         font-weight: 700;
         padding-bottom: 5px;
     }
+
     .admin_banner h1 {
         font-size: 22px;
     }

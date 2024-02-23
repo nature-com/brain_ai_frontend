@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "../../assets/css/dashboard.css";
@@ -41,6 +41,7 @@ import { LuPencil } from "react-icons/lu";
 
 const YourAccount = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [tools, setTools] = useState();
   const toolList = useSelector((state) => state.tools.toolsList);
   const userName = localStorage.getItem("userName");
@@ -58,7 +59,6 @@ const YourAccount = () => {
   }, []);
 
   const { profile } = useSelector((state) => state.profile);
-  console.log("profile", profile[0]?.user_subscriptions[0]?.subscription);
 
   const {
     register,
@@ -112,9 +112,16 @@ const YourAccount = () => {
     setIsShownTools((current) => !current);
   };
 
+
+  // Date formatting function
   const dateFormatting = (date) => {
-    // Format the date as "yyyy-mm-dd"
-    const formattedDate = date.toISOString().split("T")[0];
+    const day = date.getDate().toString().padStart(2, '0'); // Ensure two digits
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Month is zero-based
+    const year = date.getFullYear();
+
+    // Construct the formatted date string in "dd-mm-yyyy" format
+    const formattedDate = `${day}-${month}-${year}`;
+
     return formattedDate;
   };
 
@@ -161,6 +168,10 @@ const YourAccount = () => {
       }
     });
   };
+
+  const handleUpdate = () => {
+    navigate("/payment-plan-inside");
+  }
 
   return (
     <div>
@@ -316,12 +327,23 @@ const YourAccount = () => {
                     <section>
                       {userPlan && (
                         <TabPanel>
-                          <p className="text-base pb-0 font-bold text-black">
-                            Current plan
-                          </p>
-                          <h2 className="text-2xl pb-0 font-bold text-black">
-                            {userPlan?.details?.plan?.name}
-                          </h2>
+                          <div className="flex justify-between items-center">
+                            <div>
+                              <p className="text-base pb-0 font-bold text-black">
+                                Current plan
+                              </p>
+                              <h2 className="text-2xl pb-0 font-bold text-black">
+                                {userPlan?.details?.plan?.name}
+                              </h2>
+                            </div>
+                            <Link
+                              className="text-[14px] font-semibold text-black mr-8 hover:text-[#ba9e63] underline"
+                              to="/dashboard"
+                            >
+                              Back to Dashboard
+                            </Link>
+                          </div>
+
                           {/* <p className="text-[15px] pb-0 font-normal text-black">
                             Current period ends on:{" "}
                             {userPlan?.details?.plan_period_end}
@@ -333,7 +355,8 @@ const YourAccount = () => {
                             <p className="text-[15px] pb-0 font-normal text-black">
                               After you unsubscribe, your current plan will
                               still be valid until{" "}
-                              {userPlan?.details?.plan_period_end}
+                              {/* {userPlan?.details?.plan_period_end} */}
+                              {dateFormatting(new Date(userPlan?.details?.plan_period_end))}
                             </p>
                             <div className="flex my-4">
                               {profile[0]?.user_subscriptions[0]
@@ -353,7 +376,7 @@ const YourAccount = () => {
                               <button
                                 type="button"
                                 className="ml-2 text-[14px] font-medium text-white px-5 p-2 mt-0 mr-2 lg:mr-0 bg-black rounded-lg hover:bg-[#edecec] hover:text-black"
-                                onClick={() => setOpenModal(true)}
+                                onClick={handleUpdate}
                               >
                                 Update Plan
                               </button>
