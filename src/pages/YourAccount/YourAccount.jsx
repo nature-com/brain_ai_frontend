@@ -36,9 +36,7 @@ import {
   updateProfile,
 } from "../../reducers/ProfileSlice";
 import { useForm } from "react-hook-form";
-import {
-  cancelSubscription
-} from "../../reducers/PlansSlice";
+import { cancelSubscription } from "../../reducers/PlansSlice";
 import { LuPencil } from "react-icons/lu";
 
 const YourAccount = () => {
@@ -164,7 +162,6 @@ const YourAccount = () => {
     });
   };
 
-
   return (
     <div>
       <div className="pt-2.5 pb-12">
@@ -197,9 +194,17 @@ const YourAccount = () => {
                   <div className="w-full lg:w-10/12">
                     <section>
                       <TabPanel>
-                        <h2 class="text-2xl pb-2 font-bold text-black">
-                          Personal
-                        </h2>
+                        <div className="flex justify-between items-center">
+                          <h2 class="text-2xl pb-2 font-bold text-black">
+                            Personal
+                          </h2>
+                          <Link
+                            className="text-[14px] font-semibold text-black mr-8 hover:text-[#ba9e63] underline"
+                            to="/dashboard"
+                          >
+                            Back to Dashboard
+                          </Link>
+                        </div>
                         {data && (
                           <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="mb-4">
@@ -331,7 +336,8 @@ const YourAccount = () => {
                               {userPlan?.details?.plan_period_end}
                             </p>
                             <div className="flex my-4">
-                              {profile[0]?.user_subscriptions[0]?.subscription === "active" ? (
+                              {profile[0]?.user_subscriptions[0]
+                                ?.subscription === "active" ? (
                                 <button
                                   type="button"
                                   className="text-[14px] font-medium text-[#ff0000] px-5 p-2 mt-0 mr-2 lg:mr-0 bg-[#edecec] rounded-lg hover:bg-black hover:text-white"

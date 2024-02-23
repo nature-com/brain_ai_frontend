@@ -45,10 +45,10 @@ function App() {
       <Route path="/contact" element={<OutsideLayout />}>
         <Route index element={<Contact />} />
       </Route>
-      <Route path="/dashboard" element={<InsideLayout />}>
+      {/* <Route path="/dashboard" element={<InsideLayout />}>
         <Route index element={<Dashboard />} />
-      </Route>
-      <Route path="/dashboard-login" element={<InsideLayout />}>
+      </Route> */}
+      <Route path="/dashboard" element={<InsideLayout />}>
         <Route index element={<DashboardTwo />} />
       </Route>
       <Route path="/your-account" element={<InsideLayout />}>

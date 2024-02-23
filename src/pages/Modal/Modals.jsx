@@ -28,7 +28,7 @@ const Modals = ({ openModal, setOpenModal }) => {
           <Link
             className="text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-black rounded-lg hover:bg-[#ba9e63] cursor-pointer"
             onClick={() => setOpenModal(false)}
-            to="/dashboard-login"
+            to="/dashboard"
           >
             Cancel
           </Link>

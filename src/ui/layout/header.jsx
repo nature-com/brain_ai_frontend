@@ -74,7 +74,7 @@ const Header = () => {
             )} */}
             <Navbar.Toggle />
           </div>
-          {!token &&
+          {!token && (
             <Navbar.Collapse className="lg:bg-transparent">
               <li>
                 <NavLink to="/">Home</NavLink>
@@ -83,7 +83,7 @@ const Header = () => {
                 {!token ? (
                   <NavLink to="/tools">Tools</NavLink>
                 ) : (
-                  <NavLink to="/dashboard-login">Tools</NavLink>
+                  <NavLink to="/dashboard">Tools</NavLink>
                 )}
               </li>
               <li>
@@ -102,7 +102,7 @@ const Header = () => {
                 <NavLink to="/contact">Contact</NavLink>
               </li>
             </Navbar.Collapse>
-          }
+          )}
         </Navbar>
       </div>
       {openLoginModal && (

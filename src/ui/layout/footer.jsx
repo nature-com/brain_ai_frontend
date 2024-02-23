@@ -260,7 +260,7 @@ const Footer = () => {
                             {token && (
                               <Link
                                 className="text-sm text-gray-400 hover:text-[#c9b575]"
-                                to="/dashboard-login"
+                                to="/dashboard"
                               >
                                 All Tools
                               </Link>

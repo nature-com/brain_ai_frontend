@@ -79,7 +79,7 @@ const Tooldetails = () => {
           <div className="container max-w-6xl mx-auto py-4 px-0">
             <div className="top_bar">
               <h2>
-                <NavLink activeClassName="active" to="/dashboard-login">
+                <NavLink activeClassName="active" to="/dashboard">
                   <BiArrowBack size={25} color="#b3975f" />
                 </NavLink>
               </h2>

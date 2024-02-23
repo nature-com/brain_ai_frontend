@@ -11,7 +11,9 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
   const formButtonRef = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { message, isLoggedIn, error, loading } = useSelector((state) => state.auth);
+  const { message, isLoggedIn, error, loading } = useSelector(
+    (state) => state.auth
+  );
   const subscription = localStorage.getItem("isSubscribed");
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -40,7 +42,6 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
       dispatch(login(data));
       // setOpenLoginModal(false);
     }
-
   };
 
   useEffect(() => {
@@ -56,7 +57,7 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
     } else if (isLoggedIn) {
       dispatch(resetAfterLoggedIn());
       // navigate("/dashboard");
-      navigate("/dashboard-login");
+      navigate("/dashboard");
     }
   }, [message, error, isLoggedIn]);
 
@@ -110,7 +111,10 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
                       Sign Up
                     </Link>
                   </p>
-                  <form id="loginForm" onSubmit={(event) => handleSubmit(onSubmit)(event)}>
+                  <form
+                    id="loginForm"
+                    onSubmit={(event) => handleSubmit(onSubmit)(event)}
+                  >
                     <div className="form-group">
                       <input
                         type="email"
@@ -129,7 +133,9 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
                         })}
                       />
                       {errors?.email?.message && (
-                        <h6 className="text-danger text-red-500">{errors.email.message}</h6>
+                        <h6 className="text-danger text-red-500">
+                          {errors.email.message}
+                        </h6>
                       )}
                     </div>
                     <div className="form-group">
@@ -226,7 +232,10 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
                   <p className="text-center text-sm text-neutral-600 pb-4">
                     Please enter your mail id below
                   </p>
-                  <form id="forgotPasswordForm" onSubmit={handleSubmit(onSubmit)}>
+                  <form
+                    id="forgotPasswordForm"
+                    onSubmit={handleSubmit(onSubmit)}
+                  >
                     <div className="form-group">
                       <input
                         type="email"
