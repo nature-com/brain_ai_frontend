@@ -355,7 +355,7 @@ const YourAccount = () => {
                                 className="ml-2 text-[14px] font-medium text-white px-5 p-2 mt-0 mr-2 lg:mr-0 bg-black rounded-lg hover:bg-[#edecec] hover:text-black"
                                 onClick={() => setOpenModal(true)}
                               >
-                                Cancel Plan
+                                Update Plan
                               </button>
                             </div>
                           </div>
