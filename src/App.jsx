@@ -21,6 +21,7 @@ import Tools from "./pages/Tools/Tools";
 import PaymentPlan from "./pages/PaymentPlan/PaymentPlan";
 import DashboardTwo from "./pages/Dashboard/dashboardTwo";
 import PaymentPlanLogin from "./pages/PaymentPlan/PaymentPlanLogin";
+import AllTools from "./pages/Dashboard/AllTools";
 
 function App() {
   return (
@@ -46,9 +47,9 @@ function App() {
       <Route path="/contact" element={<OutsideLayout />}>
         <Route index element={<Contact />} />
       </Route>
-      <Route path="/dashboard" element={<InsideLayout />}>
-        <Route index element={<Dashboard />} />
-      </Route>
+      {/* <Route path="/all-tools" element={<AllTools />}>
+        <Route index element={<AllTools />} />
+      </Route> */}
       <Route path="/dashboard" element={<InsideLayout />}>
         <Route index element={<DashboardTwo />} />
       </Route>
