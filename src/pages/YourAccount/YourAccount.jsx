@@ -322,10 +322,10 @@ const YourAccount = () => {
                           <h2 className="text-2xl pb-0 font-bold text-black">
                             {userPlan?.details?.plan?.name}
                           </h2>
-                          <p className="text-[15px] pb-0 font-normal text-black">
+                          {/* <p className="text-[15px] pb-0 font-normal text-black">
                             Current period ends on:{" "}
                             {userPlan?.details?.plan_period_end}
-                          </p>
+                          </p> */}
                           <div className="my-4">
                             <h3 className="text-xl pb-2 font-bold text-black pt-4">
                               Manage Subscription
@@ -350,6 +350,13 @@ const YourAccount = () => {
                                   Subscription has been cancelled.
                                 </p>
                               )}
+                              <button
+                                type="button"
+                                className="ml-2 text-[14px] font-medium text-white px-5 p-2 mt-0 mr-2 lg:mr-0 bg-black rounded-lg hover:bg-[#edecec] hover:text-black"
+                                onClick={() => setOpenModal(true)}
+                              >
+                                Update Plan
+                              </button>
                             </div>
                           </div>
                         </TabPanel>
