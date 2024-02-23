@@ -26,9 +26,15 @@ const Header = () => {
     <>
       <div className="header_section max-w-6xl mx-auto px-4 lg:px-0 py-3 lg:py-5">
         <Navbar fluid rounded>
-          <Link to="/" className="w-32 lg:w-auto">
-            <img alt="Logo" src={logo} />
-          </Link>
+          {!token ? (
+            <Link to="/" className="w-32 lg:w-auto">
+              <img alt="Logo" src={logo} />
+            </Link>
+          ) : (
+            <Link className="w-32 lg:w-auto">
+              <img alt="Logo" src={logo} />
+            </Link>
+          )}
           <div className="flex md:order-2 items-center">
             {!token ? (
               <>
