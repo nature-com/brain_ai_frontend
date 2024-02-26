@@ -142,6 +142,21 @@ const Tooldetails = () => {
                     </p>
                   </>
                 }
+                {isTool('tooldetails/45') &&
+                  <>
+                    <div className="flex justify-center">
+                      <button
+                        type="submit"
+                        className=" text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black mt-10"
+                      >
+                        Ckeck Plagiarism
+                      </button>
+                    </div>
+                    <p className="text-center pt-2">
+                      Check to see if your text is plagiarised. Copy your text and paste it into the plagiarism checker.
+                    </p>
+                  </>
+                }
               </div>
 
 
