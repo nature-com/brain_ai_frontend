@@ -3,6 +3,7 @@ import {
   NavLink,
   useLoaderData,
   useLocation,
+  useNavigate,
   useParams,
 } from "react-router-dom";
 import { toolBrain } from "../../assets/images/images";
@@ -15,6 +16,7 @@ import { generateAnswer, toolsById } from "../../reducers/ToolsSlice";
 import { useForm } from "react-hook-form";
 
 const Tooldetails = () => {
+  const navigate = useNavigate();
   const [prompt, setPrompt] = useState("");
   const [paragraph, setParagraph] = useState("");
   const [tooldetails, setToolDetails] = useState();
@@ -131,6 +133,7 @@ const Tooldetails = () => {
                   <>
                     <div className="flex justify-center">
                       <button
+                        onClick={() => navigate('/tooldetails/45')}
                         type="submit"
                         className=" text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black mt-10"
                       >
@@ -142,10 +145,11 @@ const Tooldetails = () => {
                     </p>
                   </>
                 }
-                {isTool('tooldetails/45') &&
+                {isTool('/tooldetails/45') &&
                   <>
                     <div className="flex justify-center">
                       <button
+                        onClick={() => navigate('/tooldetails/43')}
                         type="submit"
                         className=" text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black mt-10"
                       >

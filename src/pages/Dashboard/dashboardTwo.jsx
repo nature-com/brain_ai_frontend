@@ -94,7 +94,7 @@ const Dashboard = () => {
 
   const mathsAndScience = () => {
     try {
-      if (profile[0]?.user_subscriptions[0]?.plan?.name === "Gold") {
+      if (profile[0]?.user_subscriptions[0]?.plan?.name === "Gold" || profile[0]?.user_subscriptions[0]?.plan?.name === "Platinum") {
         navigate('/tooldetails/12');
         // <Navigate to="/tooldetails/12" replace={true} />
         // navigate("/tooldetails/12", { replace: true });
@@ -107,7 +107,7 @@ const Dashboard = () => {
   };
 
   const plagarismCheck = () => {
-    if (profile[0]?.user_subscriptions[0]?.plan?.name === "Gold") {
+    if (profile[0]?.user_subscriptions[0]?.plan?.name === "Gold" || profile[0]?.user_subscriptions[0]?.plan?.name === "Platinum") {
       navigate("/tooldetails/43");
     } else {
       setOpenModal(true);
@@ -115,7 +115,7 @@ const Dashboard = () => {
   };
 
   const textWriter = () => {
-    if (profile[0]?.user_subscriptions[0]?.plan?.name === "Gold") {
+    if (profile[0]?.user_subscriptions[0]?.plan?.name === "Gold" || profile[0]?.user_subscriptions[0]?.plan?.name === "Platinum") {
       navigate("/tooldetails/45");
     } else {
       setOpenModal(true);
