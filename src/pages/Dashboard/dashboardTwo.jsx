@@ -95,14 +95,9 @@ const Dashboard = () => {
   const mathsAndScience = () => {
     try {
       if (profile[0]?.user_subscriptions[0]?.plan?.name === "Gold") {
-        // alert('new');
-        // navigate('/tooldetails/12');
+        navigate('/tooldetails/12');
         // <Navigate to="/tooldetails/12" replace={true} />
-        navigate("/tooldetails/12", { replace: true });
-        console.log(
-          "profile[0]?.user_subscriptions[0]?.plan?.name",
-          profile[0]?.user_subscriptions[0]?.plan?.name
-        );
+        // navigate("/tooldetails/12", { replace: true });
       } else {
         setOpenModal(true);
       }
@@ -266,9 +261,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -380,9 +375,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -426,9 +421,9 @@ const Dashboard = () => {
                                                       {tool?.description
                                                         .length > 35
                                                         ? tool?.description.substring(
-                                                            0,
-                                                            35
-                                                          ) + "..."
+                                                          0,
+                                                          35
+                                                        ) + "..."
                                                         : tool?.description}
                                                     </p>
                                                   </div>
@@ -474,9 +469,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -523,9 +518,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -572,9 +567,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -722,9 +717,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -762,9 +757,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -811,9 +806,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -857,9 +852,9 @@ const Dashboard = () => {
                                                       {tool?.description
                                                         .length > 35
                                                         ? tool?.description.substring(
-                                                            0,
-                                                            35
-                                                          ) + "..."
+                                                          0,
+                                                          35
+                                                        ) + "..."
                                                         : tool?.description}
                                                     </p>
                                                   </div>
@@ -905,9 +900,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -954,9 +949,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -1003,9 +998,9 @@ const Dashboard = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
