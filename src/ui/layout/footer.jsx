@@ -310,7 +310,7 @@ const Footer = () => {
                   </li>
                 </ul>
               </p>
-              <ul className="flex justify-center items-center">
+              {/* <ul className="flex justify-center items-center">
                 <li>
                   <Link
                     onClick={() => setReferFriendModal(true)}
@@ -319,7 +319,7 @@ const Footer = () => {
                     Refer a friend
                   </Link>
                 </li>
-              </ul>
+              </ul> */}
             </div>
           </div>
         </div>

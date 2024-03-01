@@ -597,10 +597,10 @@ const Dashboard = () => {
                               </div>
                             </div>
                             <div className="w-full lg:w-2/12 bg-[#eeeeee] h-full p-2 rounded-md py-4 hidden lg:block">
-                              <p className="mb-4 flex text-black hover:text-[#ba9e63] text-[12px] font-bold items-center justify-center cursor-pointer">
+                              {/* <p className="mb-4 flex text-black hover:text-[#ba9e63] text-[12px] font-bold items-center justify-center cursor-pointer">
                                 <AiOutlineUserAdd className="text-base mr-[0]" />
                                 Refer a friend
-                              </p>
+                              </p> */}
 
                               <h2 className="text-center text-3xl text-black font-bold px-4">
                                 When we think outside the box!
@@ -1028,10 +1028,10 @@ const Dashboard = () => {
                               </div>
                             </div>
                             <div className="w-full lg:w-2/12 bg-[#eeeeee] h-full p-2 rounded-md py-4 hidden lg:block">
-                              <p className="mb-4 flex text-black hover:text-[#ba9e63] text-[12px] font-bold items-center justify-center cursor-pointer">
+                              {/* <p className="mb-4 flex text-black hover:text-[#ba9e63] text-[12px] font-bold items-center justify-center cursor-pointer">
                                 <AiOutlineUserAdd className="text-base mr-[0]" />
                                 Refer a friend
-                              </p>
+                              </p> */}
 
                               <h2 className="text-center text-3xl text-black font-bold px-4">
                                 When we think outside the box!
