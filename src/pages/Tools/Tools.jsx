@@ -88,11 +88,9 @@ const Tools = () => {
                     </div>
                   </Tooltip>
                 ))}
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
                 {tools?.details?.regular_tools?.map((tool) => (
                   <Tooltip content={tool?.description}>
-                    <div className="bg-white rounded-md p-4 text-center review_box">
+                    <div className="bg-white rounded-md p-4 text-center min-h-[190px] review_box">
                       <img
                         src={tool?.avatar}
                         width="70"
