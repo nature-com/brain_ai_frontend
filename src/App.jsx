@@ -22,6 +22,7 @@ import PaymentPlan from "./pages/PaymentPlan/PaymentPlan";
 import DashboardTwo from "./pages/Dashboard/dashboardTwo";
 import PaymentPlanLogin from "./pages/PaymentPlan/PaymentPlanLogin";
 import AllTools from "./pages/Dashboard/AllTools";
+import GoogleRedirect from "./pages/Auth/GoogleRedirect";
 
 function App() {
   return (
@@ -83,6 +84,7 @@ function App() {
       <Route path="/reviews" element={<OutsideLayout />}>
         <Route index element={<Reviews />} />
       </Route>
+      {/* <Route path="/google-redirect" element={<GoogleRedirect />}></Route> */}
     </Routes>
   );
 }

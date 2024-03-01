@@ -88,6 +88,25 @@ export const generateAnswer = createAsyncThunk(
   }
 );
 
+// Upload File | Mehtod: POST
+export const fileUpload = createAsyncThunk(
+  'tools/file-upload',
+  async (audio_file, { rejectWithValue }) => {
+    try {
+      const response = await api.post('/user/speech-to-text', audio_file);
+      if (response?.data?.status_code === 200) {
+        return response.data;
+      } else {
+        return rejectWithValue(response.data);
+      }
+    } catch (err) {
+      let errors = errorHandler(err);
+      return rejectWithValue(errors);
+    }
+  }
+);
+
+
 const initialState = {
   message: null,
   error: null,
@@ -95,6 +114,7 @@ const initialState = {
   toolsList: [],
   toolsDetails: [],
   answer: null,
+  audioAnswer: null,
 };
 
 const toolsSlice = createSlice({
@@ -103,6 +123,7 @@ const toolsSlice = createSlice({
   reducers: {
     clearAnswer: (state) => {
       state.answer = null;
+      state.audioAnswer = null;
     },
   },
   extraReducers: (builder) => {
@@ -186,6 +207,29 @@ const toolsSlice = createSlice({
         state.isLoading = false;
         state.error = true;
         state.answer = null;
+      })
+
+      .addCase(fileUpload.pending, (state) => {
+        state.isLoading = true;
+        state.error = false;
+        state.message = null;
+      })
+      .addCase(fileUpload.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = false;
+        state.audioAnswer = payload?.data;
+        state.message =
+          payload !== undefined && payload.message
+            ? payload.message
+            : 'Something went wrong. Try again later.';
+      })
+      .addCase(fileUpload.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = true;
+        state.message =
+          payload !== undefined && payload.message
+            ? payload.message
+            : 'Something went wrong. Try again later.';
       })
   }
 })

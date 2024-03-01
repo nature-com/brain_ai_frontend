@@ -1,7 +1,7 @@
 import axios from 'axios';
 const api = axios.create({ baseURL: import.meta.env.VITE_API_BASE_URL });
 
-const formDataURL = ['user/change-profile-pic'];
+const formDataURL = ['user/change-profile-pic', '/user/speech-to-text'];
 api.interceptors.request.use((req) => {
   let userTokenData;
   try {

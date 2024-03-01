@@ -96,6 +96,27 @@ export const login = createAsyncThunk(
   }
 );
 
+// Google Sign In
+export const googleSignIn = createAsyncThunk(
+  'auth/google-signIn',
+  async (token, { rejectWithValue }) => {
+    try {
+      const response = await api.post('/user/api/google-login', {
+        token: token,
+      });
+      if (response?.data?.status_code === 200) {
+        return response.data;
+      } else {
+        // Handle the case when status code is not 200
+        return rejectWithValue(response.data.message);
+      }
+    } catch (error) {
+      let errors = errorHandler(error);
+      return rejectWithValue(errors);
+    }
+  }
+);
+
 
 const initialState = {
   message: null,
@@ -104,6 +125,7 @@ const initialState = {
   isLoggedIn: false,
   currentUser: {},
   subscription: false,
+  isGoogleLoggedIn: null,
 }
 
 const authSlice = createSlice({
@@ -120,6 +142,10 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
       localStorage.removeItem('userToken');
       localStorage.removeItem('regToken');
+      localStorage.removeItem('googleAccessToken');
+    },
+    clearGoogleSignInDetails: (state) => {
+      state.isGoogleLoggedIn = null;
     },
   },
   extraReducers: (builder) => {
@@ -240,8 +266,60 @@ const authSlice = createSlice({
             : 'Something went wrong. Try again later.';
       })
 
+      .addCase(googleSignIn.pending, (state, { payload }) => {
+        state.isFetching = true;
+        state.isLoggedIn = false;
+        state.isGoogleLoggedIn = false;
+        state.subscription = false;
+        state.error = false;
+      })
+
+      .addCase(googleSignIn.fulfilled, (state, { payload }) => {
+        const { access_token, subscription, user_id, email, otp_verified } =
+          payload;
+        state.isGoogleLoggedIn = true;
+        // console.log("payload in google sign in ", payload);
+        if (subscription !== null) {
+          // console.log('inside google fulfil', subscription);
+          state.subscription = true;
+          localStorage.setItem(
+            'isSubscribed',
+            JSON.stringify({ isSubscribed: subscription })
+          );
+        }
+        console.log('state.isGoogleLoggedIn', state.isGoogleLoggedIn);
+        state.isLoggedIn = true;
+        state.currentUser = {
+          user_id: user_id,
+          email: email,
+          otp_verified: otp_verified,
+        };
+        localStorage.setItem(
+          'userToken',
+          JSON.stringify({ token: access_token })
+        );
+        localStorage.setItem(
+          'isSubscribed',
+          JSON.stringify({ isSubscribed: subscription })
+        );
+        localStorage.setItem('userId', JSON.stringify({ user_id: user_id }));
+      })
+
+      .addCase(googleSignIn.rejected, (state, { payload }) => {
+        state.error = true;
+        state.subscription = false;
+        state.isGoogleLoggedIn = false;
+        state.message =
+          payload !== undefined
+            ? payload
+            : 'Something went wrong. Try again later.';
+        console.log(
+          'state.isGoogleLoggedIn -> rejected',
+          state.isGoogleLoggedIn
+        );
+      });
   },
 });
 
-export const { clearCurrentUser, resetAfterLoggedIn, logout } = authSlice.actions;
+export const { clearCurrentUser, resetAfterLoggedIn, logout, clearGoogleSignInDetails } = authSlice.actions;
 export default authSlice.reducer;

@@ -6,6 +6,7 @@ import { login, resetAfterLoggedIn } from "../../reducers/AuthSlice";
 import { formImage } from "../../assets/images/images";
 import { AiFillCloseCircle, BsFacebook, BsGoogle } from "../../assets/icons";
 import { Button, Modal } from "flowbite-react";
+import { useGoogleLogin } from "@react-oauth/google";
 
 const Login = ({ openLoginModal, setOpenLoginModal }) => {
   const formButtonRef = useRef(null);
@@ -67,6 +68,15 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
     // setOpenLoginModal(false);
     setOpenForgotPasswordModal(true);
   };
+
+  // google login button
+  const googleLogin = useGoogleLogin({
+    onSuccess: (codeResponse) => {
+      localStorage.setItem('googleAccessToken', codeResponse.access_token);
+      navigate('/google-redirect');
+    },
+    onError: (error) => console.log('Login Failed:', error),
+  });
 
   return (
     <>
@@ -170,15 +180,15 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
                   </form>
                   <p className="text-center text-sm my-4">OR</p>
                   <div className="mb-3">
-                    <Link
+                    <Button
                       className="flex justify-center items-center bg-red-500 hover:bg-red-800 rounded-full text-base h-11 border border-red-800 border-solid w-full"
-                      to="/"
+                      onClick={() => googleLogin()}
                     >
                       <span className="pe-3 text-sm text-white">
                         Sign in with Google
                       </span>
                       <BsGoogle className="text-white" size={25} />
-                    </Link>
+                    </Button>
                   </div>
                 </div>
                 <p className="text-xs text-gray-600 text-center p-0 m-0">

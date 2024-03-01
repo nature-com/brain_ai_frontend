@@ -290,7 +290,6 @@ const YourAccount = () => {
                                     })}
                                   />
                                 </div>
-
                                 <div>
                                   <div className="mb-2 block">
                                     <Label value="Your Mobile" />
@@ -312,7 +311,7 @@ const YourAccount = () => {
                                 <div>
                                   <button
                                     type="submit"
-                                    className="w-full text-base font-medium text-white px-5 p-2 mt-8 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black"
+                                    className="w-full text-base font-medium text-white px-5 p-2 mt-4 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black"
                                   >
                                     Update Profile
                                   </button>
@@ -321,6 +320,69 @@ const YourAccount = () => {
                             </div>
                           </form>
                         )}
+
+                        <div className="mt-8">
+                          <h1 class="text-2xl pb-2 font-bold text-black pb-4">
+                            Password
+                          </h1>
+                        </div>
+
+                        <form>
+                          <div class="grid grid-cols-1 gap-4 mb-2 max-w-2xl">
+                            <div>
+                              <div className="mb-2 block">
+                                <Label value="Old Password" />
+                              </div>
+                              <TextInput
+                                type="text"
+                                name="first_name"
+                                autoComplete="off"
+                                {...register("first_name", {
+                                  required: "Name is required",
+                                  maxLength: 30,
+                                })}
+                              />
+                            </div>
+                            <div>
+                              <div className="mb-2 block">
+                                <Label value="New Password" />
+                              </div>
+                              <TextInput
+                                type="text"
+                                name="last_name"
+                                autoComplete="off"
+                                {...register("last_name", {
+                                  required: "Name is required",
+                                  maxLength: 30,
+                                })}
+                              />
+                            </div>
+                            <div>
+                              <div className="mb-2 block">
+                                <Label value="Confirm New Password" />
+                              </div>
+                              <TextInput
+                                type="text"
+                                name="last_name"
+                                autoComplete="off"
+                                {...register("last_name", {
+                                  required: "Name is required",
+                                  maxLength: 30,
+                                })}
+                              />
+                            </div>
+                          </div>
+                          <div class="grid grid-cols-2 gap-4 mb-2">
+                            <div>
+                              <button
+                                type="submit"
+                                className="w-full text-base font-medium text-white px-5 p-2 mt-4 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black"
+                              >
+                                Update Password
+                              </button>
+                            </div>
+                          </div>
+                        </form>
                       </TabPanel>
                     </section>
 

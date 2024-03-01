@@ -12,23 +12,23 @@ import Loader from "../Loader/Loader";
 import axios from "axios";
 import sanitizeHtml from "sanitize-html";
 import { useDispatch, useSelector } from "react-redux";
-import { generateAnswer, toolsById } from "../../reducers/ToolsSlice";
+import { fileUpload, generateAnswer, toolsById } from "../../reducers/ToolsSlice";
 import { useForm } from "react-hook-form";
 
 import { FileInput, Label } from "flowbite-react";
 
-const Tooldetails = () => {
+const Tooldetails = ({ setIsFileUploaded }) => {
   const navigate = useNavigate();
   const [prompt, setPrompt] = useState("");
   const [paragraph, setParagraph] = useState("");
   const [tooldetails, setToolDetails] = useState();
-  const { isLoading } = useSelector((state) => state.tools);
 
   let { id } = useParams();
 
   const dispatch = useDispatch();
-  const { toolsDetails, answer } = useSelector((state) => state.tools);
+  const { message, error, isLoading, toolsDetails, answer, audioAnswer } = useSelector((state) => state.tools);
   // console.log(toolsDetails);
+
 
   useEffect(() => {
     dispatch(toolsById(id));
@@ -46,6 +46,39 @@ const Tooldetails = () => {
     formState: { errors },
   } = useForm();
 
+  /**
+ * Validates an audio file to ensure it meets specified criteria.
+ *
+ * @param {FileList} audio_file - The FileList object representing the selected audio file.
+ * @returns {string|null} - Returns a validation error message if any, or null if the file is valid.
+ */
+  const validateAudioFile = (audio_file) => {
+    if (!audio_file) {
+      return "File is required";
+    }
+
+    const allowedFormats = [
+      "audio/mpeg",
+      "audio/wav",
+      "audio/mp3",
+      // Add more allowed audio formats as needed
+    ];
+
+    const fileType = audio_file[0].type;
+
+    if (!allowedFormats.includes(fileType)) {
+      return "Invalid file format. Only MP3, WAV, and MPEG audio files are allowed.";
+    }
+
+    const fileExtension = audio_file[0].name.split(".").pop().toLowerCase();
+    if (!["mp3", "wav"].includes(fileExtension)) {
+      return "Invalid file extension. Only MP3 and WAV files are allowed.";
+    }
+
+    return null;
+  };
+
+
   const onSubmit = (data) => {
     const newData = {
       ...data,
@@ -54,6 +87,23 @@ const Tooldetails = () => {
     };
     dispatch(generateAnswer(newData));
   };
+
+  const onSubmit2 = (audio_file) => {
+    dispatch(fileUpload({ audio_file: audio_file.audio_file[0] })).then(() =>
+      setIsFileUploaded(true)
+    );
+  }
+
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
+
+  useEffect(() => {
+    if (error) {
+      setErrorMessage(error);
+    } else if (!error && message) {
+      setSuccessMessage(message);
+    }
+  }, [message, error]);
 
   const handleInputChange = (event) => {
     setPrompt(event.target.value);
@@ -109,40 +159,61 @@ const Tooldetails = () => {
                   </p>
 
                   <div className="prompt_input_section">
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                      <label className="text-sm font-normal pb-2 text-black block">
-                        Prompt
-                      </label>
-                      <textarea
-                        placeholder="Write your query here"
-                        className="h-24 text-sm text-gray-400 w-full border border-solid border-gray-400 rounded-lg"
-                        rows="3"
-                        {...register("subject")}
-                        onChange={(e) => {
-                          handleInputChange(e);
-                        }}
-                      ></textarea>
-                      <button
-                        type="submit"
-                        className="w-full text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black"
-                      >
-                        Generate
-                      </button>
-                    </form>
-                    <div className="mt-6">
-                      <div className="mb-1 flex items-center">
-                        <img
-                          src={audioIcon}
-                          alt="audioIcon"
-                          className="w-12 mr-1"
-                        />
-                        <Label
-                          htmlFor="file-upload"
-                          value="Upload audio file"
-                        />
-                      </div>
-                      <FileInput id="file-upload" />
-                    </div>
+
+                    {isTool("/tooldetails/42") ? (
+                      <form onSubmit={handleSubmit(onSubmit2)}>
+                        <div className="mt-6">
+                          <div className="mb-1 flex items-center">
+                            <img
+                              src={audioIcon}
+                              alt="audioIcon"
+                              className="w-12 mr-1"
+                            />
+                            <Label
+                              htmlFor="file-upload"
+                              value="Upload audio file"
+                            />
+                          </div>
+                          <FileInput
+                            id="audio_file"
+                            {...register("audio_file", {
+                              required: "File is required",
+                              validate: validateAudioFile,
+                            })}
+                          />
+                          {errors?.audio_file?.message && (
+                            <h6 className="text-red-500">{errors.audio_file.message}</h6>
+                          )}
+                        </div>
+                        <button
+                          type="submit"
+                          className="w-full text-sm font-medium text-white px-5 py-2 mt-8 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black"
+                        >
+                          Generate
+                        </button>
+                      </form>
+                    ) : (
+                      <form onSubmit={handleSubmit(onSubmit)}>
+                        <label className="text-sm font-normal pb-2 text-black block">
+                          Prompt
+                        </label>
+                        <textarea
+                          placeholder="Write your query here"
+                          className="h-24 text-sm text-gray-400 w-full border border-solid border-gray-400 rounded-lg"
+                          rows="3"
+                          {...register("subject")}
+                          onChange={(e) => {
+                            handleInputChange(e);
+                          }}
+                        ></textarea>
+                        <button
+                          type="submit"
+                          className="w-full text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black"
+                        >
+                          Generate
+                        </button>
+                      </form>
+                    )}
                   </div>
                 </div>
                 {isTool("/tooldetails/43") && (
@@ -222,17 +293,37 @@ const Tooldetails = () => {
                         width="100"
                         height="100"
                       />
-                      {answer ? (
+
+                      {isTool("/tooldetails/42") ? (
                         <>
-                          <p className="text-base font-normal pb-3 text-black text-justify whitespace-pre-wrap">
-                            {answer}
-                          </p>
+                          {audioAnswer ? (
+                            <>
+                              <p className="text-base font-normal pb-3 text-black text-justify whitespace-pre-wrap">
+                                {audioAnswer}
+                              </p>
+                            </>
+                          ) : (
+                            <h2 className="text-2xl font-semibold pb-3 text-black">
+                              Your text will appear here
+                            </h2>
+                          )}
                         </>
                       ) : (
-                        <h2 className="text-2xl font-semibold pb-3 text-black">
-                          Your text will appear here
-                        </h2>
+                        <>
+                          {answer ? (
+                            <>
+                              <p className="text-base font-normal pb-3 text-black text-justify whitespace-pre-wrap">
+                                {answer}
+                              </p>
+                            </>
+                          ) : (
+                            <h2 className="text-2xl font-semibold pb-3 text-black">
+                              Your text will appear here
+                            </h2>
+                          )}
+                        </>
                       )}
+
                     </div>
                   </div>
                 </div>
