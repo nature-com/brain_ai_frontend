@@ -51,8 +51,10 @@ import pythonWriterIcon from "../imagesource/python_writer_icon.png";
 import loveLetterIcon from "../imagesource/love_letter_icon.png";
 import userIcon from "../imagesource/bot_icon.png";
 import toolsImg from "../imagesource/toolsImg.png";
+import audioIcon from "../imagesource/audio_icon.png";
 
 export {
+  audioIcon,
   toolsImg,
   userIcon,
   loveLetterIcon,

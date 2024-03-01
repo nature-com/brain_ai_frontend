@@ -6,7 +6,7 @@ import {
   useNavigate,
   useParams,
 } from "react-router-dom";
-import { toolBrain } from "../../assets/images/images";
+import { audioIcon, toolBrain } from "../../assets/images/images";
 import { BiArrowBack } from "../../assets/icons/index";
 import Loader from "../Loader/Loader";
 import axios from "axios";
@@ -14,6 +14,8 @@ import sanitizeHtml from "sanitize-html";
 import { useDispatch, useSelector } from "react-redux";
 import { generateAnswer, toolsById } from "../../reducers/ToolsSlice";
 import { useForm } from "react-hook-form";
+
+import { FileInput, Label } from "flowbite-react";
 
 const Tooldetails = () => {
   const navigate = useNavigate();
@@ -127,13 +129,27 @@ const Tooldetails = () => {
                         Generate
                       </button>
                     </form>
+                    <div className="mt-6">
+                      <div className="mb-1 flex items-center">
+                        <img
+                          src={audioIcon}
+                          alt="audioIcon"
+                          className="w-12 mr-1"
+                        />
+                        <Label
+                          htmlFor="file-upload"
+                          value="Upload audio file"
+                        />
+                      </div>
+                      <FileInput id="file-upload" />
+                    </div>
                   </div>
                 </div>
-                {isTool('/tooldetails/43') &&
+                {isTool("/tooldetails/43") && (
                   <>
                     <div className="flex justify-center">
                       <button
-                        onClick={() => navigate('/tooldetails/45')}
+                        onClick={() => navigate("/tooldetails/45")}
                         type="submit"
                         className=" text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black mt-10"
                       >
@@ -141,15 +157,17 @@ const Tooldetails = () => {
                       </button>
                     </div>
                     <p className="text-center pt-2">
-                      If your test comes back plagiarised, Click paraphrase to access the Text Rewriter tool as it rewrite your texts, making it undetectable from the internet.
+                      If your test comes back plagiarised, Click paraphrase to
+                      access the Text Rewriter tool as it rewrite your texts,
+                      making it undetectable from the internet.
                     </p>
                   </>
-                }
-                {isTool('/tooldetails/45') &&
+                )}
+                {isTool("/tooldetails/45") && (
                   <>
                     <div className="flex justify-center">
                       <button
-                        onClick={() => navigate('/tooldetails/43')}
+                        onClick={() => navigate("/tooldetails/43")}
                         type="submit"
                         className=" text-sm font-medium text-white px-5 py-2 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black mt-10"
                       >
@@ -157,12 +175,12 @@ const Tooldetails = () => {
                       </button>
                     </div>
                     <p className="text-center pt-2">
-                      Check to see if your text is plagiarised. Copy your text and paste it into the plagiarism checker.
+                      Check to see if your text is plagiarised. Copy your text
+                      and paste it into the plagiarism checker.
                     </p>
                   </>
-                }
+                )}
               </div>
-
 
               {isLoading ? (
                 <div className="w-full md:w-1/2">
@@ -223,7 +241,7 @@ const Tooldetails = () => {
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 
