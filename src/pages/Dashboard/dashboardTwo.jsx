@@ -32,7 +32,7 @@ import {
 } from "flowbite-react";
 
 import Modals from "../Modal/Modals";
-import { editProfile } from "../../reducers/ProfileSlice";
+import { editProfile, totalUsers } from "../../reducers/ProfileSlice";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -63,9 +63,10 @@ const Dashboard = () => {
   };
   // Show Hide Tools Section start here
 
-  const { profile } = useSelector((state) => state.profile);
+  const { profile, totalUser } = useSelector((state) => state.profile);
   useEffect(() => {
     dispatch(editProfile(profile));
+    dispatch(totalUsers());
   }, []);
 
   const [openModal, setOpenModal] = useState(false);
@@ -212,7 +213,7 @@ const Dashboard = () => {
                               </Link>
                               <div className="text-center">
                                 <h3 className="text-[#ba9e63] font-bold text-xl uppercase">
-                                  25,502
+                                  {totalUser}
                                 </h3>
                                 <p>Joined AzzyWrites</p>
                               </div>
@@ -668,7 +669,7 @@ const Dashboard = () => {
                               </Link>
                               <div className="text-center">
                                 <h3 className="text-[#ba9e63] font-bold text-xl uppercase">
-                                  25,502
+                                  {totalUser}
                                 </h3>
                                 <p>Joined AzzyWrites</p>
                               </div>

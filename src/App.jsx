@@ -84,6 +84,12 @@ function App() {
       <Route path="/reviews" element={<OutsideLayout />}>
         <Route index element={<Reviews />} />
       </Route>
+      {/* <Route path="/forgot-password" element={<OutsideLayout />}>
+        <Route index element={<ForgotPassword />} />
+      </Route> */}
+      <Route path="/google-redirect" element={<OutsideLayout />}>
+        <Route index element={<GoogleRedirect />} />
+      </Route>
       {/* <Route path="/google-redirect" element={<GoogleRedirect />}></Route> */}
     </Routes>
   );

@@ -7,6 +7,7 @@ import { formImage } from "../../assets/images/images";
 import { AiFillCloseCircle, BsFacebook, BsGoogle } from "../../assets/icons";
 import { Button, Modal } from "flowbite-react";
 import { useGoogleLogin } from "@react-oauth/google";
+import ForgotPassword from "../ForgotPassword/ForgotPassword";
 
 const Login = ({ openLoginModal, setOpenLoginModal }) => {
   const formButtonRef = useRef(null);
@@ -15,8 +16,12 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
   const { message, isLoggedIn, error, loading } = useSelector(
     (state) => state.auth
   );
-  const subscription = localStorage.getItem("isSubscribed");
+  // const subscription = localStorage.getItem("isSubscribed");
   const [errorMessage, setErrorMessage] = useState(null);
+  const isSubscribed = JSON.parse(localStorage.getItem("isSubscribed"));
+  const subscribed = isSubscribed.isSubscribed;
+  console.log("isSubscribed", isSubscribed);
+  console.log("subscribed", subscribed);
 
   const handleLinkClick = () => {
     if (formButtonRef.current) {
@@ -58,7 +63,11 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
     } else if (isLoggedIn) {
       dispatch(resetAfterLoggedIn());
       // navigate("/dashboard");
-      navigate("/dashboard");
+      if (subscribed === null) {
+        <div>Please subscribe to access the tools</div>
+      } else {
+        navigate("/dashboard");
+      }
     }
   }, [message, error, isLoggedIn]);
 
@@ -166,7 +175,7 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
                       )}
                     </div>
                     <div className="text-[12px] text-black hover:text-[#ba9e63] mb-3 ml-2">
-                      <button onClick={handleForgotPassword}>
+                      <button type="button" onClick={handleForgotPassword}>
                         Forgot Password?
                       </button>
                     </div>
@@ -224,7 +233,11 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
         </Modal.Body>
       </Modal>
       {/*  */}
-      <Modal
+      {openForgotPasswordModal && <ForgotPassword
+        openForgotPasswordModal={openForgotPasswordModal}
+        setOpenForgotPasswordModal={setOpenForgotPasswordModal}
+      />}
+      {/* <Modal
         show={openForgotPasswordModal}
         onClose={() => setOpenForgotPasswordModal(false)}
       >
@@ -269,7 +282,7 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
             </div>
           </div>
         </Modal.Body>
-      </Modal>
+      </Modal> */}
       {/*  */}
     </>
   );

@@ -266,9 +266,9 @@ const AllTools = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -380,9 +380,9 @@ const AllTools = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -426,9 +426,9 @@ const AllTools = () => {
                                                       {tool?.description
                                                         .length > 35
                                                         ? tool?.description.substring(
-                                                            0,
-                                                            35
-                                                          ) + "..."
+                                                          0,
+                                                          35
+                                                        ) + "..."
                                                         : tool?.description}
                                                     </p>
                                                   </div>
@@ -474,9 +474,9 @@ const AllTools = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -523,9 +523,9 @@ const AllTools = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -572,9 +572,9 @@ const AllTools = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -722,9 +722,9 @@ const AllTools = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -762,9 +762,9 @@ const AllTools = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -811,9 +811,9 @@ const AllTools = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -857,9 +857,9 @@ const AllTools = () => {
                                                       {tool?.description
                                                         .length > 35
                                                         ? tool?.description.substring(
-                                                            0,
-                                                            35
-                                                          ) + "..."
+                                                          0,
+                                                          35
+                                                        ) + "..."
                                                         : tool?.description}
                                                     </p>
                                                   </div>
@@ -905,9 +905,9 @@ const AllTools = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -954,9 +954,9 @@ const AllTools = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>
@@ -1003,9 +1003,9 @@ const AllTools = () => {
                                                         {tool?.description
                                                           .length > 35
                                                           ? tool?.description.substring(
-                                                              0,
-                                                              35
-                                                            ) + "..."
+                                                            0,
+                                                            35
+                                                          ) + "..."
                                                           : tool?.description}
                                                       </p>
                                                     </div>

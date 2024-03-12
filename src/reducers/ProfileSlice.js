@@ -50,7 +50,6 @@ export const updateAvatar = createAsyncThunk(
     async (avatar, { rejectWithValue }) => {
         try {
             const response = await api.post('user/change-profile-pic', avatar);
-            console.log("avatar", avatar);
             if (response.data?.status_code === 200) {
                 return response.data;
             } else {
@@ -66,6 +65,22 @@ export const updateAvatar = createAsyncThunk(
     }
 );
 
+export const totalUsers = createAsyncThunk(
+    'user/total-users',
+    async (thunkAPI) => {
+        try {
+            const response = await api.get('user/get-total-users');
+            if (response?.status === 200 && response?.data?.data) {
+                return response.data.data;
+            } else {
+                throw Error('Failed to fetch');
+            }
+        } catch (err) {
+            return thunkAPI.rejectWithValue(err);
+        }
+    }
+);
+
 const initialState = {
     message: null,
     error: null,
@@ -73,6 +88,7 @@ const initialState = {
     profile: [],
     // planDetails: [],
     userPlan: [],
+    totalUser: null,
 };
 
 const ProfileSlice = createSlice({
@@ -89,7 +105,6 @@ const ProfileSlice = createSlice({
                 state.loading = true;
                 state.message = null;
             })
-
             .addCase(editProfile.fulfilled, (state, response) => {
                 state.loading = false;
                 state.profile = response.payload;
@@ -98,7 +113,6 @@ const ProfileSlice = createSlice({
                     details: subscriptionDetails,
                 };
             })
-
             .addCase(editProfile.rejected, (state, response) => {
                 state.loading = false;
                 state.error = true;
@@ -107,17 +121,16 @@ const ProfileSlice = createSlice({
                         ? response.payload.message
                         : 'Something went wrong. Try again later.';
             })
+
             .addCase(updateProfile.pending, (state) => {
                 state.message = null;
                 state.loading = true;
                 state.error = null;
             })
-
             .addCase(updateProfile.fulfilled, (state, response) => {
                 state.loading = false;
                 state.message = response.payload.message;
             })
-
             .addCase(updateProfile.rejected, (state, { payload }) => {
                 state.loading = false;
                 state.error = payload;
@@ -128,16 +141,31 @@ const ProfileSlice = createSlice({
                 state.loading = true;
                 state.error = null;
             })
-
             .addCase(updateAvatar.fulfilled, (state, response) => {
                 state.loading = false;
                 state.message = response.payload.message;
             })
-
             .addCase(updateAvatar.rejected, (state, { payload }) => {
                 state.loading = false;
                 state.error = payload;
-            });
+            })
+
+            .addCase(totalUsers.pending, (state) => {
+                state.loading = true;
+                state.message = null;
+            })
+            .addCase(totalUsers.fulfilled, (state, response) => {
+                state.loading = false;
+                state.totalUser = response?.payload
+            })
+            .addCase(totalUsers.rejected, (state, response) => {
+                state.loading = false;
+                state.error = true;
+                state.message =
+                    response.payload !== undefined && response.payload.message
+                        ? response.payload.message
+                        : 'Something went wrong. Try again later.';
+            })
     },
 });
 

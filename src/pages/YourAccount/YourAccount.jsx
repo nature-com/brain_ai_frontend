@@ -38,6 +38,7 @@ import {
 import { useForm } from "react-hook-form";
 import { cancelSubscription } from "../../reducers/PlansSlice";
 import { LuPencil } from "react-icons/lu";
+import { resetPassword } from "../../reducers/AuthSlice";
 
 const YourAccount = () => {
   const dispatch = useDispatch();
@@ -66,6 +67,17 @@ const YourAccount = () => {
     reset,
     formState: { errors },
   } = useForm();
+
+  const {
+    register: register1,
+    handleSubmit: handleSubmit1,
+    reset: reset1,
+    formState: { errors: errors1 },
+  } = useForm();
+
+  const submitUpdatePassword = (data) => {
+    dispatch(resetPassword(data));
+  }
 
   const onSubmit = (submit) => {
     let postData = {
@@ -97,15 +109,16 @@ const YourAccount = () => {
     }
   }, [data, reset]);
 
-  useEffect(() => {
-    dispatch(toolsList());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(toolsList());
+  // }, []);
 
-  useEffect(() => {
-    if (Object.keys(toolList).length) {
-      setTools(toolList);
-    }
-  }, [toolList]);
+  // useEffect(() => {
+  //   if (Object.keys(toolList).length) {
+  //     setTools(toolList);
+  //   }
+  // }, [toolList]);
+
   // Show Hide Tools Section start here
   const [isShownTools, setIsShownTools] = useState(false);
   const handleShowTools = (event) => {
@@ -327,7 +340,7 @@ const YourAccount = () => {
                           </h1>
                         </div>
 
-                        <form>
+                        <form onSubmit={handleSubmit1(submitUpdatePassword)}>
                           <div class="grid grid-cols-1 gap-4 mb-2 max-w-2xl">
                             <div>
                               <div className="mb-2 block">
@@ -335,10 +348,10 @@ const YourAccount = () => {
                               </div>
                               <TextInput
                                 type="text"
-                                name="first_name"
+                                name="old_password"
                                 autoComplete="off"
-                                {...register("first_name", {
-                                  required: "Name is required",
+                                {...register1("old_password", {
+                                  required: "Password is required",
                                   maxLength: 30,
                                 })}
                               />
@@ -349,10 +362,10 @@ const YourAccount = () => {
                               </div>
                               <TextInput
                                 type="text"
-                                name="last_name"
+                                name="password"
                                 autoComplete="off"
-                                {...register("last_name", {
-                                  required: "Name is required",
+                                {...register1("password", {
+                                  required: "New password is required",
                                   maxLength: 30,
                                 })}
                               />
@@ -363,10 +376,10 @@ const YourAccount = () => {
                               </div>
                               <TextInput
                                 type="text"
-                                name="last_name"
+                                name="confirm_password"
                                 autoComplete="off"
-                                {...register("last_name", {
-                                  required: "Name is required",
+                                {...register1("confirm_password", {
+                                  required: "Confirm new password is required",
                                   maxLength: 30,
                                 })}
                               />
