@@ -42,8 +42,7 @@ const Dashboard = () => {
   const token = localStorage.getItem("userToken");
   const email = localStorage.getItem("userEmail");
   const userName = localStorage.getItem("userName");
-  const isSubscribed = JSON.parse(localStorage.getItem("isSubscribed"));
-  const subscribed = isSubscribed.isSubscribed;
+  const subscribed = JSON.parse(localStorage.getItem('isSubscribed'))?.isSubscribed;
 
   useEffect(() => {
     dispatch(toolsListTwo());
@@ -129,7 +128,7 @@ const Dashboard = () => {
         <div className="container max-w-6xl mx-auto py-4 px-0">
           <div className="my_account_section">
             <article className="tabbed-content bg-white p-7 rounded-2xl tabs-side flex">
-              {subscribed === null ? (
+              {subscribed === null || subscribed === undefined ? (
                 <div className="text-[#ba9e63] font-medium text-base">
                   Please subscribe for using our AI Tools
                 </div>
@@ -238,7 +237,6 @@ const Dashboard = () => {
                                       <h2 className="text-blacks font-bold text-2xl ml-2 mb-1">
                                         Popular
                                       </h2>
-
                                       <div className="flex flex-wrap">
                                         {tools?.details?.popular_tools?.map(
                                           (tool) => (

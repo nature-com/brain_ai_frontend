@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import "../../assets/css/registration.css";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import {
   BsFacebook,
   BsGoogle,
@@ -15,9 +15,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { registerUser, verifyOtp } from "../../reducers/AuthSlice";
 import { useForm } from "react-hook-form";
 import Login from "../Auth/login";
+import { Button } from "flowbite-react";
+import { useGoogleLogin } from "@react-oauth/google";
 
 const UserDetails = (props) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     error: validationErrors,
@@ -67,6 +70,15 @@ const UserDetails = (props) => {
   };
 
   const [openLoginModal, setOpenLoginModal] = useState(false);
+
+  // google login button
+  const googleLogin = useGoogleLogin({
+    onSuccess: (codeResponse) => {
+      localStorage.setItem('googleAccessToken', codeResponse.access_token);
+      navigate('/google-redirect');
+    },
+    onError: (error) => console.log('Login Failed:', error),
+  });
 
   return (
     // <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-4xl mx-auto my-0">
@@ -282,13 +294,13 @@ const UserDetails = (props) => {
             </button>
             <p className="text-center my-4">OR</p>
             <div className="mb-3">
-              <Link
+              <Button
                 className="flex justify-center items-center bg-red-500 hover:bg-red-800 rounded-full text-base h-12 border border-red-800 border-solid w-full"
-                to="/"
+                onClick={() => googleLogin()}
               >
                 <span className="pe-3 text-white">Sign in with Google</span>
                 <BsGoogle className="text-white" size={22} />
-              </Link>
+              </Button>
             </div>
             {/* <div className="mb-3">
                 <Link

@@ -18,10 +18,6 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
   );
   // const subscription = localStorage.getItem("isSubscribed");
   const [errorMessage, setErrorMessage] = useState(null);
-  const isSubscribed = JSON.parse(localStorage.getItem("isSubscribed"));
-  const subscribed = isSubscribed.isSubscribed;
-  console.log("isSubscribed", isSubscribed);
-  console.log("subscribed", subscribed);
 
   const handleLinkClick = () => {
     if (formButtonRef.current) {
@@ -62,14 +58,14 @@ const Login = ({ openLoginModal, setOpenLoginModal }) => {
       };
     } else if (isLoggedIn) {
       dispatch(resetAfterLoggedIn());
-      // navigate("/dashboard");
-      if (subscribed === null) {
-        <div>Please subscribe to access the tools</div>
-      } else {
-        navigate("/dashboard");
-      }
+      navigate("/dashboard");
+      // if (subscribed === null) {
+      //   <div>Please subscribe to access the tools</div>
+      // } else {
+      //   navigate("/dashboard");
+      // }
     }
-  }, [message, error, isLoggedIn]);
+  }, [message, error, isLoggedIn,]);
 
   const [openForgotPasswordModal, setOpenForgotPasswordModal] = useState(false);
 

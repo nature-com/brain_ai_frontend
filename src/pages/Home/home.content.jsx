@@ -28,11 +28,40 @@ const Featured = React.lazy(() => import("./featured"));
 const Benefit = React.lazy(() => import("./benefit"));
 const Ourstudy = React.lazy(() => import("./ourstudy"));
 import Plan from "./plan";
+import { useDispatch, useSelector } from "react-redux";
+import { clearGoogleSignInDetails } from "../../reducers/AuthSlice";
+import { Toast } from "flowbite-react";
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import { ToastToggle } from "flowbite-react/lib/esm/components/Toast/ToastToggle";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const [toastShow, setToastShow] = useState(true);
+  const { isGoogleLoggedIn } = useSelector((state) => state.auth);
+  useEffect(() => {
+    if (isGoogleLoggedIn !== null && isGoogleLoggedIn !== undefined) {
+      setToastShow(isGoogleLoggedIn);
+      dispatch(clearGoogleSignInDetails());
+      const interval = setInterval(() => {
+        setToastShow(true);
+      }, 5000);
+    }
+  }, [isGoogleLoggedIn]);
+
   return (
     <div className="px-4 md:px-8 lg:px-0">
       {/* banner section start here */}
+      {!toastShow && (
+        <Toast className='max-w-xl mx-auto'>
+          <div className='inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cyan-400 text-[#ffffff]'>
+            <AiOutlineInfoCircle className='h-5 w-5 text-black' />
+          </div>
+          <div className='ml-3 text-sm font-normal'>
+            Email already registered. Please use email and password to log in.
+          </div>
+          <ToastToggle />
+        </Toast>
+      )}
       <Banner />
       {/* banner section ends here */}
       {/* terms section start here */}

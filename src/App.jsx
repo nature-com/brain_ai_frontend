@@ -87,10 +87,10 @@ function App() {
       {/* <Route path="/forgot-password" element={<OutsideLayout />}>
         <Route index element={<ForgotPassword />} />
       </Route> */}
-      <Route path="/google-redirect" element={<OutsideLayout />}>
+      {/* <Route path="/google-redirect" element={<InsideLayout />}>
         <Route index element={<GoogleRedirect />} />
-      </Route>
-      {/* <Route path="/google-redirect" element={<GoogleRedirect />}></Route> */}
+      </Route> */}
+      <Route path="/google-redirect" element={<GoogleRedirect />}></Route>
     </Routes>
   );
 }

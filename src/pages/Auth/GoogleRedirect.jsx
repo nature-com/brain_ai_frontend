@@ -1,9 +1,9 @@
-import { Spinner } from "flowbite-react";
-import { editProfile } from "../../reducers/ProfileSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { googleSignIn } from "../../reducers/AuthSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { editProfile } from '../../reducers/ProfileSlice';
+import { googleSignIn } from '../../reducers/AuthSlice';
+import Spinner from './Spinner';
 
 const GoogleRedirect = () => {
     const dispatch = useDispatch();
@@ -40,6 +40,7 @@ const GoogleRedirect = () => {
             }
         });
     }, [dispatch, googleSignIn, subscription]);
+
     return (
         <div className='h-96 flex justify-center items-center'>
             <Spinner />
