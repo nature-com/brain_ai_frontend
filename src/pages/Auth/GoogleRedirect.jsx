@@ -31,7 +31,7 @@ const GoogleRedirect = () => {
                     dispatch(editProfile());
                     navigate('/dashboard');
                 } else {
-                    navigate('/');
+                    navigate('/registration');
                 }
             } else {
                 localStorage.removeItem('googleAccessToken');
