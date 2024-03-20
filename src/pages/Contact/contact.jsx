@@ -19,7 +19,7 @@ import { contactAdmin } from "../../reducers/ContactSlice";
 const Contact = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { message, error } = useSelector(
+  const { message, error, loading } = useSelector(
     (state) => state.contact
   );
 
@@ -162,11 +162,11 @@ const Contact = () => {
                     {errors.message && <p className="text-red-400">{errors.message.message}</p>}
                   </div>
                   <button
-                    disabled={!isDirty}
+                    disabled={!isDirty && loading}
                     type="submit"
                     className="w-full text-base font-medium text-white px-5 py-3 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black"
                   >
-                    Submit
+                    {loading ? "Wait ..." : "Submit"}
                   </button>
                 </form>
               </div>

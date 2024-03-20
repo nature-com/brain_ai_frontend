@@ -36,11 +36,11 @@ const UserDetails = (props) => {
   } = useForm();
 
   function onSubmit(data) {
-    // if (currentUser && Object.keys(currentUser).length) {
-    //   dispatch(verifyOtp(data));
-    // } else {
-    dispatch(registerUser(data));
-    // }
+    if (currentUser && Object.keys(currentUser).length) {
+      dispatch(verifyOtp(data));
+    } else {
+      dispatch(registerUser(data));
+    }
   }
 
   useEffect(() => {
@@ -58,8 +58,8 @@ const UserDetails = (props) => {
     if (
       currentUser &&
       Object.keys(currentUser).length
-      // &&
-      // currentUser.otp_verified
+      &&
+      currentUser.otp_verified
     ) {
       props.stepsHandler("selectPlan");
     }
@@ -222,7 +222,7 @@ const UserDetails = (props) => {
                   </small>
                 )}
               </div> */}
-              {/* {currentUser && Object.keys(currentUser).length ? (
+              {currentUser && Object.keys(currentUser).length ? (
                 <>
                   <p className="text-sm text-red-600 mb-3">
                     You will receive your OTP code in your email.
@@ -251,15 +251,15 @@ const UserDetails = (props) => {
                     {loading ? "Wait ..." : "Join"}
                   </button>
                 </>
-              ) : ( */}
-              <button
-                type="submit"
-                className="rounded-full text-sm mb-0 uppercase h-12 bg-[#b3975f] w-full text-white hover:bg-[#c9b575]"
-                disabled={loading}
-              >
-                {loading ? "Wait ..." : "Join"}
-              </button>
-              {/* )} */}
+              ) : (
+                <button
+                  type="submit"
+                  className="rounded-full text-sm mb-0 uppercase h-12 bg-[#b3975f] w-full text-white hover:bg-[#c9b575]"
+                  disabled={loading}
+                >
+                  {loading ? "Wait ..." : "Join"}
+                </button>
+              )}
               {/* <button
                   type="submit"
                   className="rounded-full text-sm mb-0 uppercase h-12 bg-[#b3975f] w-full text-white hover:bg-[#c9b575]"
