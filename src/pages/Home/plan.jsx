@@ -16,7 +16,9 @@ const Plan = () => {
   }, []);
 
   useEffect(() => {
-    setPlans(plansList);
+    if (Object.keys(plansList).length) {
+      setPlans(plansList);
+    }
   }, [plansList]);
 
   const location = useLocation();
@@ -74,7 +76,7 @@ const Plan = () => {
                           className="w-full md:w-5/12 lg:w-4/12 mx-0 md:mx-2 mb-4 lg:mb-0"
                         >
                           <div className="bg-white py-0 px-0 rounded-2xl shadow-xl mt-6">
-                            {plankey == 0 && (
+                            {plankey === 0 && (
                               <div className="silver_plan_box pt-8 pb-14">
                                 <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
                                   {plan.name || "plan name"}
@@ -93,7 +95,7 @@ const Plan = () => {
                                 </h3>
                               </div>
                             )}
-                            {plankey == 1 && (
+                            {plankey === 1 && (
                               <div className="gold_plan_box pt-8 pb-14">
                                 <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
                                   {plan.name || "plan name"}
@@ -112,7 +114,7 @@ const Plan = () => {
                                 </h3>
                               </div>
                             )}
-                            {plankey == 2 && (
+                            {plankey === 2 && (
                               <div className="platinum_plan_box pt-8 pb-14">
                                 <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
                                   {plan.name || "plan name"}
@@ -136,28 +138,32 @@ const Plan = () => {
                                 {plan.description
                                   .split("%")
                                   .map((desc, ind) => (
-                                    <li
-                                      key={ind}
-                                      className="flex items-center text-base lg:text-base font-normal mb-5"
-                                    >
-                                      {desc
-                                        .split("/> ")[0]
-                                        .search("AiFillCloseCircle") === -1 ? (
-                                        <BsFillCheckCircleFill
-                                          className="text-[#d0bd7b] mt-0 mr-2"
-                                          size={20}
-                                        />
-                                      ) : (
-                                        <AiFillCloseCircle
-                                          className="text-[#d85c32] mt-0 mr-2"
-                                          size={20}
-                                        />
-                                      )}{" "}
-                                      {desc.split("/> ")[1]}
-                                    </li>
+                                    <>
+                                      {ind < 13 && (
+                                        <li
+                                          key={ind}
+                                          className="flex items-center text-base lg:text-base font-normal mb-5"
+                                        >
+                                          {desc
+                                            .split("/> ")[0]
+                                            .search("AiFillCloseCircle") === -1 ? (
+                                            <BsFillCheckCircleFill
+                                              className="text-[#d0bd7b] mt-0 mr-2"
+                                              size={20}
+                                            />
+                                          ) : (
+                                            <AiFillCloseCircle
+                                              className="text-[#d85c32] mt-0 mr-2"
+                                              size={20}
+                                            />
+                                          )}{" "}
+                                          {desc.split("/> ")[1]}
+                                        </li>
+                                      )}
+                                    </>
                                   ))}
                               </ul>
-                              {plankey == 0 && (
+                              {plankey === 0 && (
                                 <div className="text-center pt-6 pb-4">
                                   <Link
                                     className="bg-[#bababa] shadow-xl rounded-2xl text-sm lg:text-base font-medium text-black px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#e1e1e1]"
@@ -167,7 +173,7 @@ const Plan = () => {
                                   </Link>
                                 </div>
                               )}
-                              {plankey == 1 && (
+                              {plankey === 1 && (
                                 <div className="text-center pt-6 pb-4">
                                   <Link
                                     className="bg-[#ef9b0f] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#fbc873]"
@@ -177,7 +183,7 @@ const Plan = () => {
                                   </Link>
                                 </div>
                               )}
-                              {plankey == 2 && (
+                              {plankey === 2 && (
                                 <div className="text-center pt-6 pb-4">
                                   <Link
                                     className="bg-[#0091f7] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#71c2fb]"
@@ -209,7 +215,7 @@ const Plan = () => {
                           className="w-full md:w-5/12 lg:w-4/12 mx-0 md:mx-2 mb-4 lg:mb-0"
                         >
                           <div className="bg-white py-0 px-0 rounded-2xl shadow-xl mt-6">
-                            {plankey == 0 && (
+                            {plankey === 0 && (
                               <div className="silver_plan_box pt-8 pb-14">
                                 <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
                                   {plan.name || "plan name"}
@@ -237,7 +243,7 @@ const Plan = () => {
                                 </h3>
                               </div>
                             )}
-                            {plankey == 1 && (
+                            {plankey === 1 && (
                               <div className="gold_plan_box pt-8 pb-14">
                                 <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
                                   {plan.name || "plan name"}
@@ -265,7 +271,7 @@ const Plan = () => {
                                 </h3>
                               </div>
                             )}
-                            {plankey == 2 && (
+                            {plankey === 2 && (
                               <div className="platinum_plan_box pt-8 pb-14">
                                 <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-2">
                                   {plan.name || "plan name"}
@@ -298,28 +304,32 @@ const Plan = () => {
                                 {plan.description
                                   .split("%")
                                   .map((desc, ind) => (
-                                    <li
-                                      key={ind}
-                                      className="flex items-center text-base lg:text-base font-normal mb-5"
-                                    >
-                                      {desc
-                                        .split("/> ")[0]
-                                        .search("AiFillCloseCircle") === -1 ? (
-                                        <BsFillCheckCircleFill
-                                          className="text-[#d0bd7b] mt-0 mr-2"
-                                          size={20}
-                                        />
-                                      ) : (
-                                        <AiFillCloseCircle
-                                          className="text-[#d85c32] mt-0 mr-2"
-                                          size={20}
-                                        />
-                                      )}{" "}
-                                      {desc.split("/> ")[1]}
-                                    </li>
+                                    <>
+                                      {ind < 13 && (
+                                        <li
+                                          key={ind}
+                                          className="flex items-center text-base lg:text-base font-normal mb-5"
+                                        >
+                                          {desc
+                                            .split("/> ")[0]
+                                            .search("AiFillCloseCircle") === -1 ? (
+                                            <BsFillCheckCircleFill
+                                              className="text-[#d0bd7b] mt-0 mr-2"
+                                              size={20}
+                                            />
+                                          ) : (
+                                            <AiFillCloseCircle
+                                              className="text-[#d85c32] mt-0 mr-2"
+                                              size={20}
+                                            />
+                                          )}{" "}
+                                          {desc.split("/> ")[1]}
+                                        </li>
+                                      )}
+                                    </>
                                   ))}
                               </ul>
-                              {plankey == 0 && (
+                              {plankey === 0 && (
                                 <div className="text-center pt-6 pb-4">
                                   <Link
                                     className="bg-[#bababa] shadow-xl rounded-2xl text-sm lg:text-base font-medium text-black px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#e1e1e1]"
@@ -329,7 +339,7 @@ const Plan = () => {
                                   </Link>
                                 </div>
                               )}
-                              {plankey == 1 && (
+                              {plankey === 1 && (
                                 <div className="text-center pt-6 pb-4">
                                   <Link
                                     className="bg-[#ef9b0f] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#fbc873]"
@@ -339,7 +349,7 @@ const Plan = () => {
                                   </Link>
                                 </div>
                               )}
-                              {plankey == 2 && (
+                              {plankey === 2 && (
                                 <div className="text-center pt-6 pb-4">
                                   <Link
                                     className="bg-[#0091f7] rounded-2xl text-sm lg:text-base font-medium text-white px-6 lg:px-10 py-3 lg:py-3 hover:bg-[#71c2fb]"

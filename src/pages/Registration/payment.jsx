@@ -59,26 +59,26 @@ const Payment = (props) => {
                 <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-3">
                   {monthly.name || "plan name"}
                 </h2>
-                <h3 class="text-center text-lg font-medium text-black pb-3">
+                <h3 className="text-center text-lg font-medium text-black pb-3">
                   {monthly.currency}
-                  <span class="text-center text-3xl font-bold text-black pb-6">
+                  <span className="text-center text-3xl font-bold text-black pb-6">
                     {monthly.discounted_price}{" "}
-                    <span class="text-center text-lg font-medium text-black">
+                    <span className="text-center text-lg font-medium text-black">
                       / {monthly.plan_interval}
                     </span>
                   </span>
                 </h3>
-                <p class="text-center text-base lg:text-lg font-normal text-black pb-2">
+                <p className="text-center text-base lg:text-lg font-normal text-black pb-2">
                   3 Day Free Trial
                 </p>
                 <div>
                   <img src={paymentIcon} />
                 </div>
-                <p class="text-center text-base lg:text-lg font-normal text-black pb-2">
+                <p className="text-center text-base lg:text-lg font-normal text-black pb-2">
                   Total after 3 days: {monthly.currency}{monthly.discounted_price}{" "} / {monthly.plan_interval}
                 </p>
-                <p class="text-center text-base lg:text-lg font-normal text-black pb-2">
-                  Total due today: £0.00
+                <p className="text-center text-base lg:text-lg font-normal text-black pb-2">
+                  Total due today: {monthly.currency}{monthly.discounted_price}
                 </p>
               </div>
             )}
@@ -92,26 +92,26 @@ const Payment = (props) => {
                 <h2 className="text-center text-2xl lg:text-3xl font-bold text-black pb-3">
                   {yearly.name || "plan name"}
                 </h2>
-                <h3 class="text-center text-lg font-medium text-black pb-3">
+                <h3 className="text-center text-lg font-medium text-black pb-3">
                   {yearly.currency}
-                  <span class="text-center text-3xl font-bold text-black pb-6">
+                  <span className="text-center text-3xl font-bold text-black pb-6">
                     {yearly.discounted_price}{" "}
-                    <span class="text-center text-lg font-medium text-black">
+                    <span className="text-center text-lg font-medium text-black">
                       / {yearly.plan_interval}
                     </span>
                   </span>
                 </h3>
-                <p class="text-center text-base lg:text-lg font-normal text-black pb-2">
+                <p className="text-center text-base lg:text-lg font-normal text-black pb-2">
                   3 Day Free Trial
                 </p>
                 <div>
                   <img src={paymentIcon} />
                 </div>
-                <p class="text-center text-base lg:text-lg font-normal text-black pb-2">
+                <p className="text-center text-base lg:text-lg font-normal text-black pb-2">
                   Total after 3 days: {yearly.currency}{yearly.discounted_price}{" "} / {yearly.plan_interval}
                 </p>
-                <p class="text-center text-base lg:text-lg font-normal text-black pb-2">
-                  Total due today: £0.00
+                <p className="text-center text-base lg:text-lg font-normal text-black pb-2">
+                  Total due today: {yearly.currency}{yearly.discounted_price}
                 </p>
               </div>
             )}

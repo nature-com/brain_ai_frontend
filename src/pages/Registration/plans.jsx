@@ -17,6 +17,7 @@ import { subscriptionPlans } from "../../reducers/PlansSlice";
 import Payment from "./payment";
 import { stripePayment, stripePlanKeys } from "../../reducers/PaymentSlice";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
+import Loader from "../Loader/Loader";
 
 const Plans = (props) => {
   const dispatch = useDispatch();
@@ -189,23 +190,27 @@ const Plans = (props) => {
                               <div className="bg-white rounded-2xl p-6">
                                 <ul>
                                   {plan.description.split('%').map((desc, ind) => (
-                                    <li key={ind} className="flex items-center text-base lg:text-base font-normal mb-5">
-                                      {/* {console.log('desc.split', desc.split('/> ')[0].search("AiFillCloseCircle"))} */}
-                                      {desc.split('/> ')[0].search("AiFillCloseCircle") === -1 ? (
-                                        <BsFillCheckCircleFill
-                                          className="text-[#d0bd7b] mt-0 mr-2"
-                                          size={20}
-                                        />
-                                      ) : (
-                                        <AiFillCloseCircle
-                                          className="text-[#d85c32] mt-0 mr-2"
-                                          size={20} />
+                                    <>
+                                      {ind < 13 && (
+                                        <li key={ind} className="flex items-center text-base lg:text-base font-normal mb-5">
+                                          {/* {console.log('desc.split', desc.split('/> ')[0].search("AiFillCloseCircle"))} */}
+                                          {desc.split('/> ')[0].search("AiFillCloseCircle") === -1 ? (
+                                            <BsFillCheckCircleFill
+                                              className="text-[#d0bd7b] mt-0 mr-2"
+                                              size={20}
+                                            />
+                                          ) : (
+                                            <AiFillCloseCircle
+                                              className="text-[#d85c32] mt-0 mr-2"
+                                              size={20} />
+                                          )}
+                                          {/* {`${desc.split('/> ')[0]}/>`} */}
+                                          {/* <div>{`${desc.split('/> ')[0]}/>`}</div> */}
+                                          {' '}
+                                          {desc.split('/> ')[1]}
+                                        </li>
                                       )}
-                                      {/* {`${desc.split('/> ')[0]}/>`} */}
-                                      {/* <div>{`${desc.split('/> ')[0]}/>`}</div> */}
-                                      {' '}
-                                      {desc.split('/> ')[1]}
-                                    </li>
+                                    </>
                                   ))}
                                 </ul>
                                 {plankey == 0 &&
@@ -355,23 +360,27 @@ const Plans = (props) => {
                               <div className="bg-white rounded-2xl p-6">
                                 <ul>
                                   {plan.description.split('%').map((desc, ind) => (
-                                    <li key={ind} className="flex items-center text-base lg:text-base font-normal mb-5">
-                                      {/* {console.log('desc.split', desc.split('/> ')[0].search("AiFillCloseCircle"))} */}
-                                      {desc.split('/> ')[0].search("AiFillCloseCircle") === -1 ? (
-                                        <BsFillCheckCircleFill
-                                          className="text-[#d0bd7b] mt-0 mr-2"
-                                          size={20}
-                                        />
-                                      ) : (
-                                        <AiFillCloseCircle
-                                          className="text-[#d85c32] mt-0 mr-2"
-                                          size={20} />
+                                    <>
+                                      {ind < 13 && (
+                                        <li key={ind} className="flex items-center text-base lg:text-base font-normal mb-5">
+                                          {/* {console.log('desc.split', desc.split('/> ')[0].search("AiFillCloseCircle"))} */}
+                                          {desc.split('/> ')[0].search("AiFillCloseCircle") === -1 ? (
+                                            <BsFillCheckCircleFill
+                                              className="text-[#d0bd7b] mt-0 mr-2"
+                                              size={20}
+                                            />
+                                          ) : (
+                                            <AiFillCloseCircle
+                                              className="text-[#d85c32] mt-0 mr-2"
+                                              size={20} />
+                                          )}
+                                          {/* {`${desc.split('/> ')[0]}/>`} */}
+                                          {/* <div>{`${desc.split('/> ')[0]}/>`}</div> */}
+                                          {' '}
+                                          {desc.split('/> ')[1]}
+                                        </li>
                                       )}
-                                      {/* {`${desc.split('/> ')[0]}/>`} */}
-                                      {/* <div>{`${desc.split('/> ')[0]}/>`}</div> */}
-                                      {' '}
-                                      {desc.split('/> ')[1]}
-                                    </li>
+                                    </>
                                   ))}
                                 </ul>
                                 {plankey == 0 &&
@@ -438,21 +447,34 @@ const Plans = (props) => {
         </div>
       )}
       {showPayment &&
-        stripeClientSecret &&
-        customer_id &&
-        subscription_id &&
-        stripePublishableKey && (
-          <Payment
-            // userPlan={userDetails.plan_id}
-            email={userDetails.email}
-            user_id={user_id}
-            planId={userDetails.plan_id}
-            stripeClientSecret={stripeClientSecret}
-            stripePublishableKey={stripePublishableKey}
-            customer_id={customer_id}
-            subscription_id={subscription_id}
-          />
-        )}
+        <>
+          {showPayment &&
+            stripeClientSecret &&
+            customer_id &&
+            subscription_id &&
+            stripePublishableKey ? (
+            <Payment
+              // userPlan={userDetails.plan_id}
+              email={userDetails.email}
+              user_id={user_id}
+              planId={userDetails.plan_id}
+              stripeClientSecret={stripeClientSecret}
+              stripePublishableKey={stripePublishableKey}
+              customer_id={customer_id}
+              subscription_id={subscription_id}
+            />
+          ) : (
+            <div className="w-full lg:w-3/5">
+              <div className="register_cont">
+                <div className="text-center">
+                  <Loader />
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      }
+
     </div>
     // </div>
   );
