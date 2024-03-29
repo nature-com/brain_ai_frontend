@@ -71,9 +71,8 @@ const Registration = () => {
             <li>
               {/* <li onClick={() => stepsHandler("registration")}> */}
               <span
-                className={`${
-                  steps.registration ? "bg-[#ba9e63]" : "bg-black"
-                }`}
+                className={`${steps.registration ? "bg-[#ba9e63]" : "bg-black"
+                  }`}
               >
                 1
               </span>

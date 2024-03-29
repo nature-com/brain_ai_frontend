@@ -199,7 +199,7 @@ const Tooldetails = ({ setIsFileUploaded }) => {
                         </label>
                         <textarea
                           placeholder="Write your query here"
-                          className="h-24 text-sm text-gray-400 w-full border border-solid border-gray-400 rounded-lg"
+                          className="h-24 text-sm text-black w-full border border-solid border-gray-400 rounded-lg"
                           rows="3"
                           {...register("subject")}
                           onChange={(e) => {

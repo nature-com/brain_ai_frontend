@@ -5,7 +5,7 @@ import { forgotPassword } from "../../reducers/AuthSlice";
 
 const ForgotPassword = ({ openForgotPasswordModal, setOpenForgotPasswordModal }) => {
     const dispatch = useDispatch();
-    const { loading } = useSelector((state) => state.auth);
+    const { loading, message } = useSelector((state) => state.auth);
     const {
         register,
         handleSubmit,
@@ -66,7 +66,11 @@ const ForgotPassword = ({ openForgotPasswordModal, setOpenForgotPasswordModal })
                                         >
                                             {loading ? "Wait..." : "Send"}
                                         </button>
+
+                                        <div className="text-center text-green-500 font-bold mt-2">{message}</div>
+
                                     </form>
+
                                 </div>
                             </div>
                         </div>

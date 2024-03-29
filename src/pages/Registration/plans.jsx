@@ -529,6 +529,7 @@ const Plans = (props) => {
               stripePublishableKey={stripePublishableKey}
               customer_id={customer_id}
               subscription_id={subscription_id}
+              stepsHandler={props.stepsHandler}
             />
           ) : (
             <div className="w-full lg:w-3/5">

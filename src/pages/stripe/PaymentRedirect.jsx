@@ -23,8 +23,8 @@ const PaymentRedirect = () => {
   const subscription_id = urlParams.get('subscription_id')
     ? decodeURIComponent(urlParams.get('subscription_id'))
     : null;
-  const plan_id = urlParams.get('plan_id');
-  const user_id = urlParams.get('user_id');
+  const plan_id = Number(urlParams.get('plan_id'));
+  const user_id = Number(urlParams.get('user_id'));
 
   useEffect(() => {
     if (customer_id && subscription_id && plan_id && user_id) {

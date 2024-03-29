@@ -7,6 +7,8 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { useSelector } from "react-redux";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
+import { Link } from "react-router-dom";
+import { BsChevronRight } from "react-icons/bs";
 
 const Payment = (props) => {
   const plansList = useSelector((state) => state.plans?.plans);
@@ -17,6 +19,7 @@ const Payment = (props) => {
   const [errorMessage, setErrorMessage] = useState();
 
   const {
+    stepsHandler,
     stripeClientSecret,
     customer_id,
     subscription_id,
@@ -39,6 +42,11 @@ const Payment = (props) => {
 
   const monthly = plansList?.monthly_plans?.find(plan => plan.id === planId);
   const yearly = plansList?.yearly_plans?.find(plan => plan.id === planId);
+
+  const backToPlans = () => {
+    console.log("hii")
+    stepsHandler("selectplan");
+  }
 
   return (
     // <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-4xl mx-auto my-0">
@@ -78,7 +86,7 @@ const Payment = (props) => {
                   Total after 3 days: {monthly.currency}{monthly.discounted_price}{" "} / {monthly.plan_interval}
                 </p>
                 <p className="text-center text-base lg:text-lg font-normal text-black pb-2">
-                  Total due today: {monthly.currency}{monthly.discounted_price}
+                  Total due today: {monthly.currency}0
                 </p>
               </div>
             )}
@@ -95,9 +103,9 @@ const Payment = (props) => {
                 <h3 className="text-center text-lg font-medium text-black pb-3">
                   {yearly.currency}
                   <span className="text-center text-3xl font-bold text-black pb-6">
-                    {yearly.discounted_price}{" "}
+                    {yearly.annual_price}{" "}
                     <span className="text-center text-lg font-medium text-black">
-                      / {yearly.plan_interval}
+                      / {yearly.annual_interval}
                     </span>
                   </span>
                 </h3>
@@ -108,19 +116,22 @@ const Payment = (props) => {
                   <img src={paymentIcon} />
                 </div>
                 <p className="text-center text-base lg:text-lg font-normal text-black pb-2">
-                  Total after 3 days: {yearly.currency}{yearly.discounted_price}{" "} / {yearly.plan_interval}
+                  Total after 3 days: {yearly.currency}{yearly.annual_price}{" "} / {yearly.annual_interval}
                 </p>
                 <p className="text-center text-base lg:text-lg font-normal text-black pb-2">
-                  Total due today: {yearly.currency}{yearly.discounted_price}
+                  Total due today: {yearly.currency}0
                 </p>
               </div>
             )}
 
           <div className="w-full lg:w-3/5">
             <div className="register_cont">
-              <h2 className="text-center text-3xl text-[#ba9e63] font-bold mb-5">
-                Make Payment
-              </h2>
+              <div className="flex justify-between items-center mb-5">
+                <h2 className="text-center text-3xl text-[#ba9e63] font-bold">
+                  Make Payment
+                </h2>
+                <button className="text-black text-[14px] font-medium underline uppercase hover:no-underline flex items-center hover:text-[#ba9e63]" onClick={backToPlans}>Back to plans <BsChevronRight /></button>
+              </div>
               <div className="stripe-error text-red-600">{errorMessage}</div>
               {stripePublishableKey &&
                 customer_id &&

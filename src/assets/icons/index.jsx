@@ -23,8 +23,10 @@ import { HiChevronUp } from "react-icons/hi";
 import { FaInstagramSquare } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 import { LuPencil } from "react-icons/lu";
+import { BsChevronRight } from "react-icons/bs";
 
 export {
+  BsChevronRight,
   LuPencil,
   IoSettingsOutline,
   AiOutlineUserAdd,
