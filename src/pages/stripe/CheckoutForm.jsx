@@ -5,6 +5,7 @@ import {
 } from '@stripe/react-stripe-js';
 
 const CheckoutForm = ({
+  errorMessage,
   setErrorMessage,
   customer_id,
   subscription_id,
@@ -33,9 +34,9 @@ const CheckoutForm = ({
           return_url: returnUrl,
         },
       })
-      .then(function (result) {
-        if (result.error) {
-          setErrorMessage(result.error.message);
+      .then(function (error) {
+        if (error.error) {
+          setErrorMessage(error.error.message);
         }
       });
   };

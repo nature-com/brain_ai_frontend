@@ -129,6 +129,8 @@ const Payment = (props) => {
                 user_id && (
                   <Elements stripe={stripePromise} options={options}>
                     <CheckoutForm
+                      errorMessage={errorMessage}
+                      setErrorMessage={setErrorMessage}
                       customer_id={customer_id}
                       subscription_id={subscription_id}
                       plan_id={planId}
