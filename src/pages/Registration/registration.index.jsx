@@ -20,6 +20,7 @@ const Registration = () => {
   // const [showRegistration, setShowRegistration] = useState(true);
   // const [showPlan, setShowPlan] = useState(false);
   // const [showPayment, setShowPayment] = useState(false);
+
   const [userPlan, setUserPlan] = useState(null);
   const { otp_verified, email, user_id } = useSelector(
     (state) => state.auth?.currentUser
