@@ -54,7 +54,7 @@ const PaymentRedirect = () => {
   useEffect(() => {
     if (redirectStatus === 'succeeded') {
       setTimeout(() => {
-        navigate('/');
+        navigate('/dashboard');
       }, 2000);
     }
   }, [redirectStatus]);
