@@ -33,6 +33,7 @@ const Registration = () => {
   });
 
   const stepsHandler = (type) => {
+    console.log('type->', type)
     if (type == "registration") {
       setSteps((prev) => ({
         ...prev,
@@ -44,23 +45,28 @@ const Registration = () => {
       setSteps((prev) => ({
         ...prev,
         registration: false,
-        selectPlan: false,
-        payment: true,
+        selectPlan: true,
+        payment: false,
       }));
+      alert('here');
     } else {
       setSteps((prev) => ({
         ...prev,
         registration: false,
-        selectPlan: true,
-        payment: false,
+        selectPlan: false,
+        payment: true,
       }));
     }
   };
+
 
   const selectPlan = (planId) => {
     setUserPlan(planId);
     stepsHandler("payment");
   };
+  useEffect(() => {
+    console.log(steps, "stepssteps")
+  }, [steps])
 
   return (
     <>
@@ -120,6 +126,7 @@ const Registration = () => {
                 email={email}
                 user_id={user_id}
                 stepsHandler={stepsHandler}
+                setSteps={setSteps}
               />
             </div>
           )}

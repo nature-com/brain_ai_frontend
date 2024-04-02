@@ -530,6 +530,9 @@ const Plans = (props) => {
               customer_id={customer_id}
               subscription_id={subscription_id}
               stepsHandler={props.stepsHandler}
+              setSteps={props.setSteps}
+              userDetails={userDetails}
+              setUserDetails={setUserDetails}
             />
           ) : (
             <div className="w-full lg:w-3/5">

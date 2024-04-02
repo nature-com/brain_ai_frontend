@@ -179,6 +179,10 @@ const authSlice = createSlice({
     logout: (state) => {
       state.isLoggedIn = false;
       localStorage.removeItem('userToken');
+      localStorage.removeItem('userId');
+      localStorage.removeItem('userName');
+      localStorage.removeItem('userEmail');
+      localStorage.removeItem('isSubscribed');
       localStorage.removeItem('regToken');
       localStorage.removeItem('googleAccessToken');
     },

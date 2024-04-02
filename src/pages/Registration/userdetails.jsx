@@ -61,7 +61,7 @@ const UserDetails = (props) => {
       &&
       currentUser.otp_verified
     ) {
-      props.stepsHandler("selectPlan");
+      props.stepsHandler("selectplan");
     }
   }, [currentUser, props]);
 

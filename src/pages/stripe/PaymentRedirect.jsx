@@ -53,6 +53,12 @@ const PaymentRedirect = () => {
 
   useEffect(() => {
     if (redirectStatus === 'succeeded') {
+      console.log("token", token)
+      localStorage.setItem(
+        'userToken',
+        JSON.stringify({ token: token?.token })
+      );
+      localStorage.removeItem('regToken');
       setTimeout(() => {
         navigate('/dashboard');
       }, 2000);

@@ -7,10 +7,11 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { useSelector } from "react-redux";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsChevronRight } from "react-icons/bs";
 
 const Payment = (props) => {
+  const navigate = useNavigate();
   const plansList = useSelector((state) => state.plans?.plans);
 
   const [stripePromise, setStripePromise] = useState(null);
@@ -27,6 +28,8 @@ const Payment = (props) => {
     email,
     user_id,
     planId,
+    userDetails,
+    setUserDetails,
   } = props;
 
 
@@ -38,18 +41,14 @@ const Payment = (props) => {
       clientSecret: stripeClientSecret,
     };
     setOptions(stripe_options);
-  }, []);
+  }, [stripeClientSecret, stripePublishableKey]);
 
   const monthly = plansList?.monthly_plans?.find(plan => plan.id === planId);
   const yearly = plansList?.yearly_plans?.find(plan => plan.id === planId);
 
-  const backToPlans = () => {
-    console.log("hii")
-    stepsHandler("selectplan");
-  }
+
 
   return (
-    // <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-4xl mx-auto my-0">
     <>
       <ScrollToTop />
       <div
@@ -80,7 +79,7 @@ const Payment = (props) => {
                   3 Day Free Trial
                 </p>
                 <div>
-                  <img src={paymentIcon} />
+                  <img src={paymentIcon} alt="Payment Icon" />
                 </div>
                 <p className="text-center text-base lg:text-lg font-normal text-black pb-2">
                   Total after 3 days: {monthly.currency}{monthly.discounted_price}{" "} / {monthly.plan_interval}
@@ -113,7 +112,7 @@ const Payment = (props) => {
                   3 Day Free Trial
                 </p>
                 <div>
-                  <img src={paymentIcon} />
+                  <img src={paymentIcon} alt="Payment Icon" />
                 </div>
                 <p className="text-center text-base lg:text-lg font-normal text-black pb-2">
                   Total after 3 days: {yearly.currency}{yearly.annual_price}{" "} / {yearly.annual_interval}
@@ -130,7 +129,14 @@ const Payment = (props) => {
                 <h2 className="text-center text-3xl text-[#ba9e63] font-bold">
                   Make Payment
                 </h2>
-                <button className="text-black text-[14px] font-medium underline uppercase hover:no-underline flex items-center hover:text-[#ba9e63]" onClick={backToPlans}>Back to plans <BsChevronRight /></button>
+                <button className="text-black text-[14px] font-medium underline uppercase hover:no-underline flex items-center hover:text-[#ba9e63]" onClick={() => {
+                  props.stepsHandler("selectplan");
+                  setUserDetails(() => ({
+                    ...userDetails,
+                    plan_id: null,
+                    user_id: null,
+                  }));
+                }}>Back to plans <BsChevronRight /></button>
               </div>
               <div className="stripe-error text-red-600">{errorMessage}</div>
               {stripePublishableKey &&
@@ -154,7 +160,6 @@ const Payment = (props) => {
         </div>
       </div>
     </>
-    // </div>
   );
 };
 
