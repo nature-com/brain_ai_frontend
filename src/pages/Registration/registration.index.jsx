@@ -17,12 +17,14 @@ import Payment from "./payment";
 import { useSelector } from "react-redux";
 
 const Registration = () => {
+  const [showPayment, setShowPayment] = useState(false);
+  const [showSubscription, setShowSubscription] = useState(true);
   // const [showRegistration, setShowRegistration] = useState(true);
   // const [showPlan, setShowPlan] = useState(false);
   // const [showPayment, setShowPayment] = useState(false);
 
   const [userPlan, setUserPlan] = useState(null);
-  const { otp_verified, email, user_id } = useSelector(
+  const { otp_verified, email, user_id, loading } = useSelector(
     (state) => state.auth?.currentUser
   );
 
@@ -33,7 +35,6 @@ const Registration = () => {
   });
 
   const stepsHandler = (type) => {
-    console.log('type->', type)
     if (type == "registration") {
       setSteps((prev) => ({
         ...prev,
@@ -48,8 +49,7 @@ const Registration = () => {
         selectPlan: true,
         payment: false,
       }));
-      alert('here');
-    } else {
+    } else if (type == "payment") {
       setSteps((prev) => ({
         ...prev,
         registration: false,
@@ -64,9 +64,10 @@ const Registration = () => {
     setUserPlan(planId);
     stepsHandler("payment");
   };
+
   useEffect(() => {
-    console.log(steps, "stepssteps")
-  }, [steps])
+    stepsHandler("registration");
+  }, [])
 
   return (
     <>
@@ -115,7 +116,10 @@ const Registration = () => {
 
           {steps?.selectPlan && otp_verified && (
             <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-6xl mx-auto my-0">
-              <Plans selectPlan={selectPlan} stepsHandler={stepsHandler} />
+              <Plans selectPlan={selectPlan} stepsHandler={stepsHandler}
+                showSubscription={showSubscription} setShowSubscription={setShowSubscription}
+                showPayment={showPayment} setShowPayment={setShowPayment}
+                loading={loading} />
             </div>
           )}
 
@@ -126,7 +130,9 @@ const Registration = () => {
                 email={email}
                 user_id={user_id}
                 stepsHandler={stepsHandler}
-                setSteps={setSteps}
+                showSubscription={showSubscription} setShowSubscription={setShowSubscription}
+                showPayment={showPayment} setShowPayment={setShowPayment}
+                loading={loading}
               />
             </div>
           )}

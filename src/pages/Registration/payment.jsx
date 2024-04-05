@@ -11,7 +11,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { BsChevronRight } from "react-icons/bs";
 
 const Payment = (props) => {
-  const navigate = useNavigate();
   const plansList = useSelector((state) => state.plans?.plans);
 
   const [stripePromise, setStripePromise] = useState(null);
@@ -30,6 +29,11 @@ const Payment = (props) => {
     planId,
     userDetails,
     setUserDetails,
+    showSubscription,
+    setShowSubscription,
+    showPayment,
+    setShowPayment,
+    loading,
   } = props;
 
 
@@ -130,12 +134,13 @@ const Payment = (props) => {
                   Make Payment
                 </h2>
                 <button className="text-black text-[14px] font-medium underline uppercase hover:no-underline flex items-center hover:text-[#ba9e63]" onClick={() => {
-                  props.stepsHandler("selectplan");
-                  setUserDetails(() => ({
+                  stepsHandler("selectplan");
+                  setUserDetails((userDetails) => ({
                     ...userDetails,
                     plan_id: null,
-                    user_id: null,
                   }));
+                  setShowPayment(false);
+                  setShowSubscription(true);
                 }}>Back to plans <BsChevronRight /></button>
               </div>
               <div className="stripe-error text-red-600">{errorMessage}</div>
@@ -152,6 +157,7 @@ const Payment = (props) => {
                       subscription_id={subscription_id}
                       plan_id={planId}
                       user_id={user_id}
+                      loading={loading}
                     />
                   </Elements>
                 )}

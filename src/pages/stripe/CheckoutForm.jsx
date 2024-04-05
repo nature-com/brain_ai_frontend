@@ -11,6 +11,7 @@ const CheckoutForm = ({
   subscription_id,
   plan_id,
   user_id,
+  loading,
 }) => {
   const stripe = useStripe();
   const elements = useElements();
@@ -21,7 +22,7 @@ const CheckoutForm = ({
     )}&subscription_id=${encodeURIComponent(
       subscription_id
     )}&plan_id=${plan_id}&user_id=${user_id}`;
-
+  // console.log(returnUrl, "returnUrl");
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!stripe || !elements) {
@@ -48,8 +49,9 @@ const CheckoutForm = ({
       <button
         type='submit'
         className='w-full h-12 mt-2 mb-0 text-sm text-white uppercase bg-[#ba9e63] rounded-full hover:bg-black'
+        disabled={loading}
       >
-        Pay
+        {loading ? "Wait ..." : "Pay"}
       </button>
     </form>
   );

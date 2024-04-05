@@ -51,6 +51,7 @@ const initialState = {
     options: null,
     customer_id: null,
     subscription_id: null,
+    paymentStatus: false,
 };
 
 const PaymentSlice = createSlice({
@@ -61,6 +62,7 @@ const PaymentSlice = createSlice({
         builder
             .addCase(stripePayment.pending, (state) => {
                 state.loading = true;
+                state.paymentStatus = true;
             })
             .addCase(stripePayment.fulfilled, (state, { payload }) => {
                 state.loading = false;
@@ -68,6 +70,7 @@ const PaymentSlice = createSlice({
                 state.stripeClientSecret = clientSecret;
                 state.customer_id = customer_id;
                 state.subscription_id = subscription_id;
+                state.paymentStatus = false;
                 state.message =
                     payload !== undefined && payload.message
                         ? payload.message
@@ -76,6 +79,7 @@ const PaymentSlice = createSlice({
             .addCase(stripePayment.rejected, (state, response) => {
                 state.loading = false;
                 state.error = true;
+                state.paymentStatus = false;
                 state.message =
                     response.payload !== undefined && response.payload.message
                         ? response.payload.message

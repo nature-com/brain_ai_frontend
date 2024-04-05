@@ -28,7 +28,7 @@ const PaymentRedirect = () => {
 
   useEffect(() => {
     if (customer_id && subscription_id && plan_id && user_id) {
-      dispatch(
+      const statusCheck = dispatch(
         stripePayment({
           token: token?.token,
           user_id: user_id,
@@ -38,32 +38,40 @@ const PaymentRedirect = () => {
           entity: 'subscription_complete',
         })
       );
-      if (redirectStatus === 'succeeded') {
-        setshowReloadMessage(false);
-        setMessage({
-          type: 'success',
-          text: 'Subscription updated successfully',
-        });
-      } else {
-        setshowReloadMessage(false);
-        setMessage({ type: 'fail', text: 'Failed to update subscription' });
-      }
+
+      statusCheck.then((response) => {
+        console.log(response, "hiresponae");
+        if (response.payload.status_code === 200) {
+          if (redirectStatus === 'succeeded') {
+            setshowReloadMessage(false);
+            setMessage({
+              type: 'success',
+              text: 'Subscription updated successfully',
+            });
+            localStorage.setItem(
+              'userToken',
+              JSON.stringify({ token: token?.token })
+            );
+            localStorage.removeItem('regToken');
+            setTimeout(() => {
+              navigate('/dashboard');
+            }, 2000);
+          } else {
+            setshowReloadMessage(false);
+            setMessage({ type: 'fail', text: 'Failed to update subscription' });
+            navigate('/');
+          }
+        } else {
+          setshowReloadMessage(false);
+          setMessage({ type: 'fail', text: 'Failed to update subscription' });
+          navigate('/');
+        }
+      })
+
     }
   }, []);
 
-  useEffect(() => {
-    if (redirectStatus === 'succeeded') {
-      console.log("token", token)
-      localStorage.setItem(
-        'userToken',
-        JSON.stringify({ token: token?.token })
-      );
-      localStorage.removeItem('regToken');
-      setTimeout(() => {
-        navigate('/dashboard');
-      }, 2000);
-    }
-  }, [redirectStatus]);
+
 
   return (
     <div className='h-96 flex justify-center items-center'>

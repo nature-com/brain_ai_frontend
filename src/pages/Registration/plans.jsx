@@ -36,7 +36,7 @@ const Plans = (props) => {
   const { userPlan } = useSelector((state) => state.profile);
   const { profile } = useSelector((state) => state.profile);
 
-  const [showPayment, setShowPayment] = useState(false);
+  // const [showPayment, setShowPayment] = useState(false);
   const [userDetails, setUserDetails] = useState({
     email: null,
     user_id: profile[0]?.id,
@@ -47,7 +47,7 @@ const Plans = (props) => {
     setUserId(profile[0]?.id);
   }, [profile]);
 
-  const [showSubscription, setShowSubscription] = useState(true);
+  // const [showSubscription, setShowSubscription] = useState(true);
 
   const {
     stripeClientSecret,
@@ -69,8 +69,8 @@ const Plans = (props) => {
         entity: "payment_intent",
       })
     );
-    setShowPayment(true);
-    setShowSubscription(false);
+    props.setShowPayment(true);
+    props.setShowSubscription(false);
   };
 
   useEffect(() => {
@@ -89,7 +89,7 @@ const Plans = (props) => {
   return (
     // <div className="bg-[#fff1d2] rounded-2xl p-6 lg:p-10 shadow-xl w-full max-w-4xl mx-auto my-0">
     <div className="container mx-auto my-0">
-      {showSubscription && (
+      {props.showSubscription && (
         <div className="pb-16">
           <div
             className="container max-w-6xl mx-auto py-4 px-0"
@@ -513,9 +513,9 @@ const Plans = (props) => {
           </div>
         </div>
       )}
-      {showPayment &&
+      {props.showPayment &&
         <>
-          {showPayment &&
+          {props.showPayment &&
             stripeClientSecret &&
             customer_id &&
             subscription_id &&
@@ -530,9 +530,11 @@ const Plans = (props) => {
               customer_id={customer_id}
               subscription_id={subscription_id}
               stepsHandler={props.stepsHandler}
-              setSteps={props.setSteps}
               userDetails={userDetails}
               setUserDetails={setUserDetails}
+              showSubscription={props.showSubscription} setShowSubscription={props.setShowSubscription}
+              showPayment={props.showPayment} setShowPayment={props.setShowPayment}
+              loading={props.loading}
             />
           ) : (
             <div className="w-full lg:w-3/5">
