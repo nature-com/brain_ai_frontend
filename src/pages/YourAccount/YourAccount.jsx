@@ -47,13 +47,8 @@ const YourAccount = () => {
   const toolList = useSelector((state) => state.tools.toolsList);
   const userName = localStorage.getItem("userName");
 
-  const {
-    loading,
-    message,
-    error,
-    profile: data,
-    userPlan,
-  } = useSelector((state) => state.profile);
+  const { loadingPass, messagePass, errorPass } = useSelector((state) => state.auth);
+  const { loading, message, error, profile: data, userPlan, } = useSelector((state) => state.profile);
 
   useEffect(() => {
     dispatch(editProfile(data));
@@ -219,7 +214,7 @@ const YourAccount = () => {
                     <section>
                       <TabPanel>
                         <div className="flex justify-between items-center">
-                          <h2 class="text-2xl pb-2 font-bold text-black">
+                          <h2 className="text-2xl pb-2 font-bold text-black">
                             Personal
                           </h2>
                           <Link
@@ -232,7 +227,7 @@ const YourAccount = () => {
                         {data && (
                           <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="mb-4">
-                              <div class="grid grid-cols-2 gap-4 mb-2">
+                              <div className="grid grid-cols-2 gap-4 mb-2">
                                 <div>
                                   <div className="mb-2 block">
                                     <Label value="Avatar" />
@@ -256,7 +251,7 @@ const YourAccount = () => {
                                   </div>
                                 </div>
                               </div>
-                              <div class="grid grid-cols-2 gap-4 mb-2">
+                              <div className="grid grid-cols-2 gap-4 mb-2">
                                 <div>
                                   <div className="mb-2 block">
                                     <Label value="First Name" />
@@ -320,7 +315,7 @@ const YourAccount = () => {
                                   />
                                 </div>
                               </div>
-                              <div class="grid grid-cols-2 gap-4 mb-2">
+                              <div className="grid grid-cols-2 gap-4 mb-2">
                                 <div>
                                   <button
                                     type="submit"
@@ -331,17 +326,23 @@ const YourAccount = () => {
                                 </div>
                               </div>
                             </div>
+                            {message &&
+                              <div className="text-center text-green-400 font-bold mt-2"> {message}  </div>
+                            }
+                            {error &&
+                              <div className="text-center text-red-500 font-bold mt-2"> {error}  </div>
+                            }
                           </form>
                         )}
 
                         <div className="mt-8">
-                          <h1 class="text-2xl pb-2 font-bold text-black pb-4">
+                          <h1 className="text-2xl pb-2 font-bold text-black pb-4">
                             Password
                           </h1>
                         </div>
 
                         <form onSubmit={handleSubmit1(submitUpdatePassword)}>
-                          <div class="grid grid-cols-1 gap-4 mb-2 max-w-2xl">
+                          <div className="grid grid-cols-1 gap-4 mb-2 max-w-2xl">
                             <div>
                               <div className="mb-2 block">
                                 <Label value="Old Password" />
@@ -385,16 +386,25 @@ const YourAccount = () => {
                               />
                             </div>
                           </div>
-                          <div class="grid grid-cols-2 gap-4 mb-2">
+                          <div className="grid grid-cols-2 gap-4 mb-2">
                             <div>
                               <button
                                 type="submit"
                                 className="w-full text-base font-medium text-white px-5 p-2 mt-4 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black"
+                                disabled={loadingPass}
                               >
-                                Update Password
+                                {loadingPass ? "Wait..." : "Update Password"}
+
                               </button>
                             </div>
                           </div>
+                          {messagePass && !errorPass &&
+                            <div className="text-center text-green-400 font-bold mt-2"> {messagePass}  </div>
+                          }
+                          {errorPass && !messagePass &&
+                            <div className="text-center text-red-500 font-bold mt-2"> {errorPass}  </div>
+                          }
+
                         </form>
                       </TabPanel>
                     </section>

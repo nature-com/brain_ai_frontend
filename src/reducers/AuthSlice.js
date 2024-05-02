@@ -123,7 +123,7 @@ export const resetPassword = createAsyncThunk(
   async (userInput, { rejectWithValue }) => {
     try {
       const response = await api.post('/user/reset_password', userInput);
-      if (response?.data?.status_code === 200) {
+      if (response?.status === 200) {
         return response.data;
       } else {
         // Handle the case when status code is not 200
@@ -164,6 +164,9 @@ const initialState = {
   currentUser: {},
   subscription: false,
   isGoogleLoggedIn: null,
+  loadingPass: false,
+  messagePass: null,
+  errorPass: null,
 }
 
 const authSlice = createSlice({
@@ -362,21 +365,21 @@ const authSlice = createSlice({
       })
 
       .addCase(resetPassword.pending, (state) => {
-        state.message = null;
+        state.messagePass = null;
         state.error = null;
-        state.loading = true;
+        state.loadingPass = true;
       })
       .addCase(resetPassword.fulfilled, (state, { payload }) => {
         const { message } = payload;
-        state.loading = false;
-        state.message = message;
+        state.loadingPass = false;
+        state.messagePass = message;
       })
       .addCase(resetPassword.rejected, (state, response) => {
-        state.loading = false;
-        state.message =
-          response.payload !== undefined && response.payload.message
-            ? response.payload.message
-            : 'Something went wrong. Try again later.';
+        state.loadingPass = false;
+        state.errorPass =
+          response.payload !== undefined && response?.payload?.message
+            ? response?.payload?.message
+            : '';
       })
 
       .addCase(forgotPassword.pending, (state) => {
@@ -394,7 +397,7 @@ const authSlice = createSlice({
         state.message =
           response.payload !== undefined && response.payload.message
             ? response.payload.message
-            : 'Something went wrong. Try again later.';
+            : '';
       })
   },
 });

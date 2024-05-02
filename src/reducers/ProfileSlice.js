@@ -127,9 +127,10 @@ const ProfileSlice = createSlice({
                 state.loading = true;
                 state.error = null;
             })
-            .addCase(updateProfile.fulfilled, (state, response) => {
+            .addCase(updateProfile.fulfilled, (state, payload) => {
+                const { message } = payload;
                 state.loading = false;
-                state.message = response.payload.message;
+                state.message = message;
             })
             .addCase(updateProfile.rejected, (state, { payload }) => {
                 state.loading = false;
