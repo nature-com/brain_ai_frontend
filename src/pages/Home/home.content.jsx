@@ -32,7 +32,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearGoogleSignInDetails } from "../../reducers/AuthSlice";
 import { Toast } from "flowbite-react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import { ToastToggle } from "flowbite-react/lib/esm/components/Toast/ToastToggle";
+// import { ToastToggle } from "flowbite-react/lib/esm/components/Toast/ToastToggle";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -59,7 +59,7 @@ const Home = () => {
           <div className='ml-3 text-sm font-normal'>
             Email already registered. Please use email and password to log in.
           </div>
-          <ToastToggle />
+          <Toast.Toggle />
         </Toast>
       )}
       <Banner />

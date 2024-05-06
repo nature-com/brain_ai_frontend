@@ -131,6 +131,61 @@ const Tooldetails = ({ setIsFileUploaded }) => {
     return location.pathname === endPoint;
   };
 
+  const [isRecording, setIsRecording] = useState(false);
+  const [transcription, setTranscription] = useState('');
+  const [recognitionError, setRecognitionError] = useState(null);
+
+  let recognition = null;
+
+  const startRecording = () => {
+    recognition = new window.webkitSpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = 'en-US';
+
+    recognition.onstart = () => {
+      setIsRecording(true);
+    };
+
+    recognition.onresult = (event) => {
+      let interimTranscript = '';
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const transcript = event.results[i][0].transcript;
+        if (event.results[i].isFinal) {
+          setTranscription(prevTranscription => prevTranscription + transcript + '. ');
+        } else {
+          interimTranscript = interimTranscript + transcript;
+        }
+      }
+    };
+
+    recognition.onend = () => {
+      setIsRecording(false);
+    };
+
+    recognition.start();
+  };
+
+  const stopRecording = () => {
+    if (recognition) {
+      setTimeout(() => {
+        recognition.stop();
+        recognition = null;
+      }, 1000);
+    }
+  };
+
+  const toggleRecording = () => {
+    if (isRecording) {
+      stopRecording();
+    } else {
+      setTranscription('');
+      setRecognitionError(null);
+      startRecording();
+    }
+  };
+
+
   return (
     <div>
       <div className="pt-2.5 pb-6 md:pb-12 px-6 lg:px-0 min-h-[600px]">
@@ -161,37 +216,48 @@ const Tooldetails = ({ setIsFileUploaded }) => {
                   <div className="prompt_input_section">
 
                     {isTool("/tooldetails/42") ? (
-                      <form onSubmit={handleSubmit(onSubmit2)}>
-                        <div className="mt-6">
-                          <div className="mb-1 flex items-center">
-                            <img
-                              src={audioIcon}
-                              alt="audioIcon"
-                              className="w-12 mr-1"
+                      <>
+                        <form onSubmit={handleSubmit(onSubmit2)}>
+                          <div className="mt-6">
+                            <div className="mb-1 flex items-center">
+                              <img
+                                src={audioIcon}
+                                alt="audioIcon"
+                                className="w-12 mr-1"
+                              />
+                              <Label
+                                htmlFor="file-upload"
+                                value="Upload audio file"
+                              />
+                            </div>
+                            <FileInput
+                              id="audio_file"
+                              {...register("audio_file", {
+                                required: "File is required",
+                                validate: validateAudioFile,
+                              })}
                             />
-                            <Label
-                              htmlFor="file-upload"
-                              value="Upload audio file"
-                            />
+                            {errors?.audio_file?.message && (
+                              <h6 className="text-red-500">{errors.audio_file.message}</h6>
+                            )}
                           </div>
-                          <FileInput
-                            id="audio_file"
-                            {...register("audio_file", {
-                              required: "File is required",
-                              validate: validateAudioFile,
-                            })}
-                          />
-                          {errors?.audio_file?.message && (
-                            <h6 className="text-red-500">{errors.audio_file.message}</h6>
-                          )}
+                          <button
+                            type="submit"
+                            className="w-full text-sm font-medium text-white px-5 py-2 mt-8 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black"
+                          >
+                            Generate
+                          </button>
+                        </form>
+                        <div className="text-center mt-4">OR</div>
+                        <div>
+                          <button
+                            className="w-full text-sm font-medium text-white px-5 py-2 mt-4 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black"
+                            onClick={toggleRecording}>
+                            {isRecording ? 'Stop Recording' : 'Start Recording'}
+                          </button>
                         </div>
-                        <button
-                          type="submit"
-                          className="w-full text-sm font-medium text-white px-5 py-2 mt-8 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black"
-                        >
-                          Generate
-                        </button>
-                      </form>
+
+                      </>
                     ) : (
                       <form onSubmit={handleSubmit(onSubmit)}>
                         <label className="text-sm font-normal pb-2 text-black block">
@@ -296,17 +362,30 @@ const Tooldetails = ({ setIsFileUploaded }) => {
 
                       {isTool("/tooldetails/42") ? (
                         <>
-                          {audioAnswer ? (
+                          {audioAnswer || transcription ? (
                             <>
-                              <p className="text-base font-normal pb-3 text-black text-justify whitespace-pre-wrap">
-                                {audioAnswer}
-                              </p>
+                              {audioAnswer && !transcription &&
+                                <p className="text-base font-normal pb-3 text-black text-justify whitespace-pre-wrap">
+                                  {audioAnswer}
+                                </p>
+                              }
+                              {transcription && !audioAnswer &&
+                                (
+                                  <>
+                                    {recognitionError && <p>Error: {recognitionError}</p>}
+                                    <p className="text-base font-normal pb-3 text-black text-justify whitespace-pre-wrap">
+                                      {transcription}
+                                    </p>
+                                  </>
+                                )
+                              }
                             </>
                           ) : (
                             <h2 className="text-2xl font-semibold pb-3 text-black">
                               Your text will appear here
                             </h2>
                           )}
+
                         </>
                       ) : (
                         <>
