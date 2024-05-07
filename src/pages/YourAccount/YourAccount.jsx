@@ -48,7 +48,7 @@ const YourAccount = () => {
   const userName = localStorage.getItem("userName");
 
   const { loadingPass, messagePass, errorPass } = useSelector((state) => state.auth);
-  const { loading, message, error, profile: data, userPlan, } = useSelector((state) => state.profile);
+  const { loading, message, error, messageProfile, errorProfile, profile: data, userPlan, } = useSelector((state) => state.profile);
 
   useEffect(() => {
     dispatch(editProfile(data));
@@ -326,6 +326,12 @@ const YourAccount = () => {
                                   </button>
                                 </div>
                               </div>
+                              {messageProfile &&
+                                <div className="text-center text-green-400 font-bold mt-2"> {messageProfile}  </div>
+                              }
+                              {errorProfile &&
+                                <div className="text-center text-red-500 font-bold mt-2"> {errorProfile}  </div>
+                              }
                             </div>
 
                           </form>

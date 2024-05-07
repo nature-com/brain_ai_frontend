@@ -89,6 +89,8 @@ const initialState = {
     // planDetails: [],
     userPlan: [],
     totalUser: null,
+    messageProfile: null,
+    errorProfile: null,
 };
 
 const ProfileSlice = createSlice({
@@ -123,18 +125,17 @@ const ProfileSlice = createSlice({
             })
 
             .addCase(updateProfile.pending, (state) => {
-                state.message = null;
+                state.messageProfile = null;
                 state.loading = true;
-                state.error = null;
+                state.errorProfile = null;
             })
             .addCase(updateProfile.fulfilled, (state, payload) => {
-                const { message } = payload;
                 state.loading = false;
-                state.message = message;
+                state.messageProfile = payload?.payload?.message;
             })
             .addCase(updateProfile.rejected, (state, { payload }) => {
                 state.loading = false;
-                state.error = payload;
+                state.errorProfile = payload?.payload?.error;
             })
 
             .addCase(updateAvatar.pending, (state) => {
