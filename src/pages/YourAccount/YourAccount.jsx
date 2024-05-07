@@ -320,18 +320,14 @@ const YourAccount = () => {
                                   <button
                                     type="submit"
                                     className="w-full text-base font-medium text-white px-5 p-2 mt-4 mr-2 lg:mr-0 bg-[#b3975f] rounded-lg hover:bg-black"
+                                    disabled={loading}
                                   >
-                                    Update Profile
+                                    {loading ? "Wait..." : " Update Profile"}
                                   </button>
                                 </div>
                               </div>
                             </div>
-                            {message &&
-                              <div className="text-center text-green-400 font-bold mt-2"> {message}  </div>
-                            }
-                            {error &&
-                              <div className="text-center text-red-500 font-bold mt-2"> {error}  </div>
-                            }
+
                           </form>
                         )}
 
