@@ -9,6 +9,7 @@ import { logout } from "../../reducers/AuthSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const token = !!localStorage.getItem("userToken");
   const userName = localStorage.getItem("userName");
 
@@ -20,6 +21,7 @@ const Header = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    navigate("/");
   };
 
   return (

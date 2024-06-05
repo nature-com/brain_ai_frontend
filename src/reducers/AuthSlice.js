@@ -188,6 +188,7 @@ const authSlice = createSlice({
       localStorage.removeItem('isSubscribed');
       localStorage.removeItem('regToken');
       localStorage.removeItem('googleAccessToken');
+      localStorage.removeItem('hasReloaded');
     },
     clearGoogleSignInDetails: (state) => {
       state.isGoogleLoggedIn = null;

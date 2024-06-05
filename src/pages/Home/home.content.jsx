@@ -48,6 +48,15 @@ const Home = () => {
     }
   }, [isGoogleLoggedIn]);
 
+  useEffect(() => {
+    const hasReloaded = localStorage.getItem('hasReloaded');
+
+    if (!hasReloaded) {
+      localStorage.setItem('hasReloaded', 'true');
+      window.location.reload();
+    }
+  }, []);
+
   return (
     <div className="px-4 md:px-8 lg:px-0">
       {/* banner section start here */}
